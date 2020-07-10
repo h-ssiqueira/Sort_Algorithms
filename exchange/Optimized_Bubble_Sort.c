@@ -22,7 +22,6 @@ void BubbleSortOptmized(int array[], int length){
         if(!swap) // No swapping happened: it's already sorted
             break;
     }
-
 }
 
 int main(){
