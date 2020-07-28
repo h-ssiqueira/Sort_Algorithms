@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 // Worst case performance O(n**2) comparisons and O(n) swaps
 // Best case performance O(n**2) comparisons and O(n) swaps
@@ -9,7 +9,7 @@
 
 
 void Double_Selection_Sort(int array[], int length){
-    int changeMin, changeMax;
+    int changeMin, changeMax, aux;
     
     for(int i = 0, j = length-1; i < j; i++, j--){
         changeMin = i; //starts in the first
@@ -21,14 +21,24 @@ void Double_Selection_Sort(int array[], int length){
                 changeMax = k;
         }
         if(i != changeMin){ //swap the positions for fit the min element
+            /*
             array[i] = array[i] ^ array[changeMin];
             array[changeMin] = array[i] ^ array[changeMin];
             array[i] = array[i] ^ array[changeMin];
+            */
+            aux = array[i];
+            array[i] = array[changeMin];
+            array[changeMin] = aux;
         }
         if(j != changeMax){ //swap the positions for fit the max element
+            /*
             array[j] = array[j] ^ array[changeMax];
             array[changeMax] = array[j] ^ array[changeMax];
             array[j] = array[j] ^ array[changeMax];
+            */
+            aux = array[i];
+            array[i] = array[changeMax];
+            array[changeMax] = aux;
         }
     }
 }

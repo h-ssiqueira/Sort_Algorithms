@@ -8,14 +8,19 @@
 
 void BubbleSortOptmized(int array[], int length){
     bool swap;
-    int i,j;
+    int i,j,aux;
     for(j = 0; j < length; j++){
         swap = false;
         for(i = 0; i < length - j; i++){ // Sort all array and starts decreasing
             if(array[i+1] < array[i]){
+                /*
                 array[i] = array[i] ^ array[i+1];
                 array[i+1] = array[i] ^ array[i+1];
                 array[i] = array[i] ^ array[i+1];
+                */
+                aux = array[i];
+                array[i] = array[i+1];
+                array[i+1] = aux;
                 swap = true;
             }
         }
@@ -32,7 +37,7 @@ int main(){
         
     printf("\n\n");
     
-    BubbleSortOptmized(array,9);
+    BubbleSortOptmized(array,10-1);
     
     for(i = 0; i < 10; i++)
         printf("%d ",array[i]);

@@ -48,7 +48,7 @@ int main(){
     
     printf("\n\n");
     
-    Merge_Sort(array,0,9); //0 and length - 1
+    Merge_Sort(array,0,10-1); //0 and length - 1
     
     for(i = 0; i < 10; i++)
         printf("%d ",array[i]);

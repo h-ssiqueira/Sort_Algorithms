@@ -6,7 +6,7 @@
 // Average performance О(n**2) comparisons
 
 void CycleSort(int array[],int length){
-    int aux, pos;
+    int aux, pos, swap;
     for(int i = 0; i < length - 2; i++){ 
         aux = array[i]; 
 
@@ -22,9 +22,14 @@ void CycleSort(int array[],int length){
             pos++; 
   
         if(pos != i){ // Setting the element in correct position
+            /*
             aux = aux ^ array[pos];
             array[pos] = aux ^ array[pos];
             aux = aux ^ array[pos];
+            */
+            swap = aux;
+            aux = array[pos];
+            array[pos] = swap;
         }
   
         while(pos != i){ // Rotating the cycle
@@ -38,9 +43,14 @@ void CycleSort(int array[],int length){
                 pos++; 
   
             if(aux != array[pos]){ // Setting the element in correct position
+                /*
                 aux = aux ^ array[pos];
                 array[pos] = aux ^ array[pos];
                 aux = aux ^ array[pos];
+                */
+                swap = aux;
+                aux = array[pos];
+                array[pos] = swap;
             }
         } 
     } 

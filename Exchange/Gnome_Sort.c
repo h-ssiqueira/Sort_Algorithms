@@ -6,15 +6,20 @@
 // Average case performance O(n**2)
 
 void Gnome_Sort(int array[], int length){
-    int i = 1;
+    int i = 1, aux;
     
     while(i < length){
         if(array[i] >= array[i-1])
             i++;
         else{
+            /*
             array[i] = array[i] ^ array[i-1];
             array[i-1] = array[i] ^ array[i-1];
             array[i] = array[i] ^ array[i-1];
+            */
+            aux = array[i];
+            array[i] = array[i-1];
+            array[i-1] = aux;
             if(i != 1)
                 i--;
         }

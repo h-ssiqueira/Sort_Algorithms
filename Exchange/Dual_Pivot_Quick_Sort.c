@@ -60,7 +60,7 @@ int main(){
     
     printf("\n\n");
     
-    DualPivotQuickSort(array,0,9);
+    DualPivotQuickSort(array,0,10-1);
     
     for(i = 0; i < 10; i++)
         printf("%d ",array[i]);

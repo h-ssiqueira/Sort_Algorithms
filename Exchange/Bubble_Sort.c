@@ -24,7 +24,7 @@ int main(){
     for(i = 0; i < 10; i++)
         printf("%d ",array[i]);
     printf("\n\n");
-    Bubble_sort(array,9);
+    Bubble_sort(array,10-1);
     
     for(i = 0; i < 10; i++)
         printf("%d ",array[i]);

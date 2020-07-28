@@ -51,7 +51,7 @@ int main(){
         printf("%d ",ar[i]);
     
     printf("\n\n");
-    Merge_Sort(ar,0,9); //0 and length - 1
+    Merge_Sort(ar,0,10-1); //0 and length - 1
     
     for(int i = 0; i < 10; i++)
         printf("%d ",ar[i]);

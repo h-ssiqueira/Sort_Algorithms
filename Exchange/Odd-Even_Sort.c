@@ -6,23 +6,33 @@
 // Best case performance O(n)
 
 void Odd_Even_Sort(int array[],int length){
-    int i, j;
+    int i, j, aux;
     bool sorted = false;
     while(!sorted){
         sorted = true;
         for(i = 1, j = 2; i < length - 1; i += 2, j += 2){
             if(array[i] > array[i+1]){
+                /*
                 array[i] = array[i] ^ array[j];
                 array[j] = array[i] ^ array[j];
                 array[i] = array[i] ^ array[j];
+                */
+                aux = array[i];
+                array[i] = array[j];
+                array[j] = aux;
                 sorted = false;
             }
         }
         for(i = 0, j = 1; i < length - 1; i += 2, j += 2){
             if(array[i] > array[i + 1]){
+                /*
                 array[i] = array[i] ^ array[j];
                 array[j] = array[i] ^ array[j];
                 array[i] = array[i] ^ array[j];
+                */
+                aux = array[i];
+                array[i] = array[j];
+                array[j] = aux;
                 sorted = false;
             }
         }

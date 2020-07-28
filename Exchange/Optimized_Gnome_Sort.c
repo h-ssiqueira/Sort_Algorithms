@@ -6,11 +6,16 @@
 // *Average case performance O(n**2)
 
 void Optimized_Gnome_Sort(int array[],int i){
-    int j = i;
+    int j = i, aux;
     while(j > 0 && array[j-1] > array [j]){
+        /*
         array[j] = array[j] ^ array[j-1];
         array[j-1] = array[j] ^ array[j-1];
         array[j] = array[j] ^ array[j-1];
+        */
+        aux = array[j];
+        array[j] = array[j-1];
+        array[j-1] = aux;
         j--;
     }
 }

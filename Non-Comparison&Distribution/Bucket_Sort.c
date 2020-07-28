@@ -8,7 +8,7 @@
 // Average performance O(n + k)
 
 void Double_Selection_Sort(int length, int matrix[][length]){
-    int changeMin, changeMax;
+    int changeMin, changeMax, aux;
     for(int h = 0; h < buckets; h++){
         for(int i = 0, j = length-1; i < j; i++, j--){
             changeMin = i; //starts in the first
@@ -20,14 +20,24 @@ void Double_Selection_Sort(int length, int matrix[][length]){
                     changeMax = k;
             }
             if(i != changeMin){ //swap the positions for fit the min element
+                /*
                 matrix[h][i] = matrix[h][i] ^ matrix[h][changeMin];
                 matrix[h][changeMin] = matrix[h][i] ^ matrix[h][changeMin];
                 matrix[h][i] = matrix[h][i] ^ matrix[h][changeMin];
+                */
+                aux = matrix[h][i];
+                matrix[h][i] = matrix[h][changeMin];
+                matrix[h][changeMin] = aux;
             }
             if(j != changeMax){ //swap the positions for fit the max element
+                /*
                 matrix[h][j] = matrix[h][j] ^ matrix[h][changeMax];
                 matrix[h][changeMax] = matrix[h][j] ^ matrix[h][changeMax];
                 matrix[h][j] = matrix[h][j] ^ matrix[h][changeMax];
+                */
+                aux = matrix[h][i];
+                matrix[h][i] = matrix[h][changeMax];
+                matrix[h][changeMax] = aux;
             }
         }
     }

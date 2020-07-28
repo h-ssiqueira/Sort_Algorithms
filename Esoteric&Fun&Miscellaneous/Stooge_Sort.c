@@ -27,7 +27,7 @@ int main(){
         printf("%d ", array[i]);
     
     printf("\n\n");
-    StoogeSort(array,0,9);
+    StoogeSort(array,0,10-1);
     
     for(i = 0; i < 10; i++) 
         printf("%d ", array[i]);

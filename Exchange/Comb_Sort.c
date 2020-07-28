@@ -24,7 +24,6 @@ void CombSort(int array[], int length){
             }
         }
     }
-    
 }
 
 int main(){

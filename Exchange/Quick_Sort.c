@@ -40,7 +40,7 @@ int main(){
     
     printf("\n\n");
     
-    Quick_Sort(array,0,9);
+    Quick_Sort(array,0,10-1);
     
     for(i = 0; i < 10; i++)
         printf("%d ",array[i]);

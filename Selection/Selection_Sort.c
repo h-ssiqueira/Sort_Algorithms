@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 // Worst case performance O(n**2) comparisons and O(n) swaps
 // Best case performance O(n**2) comparisons and O(n) swaps
@@ -8,7 +8,7 @@
 //(n**2 - n)/2 comparisons
 
 void Selection_Sort(int array[], int length){
-    int change;
+    int change, aux;
     
     for(int i = 0; i < length-1; i++){ //last element won't have other to compair
         change = i;
@@ -16,9 +16,14 @@ void Selection_Sort(int array[], int length){
             if(array[change] > array[j]) //if the element is lower, collect the position
                 change = j;
         if(i != change){// if it has been modified, swap positions (using xor)
+            /*
             array[i] = array[i] ^ array[change];
             array[change] = array[i] ^ array[change];
             array[i] = array[i] ^ array[change];
+            */
+            aux = array[i];
+            array[i] = array[change];
+            array[change] = aux;
         }
     }
 }
