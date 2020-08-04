@@ -1,0 +1,211 @@
+-> Exchange family
+
+
+
+Bubble Sort ✔✔✔
+
+Optimized Bubble Sort ✔✔✔
+
+Cocktail Shaker Sort ✔✔✔
+
+Gnome Sort ✔✔✔
+
+Optimized Gnome Sort ✔✔✔
+
+Odd-Even Sort ✔✔✔
+
+Comb Sort ✔✔✔
+
+Quick Sort ✔✔✔
+
+Stable Quick Sort ✔✔✔
+
+Dual-Pivot Quick Sort ✔✔✔
+
+Circle sort ✔✔✔
+
+
+-> Selection family
+
+
+
+Selection Sort ✔✔✔
+
+Double Selection Sort ✔✔✔
+
+Max Heap Sort
+
+Min Heap Sort
+
+Ternary Heap Sort
+
+Weak Heap Sort
+
+Poplar Heap Sort
+
+Smooth Sort
+
+Tournament Sort
+
+
+-> Insertion family
+
+
+
+Insertion Sort ✔✔✔
+
+Binary Insertion Sort ✔✔✔
+
+Shell Sort ✔✔✔
+
+Cycle Sort ✔✔✔
+
+Tree Sort ✔✔✔
+
+Library Sort
+
+Patience Sort 
+
+
+
+-> Merge family
+
+
+
+Merge Sort ✔✔✔
+
+In-Place Merge Sort ✔✔✔
+
+Lazy Stable Sort
+
+Strand Sort
+
+Rotate Merge Sort
+
+
+
+-> Non-comparison family / Distribution
+
+
+
+American Flag Sort, 256 Buckets
+
+Gravity (Bead) Sort ✔✔✔
+
+Bucket Sort ✔✔✔
+
+Burst Sort
+
+Counting Sort ✔✔✔
+
+Pidgeonhole Sort ✔✔✔
+
+Radix LSD(Less Significant Digit) Sort, Base 4
+
+In-Place Radix LSD(Less Significant Digit) Sort, Base 10
+
+In-Place Radix LSD(Less Significant Digit) Sort, Base 16
+
+Radix MSD(Most Significant Digit) Sort, Base 4
+
+Radix MSD(Most Significant Digit) Sort, Base 8
+
+Flash Sort
+
+Shatter Sort
+
+Simple Shatter Sort
+
+Binary Quick Sort
+
+Recursive Binary Quick Sort
+
+Time Sort (Mul 4)(Mul 10) [more widely known as Sleep Sort]
+
+
+
+-> Sorting Networks / Concurrent family
+
+
+
+Batcher's Bitonic Sort
+
+Batcher's Odd-Even Merge Sort
+
+Recursive Pairwise Sorting Network
+
+Iterative Bitonic Sort
+
+Iterative Odd-Even Merge Sort
+
+Iterative Pairwise Sorting Network
+
+
+
+-> Hybrids
+
+
+
+Hybrid Comb Sort (Comb/Insertion)
+
+Binary Merge Sort (Merge/Binary Insertion)
+
+Weave Merge Sort (Merge/Insertion)
+
+Introspective Circle Sort
+
+Tim Sort ✔✔✔
+
+Cocktail Merge Sort
+
+Wiki Sort (Block Merge Sort)
+
+Grail Sort (Block Merge Sort)
+
+Square Root Sort (Block Merge Sort)
+
+Introspective Sort
+
+std::sort (Introsort)
+
+Quick Shell Sort (Introsort with Shellsort)
+
+Optimized Dual-Pivot Quick Sort (Arrays.sort)
+
+Pattern-Defeating Quick Sort
+
+Branchless Pattern-Defeating Quick Sort
+
+std::stable_sort (Insert/Bottom-up Merge)
+
+
+
+-> Esoteric / Fun / Miscellaneous
+
+
+
+Pancake Sort ✔✔✔
+
+Stooge Sort ✔✔✔
+
+Bad Sort 
+
+Silly Sort
+
+Slow Sort ✔✔✔
+
+Less Bogo Sort
+
+Cocktail Bogo Sort
+
+Exchange Bogo Sort
+
+Bubble Bogo Sort
+
+Bogo Sort ✔✔✔
+
+Spaghetti Sort ✔✔✔
+
+Topological Sort
+
+Sample Sort
