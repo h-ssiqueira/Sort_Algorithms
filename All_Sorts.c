@@ -925,6 +925,68 @@ void Bubble_sort(int array[],int length){
     }
 }
 
+void heapmax(int array[], int n, int i){ //n is the size of heap
+    int largest = i, left = 2 * i + 1, right = 2 * i + 2, aux;
+  
+    if(left < n && array[left] > array[largest]) //Left child is larger than node
+        largest = left; 
+  
+    if(right < n && array[right] > array[largest]) //Right child is larger than node
+        largest = right; 
+  
+    if(largest != i){ //Larger is not the actual node
+        aux = array[i];
+        array[i] = array[largest];
+        array[largest] = aux;
+        print(array);
+        heap(array, n, largest); //Acess the subtree
+    } 
+} 
+  
+void MaxHeapSort(int array[], int length){ 
+    for(int i = length / 2 - 1; i >= 0; i--) 
+        heap(array, length, i); //Creating the heap
+
+    for(int i = length-1, aux; i > 0; i--){ //Remove each element from heap
+        aux = array[i];
+        array[i] = array[0];
+        array[0] = aux;
+        print(array);
+        heap(array, i, 0); //Reduced heap
+    } 
+}
+
+void heapmin(int array[], int n, int i){ //n is the size of heap
+    int smallest = i, left = 2 * i + 1, right = 2 * i + 2, aux;
+  
+    if(left < n && array[left] < array[smallest]) //Left child is smaller than node
+        smallest = left; 
+  
+    if(right < n && array[right] < array[smallest]) //Right child is smaller than node
+        smallest = right; 
+  
+    if(smallest != i){ //smaller is not the actual node
+        aux = array[i];
+        array[i] = array[smallest];
+        array[smallest] = aux;
+        print(array);
+        heap(array, n, smallest); //Acess the subtree
+    } 
+} 
+  
+void MinHeapSort(int array[], int length){ 
+    for(int i = length / 2 - 1; i >= 0; i--) 
+        heap(array, length, i); //Creating the heap
+
+    for(int i = length-1, aux; i >= 0; i--){ //Remove each element from heap
+        aux = array[i];
+        array[i] = array[0];
+        array[0] = aux;
+        print(array);
+        heap(array, i, 0); //Reduced heap
+    } 
+}
+
 
 int main(){
     srand(time(NULL));
@@ -957,9 +1019,11 @@ int main(){
         switch(option_category){
             case 1:
                 do{
-                    printf("Selection.");
+                    printf("Selection:");
                     printf("\n1 - Selection_Sort.");
                     printf("\n2 - Double_Selection_Sort.");
+                    printf("\n3 - Max_Heap_Sort.");
+                    printf("\n4 - Min_Heap_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
                     if(option_sort < 1 || option_sort > 2)
@@ -982,11 +1046,27 @@ int main(){
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
+                    case 3:
+                        printf("\n\tBefore sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        Max_Heap_Sort(array,leng);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                    case 4:
+                        printf("\n\tBefore sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        Min_Heap_Sort(array,leng);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
                 }
                 break;
             case 2:
                 do{
-                    printf("Non-Comparison & Distribution.");
+                    printf("Non-Comparison & Distribution:");
                     printf("\n1 - Pigeonhole_Sort.");
                     printf("\n2 - Gravity_(Bead)_Sort.");
                     printf("\n3 - Counting_Sort.");
@@ -1032,11 +1112,11 @@ int main(){
                 }
                 break;
             case 3:
-                printf("Networks & Concurrent.");
+                printf("Networks & Concurrent:");
                 break;
             case 4:
                 do{
-                    printf("Merge.");
+                    printf("Merge:");
                     printf("\n1 - Merge_Sort.");
                     printf("\n2 - In-Place_Merge_Sort.");
                     printf("\n-> ");
@@ -1065,7 +1145,7 @@ int main(){
                 break;
             case 5:
                 do{
-                    printf("Insertion.");
+                    printf("Insertion:");
                     printf("\n1 - Tree_Sort.");
                     printf("\n2 - Shell_Sort.");
                     printf("\n3 - Insertion_Sort.");
@@ -1121,7 +1201,7 @@ int main(){
                 break;
             case 6:
                 do{
-                    printf("Hybrids.");
+                    printf("Hybrids:");
                     printf("\n1 - Tim_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
@@ -1141,7 +1221,7 @@ int main(){
                 break;
             case 7:
                 do{
-                    printf("Exchange.");
+                    printf("Exchange:");
                     printf("\n1 - Stable_Quick_Sort.");
                     printf("\n2 - Quick_Sort.");
                     printf("\n3 - Optimized_Gnome_Sort.");
@@ -1252,7 +1332,7 @@ int main(){
                 break;
             case 8:
                 do{
-                    printf("Esoteric & Fun & Miscellaneous.");                   
+                    printf("Esoteric & Fun & Miscellaneous:");                   
                     printf("\n1 - Stooge_Sort.");
                     printf("\n2 - Spaghetti_Sort.");
                     printf("\n3 - Slow_Sort.");
@@ -1309,5 +1389,6 @@ int main(){
         }
         printf("\n\n");
     }
+    
     return 0;
 }

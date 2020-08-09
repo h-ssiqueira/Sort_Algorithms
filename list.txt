@@ -33,9 +33,9 @@ Selection Sort ✔✔✔
 
 Double Selection Sort ✔✔✔
 
-Max Heap Sort
+Max Heap Sort ✔✔✔
 
-Min Heap Sort
+Min Heap Sort ✔✔✔
 
 Ternary Heap Sort
 

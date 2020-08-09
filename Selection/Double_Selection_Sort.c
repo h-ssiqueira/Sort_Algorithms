@@ -44,16 +44,16 @@ void Double_Selection_Sort(int array[], int length){
 }
 
 int main(){
-    int ar[] = {5,98,-1,0,11,321,654,555,44,2};
+    int array[] = {5,98,-1,0,11,321,654,555,44,2};
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",ar[i]);
+        printf("%d ",array[i]);
     
     printf("\n\n");
-    Double_Selection_Sort(ar,10);
+    Double_Selection_Sort(array,10);
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",ar[i]);
+        printf("%d ",array[i]);
     
     return 0;
 }
