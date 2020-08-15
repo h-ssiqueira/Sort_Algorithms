@@ -164,9 +164,7 @@ Grail Sort (Block Merge Sort)
 
 Square Root Sort (Block Merge Sort)
 
-Introspective Sort
-
-std::sort (Introsort)
+Introspective Sort std::sort 
 
 Quick Shell Sort (Introsort with Shellsort)
 
@@ -177,6 +175,7 @@ Pattern-Defeating Quick Sort
 Branchless Pattern-Defeating Quick Sort
 
 std::stable_sort (Insert/Bottom-up Merge)
+Insert/Bottom-up Merge (std::stable_sort)
 
 
 
