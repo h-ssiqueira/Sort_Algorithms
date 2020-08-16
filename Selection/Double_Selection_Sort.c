@@ -36,8 +36,8 @@ void Double_Selection_Sort(int array[], int length){
             array[changeMax] = array[j] ^ array[changeMax];
             array[j] = array[j] ^ array[changeMax];
             */
-            aux = array[i];
-            array[i] = array[changeMax];
+            aux = array[j];
+            array[j] = array[changeMax];
             array[changeMax] = aux;
         }
     }

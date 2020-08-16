@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Worst case performance O(n + k), k -> range of the non-negative key values
+// Best case performance O(n + k)
+// Average performance O(n + k)
 
 void Counting_Sort(int array[],int length){
-    int output[length], k, i, max = array[0], min = array[0];
+    int output[length], i, max = array[0], min = array[0];
     
     for(i = 0; i < length; i++){
         if(array[i] > max) max = array[i];
@@ -13,25 +16,23 @@ void Counting_Sort(int array[],int length){
     
     int range = max - min + 1,count[range];
     
-    for(i = 0; i < length; i++)//set zero for 
-        output[i] = 0;
-    for(i = 0; i < range; i++)//both arrays
-        count[i] = 0;
-    for(i = 0; i < length; i++)//sort by how many times the value repeats
+    memset(count,0,sizeof(count)); // Set 0 for all positions in array
+    
+    for(i = 0; i < length; i++)// Count how many times the value repeat
         count[array[i]-min]++;
-    for(i = 1; i <= length; i++) //count the amount of previous incidences
+    for(i = 1; i < range; i++) // Count the amount of previous incidences
         count[i] += count[i-1];
     for(i = length-1; i >= 0; i--){ 
-        k = count[array[i] - min];//getting the right position
-		output[k - 1] = array[i];//putting the value on the corrected position && already sorted to an auxiliary array
+		output[count[array[i] - min] - 1] = array[i];// Putting the value on the corrected position && already sorted to an auxiliary array
 		count[array[i] - min]--;
 	}
-    for(i = 0; i < length; i++) //transfering to original array
+    for(i = 0; i < length; i++) // Transfering to original array
         array[i] = output[i];
 }
 
+
 int main(){
-    int array[] = {4,10,1,8,6,9,5,2,7,3},i;
+    int array[] = {305,224,575,587,589,891,810,158,872,805},i;
     
     for(i = 0; i < 10; i++)
         printf("%d ",array[i]);
