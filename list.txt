@@ -76,6 +76,8 @@ Merge Sort ✔✔✔
 
 In-Place Merge Sort ✔✔✔
 
+Bottom-up Merge Sort
+
 Lazy Stable Sort
 
 Strand Sort
@@ -174,7 +176,6 @@ Pattern-Defeating Quick Sort
 
 Branchless Pattern-Defeating Quick Sort
 
-std::stable_sort (Insert/Bottom-up Merge)
 Insert/Bottom-up Merge (std::stable_sort)
 
 
