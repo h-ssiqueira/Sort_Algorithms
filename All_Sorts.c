@@ -914,9 +914,9 @@ void CircleSort(int array[], int length){
 }
 
 void Bubble_sort(int array[],int length){
-    while(length > 1){
-        for(int i = 0; i < length; i++){
-            if(array[i] > array[i+1]){
+    while(length > 1){ // Each loop eleminates the last element in array which is already sorted
+        for(int i = 0; i < length; i++){ // length - 1 comparisons for each loop
+            if(array[i] > array[i+1]){ // Compare each 2 elements of the array 
                 array[i] = array[i] ^ array[i+1]; 
                 array[i+1] = array[i] ^ array[i+1];
                 array[i] = array[i] ^ array[i+1];
@@ -1020,11 +1020,11 @@ int main(){
             case 1:
                 do{
                     printf("Esoteric & Fun & Miscellaneous:");                   
-                    printf("\n1 - Stooge_Sort.");
-                    printf("\n2 - Spaghetti_Sort.");
+                    printf("\n1 - Bogo_Sort.");
+                    printf("\n2 - Pancake_Sort.");
                     printf("\n3 - Slow_Sort.");
-                    printf("\n4 - Pancake_Sort.");
-                    printf("\n5 - Bogo_Sort.");
+                    printf("\n4 - Spaghetti_Sort.");
+                    printf("\n5 - Stooge_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
                     if(option_sort < 1 || option_sort > 5)
@@ -1032,7 +1032,7 @@ int main(){
                 }while(option_sort < 1 || option_sort > 5);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Bogo Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         bogo_sort(array,leng);
@@ -1040,7 +1040,7 @@ int main(){
                         print(array);
                         break;
                     case 2:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Pancake Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         PancakeSort(array,leng);
@@ -1048,7 +1048,7 @@ int main(){
                         print(array);
                         break;
                     case 3:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Slow Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         SlowSort(array,0,leng-1);
@@ -1056,7 +1056,7 @@ int main(){
                         print(array);
                         break;
                     case 4:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Spaghetti Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         SpaghettiSort(array,leng);
@@ -1064,7 +1064,7 @@ int main(){
                         print(array);
                         break;
                     case 5:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Stooge Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         StoogeSort(array,0,leng-1);
@@ -1076,17 +1076,17 @@ int main(){
             case 2:
                 do{
                     printf("Exchange:");
-                    printf("\n1 - Stable_Quick_Sort.");
-                    printf("\n2 - Quick_Sort.");
-                    printf("\n3 - Optimized_Gnome_Sort.");
-                    printf("\n4 - Optimized_Bubble_Sort.");
-                    printf("\n5 - Odd-Even_Sort.");
+                    printf("\n1 - Bubble_Sort.");
+                    printf("\n2 - Circle_Sort.");
+                    printf("\n3 - Cocktail_Shaker_Sort.");
+                    printf("\n4 - Comb_Sort.");
+                    printf("\n5 - Dual_Pivot_Quick_Sort.");
                     printf("\n6 - Gnome_Sort.");
-                    printf("\n7 - Dual_Pivot_Quick_Sort.");
-                    printf("\n8 - Comb_Sort.");
-                    printf("\n9 - Cocktail_Shaker_Sort.");
-                    printf("\n10 - Circle_Sort.");
-                    printf("\n11 - Bubble_Sort.");
+                    printf("\n7 - Odd-Even_Sort.");
+                    printf("\n8 - Optimized_Bubble_Sort.");
+                    printf("\n9 - Optimized_Gnome_Sort.");
+                    printf("\n10 - Quick_Sort.");
+                    printf("\n11 - Stable_Quick_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
                     if(option_sort < 1 || option_sort > 11)
@@ -1094,48 +1094,47 @@ int main(){
                 }while(option_sort < 1 || option_sort > 11);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Bubble Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        StableQuickSort(array,0,leng-1);
+                        Bubble_sort(array,leng-1);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 2:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Circle Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        Quick_Sort(array,0,leng-1);
+                        CircleSort(array, leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 3:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Cocktail Shaker Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        for(i = 1; i < leng; i++)
-                            Optimized_Gnome_Sort(array,i);
+                        CocktailShakerSort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 4:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Comb Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        BubbleSortOptmized(array,leng-1);
+                        CombSort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 5:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Dual Pivot Quick Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        Odd_Even_Sort(array,leng);
+                        DualPivotQuickSort(array,0,leng-1);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 6:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Gnome Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         Gnome_Sort(array,leng);
@@ -1143,42 +1142,43 @@ int main(){
                         print(array);
                         break;
                     case 7:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Odd-Even Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        DualPivotQuickSort(array,0,leng-1);
+                        Odd_Even_Sort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 8:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Optimized Bubble Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        CombSort(array,leng);
+                        BubbleSortOptmized(array,leng-1);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 9:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Optimized Gnome Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        CocktailShakerSort(array,leng);
+                        for(i = 1; i < leng; i++)
+                            Optimized_Gnome_Sort(array,i);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 10:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Quick Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        CircleSort(array, leng);
+                        Quick_Sort(array,0,leng-1);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 11:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Stable Quick Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        Bubble_sort(array,leng-1);
+                        StableQuickSort(array,0,leng-1);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
@@ -1195,7 +1195,7 @@ int main(){
                 }while(option_sort != 1);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Tim Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         TimSort(array,leng);
@@ -1207,11 +1207,11 @@ int main(){
             case 4:
                 do{
                     printf("Insertion:");
-                    printf("\n1 - Tree_Sort.");
-                    printf("\n2 - Shell_Sort.");
+                    printf("\n1 - Binary_Insertion_Sort.");
+                    printf("\n2 - Cycle_Sort.");
                     printf("\n3 - Insertion_Sort.");
-                    printf("\n4 - Cycle_Sort.");
-                    printf("\n5 - Binary_Insertion_Sort.");
+                    printf("\n4 - Shell_Sort.");
+                    printf("\n5 - Tree_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
                     if(option_sort < 1 || option_sort > 5)
@@ -1219,23 +1219,23 @@ int main(){
                 }while(option_sort < 1 || option_sort > 5);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Binary Insertion Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        TreeSort(array,leng);
+                        Insertion_Sort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 2:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Cycle Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        ShellSort(array,leng);
+                        CycleSort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 3:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Insertion Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         InsertionSort(array,leng);
@@ -1243,18 +1243,18 @@ int main(){
                         print(array);
                         break;
                     case 4:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Shell Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        CycleSort(array,leng);
+                        ShellSort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 5:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Tree Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        Insertion_Sort(array,leng);
+                        TreeSort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
@@ -1263,8 +1263,8 @@ int main(){
             case 5:
                 do{
                     printf("Merge:");
-                    printf("\n1 - Merge_Sort.");
-                    printf("\n2 - In-Place_Merge_Sort.");
+                    printf("\n1 - In-Place_Merge_Sort.");
+                    printf("\n2 - Merge_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
                     if(option_sort < 1 || option_sort > 2)
@@ -1272,18 +1272,18 @@ int main(){
                 }while(option_sort < 1 || option_sort > 2);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore In Place Merge Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        Merge_Sort(array,0,leng-1);
+                        MergeSort(array,0,leng-1);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 2:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Merge Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        MergeSort(array,0,leng-1);
+                        Merge_Sort(array,0,leng-1);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
@@ -1295,10 +1295,10 @@ int main(){
             case 7:
                 do{
                     printf("Non-Comparison & Distribution:");
-                    printf("\n1 - Pigeonhole_Sort.");
-                    printf("\n2 - Gravity_(Bead)_Sort.");
-                    printf("\n3 - Counting_Sort.");
-                    printf("\n4 - Bucket_Sort.");
+                    printf("\n1 - Bucket_Sort.");
+                    printf("\n2 - Counting_Sort.");
+                    printf("\n3 - Gravity_(Bead)_Sort.");
+                    printf("\n4 - Pigeonhole_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
                     if(option_sort < 1 || option_sort > 4)
@@ -1306,34 +1306,34 @@ int main(){
                 }while(option_sort < 1 || option_sort > 4);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Bucket Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        Pigeonhole_Sort(array,leng);
+                        BucketSort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
                     case 2:
-                        printf("\n\tBefore sort:");
-                        print(array);
-                        printf("\n\tSorting...");
-                        BeadSort(array,leng);
-                        printf("\n\tArray sorted:");
-                        print(array);
-                        break;
-                    case 3:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Counting Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         Counting_Sort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 4:
-                        printf("\n\tBefore sort:");
+                    case 3:
+                        printf("\n\tBefore Gravity (Bead) Sort:");
                         print(array);
                         printf("\n\tSorting...");
-                        BucketSort(array,leng);
+                        BeadSort(array,leng);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                    case 4:
+                        printf("\n\tBefore Pigeonhole Sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        Pigeonhole_Sort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
@@ -1342,10 +1342,10 @@ int main(){
             case 8:
                 do{
                     printf("Selection:");
-                    printf("\n1 - Selection_Sort.");
-                    printf("\n2 - Double_Selection_Sort.");
-                    printf("\n3 - Max_Heap_Sort.");
-                    printf("\n4 - Min_Heap_Sort.");
+                    printf("\n1 - Double_Selection_Sort.");
+                    printf("\n2 - Max_Heap_Sort.");
+                    printf("\n3 - Min_Heap_Sort.");
+                    printf("\n4 - Selection_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
                     if(option_sort < 1 || option_sort > 4)
@@ -1353,34 +1353,34 @@ int main(){
                 }while(option_sort < 1 || option_sort > 4);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore sort:");
-                        print(array);
-                        printf("\n\tSorting...");
-                        Selection_Sort(array,leng);
-                        printf("\n\tArray sorted:");
-                        print(array);
-                        break;
-                    case 2:
-                        printf("\n\tBefore sort:");
+                        printf("\n\tBefore Double Selection Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         Double_Selection_Sort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 3:
-                        printf("\n\tBefore sort:");
+                    case 2:
+                        printf("\n\tBefore Max Heap Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         Max_Heap_Sort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 4:
-                        printf("\n\tBefore sort:");
+                    case 3:
+                        printf("\n\tBefore Min Heap Sort:");
                         print(array);
                         printf("\n\tSorting...");
                         Min_Heap_Sort(array,leng);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                    case 4:
+                        printf("\n\tBefore Selection Sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        Selection_Sort(array,leng);
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
