@@ -13,37 +13,40 @@ void print(int array[]){
         printf("%d ",array[i]);
 }
 
-bool is_sorted(int a[], int n){
+void Swap(int *a, int *b){
+    int aux = *a;
+    *a = *b;
+    *b = aux;
+}
+
+bool is_sorted(int array[], int n){
     while(--n >= 1){
-        if(a[n] < a[n-1]) 
+        if(array[n] < array[n-1]){ 
+            print(array);
             return false;
+        }
     }
     return true;
 }
     
-void shuffle(int a[], int n){
-    int aux, random;
+void shuffle(int array[], int n){
+    int random;
     
     for(int i = 0; i < n; i++){ //tries to sort randomly
-        aux = a[i];
         random = rand() % n;
-        a[i] = a[random];
-        a[random] = aux;
-        print(a);
+        Swap(&array[i], &array[random]);
     }
 }
     
-void bogo_sort(int a[], int n){
-    while(!is_sorted(a,n)) 
-        shuffle(a,n);
+void bogo_sort(int array[], int n){
+    while(!is_sorted(array,n)) 
+        shuffle(array,n);
 }
 
 void flip(int array[], int i){ 
     int start = 0; 
     while(start < i){ 
-        array[start] = array[i] ^ array[start];
-        array[i] = array[i] ^ array[start];
-        array[start] = array[i] ^ array[start];
+        Swap(&array[i], &array[start]);
         start++; 
         i--;
     }
@@ -72,9 +75,7 @@ void SlowSort(int array[],int start,int end){
     SlowSort(array,start,middle); // start - middle parts
     SlowSort(array,middle + 1,end); // middle - end parts
     if(array[end] < array[middle]){
-        array[end] = array[end] ^ array[middle];
-        array[middle] = array[end] ^ array[middle];
-        array[end] = array[end] ^ array[middle];
+        Swap(&array[middle], &array[end]);
         print(array);
     }
     SlowSort(array,start,end-1);
@@ -103,11 +104,8 @@ int SpaghettiSort(int array[], int length){
 
 void StoogeSort(int array[], int i, int j){
     int aux;
-    if(array[i] > array[j]){ // Swap initially the fist and last elements
-        aux = array[i];
-        array[i] = array[j];
-        array[j] = aux;
-    }
+    if(array[i] > array[j]) // Swap initially the fist and last elements
+        Swap(&array[i], &array[j]);
     if(j - i > 1){ 
         aux = (j - i + 1) / 3;
         StoogeSort(array, i, j - aux); // Swap recursively the first 2/3 elements of the array
@@ -169,7 +167,6 @@ void TreeSort(int array[], int length){
     
     for(i = 0; i < length; i++) 
         Insert(&root, array[i]); 
-  
     i = 0;
     p = &i; 
     Store(root, array, &p); // Store the values in the array
@@ -179,13 +176,13 @@ void TreeSort(int array[], int length){
 void ShellSort(int array[], int length){
     int aux, h = 1, i, j;
     
-    while(h < length) 
+    while(h < length) // Set the value of h until reach the value of length or more
         h = 3 * h + 1;
-    for(;h > 0; h /= 3){
-        for(i = h; i < length; i++){
+    for(;h > 0; h /= 3){ // h starts decreasing the array
+        for(i = h; i < length; i++){ // i will take the value of h, incrementing one by one
             aux = array[i];
-            for(j = i; j > h-1 && array[j - h] > aux; j -= h)
-                array[j] = array[j - h];
+            for(j = i; j > h-1 && array[j - h] > aux; j -= h) // and j decreasing until the value of i
+                array[j] = array[j - h]; // Implementing the insertion sort
             array[j] = aux;
         }
         print(array);
@@ -208,50 +205,26 @@ void InsertionSort(int array[],int length){
 void CycleSort(int array[],int length){
     int aux, pos, swap;
     for(int i = 0; i < length - 2; i++){ 
-        aux = array[i]; 
-
+        aux = array[i];
         pos = i; 
         for(int j = i + 1; j < length; j++) // Find the right position
             if(array[j] < aux) 
                 pos++; 
-  
         if(pos == i) // If the element is in correct position
             continue; 
-  
         while(aux == array[pos]) // For duplicate elements
             pos++; 
-  
-        if(pos != i){ // Setting the element in correct position
-            /*
-            aux = aux ^ array[pos];
-            array[pos] = aux ^ array[pos];
-            aux = aux ^ array[pos];
-            */
-            swap = aux;
-            aux = array[pos];
-            array[pos] = swap;
-        }
-  
+        if(pos != i) // Setting the element in correct position
+            Swap(&array[pos], &aux);
         while(pos != i){ // Rotating the cycle
             pos = i; 
-  
             for(int k = i + 1; k < length; k++) // Find the right position
                 if(array[k] < aux) 
                     pos++; 
-  
             while(aux == array[pos]) // For duplicate elements
                 pos++; 
-  
-            if(aux != array[pos]){ // Setting the element in correct position
-                /*
-                aux = aux ^ array[pos];
-                array[pos] = aux ^ array[pos];
-                aux = aux ^ array[pos];
-                */
-                swap = aux;
-                aux = array[pos];
-                array[pos] = swap;
-            }
+            if(aux != array[pos]) // Setting the element in correct position
+                Swap(&array[pos], &aux);
         } 
         print(array);
     } 
@@ -260,12 +233,9 @@ void CycleSort(int array[],int length){
 int BinarySearch(int array[], int num, int start, int end){ 
     if(end <= start) 
         return (num > array[start]) ? (start + 1) : start; 
-  
     int mid = (start + end) / 2; 
-  
     if(num == array[mid]) 
         return mid + 1; 
-  
     if(num > array[mid]) 
         return BinarySearch(array, num, mid + 1, end); 
     return BinarySearch(array, num, start, mid - 1); 
@@ -277,9 +247,7 @@ void Insertion_Sort(int array[], int length){
     for(i = 1; i < length; i++){ 
         j = i - 1; 
         aux = array[i]; 
-  
         pos = BinarySearch(array, aux, 0, j); // Find the position where the element should be inserted
-  
         while(pos <= j){ // Move all elements until reaches the position
             array[j+1] = array[j]; 
             j--; 
@@ -290,29 +258,21 @@ void Insertion_Sort(int array[], int length){
 } 
 
 void Selection_Sort(int array[], int length){
-    int change, aux;
+    int change;
     
     for(int i = 0; i < length-1; i++){ //last element won't have other to compair
         change = i;
         for(int j = i+1; j < length; j++)
             if(array[change] > array[j]) //if the element is lower, collect the position
                 change = j;
-        if(i != change){// if it has been modified, swap positions (using xor)
-            /*
-            array[i] = array[i] ^ array[change];
-            array[change] = array[i] ^ array[change];
-            array[i] = array[i] ^ array[change];
-            */
-            aux = array[i];
-            array[i] = array[change];
-            array[change] = aux;
-        }
+        if(i != change) // if it has been modified, swap positions (using xor)
+            Swap(&array[i], &array[change]);
         print(array);
     }
 }
 
 void Double_Selection_Sort(int array[], int length){
-    int changeMin, changeMax, aux;
+    int changeMin, changeMax;
     
     for(int i = 0, j = length-1; i < j; i++, j--){
         changeMin = i; //starts in the first
@@ -324,25 +284,10 @@ void Double_Selection_Sort(int array[], int length){
                 changeMax = k;
         }
         if(i != changeMin){ //swap the positions for fit the min element
-            /*
-            array[i] = array[i] ^ array[changeMin];
-            array[changeMin] = array[i] ^ array[changeMin];
-            array[i] = array[i] ^ array[changeMin];
-            */
-            aux = array[i];
-            array[i] = array[changeMin];
-            array[changeMin] = aux;
+            Swap(&array[i], &array[changeMin]);
         }
-        if(j != changeMax){ //swap the positions for fit the max element
-            /*
-            array[j] = array[j] ^ array[changeMax];
-            array[changeMax] = array[j] ^ array[changeMax];
-            array[j] = array[j] ^ array[changeMax];
-            */
-            aux = array[j];
-            array[j] = array[changeMax];
-            array[changeMax] = aux;
-        }
+        if(j != changeMax) //swap the positions for fit the max element
+            Swap(&array[j], &array[changeMax]);
         print(array);
     }
 }
@@ -379,7 +324,6 @@ void Merge(int array[], int start, int middle, int end){
 void Merge_Sort(int array[], int start, int end){
     if(start < end){
         int middle = (start + end) / 2;
-        
         Merge_Sort(array, start, middle); // first - middle parts
         Merge_Sort(array, middle + 1, end); // middle - end parts
         Merge(array, start, middle, end); // sort
@@ -391,14 +335,12 @@ void merge(int array[], int start, int middle, int end){
   
     if (array[middle] <= array[middle2]) //if already sorted
         return;
-  
     while(start <= middle && middle2 <= end){ //merge both halfs
         if(array[start] <= array[middle2]) //if the element is in place
             start++;
         else{
             value = array[middle2];
             i = middle2;
-
             // Shift all the elements between element 1 
             // element 2, right by 1. 
             while(i != start){ //move all elements until the beginning
@@ -417,7 +359,6 @@ void merge(int array[], int start, int middle, int end){
 void MergeSort(int array[], int start, int end){
     if(start < end){
         int middle = (end + start) / 2;
-
         MergeSort(array, start, middle); //first halfs
         MergeSort(array, middle + 1, end); //second halfs
         merge(array, start, middle, end);
@@ -469,7 +410,6 @@ void Pigeonhole_Sort(int array[], int length){
             min = array[i];
     }
     range = max - min + 1;
-    
     int holes[range]; //creates an array of ranges
     for(i = 0; i < range; i++) //clear the holes
         holes[i] = 0;
@@ -488,14 +428,11 @@ void BeadSort(int array[], int length){
 		if(array[i] > max) 
             max = array[i];
     }
- 
 	beads = (char*)calloc(1, max * length);
- 
 	for(i = 0; i < length; i++){ // Set the beads
 		for(j = 0; j < array[i]; j++)
 			beads[i * max + j] = 1;
     }
- 
 	for(j = 0; j < max; j++){ // Count how many beads has each position
 		for(sum = i = 0; i < length; i++){
 			sum += beads[i * max + j];
@@ -504,7 +441,6 @@ void BeadSort(int array[], int length){
 		for(i = length - sum; i < length; i++) // Set bottom sum beads
             beads[i * max + j] = 1;
 	}
- 
 	for(i = 0; i < length; i++){
 		for(j = 0; j < max && beads[i * max + j]; j++)
             continue;
@@ -520,11 +456,8 @@ void Counting_Sort(int array[],int length){
         if(array[i] > max) max = array[i];
         if(array[i] < min) min = array[i];
     }
-    
     int range = max - min + 1,count[range];
-    
     memset(count,0,sizeof(count)); // Set 0 for all positions in array
-    
     for(i = 0; i < length; i++)// Count how many times the value repeat
         count[array[i]-min]++;
     for(i = 1; i < range; i++) // Count the amount of previous incidences
@@ -538,7 +471,8 @@ void Counting_Sort(int array[],int length){
 }
 
 void Double_Selection_SortMatrix(int length, int matrix[][length]){
-    int changeMin, changeMax, aux;
+    int changeMin, changeMax;
+
     for(int h = 0; h < buckets; h++){
         for(int i = 0, j = length-1; i < j; i++, j--){
             changeMin = i; //starts in the first
@@ -549,38 +483,22 @@ void Double_Selection_SortMatrix(int length, int matrix[][length]){
                 else if(matrix[h][k] > matrix[h][changeMax]) //search for the max element
                     changeMax = k;
             }
-            if(i != changeMin){ //swap the positions for fit the min element
-                /*
-                matrix[h][i] = matrix[h][i] ^ matrix[h][changeMin];
-                matrix[h][changeMin] = matrix[h][i] ^ matrix[h][changeMin];
-                matrix[h][i] = matrix[h][i] ^ matrix[h][changeMin];
-                */
-                aux = matrix[h][i];
-                matrix[h][i] = matrix[h][changeMin];
-                matrix[h][changeMin] = aux;
-            }
-            if(j != changeMax){ //swap the positions for fit the max element
-                /*
-                matrix[h][j] = matrix[h][j] ^ matrix[h][changeMax];
-                matrix[h][changeMax] = matrix[h][j] ^ matrix[h][changeMax];
-                matrix[h][j] = matrix[h][j] ^ matrix[h][changeMax];
-                */
-                aux = matrix[h][i];
-                matrix[h][i] = matrix[h][changeMax];
-                matrix[h][changeMax] = aux;
-            }
+            if(i != changeMin) //swap the positions for fit the min element
+                Swap(&matrix[h][i], &matrix[h][changeMin]);
+            if(j != changeMax) //swap the positions for fit the max element
+                Swap(&matrix[h][i], &matrix[h][changeMax]);
         }
     }
 }
 
 int BucketSort(int array[], int length){
     int i, j, k, b[buckets][length], range = 1;
+
     for(i = 0; i < buckets; i++){
         for(j = 0; j < length; j++){
             b[i][j] = b[i][j] ^ b[i][j];
         }
     }
-    
     for(i = 1, j = array[0]; i < length; i++){ // Determine the range of buckets by getting the max value 
         if(j < array[i])
             j = array[i];
@@ -589,7 +507,6 @@ int BucketSort(int array[], int length){
         j /= 10;
         range *= 10; // number of digits (quantity of zeros) to determine the range
     }
-    
     for(i = 0; i < length; i++){ // sort the values to each bucket
         j = range / 10;
         k = 0;
@@ -608,15 +525,12 @@ int BucketSort(int array[], int length){
             printf("%d ",b[i][j]);
         printf("\n");
     }
-    
     Double_Selection_SortMatrix(length,b); // After set the values to each bucket, sort each one using other algorithm
-    
     for(i = 0; i < buckets; i++){
         for(j = 0; j < length; j++)
             printf("%d ",b[i][j]);
         printf("\n");
     }
-
     for(i = 0, k = 0; i < buckets; i++){ // Merge all buckets to the original array
         for(j = 0; j < length; j++){
             if(b[i][j] != 0){
@@ -628,8 +542,8 @@ int BucketSort(int array[], int length){
 }
 
 int Sort(int array[], int start, int end){
-    int aux;
-    aux = array[start];
+    int aux = array[start];
+    
     while(start < end){
         while((array[end] >= aux) && (start < end))
             end--;
@@ -649,8 +563,8 @@ int Sort(int array[], int start, int end){
 }
 
 void StableQuickSort(int array[], int start, int end){
-    int aux;
-    aux = Sort(array, start, end);
+    int aux = Sort(array, start, end);
+
     if(start < aux - 1)
         StableQuickSort(array, start, aux - 1);
     if(end > aux + 1)
@@ -659,7 +573,7 @@ void StableQuickSort(int array[], int start, int end){
 }  
 
 void Quick_Sort(int array[], int start, int end){
-    int middle = array[(start + end) / 2], i = start, j = end,aux;
+    int middle = array[(start + end) / 2], i = start, j = end;
     
     while(i <= j){
         while(array[i] < middle && i < end)
@@ -667,14 +581,7 @@ void Quick_Sort(int array[], int start, int end){
         while(array[j] > middle && j > start)
             j--;
         if(i <= j){
-            aux = array[i];
-            array[i] = array[j];
-            array[j] = aux;
-            /*
-            array[i] = array[i] ^ array[j];
-            array[j] = array[i] ^ array[j];  //XOR swapping doesn't work when the values are the same
-            array[i] = array[i] ^ array[j];  //Because the truth table for equal values result in 0
-            */
+            Swap(&array[i], &array[j]);
             i++;
             j--;
         }
@@ -687,16 +594,9 @@ void Quick_Sort(int array[], int start, int end){
 }
 
 void Optimized_Gnome_Sort(int array[],int i){
-    int j = i, aux;
+    int j = i;
     while(j > 0 && array[j-1] > array [j]){
-        /*
-        array[j] = array[j] ^ array[j-1];
-        array[j-1] = array[j] ^ array[j-1];
-        array[j] = array[j] ^ array[j-1];
-        */
-        aux = array[j];
-        array[j] = array[j-1];
-        array[j-1] = aux;
+        Swap(&array[j-1], &array[j]);
         j--;
         print(array);
     }
@@ -704,19 +604,12 @@ void Optimized_Gnome_Sort(int array[],int i){
 
 void BubbleSortOptmized(int array[], int length){
     bool swap;
-    int i,j,aux;
+    int i,j;
     for(j = 0; j < length; j++){
         swap = false;
         for(i = 0; i < length - j; i++){ // Sort all array and starts decreasing
             if(array[i+1] < array[i]){
-                /*
-                array[i] = array[i] ^ array[i+1];
-                array[i+1] = array[i] ^ array[i+1];
-                array[i] = array[i] ^ array[i+1];
-                */
-                aux = array[i];
-                array[i] = array[i+1];
-                array[i+1] = aux;
+                Swap(&array[i], &array[i+1]);
                 swap = true;
             }
         }
@@ -727,33 +620,19 @@ void BubbleSortOptmized(int array[], int length){
 }
 
 void Odd_Even_Sort(int array[],int length){
-    int i, j, aux;
+    int i, j;
     bool sorted = false;
     while(!sorted){
         sorted = true;
         for(i = 1, j = 2; i < length - 1; i += 2, j += 2){
             if(array[i] > array[i+1]){
-                /*
-                array[i] = array[i] ^ array[j];
-                array[j] = array[i] ^ array[j];
-                array[i] = array[i] ^ array[j];
-                */
-                aux = array[i];
-                array[i] = array[j];
-                array[j] = aux;
+                Swap(&array[i], &array[j]);
                 sorted = false;
             }
         }
         for(i = 0, j = 1; i < length - 1; i += 2, j += 2){
             if(array[i] > array[i + 1]){
-                /*
-                array[i] = array[i] ^ array[j];
-                array[j] = array[i] ^ array[j];
-                array[i] = array[i] ^ array[j];
-                */
-                aux = array[i];
-                array[i] = array[j];
-                array[j] = aux;
+                Swap(&array[i], &array[j]);
                 sorted = false;
             }
         }
@@ -762,20 +641,13 @@ void Odd_Even_Sort(int array[],int length){
 }
 
 void Gnome_Sort(int array[], int length){
-    int i = 1, aux;
+    int i = 1;
     
     while(i < length){
         if(array[i] >= array[i-1])
             i++;
         else{
-            /*
-            array[i] = array[i] ^ array[i-1];
-            array[i-1] = array[i] ^ array[i-1];
-            array[i] = array[i] ^ array[i-1];
-            */
-            aux = array[i];
-            array[i] = array[i-1];
-            array[i-1] = aux;
+            Swap(&array[i], &array[i-1]);
             if(i != 1)
                 i--;
         }
@@ -785,31 +657,21 @@ void Gnome_Sort(int array[], int length){
 
 void DualPivotQuickSort(int array[], int start, int end){
     if(start < end){
-        if(array[end] < array[start]){
-            array[end] = array[end] ^ array[start];
-            array[start] = array[end] ^ array[start];
-            array[end] = array[end] ^ array[start];
-        }
-            
-        int last = array[end], first = array[start], p1 = start + 1, p2 = end - 1, aux = p1, swap;
+        if(array[end] < array[start])
+            Swap(&array[start], &array[end]);
+        int last = array[end], first = array[start], p1 = start + 1, p2 = end - 1, aux = p1;
         while(aux <= p2){
             if(array[aux] < first){
-                swap = array[aux];
-                array[aux] = array[p1];
-                array[p1] = swap;
+                Swap(&array[aux], &array[p1]);
                 p1++;
             } 
             else if(array[aux] >= last){
                 while(array[p2] > last && aux < p2) 
                     p2--;
-                swap = array[aux];
-                array[aux] = array[p2];
-                array[p2] = swap;
+                Swap(&array[aux], &array[p2]);
                 p2--;
                 if(array[aux] < first){
-                    swap = array[aux];
-                    array[aux] = array[p1];
-                    array[p1] = swap;
+                    Swap(&array[aux], &array[p1]);
                     p1++;
                 }
             }
@@ -817,17 +679,9 @@ void DualPivotQuickSort(int array[], int start, int end){
         }
         p1--;
         p2++;
-
-        swap = array[p1];
-        array[p1] = array[start];
-        array[start] = swap;
-        
-        swap = array[end];
-        array[end] = array[p2];
-        array[p2] = swap;
-
+        Swap(&array[p1], &array[start]);
+        Swap(&array[end], &array[p2]);
         print(array);
-
         DualPivotQuickSort(array, start, p1 - 1);
         DualPivotQuickSort(array, p1 + 1, p2 - 1);
         DualPivotQuickSort(array, p2 + 1, end);
@@ -836,6 +690,7 @@ void DualPivotQuickSort(int array[], int start, int end){
 
 void CombSort(int array[], int length){
     int i,j,aux,swap = 1;
+
     aux = swap;
     while(aux > 1 || swap == 1){
         aux *= (10/13);
@@ -846,9 +701,7 @@ void CombSort(int array[], int length){
         swap = 0;
         for(i = 0, j = aux; j < length; i++, j++){
             if(array[i] > array[j]){
-                array[i] = array[i] ^ array[j];
-                array[j] = array[i] ^ array[j];
-                array[i] = array[i] ^ array[j];
+                Swap(&array[i], &array[j]);
                 swap = 1;
             }
         }
@@ -857,33 +710,20 @@ void CombSort(int array[], int length){
 }
 
 void CocktailShakerSort(int array[], int length){
-    int start = 0,end = length - 1,swap = 0,i,aux;
+    int start = 0,end = length - 1,swap = 0,i;
+
     while(swap == 0 && start < end){
         swap = 1;
         for(i = start; i < end; i++){
             if(array[i] > array[i+1]){
-                /*
-                array[i] = array[i] ^ array[i+1];
-                array[i+1] = array[i] ^ array[i+1];
-                array[i] = array[i] ^ array[i+1];
-                */
-                aux = array[i];
-                array[i] = array[i+1];
-                array[i+1] = aux;
+                Swap(&array[i], &array[i+1]);
                 swap = 0;
             }
         }
         end--;
         for(i = end; i > start; i--){
             if(array[i] < array[i-1]){
-                /*
-                array[i] = array[i] ^ array[i-1];
-                array[i-1] = array[i] ^ array[i-1];
-                array[i] = array[i] ^ array[i-1];
-                */
-                aux = array[i];
-                array[i] = array[i-1];
-                array[i-1] = aux;
+                Swap(&array[i], &array[i-1]);
                 swap = 0;
             }
         }
@@ -897,7 +737,6 @@ int CircleSortAux(int start[], int end[]){
  
 	if(start == end) 
         return 0;
-
 	for(swap = 0, p = start, q = end; p < q || (p == q && ++q); p++, q--) // (++q for odd center of array)
 		if(*p > *q){
 			t = *p;
@@ -916,11 +755,8 @@ void CircleSort(int array[], int length){
 void Bubble_sort(int array[],int length){
     while(length > 1){ // Each loop eleminates the last element in array which is already sorted
         for(int i = 0; i < length; i++){ // length - 1 comparisons for each loop
-            if(array[i] > array[i+1]){ // Compare each 2 elements of the array 
-                array[i] = array[i] ^ array[i+1]; 
-                array[i+1] = array[i] ^ array[i+1];
-                array[i] = array[i] ^ array[i+1];
-            }
+            if(array[i] > array[i+1]) // Compare each 2 elements of the array 
+                Swap(&array[i], &array[i+1]);
         }
         length--;
         print(array);
@@ -928,18 +764,14 @@ void Bubble_sort(int array[],int length){
 }
 
 void heapmax(int array[], int n, int i){ //n is the size of heap
-    int largest = i, left = 2 * i + 1, right = 2 * i + 2, aux;
+    int largest = i, left = 2 * i + 1, right = 2 * i + 2;
   
     if(left < n && array[left] > array[largest]) //Left child is larger than node
         largest = left; 
-  
     if(right < n && array[right] > array[largest]) //Right child is larger than node
         largest = right; 
-  
     if(largest != i){ //Larger is not the actual node
-        aux = array[i];
-        array[i] = array[largest];
-        array[largest] = aux;
+        Swap(&array[i], &array[largest]);
         print(array);
         heapmax(array, n, largest); //Acess the subtree
     } 
@@ -948,29 +780,22 @@ void heapmax(int array[], int n, int i){ //n is the size of heap
 void Max_Heap_Sort(int array[], int length){ 
     for(int i = length / 2 - 1; i >= 0; i--) 
         heapmax(array, length, i); //Creating the heap
-
-    for(int i = length-1, aux; i > 0; i--){ //Remove each element from heap
-        aux = array[i];
-        array[i] = array[0];
-        array[0] = aux;
+    for(int i = length-1; i > 0; i--){ //Remove each element from heap
+        Swap(&array[i], &array[0]);
         print(array);
         heapmax(array, i, 0); //Reduced heap
     } 
 }
 
 void heapmin(int array[], int n, int i){ //n is the size of heap
-    int smallest = i, left = 2 * i + 1, right = 2 * i + 2, aux;
-  
+    int smallest = i, left = 2 * i + 1, right = 2 * i + 2;
+
     if(left < n && array[left] < array[smallest]) //Left child is smaller than node
         smallest = left; 
-  
     if(right < n && array[right] < array[smallest]) //Right child is smaller than node
         smallest = right; 
-  
     if(smallest != i){ //smaller is not the actual node
-        aux = array[i];
-        array[i] = array[smallest];
-        array[smallest] = aux;
+        Swap(&array[i], &array[smallest]);
         print(array);
         heapmin(array, n, smallest); //Acess the subtree
     } 
@@ -979,14 +804,44 @@ void heapmin(int array[], int n, int i){ //n is the size of heap
 void Min_Heap_Sort(int array[], int length){ 
     for(int i = length / 2 - 1; i >= 0; i--) 
         heapmin(array, length, i); //Creating the heap
-
-    for(int i = length-1, aux; i >= 0; i--){ //Remove each element from heap
-        aux = array[i];
-        array[i] = array[0];
-        array[0] = aux;
+    for(int i = length-1; i >= 0; i--){ //Remove each element from heap
+        Swap(&array[i], &array[0]);
         print(array);
         heapmin(array, i, 0); //Reduced heap
     } 
+}
+
+void Pairwise_Sort(int array[], int start, int end, int piv){
+	if(start != end - piv){
+		int i, j, k;
+		for(i = start + piv; i < end; i += (2 * piv)){ // Starts comparing the multiples of two
+			if(array[i - piv] > array[i]){
+				Swap(&array[i], &array[i-piv]);
+			}
+		}
+        print(array);
+		if((end - start) / piv % 2 == 0){ // Doing the same but using the power of 2, starting in different indexes
+			Pairwise_Sort(array, start, end, piv * 2);
+			Pairwise_Sort(array, start + piv, end + piv, piv * 2);
+		}
+		else{
+			Pairwise_Sort(array, start, end + piv, piv * 2);
+			Pairwise_Sort(array, start + piv, end, piv * 2);
+		}
+		for(j = 1; j < (end - start) / piv; j = (j * 2) + 1)
+			continue;
+		for(i = start + piv; i + piv < end; i += 2 * piv){ // Compares with the other elements in the array
+			for(k = j; k > 1;){
+				k /= 2;
+				if(k * piv + i < end){
+					if(array[i] > array[k * piv + i]){
+						Swap(&array[i], &array[k * piv + i]);
+					}
+				}
+			}
+		}
+        print(array);
+	}
 }
 
 
@@ -1290,7 +1145,24 @@ int main(){
                 }
                 break;
             case 6:
-                printf("Networks & Concurrent:");
+                do{
+                    printf("Networks & Concurrent:");
+                    printf("\n1 - Pairwise_Network_Sort.");
+                    printf("\n-> ");
+                    scanf("%d",&option_sort);
+                    if(option_sort != 1)
+                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
+                }while(option_sort != 1);
+                switch(option_sort){
+                    case 1:
+                        printf("\n\tBefore Pairwise Network Sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        Pairwise_Sort(array,0,leng,1);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                }
                 break;
             case 7:
                 do{
@@ -1389,6 +1261,5 @@ int main(){
         }
         printf("\n\n");
     }
-    
     return 0;
 }
