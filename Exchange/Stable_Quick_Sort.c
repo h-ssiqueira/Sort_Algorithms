@@ -6,8 +6,8 @@
 // Average case performance O(n log n)
 
 int Sort(int array[], int start, int end){
-    int aux;
-    aux = array[start];
+    int aux = array[start];
+    
     while(start < end){
         while((array[end] >= aux) && (start < end))
             end--;
@@ -27,8 +27,8 @@ int Sort(int array[], int start, int end){
 }
 
 void StableQuickSort(int array[], int start, int end){
-    int aux;
-    aux = Sort(array, start, end);
+    int aux = Sort(array, start, end);
+    
     if(start < aux - 1)
         StableQuickSort(array, start, aux - 1);
     if(end > aux + 1)
