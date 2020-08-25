@@ -34,7 +34,8 @@
 	1. [In-Place Merge Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/In-Place_Merge_Sort.c)
 	2. [Merge Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Merge_Sort.c)
 
-6. [Networks & Concurrent:]()
+6. [Networks & Concurrent:](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Networks%26Concurrent)
+	1. [Pairwise Network Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Networks%26Concurrent/Pairwise_Network_Sort.c)
 
 7. [Non-Comparison & Distribution:](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Non-Comparison%26Distribution)
 	1. [Bucket Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Non-Comparison%26Distribution/Bucket_Sort.c)
