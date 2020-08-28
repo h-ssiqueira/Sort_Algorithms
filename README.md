@@ -31,8 +31,9 @@
 	5. [Tree Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Insertion/Tree_Sort.c)
 
 5. [Merge:](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Merge)
-	1. [In-Place Merge Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/In-Place_Merge_Sort.c)
-	2. [Merge Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Merge_Sort.c)
+	1. [Bottom-up Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Bottom-Up_Merge_Sort.c)
+	2. [In-Place Merge Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/In-Place_Merge_Sort.c)
+	3. [Merge Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Merge_Sort.c)
 
 6. [Networks & Concurrent:](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Networks%26Concurrent)
 	1. [Pairwise Network Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Networks%26Concurrent/Pairwise_Network_Sort.c)

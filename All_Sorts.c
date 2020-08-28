@@ -326,7 +326,20 @@ void Merge_Sort(int array[], int start, int end){
         int middle = (start + end) / 2;
         Merge_Sort(array, start, middle); // first - middle parts
         Merge_Sort(array, middle + 1, end); // middle - end parts
+        if(array[middle] < array[middle+1]){ // Check if both parts are already sorted, if so, merge is useless
+            print(array);
+            return;
+        }
         Merge(array, start, middle, end); // sort
+    }
+}
+
+void Bottomup_Merge_Sort(int array[], int length){        
+    for(int i = 1; i < length; i += i){ // Start sorting the elements 1-1, 2-2... powers of 2
+        for(int j = 0; j < length - i; j += i + i){
+            j + i + i - 1 < length-1 ? Merge(array, j, j + i - 1, j + i + i - 1) : Merge(array, j, j + i - 1, length -1); // merge
+        }
+        print(array);
     }
 }
 
@@ -335,7 +348,7 @@ void merge(int array[], int start, int middle, int end){
   
     if (array[middle] <= array[middle2]) //if already sorted
         return;
-    while(start <= middle && middle2 <= end){ //merge both halfs
+    while(start <= middle && middle2 <= end){ //merge both halves
         if(array[start] <= array[middle2]) //if the element is in place
             start++;
         else{
@@ -359,8 +372,12 @@ void merge(int array[], int start, int middle, int end){
 void MergeSort(int array[], int start, int end){
     if(start < end){
         int middle = (end + start) / 2;
-        MergeSort(array, start, middle); //first halfs
-        MergeSort(array, middle + 1, end); //second halfs
+        MergeSort(array, start, middle); //first halves
+        MergeSort(array, middle + 1, end); //second halves
+        if(array[middle] < array[middle+1]){ // Check if both parts are already sorted, if so, merge is useless
+            print(array);
+            return;
+        }
         merge(array, start, middle, end);
         print(array);
     }
@@ -1118,15 +1135,24 @@ int main(){
             case 5:
                 do{
                     printf("Merge:");
-                    printf("\n1 - In-Place_Merge_Sort.");
-                    printf("\n2 - Merge_Sort.");
+                    printf("\n1 - Bottomup_Merge_Sort.");
+                    printf("\n2 - In-Place_Merge_Sort.");
+                    printf("\n3 - Merge_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
-                    if(option_sort < 1 || option_sort > 2)
+                    if(option_sort < 1 || option_sort > 3)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 1 || option_sort > 2);
+                }while(option_sort < 1 || option_sort > 3);
                 switch(option_sort){
                     case 1:
+                        printf("\n\tBefore Bottom-up Merge Sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        Bottomup_Merge_Sort(array,leng);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                    case 2:
                         printf("\n\tBefore In Place Merge Sort:");
                         print(array);
                         printf("\n\tSorting...");
@@ -1134,7 +1160,7 @@ int main(){
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 2:
+                    case 3:
                         printf("\n\tBefore Merge Sort:");
                         print(array);
                         printf("\n\tSorting...");

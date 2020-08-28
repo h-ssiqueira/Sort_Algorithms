@@ -76,7 +76,7 @@ Merge Sort ✔✔✔
 
 In-Place Merge Sort ✔✔✔
 
-Bottom-up Merge Sort
+Bottom-up Merge Sort ✔✔✔
 
 Lazy Stable Sort
 
@@ -134,7 +134,7 @@ Batcher's Bitonic Sort
 
 Batcher's Odd-Even Merge Sort
 
-Recursive Pairwise Sorting Network
+Recursive Pairwise Sorting Network ✔✔✔
 
 Iterative Bitonic Sort
 

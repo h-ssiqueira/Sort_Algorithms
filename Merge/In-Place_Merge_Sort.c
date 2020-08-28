@@ -9,7 +9,7 @@ void merge(int array[], int start, int middle, int end){
     if (array[middle] <= array[middle2]) //if already sorted
         return;
   
-    while(start <= middle && middle2 <= end){ //merge both halfs
+    while(start <= middle && middle2 <= end){ //merge both halves
         if(array[start] <= array[middle2]) //if the element is in place
             start++;
         else{
@@ -34,8 +34,10 @@ void Merge_Sort(int array[], int start, int end){
     if(start < end){
         int middle = (end + start) / 2;
 
-        Merge_Sort(array, start, middle); //first halfs
-        Merge_Sort(array, middle + 1, end); //second halfs
+        Merge_Sort(array, start, middle); //first halves
+        Merge_Sort(array, middle + 1, end); //second halves
+        if(array[middle] < array[middle+1]) // Check if both parts are already sorted, if so, merge is useless
+            return;
         merge(array, start, middle, end);
     }
 }

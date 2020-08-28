@@ -34,29 +34,25 @@ void Merge(int array[], int start, int middle, int end){
     free(aux);
 }
 
-void Merge_Sort(int array[], int start, int end){
-    if(start < end){
-        int middle = (start + end) / 2;
-        
-        Merge_Sort(array, start, middle); // first - middle parts
-        Merge_Sort(array, middle + 1, end); // middle - end parts
-        if(array[middle] < array[middle+1]) // Check if both parts are already sorted, if so, merge is useless
-            return;
-        Merge(array, start, middle, end); // sort
+void Bottomup_Merge_Sort(int array[], int length){        
+    for(int i = 1; i < length; i += i){ // Start sorting the elements 1-1, 2-2... powers of 2
+        for(int j = 0; j < length - i; j += i + i){
+            j + i + i - 1 < length-1 ? Merge(array, j, j + i - 1, j + i + i - 1) : Merge(array, j, j + i - 1, length -1); // merge
+        }
     }
 }
 
 int main(){
-    int ar[] = {55,654,321,8,52,31,54,66,221,100};
+    int array[] = {799,798,864,153,578,661,256,60,402,723};
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",ar[i]);
+        printf("%d ",array[i]);
     
     printf("\n\n");
-    Merge_Sort(ar,0,10-1); //0 and length - 1
+    Bottomup_Merge_Sort(array,10); 
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",ar[i]);
+        printf("%d ",array[i]);
     
     return 0;
 }
