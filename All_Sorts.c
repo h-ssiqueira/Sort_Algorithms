@@ -21,26 +21,21 @@ void Swap(int *a, int *b){
 
 bool is_sorted(int array[], int n){
     while(--n >= 1){
-        if(array[n] < array[n-1]){ 
-            print(array);
+        if(array[n] < array[n-1])
             return false;
-        }
     }
     return true;
 }
     
-void shuffle(int array[], int n){
-    int random;
-    
-    for(int i = 0; i < n; i++){ //tries to sort randomly
-        random = rand() % n;
-        Swap(&array[i], &array[random]);
-    }
-}
-    
 void bogo_sort(int array[], int n){
-    while(!is_sorted(array,n)) 
-        shuffle(array,n);
+    int random;
+    while(!is_sorted(array,n)){
+        for(int i = 0; i < n; i++){ //tries to sort randomly
+            random = rand() % n;
+            Swap(&array[i], &array[random]);
+        }
+        print(array);
+    }
 }
 
 void flip(int array[], int i){ 
@@ -72,13 +67,14 @@ int PancakeSort(int array[], int length){
 void SlowSort(int array[],int start,int end){
     if(start >= end) return;
     int middle = (start + end) / 2;
+
     SlowSort(array,start,middle); // start - middle parts
     SlowSort(array,middle + 1,end); // middle - end parts
     if(array[end] < array[middle]){
         Swap(&array[middle], &array[end]);
         print(array);
     }
-    SlowSort(array,start,end-1);
+    SlowSort(array,start,end-1); // Sort elements decreasing the array
 }
 
 int SpaghettiSort(int array[], int length){
@@ -861,6 +857,62 @@ void Pairwise_Sort(int array[], int start, int end, int piv){
 	}
 }
 
+void SillySort(int array[],int start, int end){ 
+    if(start < end){
+		int mid = start + ((end - start) / 2); // Calculate the middle of the (sub)array
+		
+		SillySort(array, start, mid); // Calls recursively until rech pairs of the elements (array[i]->array[i+1])
+		SillySort(array, mid + 1, end);
+		if(array[start] > array[mid+1]){ // Sort the two elements
+            Swap(&array[start], &array[mid+1]);
+            print(array);
+        }
+		SillySort(array, start + 1, end); // Do the same but for start+1
+	}
+}
+
+void BadSort(int array[], int length){
+    int smaller;
+    bool check;
+    for(int i = 0; i < length; i++){
+        smaller = i;         
+        for(int j = i; j < length; j++){ // Find the smaller element
+            check = true;
+            for(int k = j + 1; k < length; k++){
+                if(array[j] > array[k]){ // Check if array[j] is the smaller
+                    check = false;
+                    break;
+                }
+            }
+            if(check){
+                smaller = j;
+                break;
+            }
+        }
+        Swap(&array[i], &array[smaller]);
+        print(array);
+    }
+}
+
+void BogoBogoSort(int array[],int length){
+    int size = 2,random;
+    bool notsorted = true;
+        
+    while(notsorted){
+        if(is_sorted(array, size))
+            size == length ? notsorted = false : size++;
+        else
+            size = 2; 
+        if(notsorted){
+            for(int i = 0; i < size; i++){ //tries to sort randomly
+                random = rand() % size;
+                Swap(&array[i],&array[random]);
+            }
+            print(array);
+        }
+    }
+}
+
 
 int main(){
     srand(time(NULL));
@@ -891,19 +943,38 @@ int main(){
         switch(option_category){
             case 1:
                 do{
-                    printf("Esoteric & Fun & Miscellaneous:");                   
-                    printf("\n1 - Bogo_Sort.");
-                    printf("\n2 - Pancake_Sort.");
-                    printf("\n3 - Slow_Sort.");
-                    printf("\n4 - Spaghetti_Sort.");
-                    printf("\n5 - Stooge_Sort.");
+                    printf("Esoteric & Fun & Miscellaneous:");
+                    printf("\n1 - Bad_Sort.");
+                    printf("\n2 - Bogo_Bogo_Sort.");
+                    printf("\n3 - Bogo_Sort.");
+                    printf("\n4 - Pancake_Sort.");
+                    printf("\n5 - Silly_Sort.");
+                    printf("\n6 - Slow_Sort.");
+                    printf("\n7 - Spaghetti_Sort.");
+                    printf("\n8 - Stooge_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
-                    if(option_sort < 1 || option_sort > 5)
+                    if(option_sort < 1 || option_sort > 8)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 1 || option_sort > 5);
+                }while(option_sort < 1 || option_sort > 8);
                 switch(option_sort){
                     case 1:
+                        printf("\n\tBefore Bad Sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        BadSort(array,leng);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                    case 2:
+                        printf("\n\tBefore Bogo Bogo Sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        BogoBogoSort(array,leng);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                    case 3:
                         printf("\n\tBefore Bogo Sort:");
                         print(array);
                         printf("\n\tSorting...");
@@ -911,7 +982,7 @@ int main(){
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 2:
+                    case 4:
                         printf("\n\tBefore Pancake Sort:");
                         print(array);
                         printf("\n\tSorting...");
@@ -919,7 +990,15 @@ int main(){
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 3:
+                    case 5:
+                        printf("\n\tBefore Silly Sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        SillySort(array,0,leng-1);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                    case 6:
                         printf("\n\tBefore Slow Sort:");
                         print(array);
                         printf("\n\tSorting...");
@@ -927,7 +1006,7 @@ int main(){
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 4:
+                    case 7:
                         printf("\n\tBefore Spaghetti Sort:");
                         print(array);
                         printf("\n\tSorting...");
@@ -935,7 +1014,7 @@ int main(){
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 5:
+                    case 8:
                         printf("\n\tBefore Stooge Sort:");
                         print(array);
                         printf("\n\tSorting...");

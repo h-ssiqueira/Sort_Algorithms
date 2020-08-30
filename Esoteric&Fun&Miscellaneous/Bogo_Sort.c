@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
  
  // Worst case performance O((n + 1)!)
  // Best case performance O(n)
@@ -14,23 +15,20 @@ bool is_sorted(int a[], int n){
     return true;
 }
     
-void shuffle(int a[], int n){
+void bogo_sort(int a[], int n){
     int aux, random;
-    
-    for(int i = 0; i < n; i++){ //tries to sort randomly
-        aux = a[i];
-        random = rand() % n;
-        a[i] = a[random];
-        a[random] = aux;
+    while(!is_sorted(a,n)){
+        for(int i = 0; i < n; i++){ //tries to sort randomly
+            aux = a[i];
+            random = rand() % n;
+            a[i] = a[random];
+            a[random] = aux;
+        }
     }
 }
     
-void bogo_sort(int a[], int n){
-    while(!is_sorted(a,n)) 
-        shuffle(a,n);
-}
-    
 int main(){
+    srand(time(NULL));
     int numbers[] = {1,10,9,7,3,0,50,654,222,-2};
     
     for(int i = 0; i < 10; i++) 

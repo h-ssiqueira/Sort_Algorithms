@@ -1,4 +1,6 @@
--> Exchange family
+37/85
+
+-> Exchange family (11/11) ✔✔✔
 
 
 
@@ -25,7 +27,7 @@ Dual-Pivot Quick Sort ✔✔✔
 Circle sort ✔✔✔
 
 
--> Selection family
+-> Selection family (4/9)
 
 
 
@@ -48,7 +50,7 @@ Smooth Sort
 Tournament Sort
 
 
--> Insertion family
+-> Insertion family (5/7)
 
 
 
@@ -68,7 +70,7 @@ Patience Sort
 
 
 
--> Merge family
+-> Merge family (3/6)
 
 
 
@@ -86,7 +88,7 @@ Rotate Merge Sort
 
 
 
--> Non-comparison family / Distribution
+-> Non-comparison family / Distribution (4/17)
 
 
 
@@ -126,7 +128,7 @@ Time Sort (Mul 4)(Mul 10) [more widely known as Sleep Sort]
 
 
 
--> Sorting Networks / Concurrent family
+-> Sorting Networks / Concurrent family (1/6)
 
 
 
@@ -144,7 +146,7 @@ Iterative Pairwise Sorting Network
 
 
 
--> Hybrids
+-> Hybrids (1/15)
 
 
 
@@ -180,7 +182,7 @@ Insert/Bottom-up Merge (std::stable_sort)
 
 
 
--> Esoteric / Fun / Miscellaneous
+-> Esoteric / Fun / Miscellaneous (8/14)
 
 
 
@@ -188,9 +190,9 @@ Pancake Sort ✔✔✔
 
 Stooge Sort ✔✔✔
 
-Bad Sort 
+Bad Sort ✔✔✔
 
-Silly Sort
+Silly Sort ✔✔✔
 
 Slow Sort ✔✔✔
 
@@ -203,6 +205,8 @@ Exchange Bogo Sort
 Bubble Bogo Sort
 
 Bogo Sort ✔✔✔
+
+Bogo Bogo Sort ✔✔✔
 
 Spaghetti Sort ✔✔✔
 

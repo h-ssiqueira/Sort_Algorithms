@@ -3,6 +3,7 @@
 
 // Worst case performance O(n**3/2)
 // Best case performance O(n log n)
+// Average case performance undiscovered (h equation is not perfect yet)
 
 void ShellSort(int array[], int length){
     int aux, h = 1, i, j;
