@@ -1,4 +1,4 @@
-37/85
+40/85
 
 -> Exchange family (11/11) ✔✔✔
 
@@ -182,7 +182,7 @@ Insert/Bottom-up Merge (std::stable_sort)
 
 
 
--> Esoteric / Fun / Miscellaneous (8/14)
+-> Esoteric / Fun / Miscellaneous (11/14)
 
 
 
@@ -196,13 +196,13 @@ Silly Sort ✔✔✔
 
 Slow Sort ✔✔✔
 
-Less Bogo Sort
+Less Bogo Sort ✔✔✔
 
 Cocktail Bogo Sort
 
-Exchange Bogo Sort
+Exchange Bogo Sort ✔✔✔
 
-Bubble Bogo Sort
+Bubble Bogo Sort ✔✔✔
 
 Bogo Sort ✔✔✔
 

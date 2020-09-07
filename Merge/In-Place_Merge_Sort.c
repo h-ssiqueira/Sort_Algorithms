@@ -6,7 +6,7 @@
 void merge(int array[], int start, int middle, int end){ 
     int middle2 = middle + 1, value, i; 
   
-    if (array[middle] <= array[middle2]) //if already sorted
+    if(array[middle] <= array[middle2]) //if already sorted
         return;
   
     while(start <= middle && middle2 <= end){ //merge both halves
@@ -15,7 +15,6 @@ void merge(int array[], int start, int middle, int end){
         else{
             value = array[middle2];
             i = middle2;
-
             // Shift all the elements between element 1 
             // element 2, right by 1. 
             while(i != start){ //move all elements until the beginning
