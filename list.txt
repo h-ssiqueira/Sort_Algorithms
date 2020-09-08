@@ -1,6 +1,6 @@
-40/85
+41/86
 
--> Exchange family (11/11) ✔✔✔
+-> Exchange family (12/12) 
 
 
 
@@ -23,6 +23,8 @@ Quick Sort ✔✔✔
 Stable Quick Sort ✔✔✔
 
 Dual-Pivot Quick Sort ✔✔✔
+
+3-way Quick Sort ✔✔✔
 
 Circle sort ✔✔✔
 

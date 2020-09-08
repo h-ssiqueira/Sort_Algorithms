@@ -918,9 +918,8 @@ void BubbleBogoSort(int array[], int length){
     while(!is_sorted(array, length)){
         random = rand() % length-1;    
         if(array[random] > array[random+1]){ // Tries to sort randomly the index and index+1
-            aux = array[random];
-            array[random] = array[random+1];
-            array[random+1] = aux;
+			Swap(&array[random],&array[random+1]);
+			print(array);
         }
     }
 }
@@ -931,19 +930,14 @@ void ExchangeBogoSort(int array[], int length){
         random1 = rand() % length;
         random2 = rand() % length;
         if(random1 < random2){ // Check the positions
-            if(array[random1] > array[random2]){ // Check if it's sorted
-                aux = array[random1];
-                array[random1] = array[random2];
-                array[random2] = aux;
-            }
+            if(array[random1] > array[random2]) // Check if it's sorted
+                Swap(&array[random1],&array[random2]);
         }
         else{
-            if(array[random1] < array[random2]){ // Check if it's sorted
-                aux = array[random1];
-                array[random1] = array[random2];
-                array[random2] = aux;
-            }
+            if(array[random1] < array[random2]) // Check if it's sorted
+                Swap(&array[random2],&array[random1]);
         }
+		print(array);
     }
 }
 
@@ -952,14 +946,34 @@ void LessBogoSort(int array[], int length){
     while(index != length){
         while(!is_sorted(array, index+1)){ // Tries to sort randomly
             random = rand() % length;
-            aux = array[random];
-            array[random] = array[index];
-            array[index] = aux;
+            Swap(&array[random],&array[index]);
         }
         index++;
+		print(array);
     }
 }
 
+void QuickSort3way(int array[], int start, int end){
+	if(end > start){
+		int low = start, great = end, i = start, piv = array[start];
+		while(i <= great){ // Set the pivot in the center of the array, sorting greaters and lowers values in the array comparing to pivot
+			if(array[i] < piv){ // Compares if the value is lower than pivot
+				Swap(&array[i++],&array[low++]); // If so, change the positions of index and low
+				//low++;
+				//i++;
+			}
+			else if(array[i] > piv){ // if the value is greater than pivot
+				Swap(&array[i], &array[great--]); // if so, change the positions of index and great
+				//great--;
+			}
+			else // if the value is the same as the pivot
+				i++;
+			print(array);
+		}
+		QuickSort3way(array, start, low-1); // Recursively change the pivot
+		QuickSort3way(array, great+1, end); // To sort the other elements
+	}
+}
 
 int main(){
     srand(time(NULL));
@@ -991,15 +1005,15 @@ int main(){
             case 1:
                 do{
                     printf("Esoteric & Fun & Miscellaneous:");
-                    printf("\n1 - Bad_Sort.");
-                    printf("\n2 - Bogo_Bogo_Sort.");
-                    printf("\n3 - Bogo_Sort.");
-					printf("\n4 - Bubble_Bogo_Sort.");
-					printf("\n5 - Exchange_Bogo_Sort.");
-					printf("\n6 - Less_Bogo_Sort.");
-                    printf("\n7 - Pancake_Sort.");
-                    printf("\n8 - Silly_Sort.");
-                    printf("\n9 - Slow_Sort.");
+                    printf("\n 1 - Bad_Sort.");
+                    printf("\n 2 - Bogo_Bogo_Sort.");
+                    printf("\n 3 - Bogo_Sort.");
+					printf("\n 4 - Bubble_Bogo_Sort.");
+					printf("\n 5 - Exchange_Bogo_Sort.");
+					printf("\n 6 - Less_Bogo_Sort.");
+                    printf("\n 7 - Pancake_Sort.");
+                    printf("\n 8 - Silly_Sort.");
+                    printf("\n 9 - Slow_Sort.");
                     printf("\n10 - Spaghetti_Sort.");
                     printf("\n11 - Stooge_Sort.");
                     printf("\n-> ");
@@ -1101,22 +1115,23 @@ int main(){
             case 2:
                 do{
                     printf("Exchange:");
-                    printf("\n1 - Bubble_Sort.");
-                    printf("\n2 - Circle_Sort.");
-                    printf("\n3 - Cocktail_Shaker_Sort.");
-                    printf("\n4 - Comb_Sort.");
-                    printf("\n5 - Dual_Pivot_Quick_Sort.");
-                    printf("\n6 - Gnome_Sort.");
-                    printf("\n7 - Odd-Even_Sort.");
-                    printf("\n8 - Optimized_Bubble_Sort.");
-                    printf("\n9 - Optimized_Gnome_Sort.");
+                    printf("\n 1 - Bubble_Sort.");
+                    printf("\n 2 - Circle_Sort.");
+                    printf("\n 3 - Cocktail_Shaker_Sort.");
+                    printf("\n 4 - Comb_Sort.");
+                    printf("\n 5 - Dual_Pivot_Quick_Sort.");
+                    printf("\n 6 - Gnome_Sort.");
+                    printf("\n 7 - Odd-Even_Sort.");
+                    printf("\n 8 - Optimized_Bubble_Sort.");
+                    printf("\n 9 - Optimized_Gnome_Sort.");
                     printf("\n10 - Quick_Sort.");
-                    printf("\n11 - Stable_Quick_Sort.");
+					printf("\n11 - Quick_Sort_3-way.");
+                    printf("\n12 - Stable_Quick_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
-                    if(option_sort < 1 || option_sort > 11)
+                    if(option_sort < 1 || option_sort > 12)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 1 || option_sort > 11);
+                }while(option_sort < 1 || option_sort > 12);
                 switch(option_sort){
                     case 1:
                         printf("\n\tBefore Bubble Sort:");
@@ -1199,7 +1214,15 @@ int main(){
                         printf("\n\tArray sorted:");
                         print(array);
                         break;
-                    case 11:
+					case 11:
+                        printf("\n\tBefore 3-way Quick Sort:");
+                        print(array);
+                        printf("\n\tSorting...");
+                        QuickSort3way(array,0,leng-1);
+                        printf("\n\tArray sorted:");
+                        print(array);
+                        break;
+                    case 12:
                         printf("\n\tBefore Stable Quick Sort:");
                         print(array);
                         printf("\n\tSorting...");

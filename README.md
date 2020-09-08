@@ -24,6 +24,7 @@
 	1. [Optimized Bubble Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Exchange/Optimized_Bubble_Sort.c)
 	1. [Optimized Gnome Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Exchange/Optimized_Gnome_Sort.c)
 	1. [Quick Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Exchange/Quick_Sort.c)
+	1. [Quick Sort 3-way.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Exchange/Quick_Sort_3-way.c)
 	1. [Stable Quick Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Exchange/Stable_Quick_Sort.c)
 
 1. [Hybrids:](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Hybrids)
