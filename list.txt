@@ -1,4 +1,4 @@
-41/86
+42/86
 
 -> Exchange family (12/12) 
 
@@ -104,7 +104,7 @@ Burst Sort
 
 Counting Sort ✔✔✔
 
-Pidgeonhole Sort ✔✔✔
+Pigeonhole Sort ✔✔✔
 
 Radix LSD(Less Significant Digit) Sort, Base 4
 
@@ -130,11 +130,11 @@ Time Sort (Mul 4)(Mul 10) [more widely known as Sleep Sort]
 
 
 
--> Sorting Networks / Concurrent family (1/6)
+-> Sorting Networks / Concurrent family (2/6)
 
 
 
-Batcher's Bitonic Sort
+Bitonic Sort ✔✔✔
 
 Batcher's Odd-Even Merge Sort
 

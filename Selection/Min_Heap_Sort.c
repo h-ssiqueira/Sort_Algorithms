@@ -19,20 +19,20 @@ void heapmin(int array[], int n, int i){ //n is the size of heap
         array[i] = array[smallest];
         array[smallest] = aux;
 
-        heap(array, n, smallest); //Acess the subtree
+        heapmin(array, n, smallest); //Acess the subtree
     } 
 } 
   
 void MinHeapSort(int array[], int length){ 
     for(int i = length / 2 - 1; i >= 0; i--) 
-        heap(array, length, i); //Creating the heap
+        heapmin(array, length, i); //Creating the heap
 
     for(int i = length-1, aux; i >= 0; i--){ //Remove each element from heap
         aux = array[i];
         array[i] = array[0];
         array[0] = aux;
   
-        heap(array, i, 0); //Reduced heap
+        heapmin(array, i, 0); //Reduced heap
     } 
 }
 

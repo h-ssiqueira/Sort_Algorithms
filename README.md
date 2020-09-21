@@ -43,6 +43,7 @@
 	1. [Merge Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Merge_Sort.c)
 
 1. [Networks & Concurrent:](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Networks%26Concurrent)
+	1. [Bitonic Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Networks%26Concurrent/Bitonic_Sort.c)
 	1. [Pairwise Network Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Networks%26Concurrent/Pairwise_Network_Sort.c)
 
 1. [Non-Comparison & Distribution:](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Non-Comparison%26Distribution)
