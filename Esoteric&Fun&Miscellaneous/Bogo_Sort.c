@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include "Esoteric_Fun_Miscellaneous.h"
  
  // Worst case performance O((n + 1)!)
  // Best case performance O(n)
@@ -26,7 +27,8 @@ void bogo_sort(int a[], int n){
         }
     }
 }
-    
+
+/*    
 int main(){
     srand(time(NULL));
     int numbers[] = {1,10,9,7,3,0,50,654,222,-2};
@@ -41,3 +43,4 @@ int main(){
         printf("%d ", numbers[i]);
     return 0;
 }
+*/

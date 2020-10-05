@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "Merge.h"
 
 // Worst case performance O(n log n)
 // Best case performance O(n log n), O(n) natural variant
@@ -46,6 +47,7 @@ void Merge_Sort(int array[], int start, int end){
     }
 }
 
+/*
 int main(){
     int ar[] = {55,654,321,8,52,31,54,66,221,100};
     
@@ -60,3 +62,4 @@ int main(){
     
     return 0;
 }
+*/

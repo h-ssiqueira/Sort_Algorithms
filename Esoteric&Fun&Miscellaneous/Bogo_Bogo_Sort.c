@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
+#include "Esoteric_Fun_Miscellaneous.h"
 
 // Worst case performance O((n + 1)!)
 // Best case performance O(n)
@@ -15,7 +16,7 @@ bool is_sorted(int a[], int n){
     return true;
 }
 
-void BogoBogoSort(int array[],int length){
+void BogoBogoSort(int array[], int length){
     int size = 2,aux,random;
     bool notsorted = true;
         
@@ -35,6 +36,7 @@ void BogoBogoSort(int array[],int length){
     }
 }
 
+/*
 int main(){
     srand(time(NULL));
     int array[] = {299,581,698,6,451,285,366,253,531,686},i;
@@ -49,3 +51,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

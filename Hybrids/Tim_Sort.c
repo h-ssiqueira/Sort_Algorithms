@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Hybrids.h"
 #define RUN 32 // Run must be in range (32-64), better 32 or 64 (potency of 2)
 
 // Merge Sort + Insertion Sort = Tim Sort
@@ -59,7 +60,7 @@ void TimSort(int array[], int length){
     for(int i = 0; i < length; i += RUN){ // Sort subarrays of size RUN or mid
         right = i + RUN - 1;
         mid = length - 1;
-        right > mid ? InsertionSort(array, i, mid) : InsertionSort(array, i, right); ; 
+        right > mid ? InsertionSort(array, i, mid) : InsertionSort(array, i, right); 
     }
   
     for(int size = RUN; size < length; size = 2 * size){ // Start mergin from size of run and doubling up the value
@@ -74,7 +75,7 @@ void TimSort(int array[], int length){
     } 
 } 
  
-
+/*
 int main(){
     int array[] = {801,299,118,440,734,80,780,715,799,851},i;
     
@@ -88,3 +89,4 @@ int main(){
     
     return 0;
 }
+*/

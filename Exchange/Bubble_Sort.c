@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // Worst case performance O(n**2) comparisons and O(n**2) swaps
 // Best case performance O(n) and O(1) swaps
@@ -18,6 +19,7 @@ void Bubble_sort(int array[],int length){
     }
 }
 
+/*
 int main(){
     int array[] = {5,9,4,22,51,3,10,65,111,49},i;
     
@@ -31,3 +33,4 @@ int main(){
     
     return 0;
 }
+*/

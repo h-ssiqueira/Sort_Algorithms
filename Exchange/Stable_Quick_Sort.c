@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // Worst case performance O(n**2)
 // Best case performance O(n log n)
@@ -35,6 +36,7 @@ void StableQuickSort(int array[], int start, int end){
         StableQuickSort(array, aux + 1, end);
 }  
 
+/*
 int main(){
     int array[] = {979,82,937,764,309,761,824,540,786,732},i;
     
@@ -50,3 +52,4 @@ int main(){
 
     return 0;
 }
+*/

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Insertion.h"
 
 // Worst case performance О(n**2) comparisons 
 // Best case performance O(n**2) comparisons 
@@ -56,6 +57,7 @@ void CycleSort(int array[],int length){
     } 
 }
 
+/*
 int main(){
     int array[] = {807,449,650,900,745,539,390,112,447,973}, i;
     
@@ -69,3 +71,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

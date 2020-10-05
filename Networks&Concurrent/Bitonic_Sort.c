@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Networks_Concurrent.h"
 
 // Worst case performance O((log n)**2)
 // Best case performance O((log n)**2)
@@ -31,7 +32,7 @@ void BitonicSort(int array[], int low, int length, int direction){ // Direction 
 	}
 }
 
-  
+/*
 int main(){
 	int array[] = {514,166,8,269,767,237,318,980};
     
@@ -47,3 +48,4 @@ int main(){
 
 	return 0;
 }
+*/

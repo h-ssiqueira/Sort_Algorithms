@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // Worst case performance O(n**2)
 // Best case performance O(n)
@@ -26,6 +27,7 @@ void Gnome_Sort(int array[], int length){
     }
 }
 
+/*
 int main(){
     int array[] = {9,5,3,7,6,4,8,1,2,10},i;
     
@@ -39,3 +41,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

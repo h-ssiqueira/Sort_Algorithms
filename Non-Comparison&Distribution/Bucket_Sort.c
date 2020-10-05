@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "Non-Comparison_Distribution.h"
 #define buckets 10
 
 // Worst case performance O(n**2)
@@ -85,6 +86,7 @@ int BucketSort(int array[], int length){
     }
 }
 
+/*
 int main(){
     int array[] = {49,436,448,704,516,297,468,764,735,564};
     
@@ -99,3 +101,4 @@ int main(){
     
     return 0;
 }
+*/

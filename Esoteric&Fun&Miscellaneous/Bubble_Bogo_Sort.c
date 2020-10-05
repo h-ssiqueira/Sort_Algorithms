@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include "Esoteric_Fun_Miscellaneous.h"
 
 bool is_sorted(int a[], int n){
     while(--n >= 1){
@@ -23,6 +24,7 @@ void BubbleBogoSort(int array[], int length){
     }
 }
 
+/*
 int main(){
     srand(time(NULL));
     int array[] = {517,418,663,859,992,119,508,887,672,407},i;
@@ -37,3 +39,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

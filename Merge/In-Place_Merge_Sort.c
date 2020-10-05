@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Merge.h"
 
 // Complexity O(n log n)
 
-void merge(int array[], int start, int middle, int end){ 
+void MergeInPlace(int array[], int start, int middle, int end){ 
     int middle2 = middle + 1, value, i; 
   
     if(array[middle] <= array[middle2]) //if already sorted
@@ -29,18 +30,19 @@ void merge(int array[], int start, int middle, int end){
     }
 }
 
-void Merge_Sort(int array[], int start, int end){
+void Merge_Sort_In_Place(int array[], int start, int end){
     if(start < end){
         int middle = (end + start) / 2;
 
-        Merge_Sort(array, start, middle); //first halves
-        Merge_Sort(array, middle + 1, end); //second halves
+        Merge_Sort_In_Place(array, start, middle); //first halves
+        Merge_Sort_In_Place(array, middle + 1, end); //second halves
         if(array[middle] < array[middle+1]) // Check if both parts are already sorted, if so, merge is useless
             return;
-        merge(array, start, middle, end);
+        MergeInPlace(array, start, middle, end);
     }
 }
 
+/*
 int main(){
     int array[] = {465,54,222,84,23,14,67,321,74,1},i;
     
@@ -56,3 +58,4 @@ int main(){
     
     return 0;
 }
+*/

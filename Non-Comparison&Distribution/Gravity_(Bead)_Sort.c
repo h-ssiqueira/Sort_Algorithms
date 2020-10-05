@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Non-Comparison_Distribution.h"
 
 // O(1) All beads together, doing a single operation
 // O(n**0.5) Realistic physical model
@@ -39,6 +40,7 @@ void BeadSort(int array[], int length){
 	free(beads);
 }
 
+/*
 int main(){
     int array[] = {159,217,135,509,805,598,742,156,782,427},i;
     
@@ -52,3 +54,4 @@ int main(){
     
     return 0;
 }
+*/

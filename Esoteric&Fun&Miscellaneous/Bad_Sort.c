@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include "Esoteric_Fun_Miscellaneous.h"
 
 // O(n**3)
 // Bad implementation of selection sort
@@ -28,6 +29,7 @@ void BadSort(int array[], int length){
     }
 }
 
+/*
 int main(){
     int array[] = {131,418,457,76,631,739,462,299,716,68},i;
     
@@ -41,3 +43,4 @@ int main(){
     
     return 0;
 }
+*/

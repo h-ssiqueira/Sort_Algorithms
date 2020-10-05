@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "Esoteric_Fun_Miscellaneous.h"
 
 // Multiply and surrender strategy
 // O(n)
@@ -19,6 +21,7 @@ void SillySort(int array[],int start, int end){
 	}
 }
 
+/*
 int main(){
     int array[] = {17,691,128,110,238,445,690,183,288,607},i;
     
@@ -32,3 +35,4 @@ int main(){
     
     return 0;
 }
+*/

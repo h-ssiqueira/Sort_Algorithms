@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // *Worst case performance O(n**2)
 // *Best case performance O(n)
@@ -20,6 +21,7 @@ void Optimized_Gnome_Sort(int array[],int i){
     }
 }
 
+/*
 int main(){
     int array[] = {771,143,40,570,616,967,376,266,895,121},i;
     
@@ -34,3 +36,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

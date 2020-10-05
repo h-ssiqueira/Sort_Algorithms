@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Esoteric_Fun_Miscellaneous.h"
 
 // Multiply and surrender strategy
 // O(n)
@@ -19,6 +20,7 @@ void Slow_Sort(int array[],int start,int end){
     Slow_Sort(array,start,end-1); // Sort elements decreasing the array
 }
 
+/*
 int main(){
     int array[] = {85,354,1,123,45,897,231,984,35,89},i;
     for(i = 0; i < 10; i++)
@@ -32,3 +34,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Selection.h"
 
 // Worst case performance O(n**2) comparisons and O(n) swaps
 // Best case performance O(n**2) comparisons and O(n) swaps
@@ -28,6 +29,7 @@ void Selection_Sort(int array[], int length){
     }
 }
 
+/*
 int main(){
     int v[] = {3,67,31,90,1,44,654,89,21,20};
     
@@ -43,3 +45,4 @@ int main(){
     
     return 0;
 }
+*/

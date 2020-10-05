@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Insertion.h"
 
 // Worst case performance O(n**3/2)
 // Best case performance O(n log n)
@@ -20,7 +21,7 @@ void ShellSort(int array[], int length){
     }
 }
 
-
+/*
 int main(){
     int array[] = {119,536,252,970,681,861,222,369,587,468},i;
 
@@ -35,3 +36,4 @@ int main(){
         printf("%d ", array[i]);
     return 0;
 }
+*/

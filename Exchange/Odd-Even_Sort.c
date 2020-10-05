@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "Exchange.h"
 
 // Worst case performance O(n**2)
 // Best case performance O(n)
@@ -39,6 +40,7 @@ void Odd_Even_Sort(int array[],int length){
     }
 }
 
+/*
 int main(){
     int array[] = {416,647,874,428,309,898,464,335,47,82},i;
     
@@ -52,3 +54,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

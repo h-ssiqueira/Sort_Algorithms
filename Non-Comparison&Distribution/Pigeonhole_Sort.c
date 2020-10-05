@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Non-Comparison_Distribution.h"
 
 // Worst case performance O(N + n) N -> range of key values, n -> input size
 
@@ -24,6 +25,7 @@ void Pigeonhole_Sort(int array[], int length){
             array[j++] = i + min; //insert the values to main array
 }
 
+/*
 int main(){
     int test[] = {2,20,1,7,3,5,2,-11,2,1},i;
     
@@ -39,3 +41,4 @@ int main(){
     
     return 0;
 }
+*/

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Esoteric_Fun_Miscellaneous.h"
 
 // Average case performance O(n**2)
 
@@ -29,7 +30,7 @@ int PancakeSort(int array[], int length){
     }
 }
  
-
+/*
 int main(){
     int array[] = {82,458,594,767,876,700,943,751,7,368},i;
     
@@ -43,3 +44,4 @@ int main(){
     
     return 0;
 }
+*/

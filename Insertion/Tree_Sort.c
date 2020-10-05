@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Insertion.h"
 
 // Worst case performance О(n**2) comparisons 
 // Best case performance O(n log n) comparisons 
@@ -61,6 +62,7 @@ void TreeSort(int array[], int length){
     root = Release(root);
 } 
 
+/*
 int main(){
     int array[] = {236,120,317,146,425,379,400,160,242,3}, i;
     
@@ -74,3 +76,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

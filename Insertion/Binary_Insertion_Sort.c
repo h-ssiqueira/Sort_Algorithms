@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Insertion.h"
 
 // O(n log n)
 
@@ -34,6 +35,7 @@ void InsertionSort(int array[], int length){
     } 
 } 
 
+/*
 int main(){
     int array[] = {693,378,660,247,77,223,132,685,873,862},i;
     
@@ -49,3 +51,4 @@ int main(){
     
     return 0;
 }
+*/

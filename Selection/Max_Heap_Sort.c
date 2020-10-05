@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Selection.h"
 
 // Worst case performance O(n log n)
 // Best case performance O(n log n)
@@ -36,6 +37,7 @@ void MaxHeapSort(int array[], int length){
     } 
 }
 
+/*
 int main(){
     int array[] = {423,816,549,499,789,769,463,516,846,473},i;
     
@@ -49,3 +51,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

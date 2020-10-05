@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // Worst case performance O(n**2)
 // Best case performance O(n)
@@ -30,6 +31,7 @@ void QuickSort3way(int array[], int start, int end){
 	}
 }
 
+/*
 int main(){
     int array[] = {691,943,746,940,402,962,402,725,140,294},i;
     
@@ -45,3 +47,4 @@ int main(){
     
     return 0;
 }
+*/

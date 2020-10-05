@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Non-Comparison_Distribution.h"
 
 // Worst case performance O(n + k), k -> range of the non-negative key values
 // Best case performance O(n + k)
@@ -30,7 +31,7 @@ void Counting_Sort(int array[],int length){
         array[i] = output[i];
 }
 
-
+/*
 int main(){
     int array[] = {305,224,575,587,589,891,810,158,872,805},i;
     
@@ -44,3 +45,4 @@ int main(){
     
     return 0;
 }
+*/

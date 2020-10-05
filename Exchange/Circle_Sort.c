@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // Worst case performance O(n log n log n)
 // Best case performance O(n log n)
@@ -25,6 +26,7 @@ void CircleSort(int array[], int length){
         continue;
 }
  
+/*
 int main(){
 	int array[] = {894,467,594,559,97,183,923,323,864,540},i;
     for(i = 0; i < 10; i++) 
@@ -36,3 +38,4 @@ int main(){
  
 	return 0;
 }
+*/

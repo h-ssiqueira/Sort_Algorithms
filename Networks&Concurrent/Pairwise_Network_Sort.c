@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "Networks_Concurrent.h"
 
 // Worst case performance O((log n)(1 + log n) / 2)
 
@@ -37,6 +39,7 @@ void Pairwise_Sort(int array[], int start, int end, int piv){
 	}
 }
 
+/*
 int main(){
 	int array[] = {79,732,622,75,982,87,825,352,402,584};
     
@@ -52,3 +55,4 @@ int main(){
 
 	return 0;
 }
+*/

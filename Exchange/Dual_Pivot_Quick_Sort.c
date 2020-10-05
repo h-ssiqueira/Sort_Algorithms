@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // 2n log n comparisons and 0,8 n log n swaps
 
@@ -52,6 +53,7 @@ void DualPivotQuickSort(int array[], int start, int end){
     }
 }
 
+/*
 int main(){
     int array[] = {429,941,467,402,149,763,543,554,560,993},i;
     
@@ -67,3 +69,4 @@ int main(){
     
     return 0;
 }
+*/

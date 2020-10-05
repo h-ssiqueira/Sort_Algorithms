@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // Worst case performance O(n**2)
 // Best case performance O(n log n)
@@ -26,6 +27,7 @@ void CombSort(int array[], int length){
     }
 }
 
+/*
 int main(){
     int array[] = {276,64,534,43,658,425,794,921,766,878},i;
     
@@ -38,3 +40,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Selection.h"
 
 // Worst case performance O(n**2) comparisons and O(n) swaps
 // Best case performance O(n**2) comparisons and O(n) swaps
@@ -43,6 +44,7 @@ void Double_Selection_Sort(int array[], int length){
     }
 }
 
+/*
 int main(){
     int array[] = {5,98,-1,0,11,321,654,555,44,2};
     
@@ -57,3 +59,4 @@ int main(){
     
     return 0;
 }
+*/

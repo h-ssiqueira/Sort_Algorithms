@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // Worst case performance O(n**2)
 // Best case performance O(n)
@@ -40,6 +41,7 @@ void CocktailShakerSort(int array[], int length){
     }
 }
 
+/*
 int main(){
     int array[] = {508,135,423,546,98,809,857,946,225,81},i;
     
@@ -52,3 +54,4 @@ int main(){
         printf("%d ",array[i]);
     return 0;
 }
+*/

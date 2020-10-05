@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Esoteric_Fun_Miscellaneous.h"
 
 // Average case performance O(n)
   
-int SpaghettiSort(int array[], int length){
+void SpaghettiSort(int array[], int length){
     int i, j, k = 0, aux[length], min = array[0], max = array[0];
     for(i = 0; i < length; i++){ // Find the max and min values in the array
         if(array[i] > max) 
@@ -23,7 +24,7 @@ int SpaghettiSort(int array[], int length){
         array[i] = aux[i];
 }
  
-
+/*
 int main(){
     int array[] = {323,669,285,167,862,674,733,331,475,445},i;
     
@@ -37,3 +38,4 @@ int main(){
     
     return 0;
 }
+*/

@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "Exchange.h"
 
 // Worst case performance O(n**2) comparisons and O(n**2) swaps
 // Best case performance O(n) and O(1) swaps
@@ -29,6 +30,7 @@ void BubbleSortOptmized(int array[], int length){
     }
 }
 
+/*
 int main(){
     int array[] = {66,600,410,815,779,233,998,510,734,65},i;
     
@@ -44,3 +46,4 @@ int main(){
 
     return 0;
 }
+*/
