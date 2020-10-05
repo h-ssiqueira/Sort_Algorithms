@@ -4,7 +4,7 @@
 #include <time.h>
 #include "Esoteric_Fun_Miscellaneous.h"
 
-bool is_sorted(int a[], int n){
+bool is_sorted(int a[], unsigned int n){
     while(--n >= 1){
         if(a[n] < a[n-1]) 
             return false;
@@ -12,8 +12,9 @@ bool is_sorted(int a[], int n){
     return true;
 }
 
-void LessBogoSort(int array[], int length){
-    int index = 0,aux,random;
+void LessBogoSort(int array[], unsigned int length){
+    unsigned int index = 0,random;
+	int aux;
     while(index != length){
         while(!is_sorted(array, index+1)){ // Tries to sort randomly
             random = rand() % length;

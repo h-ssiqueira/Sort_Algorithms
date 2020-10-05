@@ -7,8 +7,9 @@
 // Average case performance O(n log n)
 // Worst case comparisons between (n lg n − n + 1) and (n lg n + n + O(lg n))
 
-void Merge(int array[], int start, int middle, int end){
-    int count1 = start, count2 = middle + 1, i, *aux = (int*)malloc((end - start + 1) * sizeof(int));
+void Merge(int array[], unsigned int start, unsigned int middle, unsigned int end){
+    unsigned int count1 = start, count2 = middle + 1, i;
+	int *aux = (int*)malloc((end - start + 1) * sizeof(int));
 
     for(i = 0; count1 <= middle && count2 <= end; i++){
         if(array[count1] < array[count2]){
@@ -35,9 +36,9 @@ void Merge(int array[], int start, int middle, int end){
     free(aux);
 }
 
-void Merge_Sort(int array[], int start, int end){
+void Merge_Sort(int array[], unsigned int start, unsigned int end){
     if(start < end){
-        int middle = (start + end) / 2;
+        unsigned int middle = (start + end) / 2;
         
         Merge_Sort(array, start, middle); // first - middle parts
         Merge_Sort(array, middle + 1, end); // middle - end parts

@@ -6,9 +6,10 @@
 // Best case performance O(n**2) comparisons 
 // Average performance О(n**2) comparisons
 
-void CycleSort(int array[],int length){
-    int aux, pos, swap;
-    for(int i = 0; i < length - 2; i++){ 
+void CycleSort(int array[], unsigned int length){
+    int aux, swap;
+	unsigned int pos;
+    for(unsigned int i = 0; i < length - 2; i++){ 
         aux = array[i]; 
 
         pos = i; 

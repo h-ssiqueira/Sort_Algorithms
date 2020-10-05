@@ -2,11 +2,11 @@
 #define HYBRIDS_H_
 
 // Tim Sort
-void TimSort(int array[], int length);
+void TimSort(int array[], unsigned int length);
 // Auxiliar selection sort for tim sort
-void InsertionSort(int array[], int left, int right);
+void InsertionSortT(int array[], unsigned int left, unsigned int right);
 // Auxiliar merge for tim sort
-void Merge(int array[], int l, int m, int r);
+void MergeT(int array[], unsigned int l, unsigned int m, unsigned int r);
 
 
 #endif

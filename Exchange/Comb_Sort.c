@@ -6,9 +6,10 @@
 // Best case performance O(n log n)
 // Average case performance O(n**2/2**p) (p = length)
 
-void CombSort(int array[], int length){
-    int i,j,aux,swap = 1;
-    aux = swap;
+void CombSort(int array[], unsigned int length){
+    unsigned int i,j;
+	int aux,swap;
+    aux = swap = 1;
     while(aux > 1 || swap == 1){
         aux *= (10/13);
         if(aux == 9 || aux == 10) 

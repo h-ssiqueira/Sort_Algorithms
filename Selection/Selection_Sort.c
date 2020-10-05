@@ -8,12 +8,13 @@
 
 //(n**2 - n)/2 comparisons
 
-void Selection_Sort(int array[], int length){
-    int change, aux;
+void Selection_Sort(int array[], unsigned int length){
+    int aux;
+	unsigned int change,i,j;
     
-    for(int i = 0; i < length-1; i++){ //last element won't have other to compair
+    for(i = 0; i < length-1; i++){ //last element won't have other to compair
         change = i;
-        for(int j = i+1; j < length; j++)
+        for(j = i+1; j < length; j++)
             if(array[change] > array[j]) //if the element is lower, collect the position
                 change = j;
         if(i != change){// if it has been modified, swap positions (using xor)

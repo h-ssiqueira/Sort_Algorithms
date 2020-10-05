@@ -6,7 +6,7 @@
 // Best case performance O(n log n)
 // Average case performance O(n log n)
 
-int Sort(int array[], int start, int end){
+int Sort(int array[], unsigned int start, unsigned int end){
     int aux = array[start];
     
     while(start < end){
@@ -27,7 +27,7 @@ int Sort(int array[], int start, int end){
     return start;
 }
 
-void StableQuickSort(int array[], int start, int end){
+void StableQuickSort(int array[], unsigned int start, unsigned int end){
     int aux = Sort(array, start, end);
     
     if(start < aux - 1)

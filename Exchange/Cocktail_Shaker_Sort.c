@@ -6,8 +6,9 @@
 // Best case performance O(n)
 // Average case performance O(n**2)
 
-void CocktailShakerSort(int array[], int length){
-    int start = 0,end = length - 1,swap = 0,i,aux;
+void CocktailShakerSort(int array[], unsigned int length){
+    unsigned int start = 0,end = length - 1,i;
+	int swap = 0, aux;
     while(swap == 0 && start < end){
         swap = 1;
         for(i = start; i < end; i++){

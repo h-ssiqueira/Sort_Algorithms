@@ -2,26 +2,31 @@
 #define INSERTION_H_
 
 // Binary Insertion Sort
-void InsertionSort(int array[], int length);
+void InsertionSort(int array[], unsigned int length);
 // Binary seach for binary insertion sort
-int BinarySearch(int array[], int num, int start, int end);
+unsigned int BinarySearch(int array[], int num, unsigned int start, unsigned int end);
 
 // Cycle Sort
-void CycleSort(int array[],int length);
+void CycleSort(int array[], unsigned int length);
 
 // Insertion Sort
-void Insertion_Sort(int array[],int length);
+void Insertion_Sort(int array[], unsigned int length);
 
 // Shell Sort
-void ShellSort(int array[], int length);
+void ShellSort(int array[], unsigned int length);
 
 // Tree Sort
-void TreeSort(int array[], int length);
+void TreeSort(int array[], unsigned int length);
+// Structure of the tree
+typedef struct node{ 
+    int value; 
+    struct node *left, *right; 
+}Node; 
 // Function that releases the memory allocated
 Node* Release(Node *T);
 // Function that stores the values of the tree in the array
-void Store(Node *root, int array[], int **i);
+void Store(Node *root, int array[], unsigned int **i);
 // Function that insert a value inside the tree
-void Insert(Node **node, int value)void Insert(Node **node, int value);
+void Insert(Node **node, int value);
 
 #endif

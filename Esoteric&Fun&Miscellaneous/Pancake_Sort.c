@@ -4,8 +4,8 @@
 
 // Average case performance O(n**2)
 
-void flip(int array[], int i){ 
-    int start = 0; 
+void flip(int array[], unsigned int i){ 
+    unsigned int start = 0; 
     while(start < i){ 
         array[start] = array[i] ^ array[start];
         array[i] = array[i] ^ array[start];
@@ -15,8 +15,8 @@ void flip(int array[], int i){
     }
 }
   
-int PancakeSort(int array[], int length){
-    int aux,i = length,j;
+int PancakeSort(int array[], unsigned int length){
+    unsigned int aux,i = length,j;
     for(; i > 1; i--){ 
         aux = 0;
         for(j = 0; j < i; j++){ // Find the position of the greater element of the array

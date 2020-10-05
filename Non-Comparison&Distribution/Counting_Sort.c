@@ -7,15 +7,17 @@
 // Best case performance O(n + k)
 // Average performance O(n + k)
 
-void Counting_Sort(int array[],int length){
-    int output[length], i, max = array[0], min = array[0];
+void Counting_Sort(int array[], unsigned int length){
+    int output[length], max = array[0], min = array[0];
+	unsigned int i;
     
     for(i = 0; i < length; i++){
         if(array[i] > max) max = array[i];
         if(array[i] < min) min = array[i];
     }
     
-    int range = max - min + 1,count[range];
+    unsigned int range = max - min + 1;
+	int count[range];
     
     memset(count,0,sizeof(count)); // Set 0 for all positions in array
     

@@ -8,9 +8,10 @@
 // Best case performance O(n)
 // Average case performance O(n log n)
   
-void InsertionSort(int array[], int left, int right){ 
-    int aux, j;
-    for(int i = left + 1; i <= right; i++){ 
+void InsertionSortT(int array[], unsigned int left, unsigned int right){ 
+    int aux;
+	unsigned int i,j;
+    for(i = left + 1; i <= right; i++){ 
         aux = array[i]; 
         j = i - 1; 
         while (j >= left && array[j] > aux){ 
@@ -21,8 +22,9 @@ void InsertionSort(int array[], int left, int right){
     } 
 } 
   
-void Merge(int array[], int l, int m, int r){ // Original array in two parts (left-mid + mid+1-right)
-    int size1 = m - l + 1, size2 = r - m, i, j = 0, k = l, left[size1], right[size2]; 
+void MergeT(int array[], unsigned int l, unsigned int m, unsigned int r){ // Original array in two parts (left-mid + mid+1-right)
+    unsigned int size1 = m - l + 1, size2 = r - m, i, j = 0, k = l;
+	int left[size1], right[size2]; 
     for(i = 0; i < size1; i++) 
         left[i] = array[l + i]; 
     for(i = 0; i < size2; i++) 
@@ -55,22 +57,22 @@ void Merge(int array[], int l, int m, int r){ // Original array in two parts (le
     } 
 } 
   
-void TimSort(int array[], int length){ 
-    int mid, right;
+void TimSort(int array[], unsigned int length){ 
+    unsigned int mid, right;
     for(int i = 0; i < length; i += RUN){ // Sort subarrays of size RUN or mid
         right = i + RUN - 1;
         mid = length - 1;
-        right > mid ? InsertionSort(array, i, mid) : InsertionSort(array, i, right); 
+        right > mid ? InsertionSortT(array, i, mid) : InsertionSortT(array, i, right); 
     }
   
-    for(int size = RUN; size < length; size = 2 * size){ // Start mergin from size of run and doubling up the value
-        for(int left = 0; left < length; left += 2 * size){ 
+    for(unsigned int size = RUN; size < length; size = 2 * size){ // Start mergin from size of run and doubling up the value
+        for(unsigned int left = 0; left < length; left += 2 * size){ 
             mid = length - 1;
             right = left + 2 * size - 1; 
             if(mid < right) // Find ending position of merged array to merge with another
                 right = mid;
             mid = left + size - 1; 
-            Merge(array, left, mid, right); 
+            MergeT(array, left, mid, right); 
         } 
     } 
 } 

@@ -6,8 +6,9 @@
 // Best case performance O(n log n)
 // Average case performance undiscovered (h equation is not perfect yet)
 
-void ShellSort(int array[], int length){
-    int aux, h = 1, i, j;
+void ShellSort(int array[], unsigned int length){
+    unsigned int h = 1, i, j;
+	int aux;
     
     while(h < length) // Set the value of h until reach the value of length or more
         h = 3 * h + 1;

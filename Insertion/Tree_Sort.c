@@ -22,7 +22,7 @@ Node* Release(Node *T){
 }
   
 // Function that stores the elements of the sorted tree in the array
-void Store(Node *root, int array[], int **i){ 
+void Store(Node *root, int array[], unsigned int **i){ 
     if(root != NULL){ 
         if(root->left != NULL)
             Store(root->left, array, &(*i)); 
@@ -49,9 +49,9 @@ void Insert(Node **node, int value){
     }
 }
   
-void TreeSort(int array[], int length){ 
+void TreeSort(int array[], unsigned int length){ 
     Node *root = NULL; 
-    int i,*p;
+    unsigned int i,*p;
     
     for(i = 0; i < length; i++) 
         Insert(&root, array[i]); 

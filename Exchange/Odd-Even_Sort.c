@@ -6,8 +6,9 @@
 // Worst case performance O(n**2)
 // Best case performance O(n)
 
-void Odd_Even_Sort(int array[],int length){
-    int i, j, aux;
+void Odd_Even_Sort(int array[], unsigned int length){
+    int aux;
+	unsigned int i, j;
     bool sorted = false;
     while(!sorted){
         sorted = true;

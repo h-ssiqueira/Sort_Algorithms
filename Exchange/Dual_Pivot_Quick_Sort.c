@@ -12,7 +12,8 @@ void DualPivotQuickSort(int array[], int start, int end){
             array[end] = array[end] ^ array[start];
         }
             
-        int last = array[end], first = array[start], p1 = start + 1, p2 = end - 1, aux = p1, swap;
+        int last = array[end], first = array[start], swap;
+		unsigned int p1 = start + 1, p2 = end - 1, aux = p1;
         while(aux <= p2){
             if(array[aux] < first){
                 swap = array[aux];

@@ -6,8 +6,9 @@
 // Best case performance O(n)
 // Average case performance O(n**2)
 
-void Gnome_Sort(int array[], int length){
-    int i = 1, aux;
+void Gnome_Sort(int array[], unsigned int length){
+    int aux;
+	unsigned int i = 1;
     
     while(i < length){
         if(array[i] >= array[i-1])

@@ -6,8 +6,9 @@
 // Best case performance O(n log n)
 // Average case performance O(n log n)
 
-void Quick_Sort(int array[], int start, int end){
-    int middle = array[(start + end) / 2], i = start, j = end,aux;
+void Quick_Sort(int array[], unsigned int start, unsigned int end){
+    unsigned int middle = array[(start + end) / 2], i = start, j = end;
+	int aux;
     
     while(i <= j){
         while(array[i] < middle && i < end)

@@ -6,9 +6,10 @@
 // Best case performance O(n)
 // Average case performance O(n log n)
 
-void QuickSort3way(int array[], int start, int end){
+void QuickSort3way(int array[], unsigned int start, unsigned int end){
 	if(end > start){
-		int low = start, great = end, i = start, aux, piv = array[start];
+		unsigned int low = start, great = end, i = start;
+		int aux, piv = array[start];
 		while(i <= great){ // Set the pivot in the center of the array, sorting greaters and lowers values in the array comparing to pivot
 			if(array[i] < piv){ // Compares if the value is lower than pivot
 				aux = array[i]; // If so, change the positions of index and low

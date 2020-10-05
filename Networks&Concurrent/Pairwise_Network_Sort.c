@@ -4,9 +4,9 @@
 
 // Worst case performance O((log n)(1 + log n) / 2)
 
-void Pairwise_Sort(int array[], int start, int end, int piv){
+void Pairwise_Sort(int array[], unsigned int start, unsigned int end, unsigned int piv){
 	if(start != end - piv){
-		int i, j, k;
+		unsigned int i, j, k;
 		for(i = start + piv; i < end; i += (2 * piv)){ // Starts comparing the multiples of two
 			if(array[i - piv] > array[i]){
 				array[i] = array[i] ^ array[i-piv];

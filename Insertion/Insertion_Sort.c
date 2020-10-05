@@ -6,8 +6,9 @@
 // Best case performance O(n) comparisons 
 // Average performance О(n**2) comparisons
 
-void Insertion_Sort(int array[],int length){
-    for(int i = 1, j, aux; i < length; i++){//i is always one step ahead j
+void Insertion_Sort(int array[], unsigned int length){
+	int aux;
+    for(unsigned int i = 1, j; i < length; i++){//i is always one step ahead j
         aux = array[i]; //collect the value of a position
         j = i - 1; //and the index of previous value
         while(j >= 0 && aux < array[j]){ //compares with the previous array until find the lower element

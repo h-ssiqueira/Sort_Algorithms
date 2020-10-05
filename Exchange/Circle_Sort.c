@@ -21,7 +21,7 @@ int CircleSortAux(int start[], int end[]){
 	return swap | CircleSortAux(start, q) | CircleSortAux(p, end);
 }
  
-void CircleSort(int array[], int length){
+void CircleSort(int array[], unsigned int length){
 	while(CircleSortAux(array, array + (length - 1))) 
         continue;
 }

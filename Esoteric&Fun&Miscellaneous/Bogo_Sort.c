@@ -8,7 +8,7 @@
  // Best case performance O(n)
  // Average case performance O((n + 1)!)
  
-bool is_sorted(int a[], int n){
+bool is_sorted(int a[], unsigned int n){
     while(--n >= 1){
         if(a[n] < a[n-1]) 
             return false;
@@ -16,10 +16,11 @@ bool is_sorted(int a[], int n){
     return true;
 }
     
-void bogo_sort(int a[], int n){
-    int aux, random;
+void bogo_sort(int a[], unsigned int n){
+    int aux
+	unsigned int random;
     while(!is_sorted(a,n)){
-        for(int i = 0; i < n; i++){ //tries to sort randomly
+        for(unsigned int i = 0; i < n; i++){ //tries to sort randomly
             aux = a[i];
             random = rand() % n;
             a[i] = a[random];

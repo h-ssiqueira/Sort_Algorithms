@@ -4,11 +4,11 @@
 
 // O(n log n)
 
-int BinarySearch(int array[], int num, int start, int end){ 
+unsigned int BinarySearch(int array[], int num, unsigned int start, unsigned int end){ 
     if(end <= start) 
         return (num > array[start]) ? (start + 1) : start; 
   
-    int mid = (start + end) / 2; 
+    unsigned int mid = (start + end) / 2; 
   
     if(num == array[mid]) 
         return mid + 1; 
@@ -18,8 +18,9 @@ int BinarySearch(int array[], int num, int start, int end){
     return BinarySearch(array, num, start, mid - 1); 
 } 
   
-void InsertionSort(int array[], int length){ 
-    int i, j, pos, aux; 
+void InsertionSort(int array[], unsigned int length){ 
+    unsigned int i, j, pos;
+	int aux; 
   
     for(i = 1; i < length; i++){ 
         j = i - 1; 

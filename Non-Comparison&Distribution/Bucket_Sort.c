@@ -8,13 +8,14 @@
 // Best case performance O(n + k) k is the number of buckets
 // Average performance O(n + k)
 
-void Double_Selection_Sort(int length, int matrix[][length]){
-    int changeMin, changeMax, aux;
-    for(int h = 0; h < buckets; h++){
-        for(int i = 0, j = length-1; i < j; i++, j--){
+void Double_Selection_SortB(unsigned int length, int matrix[][length]){
+    unsigned int changeMin, changeMax;
+	int aux;
+    for(unsigned int h = 0; h < buckets; h++){
+        for(unsigned int i = 0, j = length-1; i < j; i++, j--){
             changeMin = i; //starts in the first
             changeMax = j; //starts in the last
-            for(int k = i+1; k <= j; k++){
+            for(unsigned int k = i+1; k <= j; k++){
                 if(matrix[h][k] < matrix[h][changeMin]) //search for the min element
                     changeMin = k;
                 else if(matrix[h][k] > matrix[h][changeMax]) //search for the max element
@@ -44,8 +45,9 @@ void Double_Selection_Sort(int length, int matrix[][length]){
     }
 }
 
-int BucketSort(int array[], int length){
-    int i, j, k, b[buckets][length], range = 1;
+int BucketSort(int array[], unsigned int length){
+    unsigned int i, j, k, range = 1;
+	int b[buckets][length];
     for(i = 0; i < buckets; i++){
         for(j = 0; j < length; j++){
             b[i][j] = b[i][j] ^ b[i][j];
@@ -74,7 +76,7 @@ int BucketSort(int array[], int length){
         }
     }
     
-    Double_Selection_Sort(length,b); // After set the values to each bucket, sort each one using other algorithm
+    Double_Selection_SortB(length,b); // After set the values to each bucket, sort each one using other algorithm
     
     for(i = 0, k = 0; i < buckets; i++){ // Merge all buckets to the original array
         for(j = 0; j < length; j++){

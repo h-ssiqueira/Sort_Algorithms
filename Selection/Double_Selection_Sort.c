@@ -9,13 +9,14 @@
 //(n**2 - n)/4 comparisons
 
 
-void Double_Selection_Sort(int array[], int length){
-    int changeMin, changeMax, aux;
+void Double_Selection_Sort(int array[], unsigned int length){
+    unsigned int changeMin, changeMax;
+	int aux;
     
-    for(int i = 0, j = length-1; i < j; i++, j--){
+    for(unsigned int i = 0, j = length-1; i < j; i++, j--){
         changeMin = i; //starts in the first
         changeMax = j; //starts in the last
-        for(int k = i+1; k <= j; k++){
+        for(unsigned int k = i+1; k <= j; k++){
             if(array[k] < array[changeMin]) //search for the min element
                 changeMin = k;
             else if(array[k] > array[changeMax]) //search for the max element

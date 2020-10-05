@@ -6,9 +6,9 @@
 // Best case performance O(n) and O(1) swaps
 // Average case performance O(n**2) comparisons and O(n**2) swaps
 
-void Bubble_sort(int array[],int length){
+void Bubble_sort(int array[], unsigned int length){
     while(length > 1){ // Each loop eleminates the last element in array which is already sorted
-        for(int i = 0; i < length; i++){ // length - 1 comparisons for each loop
+        for(unsigned int i = 0; i < length; i++){ // length - 1 comparisons for each loop
             if(array[i] > array[i+1]){ // Compare each 2 elements of the array 
                 array[i] = array[i] ^ array[i+1]; 
                 array[i+1] = array[i] ^ array[i+1];
