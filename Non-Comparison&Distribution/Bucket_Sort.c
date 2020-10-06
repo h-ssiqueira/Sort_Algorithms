@@ -45,7 +45,7 @@ void Double_Selection_SortB(unsigned int length, int matrix[][length]){
     }
 }
 
-int BucketSort(int array[], unsigned int length){
+void BucketSort(int array[], unsigned int length){
     unsigned int i, j, k, range = 1;
 	int b[buckets][length];
     for(i = 0; i < buckets; i++){

@@ -27,10 +27,11 @@ void heapmax(int array[], unsigned int n, unsigned int i){ //n is the size of he
   
 void MaxHeapSort(int array[], unsigned int length){ 
 	unsigned int i;
+	int aux;
     for(i = length / 2 - 1; i >= 0; i--) 
         heapmax(array, length, i); //Creating the heap
 
-    for(i = length-1, aux; i > 0; i--){ //Remove each element from heap
+    for(i = length-1; i > 0; i--){ //Remove each element from heap
         aux = array[i];
         array[i] = array[0];
         array[0] = aux;

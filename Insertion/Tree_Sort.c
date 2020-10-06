@@ -5,11 +5,12 @@
 // Worst case performance О(n**2) comparisons 
 // Best case performance O(n log n) comparisons 
 // Average performance О(n log n) comparisons
-
+/*
 typedef struct node{ 
     int value; 
     struct node *left, *right; 
 }Node; 
+*/
 
 // Function that releases the tree
 Node* Release(Node *T){

@@ -4,7 +4,7 @@
 
 // 2n log n comparisons and 0,8 n log n swaps
 
-void DualPivotQuickSort(int array[], int start, int end){
+void DualPivotQuickSort(int array[], unsigned int start, unsigned int end){
     if(start < end){
         if(array[end] < array[start]){
             array[end] = array[end] ^ array[start];

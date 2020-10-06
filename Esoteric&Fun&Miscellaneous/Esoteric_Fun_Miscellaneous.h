@@ -1,6 +1,8 @@
 #ifndef ESOTERIC_FUN_MISCELLANEOUS_H_
 #define ESOTERIC_FUN_MISCELLANEOUS_H_
 
+#include <stdbool.h>
+
 // Auxiliar function that check if the array is sorted
 bool is_sorted(int a[], unsigned int n);
 
@@ -27,7 +29,7 @@ void ExchangeBogoSort(int array[], unsigned int length);
 void LessBogoSort(int array[], unsigned int length);
 
 // Pancake Sort
-int PancakeSort(int array[], unsigned int length);
+void PancakeSort(int array[], unsigned int length);
 // Auxiliar function that "flips" the array
 void flip(int array[], unsigned int i);
 

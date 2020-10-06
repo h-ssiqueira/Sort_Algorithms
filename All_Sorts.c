@@ -4,13 +4,13 @@
 #include <string.h>
 #include <sys/time.h>
 #include <time.h>
-#include "Esoteric&Fun&Miscellaneous/Esoteric_Fun_Miscellaneous.h"
+#include "Esoteric\&Fun\&Miscellaneous/Esoteric_Fun_Miscellaneous.h"
 #include "Exchange/Exchange.h"
 #include "Hybrids/Hybrids.h"
 #include "Insertion/Insertion.h"
 #include "Merge/Merge.h"
-#include "Networks&Concurrent/Networks_Concurrent.h"
-#include "Non-Comparison&Distribution/Non-Comparison_Distribution.h"
+#include "Networks\&Concurrent/Networks_Concurrent.h"
+#include "Non-Comparison\&Distribution/Non-Comparison_Distribution.h"
 #include "Selection/Selection.h"
 #define limsize 4294967296 //Limit of unsigned int
 #define limelement 2147483648 //Limit of signed int
@@ -446,7 +446,7 @@ int main(){
                     printf("\n1 - Tim_Sort.");
                     printf("\n-> ");
                     scanf("%d",&option_sort);
-                    if(option_sort < 0 || option_sort > 1);
+                    if(option_sort < 0 || option_sort > 1)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 1);
                 switch(option_sort){
@@ -875,13 +875,13 @@ int main(){
 							create(&array,length);
 							break;
 						case 3:
-							!txtfile;
+							txtfile = !txtfile;
 							break;
 						case 4:
-							!displayarray;
+							displayarray = !displayarray;
 							break;
 						case 5:
-							!exectime;
+							exectime = !exectime;
 							break;
 					}
 				}

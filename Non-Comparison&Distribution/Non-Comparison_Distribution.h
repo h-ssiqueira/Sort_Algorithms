@@ -2,7 +2,7 @@
 #define NON_COMPARISON_DISTRIBUTION_H_
 
 // Bucket Sort
-int BucketSort(int array[], unsigned int length);
+void BucketSort(int array[], unsigned int length);
 // Auxiliary function for bucket sort
 void Double_Selection_SortB(unsigned int length, int matrix[][length]);
 

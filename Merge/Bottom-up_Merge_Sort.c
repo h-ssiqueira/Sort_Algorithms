@@ -39,7 +39,7 @@ void Merge_Bottomup(int array[], unsigned int start, unsigned int middle, unsign
 void Bottomup_Merge_Sort(int array[], unsigned int length){        
     for(unsigned int i = 1; i < length; i += i){ // Start sorting the elements 1-1, 2-2... powers of 2
         for(unsigned int j = 0; j < length - i; j += i + i){
-            j + i + i - 1 < length-1 ? MergeBottomup(array, j, j + i - 1, j + i + i - 1) : MergeBottomup(array, j, j + i - 1, length -1); // merge
+            j + i + i - 1 < length-1 ? Merge_Bottomup(array, j, j + i - 1, j + i + i - 1) : Merge_Bottomup(array, j, j + i - 1, length -1); // merge
         }
     }
 }

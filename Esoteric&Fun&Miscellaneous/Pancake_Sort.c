@@ -15,7 +15,7 @@ void flip(int array[], unsigned int i){
     }
 }
   
-int PancakeSort(int array[], unsigned int length){
+void PancakeSort(int array[], unsigned int length){
     unsigned int aux,i = length,j;
     for(; i > 1; i--){ 
         aux = 0;

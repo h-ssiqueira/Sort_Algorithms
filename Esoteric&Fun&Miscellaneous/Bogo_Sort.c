@@ -17,7 +17,7 @@ bool is_sorted(int a[], unsigned int n){
 }
     
 void bogo_sort(int a[], unsigned int n){
-    int aux
+    int aux;
 	unsigned int random;
     while(!is_sorted(a,n)){
         for(unsigned int i = 0; i < n; i++){ //tries to sort randomly
