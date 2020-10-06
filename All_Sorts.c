@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/time.h>
 #include <time.h>
 #include "Esoteric&Fun&Miscellaneous/Esoteric_Fun_Miscellaneous.h"
 #include "Exchange/Exchange.h"
@@ -43,11 +44,57 @@ void generate(int array[], unsigned int length, int choice){
 	}
 }
 
+void calculatetime(struct timeval start, struct timeval end, long int *sec, long int *mili){
+	*sec = end.tv_sec - start.tv_sec;
+	*mili = end.tv_usec - start.tv_usec; 
+	*mili /= 1000;
+}
+
+void BeforeExec(int array[], unsigned int length, bool display, char sort[]){
+	FILE *txt = fopen("data.txt","a+");
+	if(txt != NULL){
+		fprintf(txt,"\n\t%s algorithm with length of %u elements.",sort, length);
+		if(display){
+			fprintf(txt,"\n\tArray before sort:\n");
+			for(unsigned int i = 0; i < length; i++)
+				fprintf(txt,"%d ",array[i]);
+			fprintf(txt,"\n");
+		}
+	}
+	else{
+		printf("\n\tError: Cannot open the file.");
+	}
+	if(txt != NULL)
+		fclose(txt);
+}
+
+void AfterExec(int array[], unsigned int length, bool display, bool time, long int sec, long int mili){
+	FILE *txt = fopen("data.txt","a+");
+	if(txt != NULL){
+		if(display){
+			fprintf(txt,"\n\tArray sorted:\n");
+			for(unsigned int i = 0; i < length; i++)
+				fprintf(txt,"%d ",array[i]);
+			fprintf(txt,"\n");
+		}
+		if(time)
+			fprintf(txt,"\n\tExecution time: %ld seconds %ld milisseconds.\n",sec,mili);
+	}
+	else{
+		printf("\n\tError: Cannot open the file.");
+	}
+	if(txt != NULL)
+		fclose(txt);
+}
+
+
 int main(){
     srand(time(NULL));
+	struct timeval start, end;
+	long int sec, mili;
 	unsigned int length = 10, i, powerof2 = 16;
     int option_sort, option_category, *array, *arrayPOF2, choice = 2;
-	bool txtfile = false, displayarray = false, exectime = false;
+	bool txtfile = false, displayarray = false, exectime = true;
 	create(&array,length);
     while(true){
 		generate(array,length,choice);
@@ -93,116 +140,139 @@ int main(){
                 }while(option_sort < 0 || option_sort > 11);
                 switch(option_sort){
                     case 1:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Bad Sort");
                         printf("\n\tBefore Bad Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         BadSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 2:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Bogo Bogo Sort");
                         printf("\n\tBefore Bogo Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         BogoBogoSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 3:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Bogo Sort");
                         printf("\n\tBefore Bogo Sort.");
                         if(displayarray)
 							print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         bogo_sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
 					case 4:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Bubble Bogo Sort");
                         printf("\n\tBefore Bubble Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         BubbleBogoSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
 					case 5:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Exchange Bogo Sort");
                         printf("\n\tBefore Exchange Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         ExchangeBogoSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
 					case 6:
-                        printf("\n\tBefore Less Bogo Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Less Bogo Sort");
+						printf("\n\tBefore Less Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         LessBogoSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 7:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Pancake Sort");
                         printf("\n\tBefore Pancake Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         PancakeSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 8:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Silly Sort");
                         printf("\n\tBefore Silly Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         SillySort(array,0,length-1);
+						gettimeofday(&end,NULL);
                         printf("\n\tArray sorted.");
 						if(displayarray)
                         	print(array,length);
                         break;
                     case 9:
-                        printf("\n\tBefore Slow Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Slow Sort");
+						printf("\n\tBefore Slow Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Slow_Sort(array,0,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 10:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Spaghetti Sort");
                         printf("\n\tBefore Spaghetti Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         SpaghettiSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 11:
-                        printf("\n\tBefore Stooge Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Stooge Sort");
+						printf("\n\tBefore Stooge Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         StoogeSort(array,0,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                 }
+				printf("\n\tArray sorted.");
+				if(displayarray)
+                    print(array,length);
+				if(exectime){
+					calculatetime(start,end,&sec,&mili);
+					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+				}
+				if(txtfile && (displayarray || exectime))
+					AfterExec(array,length,displayarray,exectime,sec,mili);
                 break;
             case 2:
                 do{
@@ -227,127 +297,147 @@ int main(){
                 }while(option_sort < 0 || option_sort > 12);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore Bubble Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Bubble Sort");
+						printf("\n\tBefore Bubble Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Bubble_sort(array,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 2:
-                        printf("\n\tBefore Circle Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Circle Sort");
+						printf("\n\tBefore Circle Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         CircleSort(array, length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 3:
-                        printf("\n\tBefore Cocktail Shaker Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Cocktail Shaker Sort");
+						printf("\n\tBefore Cocktail Shaker Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         CocktailShakerSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 4:
-                        printf("\n\tBefore Comb Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Comb Sort");
+						printf("\n\tBefore Comb Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         CombSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 5:
-                        printf("\n\tBefore Dual Pivot Quick Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Dual Pivot Quick Sort");
+						printf("\n\tBefore Dual Pivot Quick Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         DualPivotQuickSort(array,0,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 6:
-                        printf("\n\tBefore Gnome Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Gnome Sort");
+						printf("\n\tBefore Gnome Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Gnome_Sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 7:
-                        printf("\n\tBefore Odd-Even Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Odd-Even Sort");
+						printf("\n\tBefore Odd-Even Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Odd_Even_Sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 8:
-                        printf("\n\tBefore Optimized Bubble Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Optimized Bubble Sort");
+						printf("\n\tBefore Optimized Bubble Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         BubbleSortOptmized(array,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 9:
-                        printf("\n\tBefore Optimized Gnome Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Optimized Gnome Sort");
+						printf("\n\tBefore Optimized Gnome Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-                        for(i = 1; i < length; i++)
-                            Optimized_Gnome_Sort(array,i);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&start,NULL);
+                        Optimized_Gnome_Sort(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 10:
-                        printf("\n\tBefore Quick Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Quick Sort");
+						printf("\n\tBefore Quick Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Quick_Sort(array,0,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
 					case 11:
-                        printf("\n\tBefore 3-way Quick Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"3-way Quick Sort");
+						printf("\n\tBefore 3-way Quick Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         QuickSort3way(array,0,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 12:
-                        printf("\n\tBefore Stable Quick Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Stable Quick Sort");
+						printf("\n\tBefore Stable Quick Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         StableQuickSort(array,0,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                 }
+				printf("\n\tArray sorted.");
+				if(displayarray)
+                    print(array,length);
+				if(exectime){
+					calculatetime(start,end,&sec,&mili);
+					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+				}
+				if(txtfile && (displayarray || exectime))
+					AfterExec(array,length,displayarray,exectime,sec,mili);
                 break;
             case 3:
                 do{
@@ -361,16 +451,26 @@ int main(){
                 }while(option_sort < 0 || option_sort > 1);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore Tim Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Tim Sort");
+						printf("\n\tBefore Tim Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         TimSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                 }
+				printf("\n\tArray sorted.");
+				if(displayarray)
+                    print(array,length);
+				if(exectime){
+					calculatetime(start,end,&sec,&mili);
+					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+				}
+				if(txtfile && (displayarray || exectime))
+					AfterExec(array,length,displayarray,exectime,sec,mili);
                 break;
             case 4:
                 do{
@@ -388,56 +488,70 @@ int main(){
                 }while(option_sort < 0 || option_sort > 5);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore Binary Insertion Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Binary Insertion Sort");
+						printf("\n\tBefore Binary Insertion Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Insertion_Sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 2:
-                        printf("\n\tBefore Cycle Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Cycle Sort");
+						printf("\n\tBefore Cycle Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         CycleSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 3:
-                        printf("\n\tBefore Insertion Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Insertion Sort");
+						printf("\n\tBefore Insertion Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         InsertionSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-	                        print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 4:
-                        printf("\n\tBefore Shell Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Shell Sort");
+						printf("\n\tBefore Shell Sort.");
                         if(displayarray)
 							print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         ShellSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 5:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Tree Sort");
                         printf("\n\tBefore Tree Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         TreeSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                 }
+				printf("\n\tArray sorted.");
+				if(displayarray)
+                    print(array,length);
+				if(exectime){
+					calculatetime(start,end,&sec,&mili);
+					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+				}
+				if(txtfile && (displayarray || exectime))
+					AfterExec(array,length,displayarray,exectime,sec,mili);
                 break;
             case 5:
                 do{
@@ -453,36 +567,48 @@ int main(){
                 }while(option_sort < 0 || option_sort > 3);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore Bottom-up Merge Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Bottom-up Merge Sort");
+						printf("\n\tBefore Bottom-up Merge Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Bottomup_Merge_Sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 2:
-                        printf("\n\tBefore In Place Merge Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"In Place Merge Sort");
+						printf("\n\tBefore In Place Merge Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Merge_Sort_In_Place(array,0,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 3:
-                        printf("\n\tBefore Merge Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Merge Sort");
+						printf("\n\tBefore Merge Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Merge_Sort(array,0,length-1);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                 }
+				printf("\n\tArray sorted.");
+				if(displayarray)
+                    print(array,length);
+				if(exectime){
+					calculatetime(start,end,&sec,&mili);
+					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+				}
+				if(txtfile && (displayarray || exectime))
+					AfterExec(array,length,displayarray,exectime,sec,mili);
                 break;
             case 6:
                 do{
@@ -503,37 +629,67 @@ int main(){
 						if(i != length){
 							create(&arrayPOF2,powerof2);
 							generate(arrayPOF2,powerof2,choice);
+							if(txtfile)
+								BeforeExec(arrayPOF2,powerof2,displayarray,"Bitonic Sort");
 							printf("\n\tNote: Bitonic sort just accepts power sizes of 2.\n\tCurrent size: %d.\n\tNew size for apply this algorithm: %d.\n", length,powerof2);
 							printf("\n\tBefore Bitonic Sort.");
 							if(displayarray)
 								print(arrayPOF2,powerof2);
 							printf("\n\tSorting...");
+							gettimeofday(&start,NULL);
                         	BitonicSort(arrayPOF2,0,powerof2,1);
+							gettimeofday(&end,NULL);
                         	printf("\n\tArray sorted.");
 							if(displayarray)
                         		print(arrayPOF2,powerof2);
+							if(exectime){
+								calculatetime(start,end,&sec,&mili);
+								printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+							}
+							if(txtfile && (displayarray || exectime))
+								AfterExec(arrayPOF2,powerof2,displayarray,exectime,sec,mili);
 							free(arrayPOF2);
 						}
 						else{
+							if(txtfile)
+								BeforeExec(array,length,displayarray,"Bitonic Sort");
                         	printf("\n\tBefore Bitonic Sort.");
 							if(displayarray)
                         		print(array,length);
 							printf("\n\tSorting...");
+							gettimeofday(&start,NULL);
                         	BitonicSort(array,0,length,1);
+							gettimeofday(&end,NULL);
                         	printf("\n\tArray sorted.");
 							if(displayarray)
                         		print(array,length);
+							if(exectime){
+								calculatetime(start,end,&sec,&mili);
+								printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+							}
+							if(txtfile && (displayarray || exectime))
+								AfterExec(array,length,displayarray,exectime,sec,mili);
 						}
                         break;
                     case 2:
+						if(txtfile)
+							BeforeExec(array,length,displayarray,"Pairwise Network Sort");
                         printf("\n\tBefore Pairwise Network Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Pairwise_Sort(array,0,length,1);
-                        printf("\n\tArray sorted.");
+						gettimeofday(&end,NULL);
+						printf("\n\tArray sorted.");
 						if(displayarray)
-                        	print(array,length);
+                    		print(array,length);
+						if(exectime){
+							calculatetime(start,end,&sec,&mili);
+							printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+						}
+						if(txtfile && (displayarray || exectime))
+							AfterExec(array,length,displayarray,exectime,sec,mili);
                         break;
                 }
                 break;
@@ -552,46 +708,59 @@ int main(){
                 }while(option_sort < 0 || option_sort > 4);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore Bucket Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Bucket Sort");
+						printf("\n\tBefore Bucket Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         BucketSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 2:
-                        printf("\n\tBefore Counting Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Counting Sort");
+						printf("\n\tBefore Counting Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSortihng...");
+						gettimeofday(&start,NULL);
                         Counting_Sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 3:
-                        printf("\n\tBefore Gravity (Bead) Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Gravity (Bead) Sort");
+						printf("\n\tBefore Gravity (Bead) Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         BeadSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 4:
-                        printf("\n\tBefore Pigeonhole Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Pigeonhole Sort");
+						printf("\n\tBefore Pigeonhole Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Pigeonhole_Sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                 }
+				printf("\n\tArray sorted.");
+				if(displayarray)
+                    print(array,length);
+				if(exectime){
+					calculatetime(start,end,&sec,&mili);
+					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+				}
+				if(txtfile && (displayarray || exectime))
+					AfterExec(array,length,displayarray,exectime,sec,mili);
                 break;
             case 8:
                 do{
@@ -608,46 +777,59 @@ int main(){
                 }while(option_sort < 0 || option_sort > 4);
                 switch(option_sort){
                     case 1:
-                        printf("\n\tBefore Double Selection Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Double Selection Sort");
+						printf("\n\tBefore Double Selection Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Double_Selection_Sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 2:
-                        printf("\n\tBefore Max Heap Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Max Heap Sort");
+						printf("\n\tBefore Max Heap Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         MaxHeapSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 3:
-                        printf("\n\tBefore Min Heap Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Min Heap Sort");
+						printf("\n\tBefore Min Heap Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         MinHeapSort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                     case 4:
-                        printf("\n\tBefore Selection Sort.");
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Selection Sort");
+						printf("\n\tBefore Selection Sort.");
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
                         Selection_Sort(array,length);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
+						gettimeofday(&end,NULL);
                         break;
                 }
+				printf("\n\tArray sorted.");
+				if(displayarray)
+                	print(array,length);
+				if(exectime){
+					calculatetime(start,end,&sec,&mili);
+					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
+				}
+				if(txtfile && (displayarray || exectime))
+					AfterExec(array,length,displayarray,exectime,sec,mili);
                 break;
 			case 9:
 				while(true){

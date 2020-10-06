@@ -28,7 +28,7 @@ void Odd_Even_Sort(int array[], unsigned int length);
 void BubbleSortOptmized(int array[], unsigned int length);
 
 // Optimized Gnome Sort
-void Optimized_Gnome_Sort(int array[], unsigned int i);
+void Optimized_Gnome_Sort(int array[], unsigned int length);
 
 // 3-way Quick Sort
 void QuickSort3way(int array[], unsigned int start, unsigned int end);
