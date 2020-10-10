@@ -7,9 +7,9 @@
 // Average case performance O(n log n)
 // Worst case comparisons between (n lg n − n + 1) and (n lg n + n + O(lg n))
 
-void Merge_Bottomup(int array[], unsigned int start, unsigned int middle, unsigned int end){
-    unsigned int count1 = start, count2 = middle + 1, i;
-	int *aux = (int*)malloc((end - start + 1) * sizeof(int));
+void Merge_Bottomup(long int array[], int start, int middle, int end){
+    int count1 = start, count2 = middle + 1, i;
+	long int *aux = (long int*)malloc((end - start + 1) * sizeof(long int));
 
     for(i = 0; count1 <= middle && count2 <= end; i++){
         if(array[count1] < array[count2]){
@@ -36,9 +36,9 @@ void Merge_Bottomup(int array[], unsigned int start, unsigned int middle, unsign
     free(aux);
 }
 
-void Bottomup_Merge_Sort(int array[], unsigned int length){        
-    for(unsigned int i = 1; i < length; i += i){ // Start sorting the elements 1-1, 2-2... powers of 2
-        for(unsigned int j = 0; j < length - i; j += i + i){
+void Bottomup_Merge_Sort(long int array[], int length){        
+    for(int i = 1; i < length; i += i){ // Start sorting the elements 1-1, 2-2... powers of 2
+        for(int j = 0; j < length - i; j += i + i){
             j + i + i - 1 < length-1 ? Merge_Bottomup(array, j, j + i - 1, j + i + i - 1) : Merge_Bottomup(array, j, j + i - 1, length -1); // merge
         }
     }

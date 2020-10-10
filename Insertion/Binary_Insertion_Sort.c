@@ -4,30 +4,29 @@
 
 // O(n log n)
 
-unsigned int BinarySearch(int array[], int num, unsigned int start, unsigned int end){ 
+int BinarySearch(long int array[], int num, int start, int end){ 
     if(end <= start) 
-        return (num > array[start]) ? (start + 1) : start; 
+        return ((num > array[start]) ? (start + 1) : start);
   
-    unsigned int mid = (start + end) / 2; 
+    int mid = (start + end) / 2;
   
     if(num == array[mid]) 
-        return mid + 1; 
+        return (mid + 1);
   
     if(num > array[mid]) 
         return BinarySearch(array, num, mid + 1, end); 
     return BinarySearch(array, num, start, mid - 1); 
 } 
   
-void InsertionSort(int array[], unsigned int length){ 
-    unsigned int i, j, pos;
-	int aux; 
-  
+void InsertionSort(long int array[], int length){ 
+    long int aux;
+	int i, j, pos;
     for(i = 1; i < length; i++){ 
-        j = i - 1; 
+        j = (i - 1);
         aux = array[i]; 
-  
+		
         pos = BinarySearch(array, aux, 0, j); // Find the position where the element should be inserted
-  
+  		
         while(pos <= j){ // Move all elements until reaches the position
             array[j+1] = array[j]; 
             j--; 

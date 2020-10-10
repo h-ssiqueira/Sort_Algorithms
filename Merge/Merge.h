@@ -2,18 +2,18 @@
 #define MERGE_H_
 
 // Bottom-Up Merge Sort
-void Bottomup_Merge_Sort(int array[], unsigned int length);
+void Bottomup_Merge_Sort(long int array[], int length);
 // Auxiliar funciont to merge two subarrays
-void Merge_Bottomup(int array[], unsigned int start, unsigned int middle, unsigned int end);
+void Merge_Bottomup(long int array[], int start, int middle, int end);
 
 // In Place Merge Sort
-void Merge_Sort_In_Place(int array[], unsigned int start, unsigned int end);
+void Merge_Sort_In_Place(long int array[], int start, int end);
 // Auxiliar function to merge two subarrays
-void MergeInPlace(int array[], unsigned int start, unsigned int middle, unsigned int end);
+void MergeInPlace(long int array[], int start, int middle, int end);
 
 // Merge Sort
-void Merge_Sort(int array[], unsigned int start, unsigned int end);
+void Merge_Sort(long int array[], int start, int end);
 // Auxiliar function to merge two subarrays
-void Merge(int array[], unsigned int start, unsigned int middle, unsigned int end);
+void Merge(long int array[], int start, int middle, int end);
 
 #endif

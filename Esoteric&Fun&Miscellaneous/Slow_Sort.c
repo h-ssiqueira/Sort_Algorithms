@@ -6,9 +6,9 @@
 // O(n)
 // Mix of merge sort and bubble sort
 
-void Slow_Sort(int array[], unsigned int start, unsigned int end){
+void Slow_Sort(long int array[], int start, int end){
     if(start >= end) return;
-    unsigned int middle = (start + end) / 2;
+    int middle = (start + end) / 2;
 
     Slow_Sort(array,start,middle); // start - middle parts
     Slow_Sort(array,middle + 1,end); // middle - end parts

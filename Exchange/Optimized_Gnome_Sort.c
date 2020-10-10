@@ -6,9 +6,9 @@
 // *Best case performance O(n)
 // *Average case performance O(n**2)
 
-void Optimized_Gnome_Sort(int array[], unsigned int length){
-    int aux;
-	unsigned j, i;
+void Optimized_Gnome_Sort(long int array[], int length){
+    long int aux;
+	int j, i;
 	for(i = 1; i < length; i++){
 		j = i;
 		while(j > 0 && array[j-1] > array [j]){

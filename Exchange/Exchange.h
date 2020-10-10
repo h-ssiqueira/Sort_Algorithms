@@ -1,44 +1,46 @@
 #ifndef EXCHANGE_H_
 #define EXCHANGE_H_
 
+#include <stdbool.h>
+
 // Bubble Sort
-void Bubble_sort(int array[], unsigned int length);
+void Bubble_sort(long int array[], int length);
 
 // Circle Sort
-void CircleSort(int array[], unsigned int length);
+void CircleSort(long int array[], int length);
 // Auxiliar function that sort the array
-int CircleSortAux(int start[], int end[]);
+bool CircleSortAux(long int start[], long int end[]);
 
 // Cocktail Shaker Sort
-void CocktailShakerSort(int array[], unsigned int length);
+void CocktailShakerSort(long int array[], int length);
 
 // Comb Sort
-void CombSort(int array[], unsigned int length);
+void CombSort(long int array[], int length);
 
 // Dual Pivot Quick Sort
-void DualPivotQuickSort(int array[], unsigned int start, unsigned int end);
+void DualPivotQuickSort(long int array[], int start, int end);
 
 // Gnome Sort
-void Gnome_Sort(int array[], unsigned int length);
+void Gnome_Sort(long int array[], int length);
 
 // Odd-Even Sort
-void Odd_Even_Sort(int array[], unsigned int length);
+void Odd_Even_Sort(long int array[], int length);
 
 // Optimized Bubble Sort
-void BubbleSortOptmized(int array[], unsigned int length);
+void BubbleSortOptmized(long int array[], int length);
 
 // Optimized Gnome Sort
-void Optimized_Gnome_Sort(int array[], unsigned int length);
+void Optimized_Gnome_Sort(long int array[], int length);
 
 // 3-way Quick Sort
-void QuickSort3way(int array[], unsigned int start, unsigned int end);
+void QuickSort3way(long int array[], int start, int end);
 
 // Quick Sort
-void Quick_Sort(int array[], unsigned int start, unsigned int end);
+void Quick_Sort(long int array[], int start, int end);
 
 // Stable Quick Sort
-void StableQuickSort(int array[], unsigned int start, unsigned int end);
+void StableQuickSort(long int array[], int start, int end);
 // Auxiliar function that sort the array
-int Sort(int array[], unsigned int start, unsigned int end);
+long int Sort(long int array[], int start, int end);
 
 #endif

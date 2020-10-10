@@ -12,33 +12,33 @@
 #include "Networks\&Concurrent/Networks_Concurrent.h"
 #include "Non-Comparison\&Distribution/Non-Comparison_Distribution.h"
 #include "Selection/Selection.h"
-#define limsize 4294967296 //Limit of unsigned int
+#define limsize 65536000 // Limit 500MB of data // 2147483648 //Limit of signed int (16GB total)
 #define limelement 2147483648 //Limit of signed int
 
-void create(int **array, int length){
-	*array = (int*)malloc(length * sizeof(int));
+void create(long int **array, int length){
+	*array = (long int*)malloc(length * sizeof(long int));
 	if(!(*array))
 		printf("\n\tError: array couldn't be allocated.");
 }
 
-void print(int array[], unsigned int length){
+void print(long int array[], int length){
     printf("\n");
-    for(unsigned int i = 0; i < length; i++)
-        printf("%d ",array[i]);
+    for(int i = 0; i < length; i++)
+        printf("%ld ",array[i]);
 }
 
-void generate(int array[], unsigned int length, int choice){
+void generate(long int array[], int length, short int choice){
 	switch(choice){
 		case 1:
-			for(unsigned int i = 0; i < length; i++)
+			for(int i = 0; i < length; i++)
 				array[i] = i;
 			break;
 		case 2:
-			for(unsigned int i = 0; i < length; i++)
+			for(int i = 0; i < length; i++)
 				array[i] = rand() % limelement;
 			break;
 		case 3:
-			for(unsigned int i = 0; i < length; i++)
+			for(int i = 0; i < length; i++)
 				array[i] = length - i;
 			break;
 	}
@@ -50,14 +50,14 @@ void calculatetime(struct timeval start, struct timeval end, long int *sec, long
 	*mili /= 1000;
 }
 
-void BeforeExec(int array[], unsigned int length, bool display, char sort[]){
+void BeforeExec(long int array[], int length, bool display, char sort[]){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		fprintf(txt,"\n\t%s algorithm with length of %u elements.",sort, length);
 		if(display){
 			fprintf(txt,"\n\tArray before sort:\n");
-			for(unsigned int i = 0; i < length; i++)
-				fprintf(txt,"%d ",array[i]);
+			for(int i = 0; i < length; i++)
+				fprintf(txt,"%ld ",array[i]);
 			fprintf(txt,"\n");
 		}
 	}
@@ -68,13 +68,13 @@ void BeforeExec(int array[], unsigned int length, bool display, char sort[]){
 		fclose(txt);
 }
 
-void AfterExec(int array[], unsigned int length, bool display, bool time, long int sec, long int mili){
+void AfterExec(long int array[], int length, bool display, bool time, long int sec, long int mili){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		if(display){
 			fprintf(txt,"\n\tArray sorted:\n");
-			for(unsigned int i = 0; i < length; i++)
-				fprintf(txt,"%d ",array[i]);
+			for(int i = 0; i < length; i++)
+				fprintf(txt,"%ld ",array[i]);
 			fprintf(txt,"\n");
 		}
 		if(time)
@@ -91,9 +91,9 @@ void AfterExec(int array[], unsigned int length, bool display, bool time, long i
 int main(){
     srand(time(NULL));
 	struct timeval start, end;
-	long int sec, mili;
-	unsigned int length = 10, i, powerof2 = 16;
-    int option_sort, option_category, *array, *arrayPOF2, choice = 2;
+	long int sec, mili, *array, *arrayPOF2;
+    int length = 10, i, powerof2 = 16;
+	short int option_sort, option_category, choice = 2;
 	bool txtfile = false, displayarray = false, exectime = true;
 	create(&array,length);
     while(true){
@@ -111,7 +111,7 @@ int main(){
             printf("\n8 - Selection.");
 			printf("\n9 - Configurations.");
             printf("\n-> ");
-            scanf("%d",&option_category);
+            scanf("%hd",&option_category);
             if(option_category < 0 || option_category > 9)
                 printf("\n\tError: Choose the value in the range displayed.\n");
         }while(option_category < 0 || option_category > 9);
@@ -134,7 +134,7 @@ int main(){
                     printf("\n10 - Spaghetti_Sort.");
                     printf("\n11 - Stooge_Sort.");
                     printf("\n-> ");
-                    scanf("%d",&option_sort);
+                    scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 11)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 11);
@@ -291,7 +291,7 @@ int main(){
 					printf("\n11 - Quick_Sort_3-way.");
                     printf("\n12 - Stable_Quick_Sort.");
                     printf("\n-> ");
-                    scanf("%d",&option_sort);
+                    scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 12)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 12);
@@ -445,7 +445,7 @@ int main(){
 					printf("\n0 - Menu.");
                     printf("\n1 - Tim_Sort.");
                     printf("\n-> ");
-                    scanf("%d",&option_sort);
+                    scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 1)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 1);
@@ -482,7 +482,7 @@ int main(){
                     printf("\n4 - Shell_Sort.");
                     printf("\n5 - Tree_Sort.");
                     printf("\n-> ");
-                    scanf("%d",&option_sort);
+                    scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 5)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 5);
@@ -517,7 +517,7 @@ int main(){
                         	print(array,length);
                         printf("\n\tSorting...");
 						gettimeofday(&start,NULL);
-                        InsertionSort(array,length);
+                        Insertion_Sort(array,length);
 						gettimeofday(&end,NULL);
                         break;
                     case 4:
@@ -561,7 +561,7 @@ int main(){
                     printf("\n2 - In-Place_Merge_Sort.");
                     printf("\n3 - Merge_Sort.");
                     printf("\n-> ");
-                    scanf("%d",&option_sort);
+                    scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 3)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 3);
@@ -617,7 +617,7 @@ int main(){
                     printf("\n1 - Bitonic_Sort.");
 					printf("\n2 - Pairwise_Network_Sort.");
                     printf("\n-> ");
-                    scanf("%d",&option_sort);
+                    scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 2)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 2);
@@ -702,7 +702,7 @@ int main(){
                     printf("\n3 - Gravity_(Bead)_Sort.");
                     printf("\n4 - Pigeonhole_Sort.");
                     printf("\n-> ");
-                    scanf("%d",&option_sort);
+                    scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 4)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 4);
@@ -771,7 +771,7 @@ int main(){
                     printf("\n3 - Min_Heap_Sort.");
                     printf("\n4 - Selection_Sort.");
                     printf("\n-> ");
-                    scanf("%d",&option_sort);
+                    scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 4)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 4);
@@ -842,7 +842,7 @@ int main(){
 						printf("\n4 - Display arrays - %s", displayarray ? "YES." : "NO.");
 						printf("\n5 - Display execution time - %s", exectime ? "YES." : "NO.");
 						printf("\n-> ");
-						scanf("%d",&option_sort);
+						scanf("%hd",&option_sort);
 						if(option_sort < 0 || option_sort > 5)
 							printf("\n\tError: Choose the value in the range displayed.\n\n\t");
 					}while(option_sort < 0 || option_sort > 5);
@@ -856,7 +856,7 @@ int main(){
 								printf("\n2 - Average case.");
 								printf("\n3 - Worst case.");
 								printf("\n-> ");
-								scanf("%d",&choice);
+								scanf("%hd",&choice);
 								if(choice < 1 || choice > 3)
 									printf("\n\n\tError: Insert a value in the correct range!\n");
 							}while(choice < 1 || choice > 3);

@@ -4,9 +4,9 @@
 
 // Worst case performance O(N + n) N -> range of key values, n -> input size
 
-void Pigeonhole_Sort(int array[], unsigned int length){
-    int max = array[0],min = array[0];
-	unsigned int range, i, j = 0;
+void Pigeonhole_Sort(long int array[], int length){
+    long int max = array[0],min = array[0];
+	int range, i, j = 0;
     
     for(i = 0; i < length; i++){ //collect max and min values of array
         if(array[i] > max)
@@ -16,7 +16,7 @@ void Pigeonhole_Sort(int array[], unsigned int length){
     }
     range = max - min + 1;
     
-    int holes[range]; //creates an array of ranges
+    long int holes[range]; //creates an array of ranges
     for(i = 0; i < range; i++) //clear the holes
         holes[i] = 0;
     for(i = 0; i < length; i++)

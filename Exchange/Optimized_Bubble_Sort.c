@@ -7,10 +7,10 @@
 // Best case performance O(n) and O(1) swaps
 // Average case performance O(n**2) comparisons and O(n**2) swaps
 
-void BubbleSortOptmized(int array[], unsigned int length){
+void BubbleSortOptmized(long int array[], int length){
     bool swap;
-    int aux;
-	unsigned int i, j;
+    long int aux;
+	int i, j;
     for(j = 0; j < length; j++){
         swap = false;
         for(i = 0; i < length - j; i++){ // Sort all array and starts decreasing

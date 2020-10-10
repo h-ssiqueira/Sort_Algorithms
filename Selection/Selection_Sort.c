@@ -8,9 +8,9 @@
 
 //(n**2 - n)/2 comparisons
 
-void Selection_Sort(int array[], unsigned int length){
-    int aux;
-	unsigned int change,i,j;
+void Selection_Sort(long int array[], int length){
+    long int aux;
+	int change,i,j;
     
     for(i = 0; i < length-1; i++){ //last element won't have other to compair
         change = i;

@@ -6,9 +6,9 @@
 // Best case performance O(n log n)
 // Average performance O(n log n) 
 
-void heapmin(int array[], unsigned int n, unsigned int i){ //n is the size of heap
-    unsigned int smallest = i, left = 2 * i + 1, right = 2 * i + 2;
-	int aux;
+void heapmin(long int array[], int n, int i){ //n is the size of heap
+    int smallest = i, left = 2 * i + 1, right = 2 * i + 2;
+	long int aux;
   
     if(left < n && array[left] < array[smallest]) //Left child is smaller than node
         smallest = left; 
@@ -25,9 +25,9 @@ void heapmin(int array[], unsigned int n, unsigned int i){ //n is the size of he
     } 
 } 
   
-void MinHeapSort(int array[], unsigned int length){ 
-	unsigned int i;
-	int aux;
+void MinHeapSort(long int array[], int length){ 
+	int i;
+	long int aux;
     for(i = length / 2 - 1; i >= 0; i--) 
         heapmin(array, length, i); //Creating the heap
 

@@ -4,9 +4,9 @@
 
 // Complexity O(n log n)
 
-void MergeInPlace(int array[], unsigned int start, unsigned int middle, unsigned int end){ 
-    unsigned int middle2 = middle + 1, i; 
-	int value;
+void MergeInPlace(long int array[], int start, int middle, int end){ 
+    int middle2 = middle + 1, i; 
+	long int value;
   
     if(array[middle] <= array[middle2]) //if already sorted
         return;
@@ -31,9 +31,9 @@ void MergeInPlace(int array[], unsigned int start, unsigned int middle, unsigned
     }
 }
 
-void Merge_Sort_In_Place(int array[], unsigned int start, unsigned int end){
+void Merge_Sort_In_Place(long int array[], int start, int end){
     if(start < end){
-        unsigned int middle = (end + start) / 2;
+        int middle = (end + start) / 2;
 
         Merge_Sort_In_Place(array, start, middle); //first halves
         Merge_Sort_In_Place(array, middle + 1, end); //second halves

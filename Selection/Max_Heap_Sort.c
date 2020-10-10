@@ -6,9 +6,9 @@
 // Best case performance O(n log n)
 // Average performance O(n log n) 
 
-void heapmax(int array[], unsigned int n, unsigned int i){ //n is the size of heap
-    unsigned int largest = i, left = 2 * i + 1, right = 2 * i + 2;
-	int aux;
+void heapmax(long int array[], int n, int i){ //n is the size of heap
+    int largest = i, left = 2 * i + 1, right = 2 * i + 2;
+	long int aux;
   
     if(left < n && array[left] > array[largest]) //Left child is larger than node
         largest = left; 
@@ -25,9 +25,9 @@ void heapmax(int array[], unsigned int n, unsigned int i){ //n is the size of he
     } 
 } 
   
-void MaxHeapSort(int array[], unsigned int length){ 
-	unsigned int i;
-	int aux;
+void MaxHeapSort(long int array[], int length){ 
+	int i;
+	long int aux;
     for(i = length / 2 - 1; i >= 0; i--) 
         heapmax(array, length, i); //Creating the heap
 

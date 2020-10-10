@@ -5,10 +5,11 @@
 // O(n**3)
 // Bad implementation of selection sort
 
-void BadSort(int array[], unsigned int length){
-    int smaller,aux;
+void BadSort(long int array[], int length){
+    int smaller;
+	long int aux;
     bool check;
-    for(unsigned int i = 0; i < length; i++){
+    for(int i = 0; i < length; i++){
         smaller = i;         
         for(int j = i; j < length; j++){ // Find the smaller element
             check = true;

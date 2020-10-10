@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "Exchange.h"
 
 // Worst case performance O(n log n log n)
 // Best case performance O(n log n)
  
-int CircleSortAux(int start[], int end[]){
-	int *p, *q, t, swap;
+bool CircleSortAux(long int start[], long int end[]){
+	long int *p, *q, t;
+	bool swap;
  
 	if(start == end) 
         return 0;
@@ -16,12 +18,12 @@ int CircleSortAux(int start[], int end[]){
 			t = *p;
             *p = *q;
             *q = t;
-            swap = 1;
+            swap = true;
         }
 	return swap | CircleSortAux(start, q) | CircleSortAux(p, end);
 }
  
-void CircleSort(int array[], unsigned int length){
+void CircleSort(long int array[], int length){
 	while(CircleSortAux(array, array + (length - 1))) 
         continue;
 }

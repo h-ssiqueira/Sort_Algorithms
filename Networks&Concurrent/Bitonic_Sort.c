@@ -6,11 +6,11 @@
 // Best case performance O((log n)**2)
 // Average performance O((log n)**2)
 
-void BitonicMerge(int array[], unsigned int start, unsigned int length, int direction){
+void BitonicMerge(long int array[], int start, int length, int direction){
 	if(length > 1){ // Can only sort sizes of powers of 2
-	    unsigned int middle = length / 2, aux;
+	    int middle = length / 2, aux;
 
-	    for(unsigned int i = start; i < (start + middle); i++){
+	    for(int i = start; i < (start + middle); i++){
 			if(direction == (array[i] > array[i + middle])){ // Check if the direction and the order are right
 				aux = array[i];
 				array[i] = array[i + middle];
@@ -22,9 +22,9 @@ void BitonicMerge(int array[], unsigned int start, unsigned int length, int dire
 	}
 }
 
-void BitonicSort(int array[], unsigned int low, unsigned int length, int direction){ // Direction refers to ascending or descending order
+void BitonicSort(long int array[], int low, int length, int direction){ // Direction refers to ascending or descending order
 	if(length > 1){
-	    unsigned int middle = length / 2;
+	    int middle = length / 2;
 
 	    BitonicSort(array, low, middle, 1);
 	    BitonicSort(array, low + middle, middle, 0);

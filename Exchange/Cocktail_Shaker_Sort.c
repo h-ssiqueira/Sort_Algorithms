@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "Exchange.h"
 
 // Worst case performance O(n**2)
 // Best case performance O(n)
 // Average case performance O(n**2)
 
-void CocktailShakerSort(int array[], unsigned int length){
-    unsigned int start = 0,end = length - 1,i;
-	int swap = 0, aux;
-    while(swap == 0 && start < end){
-        swap = 1;
+void CocktailShakerSort(long int array[], int length){
+    int start = 0,end = length - 1,i;
+	long int aux;
+	bool swap = false;
+    while(!swap && start < end){
+        swap = true;
         for(i = start; i < end; i++){
             if(array[i] > array[i+1]){
                 /*
@@ -21,7 +23,7 @@ void CocktailShakerSort(int array[], unsigned int length){
                 aux = array[i];
                 array[i] = array[i+1];
                 array[i+1] = aux;
-                swap = 0;
+                swap = false;
             }
         }
         end--;
@@ -35,7 +37,7 @@ void CocktailShakerSort(int array[], unsigned int length){
                 aux = array[i];
                 array[i] = array[i-1];
                 array[i-1] = aux;
-                swap = 0;
+                swap = false;
             }
         }
         start++;

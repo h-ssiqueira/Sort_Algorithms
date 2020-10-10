@@ -4,45 +4,50 @@
 #include <stdbool.h>
 
 // Auxiliar function that check if the array is sorted
-bool is_sorted(int a[], unsigned int n);
+bool is_sorted1(long int a[], int n);
+bool is_sorted2(long int a[], int n);
+bool is_sorted3(long int a[], int n);
+bool is_sorted4(long int a[], int n);
+bool is_sorted5(long int a[], int n);
+bool is_sorted6(long int a[], int n);
 
 
 // Bad Sort
-void BadSort(int array[], unsigned int length);
+void BadSort(long int array[], int length);
 
 // Bogo Bogo Sort
-void BogoBogoSort(int array[], unsigned int length);
+void BogoBogoSort(long int array[], int length);
 
 // Bogo Sort
-void bogo_sort(int a[], unsigned int n);
+void bogo_sort(long int a[], int n);
 
 // Bubble Bogo Sort
-void BubbleBogoSort(int array[], unsigned int length);
+void BubbleBogoSort(long int array[], int length);
 
 // Cocktail Bogo Sort
-/////////void CocktailBogoSort(int array[], unsigned int length);
+/////////void CocktailBogoSort(long int array[], int length);
 
 // Exchange Bogo Sort
-void ExchangeBogoSort(int array[], unsigned int length);
+void ExchangeBogoSort(long int array[], int length);
 
 // Less Bogo Sort
-void LessBogoSort(int array[], unsigned int length);
+void LessBogoSort(long int array[], int length);
 
 // Pancake Sort
-void PancakeSort(int array[], unsigned int length);
+void PancakeSort(long int array[], int length);
 // Auxiliar function that "flips" the array
-void flip(int array[], unsigned int i);
+void flip(long int array[], int i);
 
 // Silly Sort
-void SillySort(int array[], unsigned int start, unsigned int end);
+void SillySort(long int array[], int start, int end);
 
 // Slow Sort
-void Slow_Sort(int array[], unsigned int start, unsigned int end);
+void Slow_Sort(long int array[], int start, int end);
 
 // Spaghetti Sort
-void SpaghettiSort(int array[], unsigned int length);
+void SpaghettiSort(long int array[], int length);
 
 // Stooge Sort
-void StoogeSort(int array[], unsigned int i, unsigned int j);
+void StoogeSort(long int array[], int i, int j);
 
 #endif

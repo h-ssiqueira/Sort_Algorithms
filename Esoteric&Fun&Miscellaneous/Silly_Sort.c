@@ -6,9 +6,9 @@
 // O(n)
 // Mix of bubble sort and merge sort
 
-void SillySort(int array[], unsigned int start, unsigned int end){ 
+void SillySort(long int array[], int start, int end){ 
     if(start < end){
-		unsigned int mid = start + ((end - start) / 2); // Calculate the middle of the (sub)array
+		int mid = start + ((end - start) / 2); // Calculate the middle of the (sub)array
 		
 		SillySort(array, start, mid); // Calls recursively until rech pairs of the elements (array[i]->array[i+1])
 		SillySort(array, mid + 1, end);

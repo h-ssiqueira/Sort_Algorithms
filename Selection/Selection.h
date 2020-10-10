@@ -2,19 +2,19 @@
 #define SELECTION_H_
 
 // Double Selection Sort
-void Double_Selection_Sort(int array[], unsigned int length);
+void Double_Selection_Sort(long int array[], int length);
 
 // Min Heap Sort
-void MinHeapSort(int array[], unsigned int length);
+void MinHeapSort(long int array[], int length);
 // Auxiliar function to float max values
-void heapmin(int array[], unsigned int n, unsigned int i);
+void heapmin(long int array[], int n, int i);
 
 // Max Heap Sort
-void MaxHeapSort(int array[], unsigned int length);
+void MaxHeapSort(long int array[], int length);
 // Auxiliar function to float min values
-void heapmax(int array[], unsigned int n, unsigned int i);
+void heapmax(long int array[], int n, int i);
 
 // Selection Sort
-void Selection_Sort(int array[], unsigned int length);
+void Selection_Sort(long int array[], int length);
 
 #endif

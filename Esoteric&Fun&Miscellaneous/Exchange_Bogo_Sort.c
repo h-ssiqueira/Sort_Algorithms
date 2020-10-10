@@ -4,7 +4,7 @@
 #include <time.h>
 #include "Esoteric_Fun_Miscellaneous.h"
 
-bool is_sorted(int a[], unsigned int n){
+bool is_sorted4(long int a[], int n){
     while(--n >= 1){
         if(a[n] < a[n-1]) 
             return false;
@@ -12,10 +12,10 @@ bool is_sorted(int a[], unsigned int n){
     return true;
 }
 
-void ExchangeBogoSort(int array[], unsigned int length){
-    unsigned int random1,random2;
-	int aux;
-    while(!is_sorted(array, length)){
+void ExchangeBogoSort(long int array[], int length){
+    int random1,random2;
+	long int aux;
+    while(!is_sorted4(array, length)){
         random1 = rand() % length;
         random2 = rand() % length;
         if(random1 < random2){ // Check the positions

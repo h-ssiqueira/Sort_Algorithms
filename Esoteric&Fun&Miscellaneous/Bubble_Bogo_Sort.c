@@ -4,7 +4,7 @@
 #include <time.h>
 #include "Esoteric_Fun_Miscellaneous.h"
 
-bool is_sorted(int a[], unsigned int n){
+bool is_sorted3(long int a[], int n){
     while(--n >= 1){
         if(a[n] < a[n-1]) 
             return false;
@@ -12,11 +12,11 @@ bool is_sorted(int a[], unsigned int n){
     return true;
 }
 
-void BubbleBogoSort(int array[], unsigned int length){
-    unsigned int random;
-	int aux;
-    while(!is_sorted(array, length)){
-        random = rand() % length-1;    
+void BubbleBogoSort(long int array[], int length){
+    int random;
+	long int aux;
+    while(!is_sorted3(array, length)){
+        random = rand() % (length-1);
         if(array[random] > array[random+1]){ // Tries to sort randomly the index and index+1
             aux = array[random];
             array[random] = array[random+1];

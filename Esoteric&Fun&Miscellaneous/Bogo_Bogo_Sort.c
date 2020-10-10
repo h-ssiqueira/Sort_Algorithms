@@ -8,7 +8,7 @@
 // Best case performance O(n)
 // Average case performance O((n + 1)!)
 
-bool is_sorted(int a[], unsigned int n){
+bool is_sorted1(long int a[], int n){
     while(--n >= 1){
         if(a[n] < a[n-1]) 
             return false;
@@ -16,18 +16,18 @@ bool is_sorted(int a[], unsigned int n){
     return true;
 }
 
-void BogoBogoSort(int array[], unsigned int length){
-    unsigned int size = 2,random;
-	int aux;
+void BogoBogoSort(long int array[], int length){
+    int size = 2,random;
+	long int aux;
     bool notsorted = true;
         
     while(notsorted){
-        if(is_sorted(array, size))
+        if(is_sorted1(array, size))
             size == length ? notsorted = false : size++;
         else
             size = 2;
         if(notsorted){
-            for(unsigned int i = 0; i < size; i++){ //tries to sort randomly
+            for(int i = 0; i < size; i++){ //tries to sort randomly
                 aux = array[i];
                 random = rand() % size;
                 array[i] = array[random];
