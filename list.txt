@@ -18,7 +18,7 @@ References:
 	https://iq.opengenus.org/tag/sorting-algorithm/
 
 
-42/86
+43/86
 
 -> Exchange family (12/12) 
 
@@ -204,7 +204,7 @@ Insert/Bottom-up Merge (std::stable_sort)
 
 
 
--> Esoteric / Fun / Miscellaneous (11/14)
+-> Esoteric / Fun / Miscellaneous (12/14)
 
 
 
@@ -220,7 +220,7 @@ Slow Sort ✔✔✔
 
 Less Bogo Sort ✔✔✔
 
-Cocktail Bogo Sort
+Cocktail Bogo Sort ✔✔✔
 
 Exchange Bogo Sort ✔✔✔
 

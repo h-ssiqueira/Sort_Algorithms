@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-// Auxiliar function that check if the array is sorted
+// Auxiliar functions that check if the array is sorted
 bool is_sorted1(long int a[], int n);
 bool is_sorted2(long int a[], int n);
 bool is_sorted3(long int a[], int n);
@@ -25,7 +25,10 @@ void bogo_sort(long int a[], int n);
 void BubbleBogoSort(long int array[], int length);
 
 // Cocktail Bogo Sort
-/////////void CocktailBogoSort(long int array[], int length);
+void CocktailBogoSort(long int array[], int length);
+// Auxiliar functions that check if the subarrays is sorted
+bool IsMaxSorted(long int array[], int min, int max);
+bool IsMinSorted(long int array[], int limit, int aux);
 
 // Exchange Bogo Sort
 void ExchangeBogoSort(long int array[], int length);
