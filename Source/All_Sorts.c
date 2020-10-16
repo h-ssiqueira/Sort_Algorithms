@@ -95,22 +95,24 @@ int main(){
     int length = 10, i, powerof2 = 16;
 	short int option_sort, option_category, choice = 2;
 	bool txtfile = false, displayarray = false, exectime = true;
+
 	create(&array,length);
+
     while(true){
 		generate(array,length,choice);
         do{
-            printf("\n\tWhich category of sort would you like to see?");          
-            printf("\n0 - Exit.");
-            printf("\n1 - Esoteric & Fun & Miscellaneous.");
-            printf("\n2 - Exchange.");
-            printf("\n3 - Hybrids.");
-            printf("\n4 - Insertion.");
-            printf("\n5 - Merge.");
-            printf("\n6 - Networks & Concurrent.");
-            printf("\n7 - Non-Comparison & Distribution.");
-            printf("\n8 - Selection.");
-			printf("\n9 - Configurations.");
-            printf("\n-> ");
+            printf("\n\tWhich category of sort would you like to see?
+            		\n0 - Exit.
+            		\n1 - Esoteric & Fun & Miscellaneous.
+            		\n2 - Exchange.
+            		\n3 - Hybrids.
+            		\n4 - Insertion.
+            		\n5 - Merge.
+            		\n6 - Networks & Concurrent.
+            		\n7 - Non-Comparison & Distribution.
+            		\n8 - Selection.
+					\n9 - Configurations.
+            		\n-> ");
             scanf("%hd",&option_category);
             if(option_category < 0 || option_category > 9)
                 printf("\n\tError: Choose the value in the range displayed.\n");
@@ -120,20 +122,20 @@ int main(){
         switch(option_category){
             case 1:
                 do{
-                    printf("\n\tChoose the sort to be aplied on Esoteric & Fun & Miscellaneous:");
-					printf("\n 0 - Menu.");
-                    printf("\n 1 - Bad_Sort.");
-                    printf("\n 2 - Bogo_Bogo_Sort.");
-                    printf("\n 3 - Bogo_Sort.");
-					printf("\n 4 - Bubble_Bogo_Sort.");
-					printf("\n 5 - Exchange_Bogo_Sort.");
-					printf("\n 6 - Less_Bogo_Sort.");
-                    printf("\n 7 - Pancake_Sort.");
-                    printf("\n 8 - Silly_Sort.");
-                    printf("\n 9 - Slow_Sort.");
-                    printf("\n10 - Spaghetti_Sort.");
-                    printf("\n11 - Stooge_Sort.");
-                    printf("\n-> ");
+                    printf("\n\tChoose the sort to be aplied on Esoteric & Fun & Miscellaneous:
+							\n 0 - Menu.
+                    		\n 1 - Bad_Sort.
+                    		\n 2 - Bogo_Bogo_Sort.
+                    		\n 3 - Bogo_Sort.
+							\n 4 - Bubble_Bogo_Sort.
+							\n 5 - Exchange_Bogo_Sort.
+							\n 6 - Less_Bogo_Sort.
+                    		\n 7 - Pancake_Sort.
+                    		\n 8 - Silly_Sort.
+                    		\n 9 - Slow_Sort.
+                    		\n10 - Spaghetti_Sort.
+                    		\n11 - Stooge_Sort.
+                    		\n-> ");
                     scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 11)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -276,21 +278,21 @@ int main(){
                 break;
             case 2:
                 do{
-                    printf("\n\tChoose the sort to be aplied on Exchange:");
-					printf("\n 0 - Menu.");
-                    printf("\n 1 - Bubble_Sort.");
-                    printf("\n 2 - Circle_Sort.");
-                    printf("\n 3 - Cocktail_Shaker_Sort.");
-                    printf("\n 4 - Comb_Sort.");
-                    printf("\n 5 - Dual_Pivot_Quick_Sort.");
-                    printf("\n 6 - Gnome_Sort.");
-                    printf("\n 7 - Odd-Even_Sort.");
-                    printf("\n 8 - Optimized_Bubble_Sort.");
-                    printf("\n 9 - Optimized_Gnome_Sort.");
-                    printf("\n10 - Quick_Sort.");
-					printf("\n11 - Quick_Sort_3-way.");
-                    printf("\n12 - Stable_Quick_Sort.");
-                    printf("\n-> ");
+                    printf("\n\tChoose the sort to be aplied on Exchange:
+							\n 0 - Menu.
+                    		\n 1 - Bubble_Sort.
+                    		\n 2 - Circle_Sort.
+                    		\n 3 - Cocktail_Shaker_Sort.
+                    		\n 4 - Comb_Sort.
+                    		\n 5 - Dual_Pivot_Quick_Sort.
+                    		\n 6 - Gnome_Sort.
+                    		\n 7 - Odd-Even_Sort.
+                    		\n 8 - Optimized_Bubble_Sort.
+                    		\n 9 - Optimized_Gnome_Sort.
+                    		\n10 - Quick_Sort.
+							\n11 - Quick_Sort_3-way.
+                    		\n12 - Stable_Quick_Sort.
+                    		\n-> ");
                     scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 12)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -441,10 +443,10 @@ int main(){
                 break;
             case 3:
                 do{
-                    printf("\n\tChoose the sort to be aplied on Hybrids:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Tim_Sort.");
-                    printf("\n-> ");
+                    printf("\n\tChoose the sort to be aplied on Hybrids:
+							\n0 - Menu.
+                    		\n1 - Tim_Sort.
+                    		\n-> ");
                     scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 1)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -474,14 +476,14 @@ int main(){
                 break;
             case 4:
                 do{
-                    printf("\n\tChoose the sort to be aplied on Insertion:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Binary_Insertion_Sort.");
-                    printf("\n2 - Cycle_Sort.");
-                    printf("\n3 - Insertion_Sort.");
-                    printf("\n4 - Shell_Sort.");
-                    printf("\n5 - Tree_Sort.");
-                    printf("\n-> ");
+                    printf("\n\tChoose the sort to be aplied on Insertion:
+							\n0 - Menu.
+                    		\n1 - Binary_Insertion_Sort.
+                    		\n2 - Cycle_Sort.
+                    		\n3 - Insertion_Sort.
+                    		\n4 - Shell_Sort.
+                    		\n5 - Tree_Sort.
+                    		\n-> ");
                     scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 5)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -555,12 +557,12 @@ int main(){
                 break;
             case 5:
                 do{
-                    printf("\n\tChoose the sort to be aplied on Merge:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Bottomup_Merge_Sort.");
-                    printf("\n2 - In-Place_Merge_Sort.");
-                    printf("\n3 - Merge_Sort.");
-                    printf("\n-> ");
+                    printf("\n\tChoose the sort to be aplied on Merge:
+							\n0 - Menu.
+                    		\n1 - Bottomup_Merge_Sort.
+                    		\n2 - In-Place_Merge_Sort.
+                    		\n3 - Merge_Sort.
+                    		\n-> ");
                     scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 3)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -612,11 +614,11 @@ int main(){
                 break;
             case 6:
                 do{
-                    printf("\n\tChoose the sort to be aplied on Networks & Concurrent:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Bitonic_Sort.");
-					printf("\n2 - Pairwise_Network_Sort.");
-                    printf("\n-> ");
+                    printf("\n\tChoose the sort to be aplied on Networks & Concurrent:
+							\n0 - Menu.
+                    		\n1 - Bitonic_Sort.
+							\n2 - Pairwise_Network_Sort.
+                    		\n-> ");
                     scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 2)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -695,13 +697,13 @@ int main(){
                 break;
             case 7:
                 do{
-                    printf("\n\tChoose the sort to be aplied on Non-Comparison & Distribution:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Bucket_Sort.");
-                    printf("\n2 - Counting_Sort.");
-                    printf("\n3 - Gravity_(Bead)_Sort.");
-                    printf("\n4 - Pigeonhole_Sort.");
-                    printf("\n-> ");
+                    printf("\n\tChoose the sort to be aplied on Non-Comparison & Distribution:
+							\n0 - Menu.
+                    		\n1 - Bucket_Sort.
+                    		\n2 - Counting_Sort.
+                    		\n3 - Gravity_(Bead)_Sort.
+                    		\n4 - Pigeonhole_Sort.
+                    		\n-> ");
                     scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 4)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -764,13 +766,13 @@ int main(){
                 break;
             case 8:
                 do{
-                    printf("\n\tChoose the sort to be aplied on Selection:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Double_Selection_Sort.");
-                    printf("\n2 - Max_Heap_Sort.");
-                    printf("\n3 - Min_Heap_Sort.");
-                    printf("\n4 - Selection_Sort.");
-                    printf("\n-> ");
+                    printf("\n\tChoose the sort to be aplied on Selection:
+							\n0 - Menu.
+                    		\n1 - Double_Selection_Sort.
+                    		\n2 - Max_Heap_Sort.
+                    		\n3 - Min_Heap_Sort.
+                    		\n4 - Selection_Sort.
+                    		\n-> ");
                     scanf("%hd",&option_sort);
                     if(option_sort < 0 || option_sort > 4)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -834,14 +836,18 @@ int main(){
 			case 9:
 				while(true){
 					do{
-						printf("\n\tConfigurations:");
-						printf("\n0 - Menu.");
-						printf("\n1 - Change sorting case - %s", choice > 1 ? (choice == 3 ? "Worst case." : "Average case.") : "Best case.");
-						printf("\n2 - Change length of array %d.", length);
-						printf("\n3 - Save results in a text file - %s", txtfile ? "YES." : "NO.");
-						printf("\n4 - Display arrays - %s", displayarray ? "YES." : "NO.");
-						printf("\n5 - Display execution time - %s", exectime ? "YES." : "NO.");
-						printf("\n-> ");
+						printf("\n\tConfigurations:
+								\n0 - Menu.
+								\n1 - Change sorting case - %s
+								\n2 - Change length of array %d.
+								\n3 - Save results in a text file - %s
+								\n4 - Display arrays - %s
+								\n5 - Display execution time - %s
+								\n-> ", choice > 1 ? (choice == 3 ? "Ascending." : "Random.") : "Descending.",
+										length,
+										txtfile ? "YES." : "NO.",
+										displayarray ? "YES." : "NO.",
+										exectime ? "YES." : "NO.");
 						scanf("%hd",&option_sort);
 						if(option_sort < 0 || option_sort > 5)
 							printf("\n\tError: Choose the value in the range displayed.\n\n\t");
@@ -851,11 +857,11 @@ int main(){
 					switch(option_sort){
 						case 1:
 							do{
-								printf("\n\tInsert the case for sorting:");
-								printf("\n1 - Best case.");
-								printf("\n2 - Average case.");
-								printf("\n3 - Worst case.");
-								printf("\n-> ");
+								printf("\n\tInsert the case for sorting:
+										\n1 - Ascending.
+										\n2 - Random.
+										\n3 - Descending.
+										\n-> ");
 								scanf("%hd",&choice);
 								if(choice < 1 || choice > 3)
 									printf("\n\n\tError: Insert a value in the correct range!\n");

@@ -5,11 +5,10 @@
 
 // Worst case performance O(n**2)
 // Best case performance O(n log n)
-// Average case performance O(n**2/2**p) (p = length)
+// Average case performance O(n**2/2**p) (p = number of increments)
 
 void CombSort(long int array[], int length){
-    int i,j;
-	long int aux = 1;
+    int i, j, aux = length;
     bool swap = true;
     while(aux > 1 || swap){
         aux *= (10/13);

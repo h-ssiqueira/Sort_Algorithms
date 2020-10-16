@@ -1,3 +1,23 @@
+References:
+
+	Complexity:
+	
+	https://www.hackerearth.com/practice/notes/big-o-cheatsheet-series-data-structures-and-algorithms-with-thier-complexities-1/
+
+	https://bigocheatsheet.io
+
+	https://cooervo.github.io/Algorithms-DataStructures-BigONotation/
+
+	https://www.bigocheatsheet.com
+
+	https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet
+
+
+	Algorithms:
+
+	https://iq.opengenus.org/tag/sorting-algorithm/
+
+
 42/86
 
 -> Exchange family (12/12) 
