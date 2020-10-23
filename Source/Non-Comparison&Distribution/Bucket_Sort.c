@@ -8,41 +8,21 @@
 // Best case performance O(n + k) k is the number of buckets
 // Average performance O(n + k)
 
-void Double_Selection_SortB(int length, long int matrix[][length]){
-    int changeMin, changeMax;
+
+void Insertion_SortB(int length, long int matrix[][length]){
+	int i,j,k;
 	long int aux;
-    for(int h = 0; h < buckets; h++){
-        for(int i = 0, j = length-1; i < j; i++, j--){
-            changeMin = i; //starts in the first
-            changeMax = j; //starts in the last
-            for(int k = i+1; k <= j; k++){
-                if(matrix[h][k] < matrix[h][changeMin]) //search for the min element
-                    changeMin = k;
-                else if(matrix[h][k] > matrix[h][changeMax]) //search for the max element
-                    changeMax = k;
-            }
-            if(i != changeMin){ //swap the positions for fit the min element
-                /*
-                matrix[h][i] = matrix[h][i] ^ matrix[h][changeMin];
-                matrix[h][changeMin] = matrix[h][i] ^ matrix[h][changeMin];
-                matrix[h][i] = matrix[h][i] ^ matrix[h][changeMin];
-                */
-                aux = matrix[h][i];
-                matrix[h][i] = matrix[h][changeMin];
-                matrix[h][changeMin] = aux;
-            }
-            if(j != changeMax){ //swap the positions for fit the max element
-                /*
-                matrix[h][j] = matrix[h][j] ^ matrix[h][changeMax];
-                matrix[h][changeMax] = matrix[h][j] ^ matrix[h][changeMax];
-                matrix[h][j] = matrix[h][j] ^ matrix[h][changeMax];
-                */
-                aux = matrix[h][i];
-                matrix[h][i] = matrix[h][changeMax];
-                matrix[h][changeMax] = aux;
-            }
-        }
-    }
+	for(i = 0; i < buckets; i++){
+		for(j = 1; j < length; j++){
+			aux = matrix[i][j];
+			k = j - 1;
+			while(k >= 0 && matrix[i][k] > aux){
+				matrix[i][k+1] = matrix[i][k];
+				k--;
+			}
+			matrix[i][k+1] = aux;
+		}
+	}
 }
 
 void BucketSort(long int array[], int length){
@@ -76,7 +56,7 @@ void BucketSort(long int array[], int length){
         }
     }
     
-    Double_Selection_SortB(length,b); // After set the values to each bucket, sort each one using other algorithm
+    Insertion_SortB(length,b); // After set the values to each bucket, sort each one using other algorithm
     
     for(i = 0, k = 0; i < buckets; i++){ // Merge all buckets to the original array
         for(j = 0; j < length; j++){
@@ -88,9 +68,9 @@ void BucketSort(long int array[], int length){
     }
 }
 
-/*
+
 int main(){
-    int array[] = {49,436,448,704,516,297,468,764,735,564};
+    long int array[] = {49,436,448,704,516,297,468,764,735,564};
     
     for(int i = 0; i < 10; i++)
         printf("%d ",array[i]);
@@ -103,4 +83,3 @@ int main(){
     
     return 0;
 }
-*/

@@ -4,7 +4,7 @@
 // Bucket Sort
 void BucketSort(long int array[], int length);
 // Auxiliary function for bucket sort
-void Double_Selection_SortB(int length, long int matrix[][length]);
+void Insertion_SortB(int length, long int matrix[][length]);
 
 // Counting Sort
 void Counting_Sort(long int array[], int length);
