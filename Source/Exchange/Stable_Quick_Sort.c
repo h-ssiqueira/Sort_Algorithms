@@ -38,17 +38,17 @@ void StableQuickSort(long int array[], int start, int end){
 
 /*
 int main(){
-    int array[] = {979,82,937,764,309,761,824,540,786,732},i;
+    long int array[] = {979,82,937,764,309,761,824,540,786,732},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     
     StableQuickSort(array,0,10-1);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
 
     return 0;
 }

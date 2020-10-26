@@ -35,15 +35,15 @@ void Counting_Sort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {305,224,575,587,589,891,810,158,872,805},i;
+    long int array[] = {305,224,575,587,589,891,810,158,872,805},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     Counting_Sort(array,10);
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }

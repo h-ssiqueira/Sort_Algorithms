@@ -50,16 +50,16 @@ void Merge_Sort(long int array[], int start, int end){
 
 /*
 int main(){
-    int ar[] = {55,654,321,8,52,31,54,66,221,100};
+    long int ar[] = {55,654,321,8,52,31,54,66,221,100};
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",ar[i]);
+        printf("%ld ",ar[i]);
     
     printf("\n\n");
     Merge_Sort(ar,0,10-1); //0 and length - 1
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",ar[i]);
+        printf("%ld ",ar[i]);
     
     return 0;
 }

@@ -46,15 +46,15 @@ void CocktailShakerSort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {508,135,423,546,98,809,857,946,225,81},i;
+    longint array[] = {508,135,423,546,98,809,857,946,225,81},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     printf("\n\n");
     CocktailShakerSort(array,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

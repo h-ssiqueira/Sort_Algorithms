@@ -43,15 +43,15 @@ void BeadSort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {159,217,135,509,805,598,742,156,782,427},i;
+    long int array[] = {159,217,135,509,805,598,742,156,782,427},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     BeadSort(array,10);
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }

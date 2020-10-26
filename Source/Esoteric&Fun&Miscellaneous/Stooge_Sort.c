@@ -23,16 +23,16 @@ void StoogeSort(long int array[], int i, int j){
 
 /*   
 int main(){
-    int array[] = {25,247,87,960,12,445,662,94,834,787},i;
+    long int array[] = {25,247,87,960,12,445,662,94,834,787},i;
     
     for(i = 0; i < 10; i++) 
-        printf("%d ", array[i]);
+        printf("%ld ", array[i]);
     
     printf("\n\n");
     StoogeSort(array,0,10-1);
     
     for(i = 0; i < 10; i++) 
-        printf("%d ", array[i]);
+        printf("%ld ", array[i]);
     return 0;
 }
 */

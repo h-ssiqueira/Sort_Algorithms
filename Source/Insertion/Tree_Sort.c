@@ -65,16 +65,16 @@ void TreeSort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {236,120,317,146,425,379,400,160,242,3}, i;
+    long int array[] = {236,120,317,146,425,379,400,160,242,3}, i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     printf("\n\n");
     
     TreeSort(array,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

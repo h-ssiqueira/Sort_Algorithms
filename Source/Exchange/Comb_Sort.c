@@ -30,15 +30,15 @@ void CombSort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {276,64,534,43,658,425,794,921,766,878},i;
+    long int array[] = {276,64,534,43,658,425,794,921,766,878},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     printf("\n\n");
     CombSort(array,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

@@ -40,16 +40,16 @@ void BogoBogoSort(long int array[], int length){
 /*
 int main(){
     srand(time(NULL));
-    int array[] = {299,581,698,6,451,285,366,253,531,686},i;
+    long int array[] = {299,581,698,6,451,285,366,253,531,686},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     BogoBogoSort(array,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

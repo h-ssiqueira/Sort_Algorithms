@@ -46,16 +46,16 @@ void Bottomup_Merge_Sort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {799,798,864,153,578,661,256,60,402,723};
+    long int array[] = {799,798,864,153,578,661,256,60,402,723};
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     Bottomup_Merge_Sort(array,10); 
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }

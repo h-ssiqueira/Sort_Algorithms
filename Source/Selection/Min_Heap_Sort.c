@@ -42,16 +42,16 @@ void MinHeapSort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {117,612,443,21,894,908,802,687,693,845},i;
+    long int array[] = {117,612,443,21,894,908,802,687,693,845},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     MinHeapSort(array,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

@@ -22,16 +22,16 @@ void Slow_Sort(long int array[], int start, int end){
 
 /*
 int main(){
-    int array[] = {85,354,1,123,45,897,231,984,35,89},i;
+    long int array[] = {85,354,1,123,45,897,231,984,35,89},i;
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     
     Slow_Sort(array,0,10-1);//length - 1
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

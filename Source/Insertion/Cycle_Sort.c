@@ -60,16 +60,16 @@ void CycleSort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {807,449,650,900,745,539,390,112,447,973}, i;
+    long int array[] = {807,449,650,900,745,539,390,112,447,973}, i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     printf("\n\n");
     
     CycleSort(array,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,84 +16,19 @@
 #define limsize 65536000 // Limit 500MB of data // 2147483648 //Limit of signed int (16GB total)
 #define limelement 2147483648 //Limit of signed int
 
-void create(long int **array, int length){
-	*array = (long int*)malloc(length * sizeof(long int));
-	if(!(*array))
-		printf("\n\tError: array couldn't be allocated.");
-}
+void create(long int **array, int length);
 
-void print(long int array[], int length){
-    printf("\n");
-    for(int i = 0; i < length; i++)
-        printf("%ld ",array[i]);
-}
+void print(long int array[], int length);
 
-void generate(long int array[], int length, short int choice){
-	switch(choice){
-		case 1:
-			for(int i = 0; i < length; i++)
-				array[i] = i;
-			break;
-		case 2:
-			for(int i = 0; i < length; i++)
-				array[i] = rand() % limelement;
-			break;
-		case 3:
-			for(int i = 0; i < length; i++)
-				array[i] = length - i;
-			break;
-	}
-}
+void generate(long int array[], int length, short int choice);
 
-void calculatetime(struct timeval start, struct timeval end, long int *sec, long int *mili){
-	*sec = end.tv_sec - start.tv_sec;
-	*mili = end.tv_usec - start.tv_usec; 
-	*mili /= 1000;
-}
+void calculatetime(struct timeval start, struct timeval end, long int *sec, long int *mili);
 
-void BeforeExec(long int array[], int length, bool display, char sort[]){
-	FILE *txt = fopen("data.txt","a+");
-	if(txt != NULL){
-		fprintf(txt,"\n\t%s algorithm with length of %u elements.",sort, length);
-		if(display){
-			fprintf(txt,"\n\tArray before sort:\n");
-			for(int i = 0; i < length; i++)
-				fprintf(txt,"%ld ",array[i]);
-			fprintf(txt,"\n");
-		}
-	}
-	else{
-		printf("\n\tError: Cannot open the file.");
-	}
-	if(txt != NULL)
-		fclose(txt);
-}
+void BeforeExec(long int array[], int length, bool display, char sort[]);
 
-void AfterExec(long int array[], int length, bool display, bool time, long int sec, long int mili){
-	FILE *txt = fopen("data.txt","a+");
-	if(txt != NULL){
-		if(display){
-			fprintf(txt,"\n\tArray sorted:\n");
-			for(int i = 0; i < length; i++)
-				fprintf(txt,"%ld ",array[i]);
-			fprintf(txt,"\n");
-		}
-		if(time)
-			fprintf(txt,"\n\tExecution time: %ld seconds %ld milisseconds.\n",sec,mili);
-	}
-	else{
-		printf("\n\tError: Cannot open the file.");
-	}
-	if(txt != NULL)
-		fclose(txt);
-}
+void AfterExec(long int array[], int length, bool display, bool time, long int sec, long int mili);
 
-bool sorted(long int array[], int length){
-	for(int i = 0; i < length - 1; i++)
-		if(array[i] > array[i+1])
-			return false;
-	return true;
-}
+bool sorted(long int array[], int length);
 
 int main(){
     srand(time(NULL));
@@ -499,13 +435,14 @@ int main(){
                     		\n1 - Binary_Insertion_Sort.
                     		\n2 - Cycle_Sort.
                     		\n3 - Insertion_Sort.
-                    		\n4 - Shell_Sort.
-                    		\n5 - Tree_Sort.
+							\n4 - Patience_Sort.
+                    		\n5 - Shell_Sort.
+                    		\n6 - Tree_Sort.
                     		\n-> ");
                     scanf("%hd",&option_sort);
-                    if(option_sort < 0 || option_sort > 5)
+                    if(option_sort < 0 || option_sort > 6)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 5);
+                }while(option_sort < 0 || option_sort > 6);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -540,7 +477,18 @@ int main(){
                         Insertion_Sort(array,length);
 						gettimeofday(&end,NULL);
                         break;
-                    case 4:
+					case 4:
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Patience Sort");
+						printf("\n\tBefore Patience Sort.");
+                        if(displayarray)
+							print(array,length);
+                        printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
+                        PatienceSort(array,length);
+						gettimeofday(&end,NULL);
+                        break;
+                    case 5:
                         if(txtfile)
 							BeforeExec(array,length,displayarray,"Shell Sort");
 						printf("\n\tBefore Shell Sort.");
@@ -551,7 +499,7 @@ int main(){
                         ShellSort(array,length);
 						gettimeofday(&end,NULL);
                         break;
-                    case 5:
+                    case 6:
 						if(txtfile)
 							BeforeExec(array,length,displayarray,"Tree Sort");
                         printf("\n\tBefore Tree Sort.");
@@ -915,4 +863,83 @@ int main(){
     }
 	free(array);
     return 0;
+}
+
+void create(long int **array, int length){
+	*array = (long int*)malloc(length * sizeof(long int));
+	if(!(*array))
+		printf("\n\tError: array couldn't be allocated.");
+}
+
+void print(long int array[], int length){
+    printf("\n");
+    for(int i = 0; i < length; i++)
+        printf("%ld ",array[i]);
+}
+
+void generate(long int array[], int length, short int choice){
+	switch(choice){
+		case 1:
+			for(int i = 0; i < length; i++)
+				array[i] = i;
+			break;
+		case 2:
+			for(int i = 0; i < length; i++)
+				array[i] = rand() % limelement;
+			break;
+		case 3:
+			for(int i = 0; i < length; i++)
+				array[i] = length - i;
+			break;
+	}
+}
+
+void calculatetime(struct timeval start, struct timeval end, long int *sec, long int *mili){
+	*sec = end.tv_sec - start.tv_sec;
+	*mili = end.tv_usec - start.tv_usec; 
+	*mili /= 1000;
+}
+
+void BeforeExec(long int array[], int length, bool display, char sort[]){
+	FILE *txt = fopen("data.txt","a+");
+	if(txt != NULL){
+		fprintf(txt,"\n\t%s algorithm with length of %u elements.",sort, length);
+		if(display){
+			fprintf(txt,"\n\tArray before sort:\n");
+			for(int i = 0; i < length; i++)
+				fprintf(txt,"%ld ",array[i]);
+			fprintf(txt,"\n");
+		}
+	}
+	else{
+		printf("\n\tError: Cannot open the file.");
+	}
+	if(txt != NULL)
+		fclose(txt);
+}
+
+void AfterExec(long int array[], int length, bool display, bool time, long int sec, long int mili){
+	FILE *txt = fopen("data.txt","a+");
+	if(txt != NULL){
+		if(display){
+			fprintf(txt,"\n\tArray sorted:\n");
+			for(int i = 0; i < length; i++)
+				fprintf(txt,"%ld ",array[i]);
+			fprintf(txt,"\n");
+		}
+		if(time)
+			fprintf(txt,"\n\tExecution time: %ld seconds %ld milisseconds.\n",sec,mili);
+	}
+	else{
+		printf("\n\tError: Cannot open the file.");
+	}
+	if(txt != NULL)
+		fclose(txt);
+}
+
+bool sorted(long int array[], int length){
+	for(int i = 0; i < length - 1; i++)
+		if(array[i] > array[i+1])
+			return false;
+	return true;
 }

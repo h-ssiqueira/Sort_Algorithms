@@ -32,17 +32,17 @@ void Selection_Sort(long int array[], int length){
 
 /*
 int main(){
-    int v[] = {3,67,31,90,1,44,654,89,21,20};
+    long int v[] = {3,67,31,90,1,44,654,89,21,20};
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",v[i]);
+        printf("%ld ",v[i]);
     
     printf("\n\n");
     
     Selection_Sort(v,10);
     
     for(int i = 0; i < 10; i++)
-        printf("%d ",v[i]);
+        printf("%ld ",v[i]);
     
     return 0;
 }

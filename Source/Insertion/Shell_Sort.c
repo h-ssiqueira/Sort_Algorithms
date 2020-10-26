@@ -24,17 +24,17 @@ void ShellSort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {119,536,252,970,681,861,222,369,587,468},i;
+    long int array[] = {119,536,252,970,681,861,222,369,587,468},i;
 
     for(i = 0; i < 10; i++) 
-        printf("%d ", array[i]);
+        printf("%ld ", array[i]);
     
     printf("\n\n");
     
     ShellSort(array,10);
     
     for(i = 0; i < 10; i++) 
-        printf("%d ", array[i]);
+        printf("%ld ", array[i]);
     return 0;
 }
 */

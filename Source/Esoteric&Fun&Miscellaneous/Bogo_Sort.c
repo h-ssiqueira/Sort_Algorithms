@@ -32,16 +32,16 @@ void bogo_sort(long int a[], int n){
 /*    
 int main(){
     srand(time(NULL));
-    int numbers[] = {1,10,9,7,3,0,50,654,222,-2};
+    long int numbers[] = {1,10,9,7,3,0,50,654,222,-2};
     
     for(int i = 0; i < 10; i++) 
-        printf("%d ", numbers[i]);
+        printf("%ld ", numbers[i]);
     
     printf("\n\n");
     bogo_sort(numbers,10);
     
     for(int i = 0; i < 10; i++) 
-        printf("%d ", numbers[i]);
+        printf("%ld ", numbers[i]);
     return 0;
 }
 */

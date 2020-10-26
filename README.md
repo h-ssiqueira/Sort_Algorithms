@@ -35,6 +35,7 @@
 	1. [Binary Insertion Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Binary_Insertion_Sort.c)
 	1. [Cycle Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Cycle_Sort.c)
 	1. [Insertion Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Insertion_Sort.c)
+	1. [Patience Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Patience_Sort.c)
 	1. [Shell Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Shell_Sort.c)
 	1. [Tree Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Tree_Sort.c)
 

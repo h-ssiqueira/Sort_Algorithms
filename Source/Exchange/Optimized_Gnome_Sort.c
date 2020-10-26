@@ -27,17 +27,17 @@ void Optimized_Gnome_Sort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {771,143,40,570,616,967,376,266,895,121},i;
+    long int array[] = {771,143,40,570,616,967,376,266,895,121},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     printf("\n\n");
     
     for(i = 1; i < 10; i++)
         Optimized_Gnome_Sort(array,i);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

@@ -12,6 +12,9 @@ void CycleSort(long int array[], int length);
 // Insertion Sort
 void Insertion_Sort(long int array[], int length);
 
+// Patience Sort
+void PatienceSort(long int array[], int length);
+
 // Shell Sort
 void ShellSort(long int array[], int length);
 

@@ -23,15 +23,15 @@ void SillySort(long int array[], int start, int end){
 
 /*
 int main(){
-    int array[] = {17,691,128,110,238,445,690,183,288,607},i;
+    long int array[] = {17,691,128,110,238,445,690,183,288,607},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     SillySort(array,0,10-1);
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }

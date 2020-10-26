@@ -45,17 +45,17 @@ void Merge_Sort_In_Place(long int array[], int start, int end){
 
 /*
 int main(){
-    int array[] = {465,54,222,84,23,14,67,321,74,1},i;
+    long int array[] = {465,54,222,84,23,14,67,321,74,1},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     
     Merge_Sort(array,0,10-1); //0 and length - 1
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }

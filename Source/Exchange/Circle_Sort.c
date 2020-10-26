@@ -30,13 +30,13 @@ void CircleSort(long int array[], int length){
  
 /*
 int main(){
-	int array[] = {894,467,594,559,97,183,923,323,864,540},i;
+	long int array[] = {894,467,594,559,97,183,923,323,864,540},i;
     for(i = 0; i < 10; i++) 
-        printf("%d ", array[i]);
+        printf("%ld ", array[i]);
     printf("\n");
 	CircleSort(array, 10);
     for(i = 0; i < 10; i++) 
-        printf("%d ", array[i]);
+        printf("%ld ", array[i]);
  
 	return 0;
 }

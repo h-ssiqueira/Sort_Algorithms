@@ -36,17 +36,17 @@ void Quick_Sort(long int array[], int start, int end){
 
 /*
 int main(){
-    int array[] = {65,684,13,321,2,14,32,987,55,10},i;
+    long int array[] = {65,684,13,321,2,14,32,987,55,10},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     
     Quick_Sort(array,0,10-1);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }

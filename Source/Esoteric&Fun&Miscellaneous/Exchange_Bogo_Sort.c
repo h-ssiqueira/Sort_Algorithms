@@ -38,16 +38,16 @@ void ExchangeBogoSort(long int array[], int length){
 /*
 int main(){
     srand(time(NULL));
-    int array[] = {180,979,34,25,484,70,341,755,293,365},i;
+    long int array[] = {180,979,34,25,484,70,341,755,293,365},i;
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     
     ExchangeBogoSort(array,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

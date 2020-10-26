@@ -22,16 +22,16 @@ void Insertion_Sort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {354,14,321,52,84,387,10,987,100,5}, i;
+    long int array[] = {354,14,321,52,84,387,10,987,100,5}, i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     printf("\n\n");
     
     Insertion_Sort(array,10);//10 is the length
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

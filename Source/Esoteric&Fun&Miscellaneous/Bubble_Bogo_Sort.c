@@ -28,16 +28,16 @@ void BubbleBogoSort(long int array[], int length){
 /*
 int main(){
     srand(time(NULL));
-    int array[] = {517,418,663,859,992,119,508,887,672,407},i;
+    long int array[] = {517,418,663,859,992,119,508,887,672,407},i;
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     
     BubbleBogoSort(array,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     return 0;
 }
 */

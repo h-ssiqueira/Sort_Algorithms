@@ -34,17 +34,17 @@ void QuickSort3way(long int array[], int start, int end){
 
 /*
 int main(){
-    int array[] = {691,943,746,940,402,962,402,725,140,294},i;
+    long int array[] = {691,943,746,940,402,962,402,725,140,294},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     
     QuickSort3way(array,0,10-1);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }

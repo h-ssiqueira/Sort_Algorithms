@@ -28,17 +28,17 @@ void Pigeonhole_Sort(long int array[], int length){
 
 /*
 int main(){
-    int test[] = {2,20,1,7,3,5,2,-11,2,1},i;
+    long int test[] = {2,20,1,7,3,5,2,-11,2,1},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",test[i]);
+        printf("%ld ",test[i]);
     
     printf("\n\n");
     
     Pigeonhole_Sort(test,10);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",test[i]);
+        printf("%ld ",test[i]);
     
     return 0;
 }

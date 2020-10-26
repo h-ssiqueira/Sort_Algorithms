@@ -21,15 +21,15 @@ void Bubble_sort(long int array[], int length){
 
 /*
 int main(){
-    int array[] = {5,9,4,22,51,3,10,65,111,49},i;
+    long int array[] = {5,9,4,22,51,3,10,65,111,49},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     printf("\n\n");
     Bubble_sort(array,10-1);
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }

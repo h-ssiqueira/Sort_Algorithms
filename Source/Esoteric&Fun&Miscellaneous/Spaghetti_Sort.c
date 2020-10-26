@@ -27,15 +27,15 @@ void SpaghettiSort(long int array[], int length){
  
 /*
 int main(){
-    int array[] = {323,669,285,167,862,674,733,331,475,445},i;
+    long int array[] = {323,669,285,167,862,674,733,331,475,445},i;
     
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     printf("\n\n");
     SpaghettiSort(array,10);
     for(i = 0; i < 10; i++)
-        printf("%d ",array[i]);
+        printf("%ld ",array[i]);
     
     return 0;
 }
