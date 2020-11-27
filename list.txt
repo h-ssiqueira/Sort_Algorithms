@@ -17,6 +17,10 @@ References:
 
 	https://iq.opengenus.org/tag/sorting-algorithm/
 
+	Makefile:
+	
+	https://stackoverflow.com/questions/5178125/how-to-place-object-files-in-separate-subdirectory
+
 
 44/86
 
