@@ -21,10 +21,10 @@ void ShellSort(long int array[], int length);
 // Tree Sort
 void TreeSort(long int array[], int length);
 // Structure of the tree
-typedef struct node{ 
+typedef struct node{
     long int value;
-    struct node *left, *right; 
-}Node; 
+    struct node *left, *right;
+}Node;
 // Function that releases the memory allocated
 Node* Release(Node *T);
 // Function that stores the values of the tree in the array

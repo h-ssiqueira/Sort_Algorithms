@@ -11,7 +11,7 @@
 void Selection_Sort(long int array[], int length){
     long int aux;
 	int change,i,j;
-    
+
     for(i = 0; i < length-1; i++){ //last element won't have other to compair
         change = i;
         for(j = i+1; j < length; j++)
@@ -33,17 +33,17 @@ void Selection_Sort(long int array[], int length){
 /*
 int main(){
     long int v[] = {3,67,31,90,1,44,654,89,21,20};
-    
+
     for(int i = 0; i < 10; i++)
         printf("%ld ",v[i]);
-    
+
     printf("\n\n");
-    
+
     Selection_Sort(v,10);
-    
+
     for(int i = 0; i < 10; i++)
         printf("%ld ",v[i]);
-    
+
     return 0;
 }
 */

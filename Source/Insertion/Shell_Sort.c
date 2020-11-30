@@ -9,7 +9,7 @@
 void ShellSort(long int array[], int length){
     int h = 1, i, j;
 	long int aux;
-    
+
     while(h < length) // Set the value of h until reach the value of length or more
         h = 3 * h + 1;
     for(;h > 0; h /= 3){ // h starts decreasing the array
@@ -26,14 +26,14 @@ void ShellSort(long int array[], int length){
 int main(){
     long int array[] = {119,536,252,970,681,861,222,369,587,468},i;
 
-    for(i = 0; i < 10; i++) 
+    for(i = 0; i < 10; i++)
         printf("%ld ", array[i]);
-    
+
     printf("\n\n");
-    
+
     ShellSort(array,10);
-    
-    for(i = 0; i < 10; i++) 
+
+    for(i = 0; i < 10; i++)
         printf("%ld ", array[i]);
     return 0;
 }

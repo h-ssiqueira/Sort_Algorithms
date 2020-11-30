@@ -7,7 +7,7 @@
 void Pigeonhole_Sort(long int array[], int length){
     long int max = array[0],min = array[0];
 	int range, i, j = 0;
-    
+
     for(i = 0; i < length; i++){ //collect max and min values of array
         if(array[i] > max)
             max = array[i];
@@ -15,7 +15,7 @@ void Pigeonhole_Sort(long int array[], int length){
             min = array[i];
     }
     range = max - min + 1;
-    
+
     long int holes[range]; //creates an array of ranges
     for(i = 0; i < range; i++) //clear the holes
         holes[i] = 0;
@@ -29,17 +29,17 @@ void Pigeonhole_Sort(long int array[], int length){
 /*
 int main(){
     long int test[] = {2,20,1,7,3,5,2,-11,2,1},i;
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",test[i]);
-    
+
     printf("\n\n");
-    
+
     Pigeonhole_Sort(test,10);
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",test[i]);
-    
+
     return 0;
 }
 */

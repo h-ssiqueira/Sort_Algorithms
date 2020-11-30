@@ -1,7 +1,7 @@
 References:
 
 	Complexity:
-	
+
 	https://www.hackerearth.com/practice/notes/big-o-cheatsheet-series-data-structures-and-algorithms-with-thier-complexities-1/
 
 	https://bigocheatsheet.io
@@ -18,13 +18,13 @@ References:
 	https://iq.opengenus.org/tag/sorting-algorithm/
 
 	Makefile:
-	
+
 	https://stackoverflow.com/questions/5178125/how-to-place-object-files-in-separate-subdirectory
 
 
 44/86
 
--> Exchange family (12/12) 
+-> Exchange family (12/12)
 
 
 
@@ -194,7 +194,7 @@ Grail Sort (Block Merge Sort)
 
 Square Root Sort (Block Merge Sort)
 
-Introspective Sort std::sort 
+Introspective Sort std::sort
 
 Quick Shell Sort (Introsort with Shellsort)
 

@@ -3,14 +3,14 @@
 #include "Esoteric_Fun_Miscellaneous.h"
 
 // Average case performance O(n)
-  
+
 void SpaghettiSort(long int array[], int length){
     int i, j, k = 0;
 	long int aux[length], min = array[0], max = array[0];
     for(i = 0; i < length; i++){ // Find the max and min values in the array
-        if(array[i] > max) 
+        if(array[i] > max)
             max = array[i];
-        if(array[i] < min) 
+        if(array[i] < min)
             min = array[i];
     }
     for(i = min; i <= max; i++){
@@ -24,19 +24,19 @@ void SpaghettiSort(long int array[], int length){
     for(i = 0; i < length; i++) // Return the elements in the main array
         array[i] = aux[i];
 }
- 
+
 /*
 int main(){
     long int array[] = {323,669,285,167,862,674,733,331,475,445},i;
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     printf("\n\n");
     SpaghettiSort(array,10);
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     return 0;
 }
 */

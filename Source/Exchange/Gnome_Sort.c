@@ -9,7 +9,7 @@
 void Gnome_Sort(long int array[], int length){
     long int aux;
 	int i = 1;
-    
+
     while(i < length){
         if(array[i] >= array[i-1])
             i++;
@@ -31,13 +31,13 @@ void Gnome_Sort(long int array[], int length){
 /*
 int main(){
     long int array[] = {9,5,3,7,6,4,8,1,2,10},i;
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
     printf("\n\n");
-    
+
     Gnome_Sort(array,10);
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
     return 0;

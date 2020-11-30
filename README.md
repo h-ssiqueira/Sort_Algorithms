@@ -13,7 +13,7 @@
 	1. [Slow Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Slow_Sort.c)
 	1. [Spaghetti Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Spaghetti_Sort.c)
 	1. [Stooge Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Stooge_Sort.c)
-	
+
 1. [Exchange:](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Source/Exchange)
 	1. [Bubble Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Bubble_Sort.c)
 	1. [Circle Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Circle_Sort.c)
@@ -60,49 +60,49 @@
 	1. [Min Heap Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Min_Heap_Sort.c)
 	1. [Selection Sort.](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Selection_Sort.c)
 
-Algorithm | Worst case | Best case | Average | Space complexity | In-place | Stable
-:---: | :---: | :---: | :---: | :---: | :---: | :---:
-[Bad Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Bad_Sort.c) |  |  |  |  |  | 
-[Bogo Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  |  |  | 
-[Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Bogo_Sort.c) |  |  |  |  |  | 
-[Bubble Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Bubble_Bogo_Sort.c) |  |  |  |  |  | 
-[Cocktail Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Cocktail_Bogo_Sort.c) |  |  |  |  |  | 
-[Exchange Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Exchange_Bogo_Sort.c) |  |  |  |  |  | 
-[Less Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Less_Bogo_Sort.c) |  |  |  |  |  | 
-[Pancake Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Pancake_Sort.c) |  |  |  |  |  | 
-[Silly Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Silly_Sort.c) |  |  |  |  |  | 
-[Slow Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Slow_Sort.c) |  |  |  |  |  | 
-[Spaghetti Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Spaghetti_Sort.c) |  |  |  |  |  | 
-[Stooge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Stooge_Sort.c) |  |  |  |  |  | 
-[Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | ☑ | ☑
-[Circle Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Circle_Sort.c) | O(N log N log N) | O(N log N) | O(N log N) | O(1) | ☑ | ☒
-[Cocktail Shaker Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Cocktail_Shaker_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | ☑ | ☑
-[Comb Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Comb_Sort.c) | O(N²) | O(N log N) | O(N² / 2<sup>p</sup>) p is the number of increments | O(1) | ☑ | ☒
-[Dual Pivot Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Dual_Pivot_Quick_Sort.c) |  |  |  |  |  | 
-[Gnome Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Gnome_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | ☑ | ☑
-[Odd-Even Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Odd-Even_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | ☑ | ☑
-[Optimized Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Optimized_Bubble_Sort.c) |  |  |  |  |  | 
-[Optimized Gnome Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Optimized_Gnome_Sort.c) |  |  |  |  |  | 
-[Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(log N) | ☑ | ☒
-[Quick Sort 3-way](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort_3-way.c) | O(N²) | O(N) | O(N log N) | O(log N) | ☑ | ☒
-[Stable Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Stable_Quick_Sort.c) |  |  |  |  |  | 
-[Tim Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Hybrids/Tim_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | ☒ | ☑
-[Binary Insertion Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Binary_Insertion_Sort.c) | O(N log N) | O(N) | O(N log N) | O(1) | ☑ | ☑
-[Cycle Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Cycle_Sort.c) |  |  |  |  |  | 
-[Insertion Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Insertion_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | ☑ | ☑
-[Patience Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Patience_Sort.c) |  |  |  |  |  | 
-[Shell Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Shell_Sort.c) | O(N<sup>3/2</sup>) or O(N log² N) | O(N log N) | --- | O(1) | ☑ | ☒
-[Tree Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Tree_Sort.c) |  |  |  |  |  | 
-[Bottom-up Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/Bottom-Up_Merge_Sort.c) |  |  |  |  |  | 
-[In-Place Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/In-Place_Merge_Sort.c) |  |  |  |  |  | 
-[Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Source/Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | ☒ | ☑
-[Bitonic Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Networks%26Concurrent/Bitonic_Sort.c) |  |  |  |  |  | 
-[Pairwise Network Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Networks%26Concurrent/Pairwise_Network_Sort.c) |  |  |  |  |  | 
-[Bucket Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison%26Distribution/Bucket_Sort.c) |  |  |  |  |  | 
-[Counting Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison%26Distribution/Counting_Sort.c) |  |  |  |  |  | 
-[Gravity (Bead) Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison%26Distribution/Gravity_(Bead)_Sort.c) |  |  |  |  |  | 
-[Pigeonhole Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison%26Distribution/Pigeonhole_Sort.c) |  |  |  |  |  | 
-[Double Selection Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Double_Selection_Sort.c) |  |  |  |  |  | 
-[Max Heap Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Max_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | ☑ | ☒
-[Min Heap Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Min_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | ☑ | ☒
-[Selection Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Selection_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | ☑ | ☒
+Algorithm | Worst case | Best case | Average | Space complexity | In-place | Stable | Notes
+:---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+[Bad Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Bad_Sort.c) |  |  |  |  |  |  |
+[Bogo Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  |  |  |  |
+[Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Bogo_Sort.c) |  |  |  |  |  |  |
+[Bubble Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Bubble_Bogo_Sort.c) |  |  |  |  |  |  |
+[Cocktail Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Cocktail_Bogo_Sort.c) |  |  |  |  |  |  |
+[Exchange Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Exchange_Bogo_Sort.c) |  |  |  |  |  |  |
+[Less Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Less_Bogo_Sort.c) |  |  |  |  |  |  |
+[Pancake Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Pancake_Sort.c) |  |  |  |  |  |  |
+[Silly Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Silly_Sort.c) |  |  |  |  |  |  |
+[Slow Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Slow_Sort.c) |  |  |  |  |  |  |
+[Spaghetti Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Spaghetti_Sort.c) |  |  |  |  |  |  |
+[Stooge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric%26Fun%26Miscellaneous/Stooge_Sort.c) |  |  |  |  |  |  |
+[Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
+[Circle Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Circle_Sort.c) | O(N log N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
+[Cocktail Shaker Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Cocktail_Shaker_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
+[Comb Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Comb_Sort.c) | O(N²) | O(N log N) | O(N² / 2<sup>p</sup>) | O(1) | **☑** | **☒** | **p** is the number of increments
+[Dual Pivot Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Dual_Pivot_Quick_Sort.c) |  |  |  |  |  |  |
+[Gnome Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Gnome_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
+[Odd-Even Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Odd-Even_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
+[Optimized Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Optimized_Bubble_Sort.c) |  |  |  |  |  |  |
+[Optimized Gnome Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Optimized_Gnome_Sort.c) |  |  |  |  |  |  |
+[Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(log N) or O(N) | **☑** | **☒** |
+[Quick Sort 3-way](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort_3-way.c) | O(N²) | O(N) | O(N log N) | O(log N) or O(N) | **☑** | **☒** |
+[Stable Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Stable_Quick_Sort.c) |  |  |  |  |  |  |
+[Tim Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Hybrids/Tim_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **☒** | **☑** |
+[Binary Insertion Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Binary_Insertion_Sort.c) | O(N log N) | O(N) | O(N log N) | O(1) | **☑** | **☑** |
+[Cycle Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Cycle_Sort.c) |  |  |  |  |  |  |
+[Insertion Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Insertion_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
+[Patience Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Patience_Sort.c) |  |  |  |  |  |  |
+[Shell Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Shell_Sort.c) | O(N<sup>3/2</sup>) or O(N log² N) | O(N log N) | --- | O(1) | **☑** | **☒** |
+[Tree Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Tree_Sort.c) |  |  |  |  |  |  |
+[Bottom-up Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/Bottom-Up_Merge_Sort.c) |  |  |  |  |  |  |
+[In-Place Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/In-Place_Merge_Sort.c) |  |  |  |  |  |  |
+[Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Source/Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **☒** | **☑** |
+[Bitonic Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Networks%26Concurrent/Bitonic_Sort.c) |  |  |  |  |  |  |
+[Pairwise Network Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Networks%26Concurrent/Pairwise_Network_Sort.c) |  |  |  |  |  |  |
+[Bucket Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison%26Distribution/Bucket_Sort.c) |  |  |  |  |  |  |
+[Counting Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison%26Distribution/Counting_Sort.c) | O(N+k) | O(N+k) | O(N+k) | O(N+k) | **☒** | **☑** | **k** is the range of input data
+[Gravity (Bead) Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison%26Distribution/Gravity_(Bead)_Sort.c) |  |  |  |  |  |  |
+[Pigeonhole Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison%26Distribution/Pigeonhole_Sort.c) | O(N+n) | O(N+n) | O(N+n) | O(N+n) | **☒** | **☑** | **N** is the number of elements and **n** is the range of input data
+[Double Selection Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Double_Selection_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** | Comparisons $\frac{(N²-N)}{4}$
+[Max Heap Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Max_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
+[Min Heap Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Min_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
+[Selection Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Selection_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** | Comparisons $\frac{(N²-N)}{2}$

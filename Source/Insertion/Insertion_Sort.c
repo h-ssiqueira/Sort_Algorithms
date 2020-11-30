@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "Insertion.h"
 
-// Worst case performance О(n**2) comparisons 
-// Best case performance O(n) comparisons 
+// Worst case performance О(n**2) comparisons
+// Best case performance O(n) comparisons
 // Average performance О(n**2) comparisons
 
 void Insertion_Sort(long int array[], int length){
@@ -23,13 +23,13 @@ void Insertion_Sort(long int array[], int length){
 /*
 int main(){
     long int array[] = {354,14,321,52,84,387,10,987,100,5}, i;
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
     printf("\n\n");
-    
+
     Insertion_Sort(array,10);//10 is the length
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
     return 0;

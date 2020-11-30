@@ -896,7 +896,7 @@ void generate(long int array[], int length, short int choice){
 
 void calculatetime(struct timeval start, struct timeval end, long int *sec, long int *mili){
 	*sec = end.tv_sec - start.tv_sec;
-	*mili = end.tv_usec - start.tv_usec; 
+	*mili = end.tv_usec - start.tv_usec;
 	*mili /= 1000;
 }
 

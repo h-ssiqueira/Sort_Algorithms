@@ -10,7 +10,7 @@ void BadSort(long int array[], int length){
 	long int aux;
     bool check;
     for(int i = 0; i < length; i++){
-        smaller = i;         
+        smaller = i;
         for(int j = i; j < length; j++){ // Find the smaller element
             check = true;
             for(int k = j + 1; k < length; k++){
@@ -33,15 +33,15 @@ void BadSort(long int array[], int length){
 /*
 int main(){
     long int array[] = {131,418,457,76,631,739,462,299,716,68},i;
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     printf("\n\n");
     BadSort(array,10);
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     return 0;
 }
 */

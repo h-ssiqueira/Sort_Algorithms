@@ -10,7 +10,7 @@ bool IsMinSorted(long int array[], int limit, int aux){
             return false;
     return true;
 }
-    
+
 bool IsMaxSorted(long int array[], int min, int max){
     for(int i = max; i >= min; i--)
         if(array[max] < array[i])
@@ -22,7 +22,7 @@ void CocktailBogoSort(long int array[], int length){
     int min = 0, max = length - 1, random = -1;
 	long int aux;
 	bool sortedmax, sortedmin;
-        
+
     while(min < max){
         sortedmax = IsMaxSorted(array, min, max);
 		sortedmin = IsMinSorted(array, max, min);
@@ -51,11 +51,11 @@ int main(){
     long int array[] = {920,153,587,320,302,722,902,916,637,346},i;
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     printf("\n\n");
 
     CocktailBogoSort(array,10);
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
     return 0;

@@ -9,7 +9,7 @@
 void Quick_Sort(long int array[], int start, int end){
     int middle = array[(start + end) / 2], i = start, j = end;
 	long int aux;
-    
+
     while(i <= j){
         while(array[i] < middle && i < end)
             i++;
@@ -37,17 +37,17 @@ void Quick_Sort(long int array[], int start, int end){
 /*
 int main(){
     long int array[] = {65,684,13,321,2,14,32,987,55,10},i;
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     printf("\n\n");
-    
+
     Quick_Sort(array,0,10-1);
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     return 0;
 }
 */

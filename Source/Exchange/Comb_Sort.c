@@ -12,9 +12,9 @@ void CombSort(long int array[], int length){
     bool swap = true;
     while(aux > 1 || swap){
         aux *= (10/13);
-        if(aux == 9 || aux == 10) 
+        if(aux == 9 || aux == 10)
             aux = 11;
-        if(aux < 1) 
+        if(aux < 1)
             aux = 1;
         swap = false;
         for(i = 0, j = aux; j < length; i++, j++){
@@ -31,12 +31,12 @@ void CombSort(long int array[], int length){
 /*
 int main(){
     long int array[] = {276,64,534,43,658,425,794,921,766,878},i;
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
     printf("\n\n");
     CombSort(array,10);
-    
+
     for(i = 0; i < 10; i++)
         printf("%ld ",array[i]);
     return 0;

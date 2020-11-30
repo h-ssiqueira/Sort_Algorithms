@@ -33,8 +33,8 @@ void BucketSort(long int array[], int length){
             b[i][j] = b[i][j] ^ b[i][j];
         }
     }
-    
-    for(i = 1, j = array[0]; i < length; i++){ // Determine the range of buckets by getting the max value 
+
+    for(i = 1, j = array[0]; i < length; i++){ // Determine the range of buckets by getting the max value
         if(j < array[i])
             j = array[i];
     }
@@ -42,7 +42,7 @@ void BucketSort(long int array[], int length){
         j /= 10;
         range *= 10; // number of digits (quantity of zeros) to determine the range
     }
-    
+
     for(i = 0; i < length; i++){ // sort the values to each bucket
         j = range / 10;
         k = 0;
@@ -55,9 +55,9 @@ void BucketSort(long int array[], int length){
             j += (range / 10);
         }
     }
-    
+
     Insertion_SortB(length,b); // After set the values to each bucket, sort each one using other algorithm
-    
+
     for(i = 0, k = 0; i < buckets; i++){ // Merge all buckets to the original array
         for(j = 0; j < length; j++){
             if(b[i][j] != 0){
@@ -71,16 +71,16 @@ void BucketSort(long int array[], int length){
 /*
 int main(){
     long int array[] = {49,436,448,704,516,297,468,764,735,564};
-    
+
     for(int i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     printf("\n\n");
     BucketSort(array,10);
-    
+
     for(int i = 0; i < 10; i++)
         printf("%ld ",array[i]);
-    
+
     return 0;
 }
 */
