@@ -76,7 +76,7 @@ void TimSort(long int array[], int length){
         }
     }
 }
-
+/*
 int main(){
     long int array[] = {801,299,118,440,734,80,780,715,799,851};
 	int i;
@@ -93,3 +93,4 @@ int main(){
     return 0;
 }
 // https://iq.opengenus.org/tim-sort/
+*/

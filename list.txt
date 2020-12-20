@@ -12,6 +12,8 @@ References:
 
 	https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet
 
+	Readme:
+	https://www.codecogs.com/latex/eqneditor.php
 
 	Algorithms:
 

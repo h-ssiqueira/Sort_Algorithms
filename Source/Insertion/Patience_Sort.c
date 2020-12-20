@@ -42,6 +42,7 @@ void PatienceSort(long int array[], int length){
 	free(count);
 }
 
+/*
 int main(){
     long int array[] = {476,531,924,866,73,9,987,464,215,487},i;
 
@@ -56,3 +57,4 @@ int main(){
         printf("%ld ", array[i]);
     return 0;
 }
+*/

@@ -29,6 +29,9 @@ void Odd_Even_Sort(long int array[], int length);
 // Optimized Bubble Sort
 void BubbleSortOptmized(long int array[], int length);
 
+// Optimized Cocktail Shaker Sort
+void OPTCocktailShakerSort(long int array[], int length);
+
 // Optimized Gnome Sort
 void Optimized_Gnome_Sort(long int array[], int length);
 
