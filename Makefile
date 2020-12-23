@@ -162,10 +162,18 @@ clean:
 rmproper: clean
 	rm -rf sort
 
-# Compile and run
-cr: sort clean
+# Compile and run (linux)
+crl: sort clean
 	./sort
 
-# Run executable
-run:
+# Run executable (linux)
+runl:
 	./sort
+
+# Run executable (windows)
+runw:
+	sort
+
+# Compile and run (windows)
+crw: sort clean
+	sort
