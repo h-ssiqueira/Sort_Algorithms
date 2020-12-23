@@ -22,20 +22,23 @@ void print(long int array[], int length);
 
 void generate(long int array[], int length, short int choice);
 
-void calculatetime(struct timeval start, struct timeval end, long int *sec, long int *mili);
+void calculatetime(struct timeval start, struct timeval end, long *sec, long *mili);
 
 void BeforeExec(long int array[], int length, bool display, char sort[]);
 
-void AfterExec(long int array[], int length, bool display, bool time, long int sec, long int mili);
+void AfterExec(long int array[], int length, bool display, bool time, long sec, long mili);
 
 bool sorted(long int array[], int length);
+
+bool sortedD(long int array[], int length);
 
 int main(){
     srand(time(NULL));
 	struct timeval start, end;
-	long int sec, mili, *array, *arrayPOF2;
+	long int *array, *arrayPOF2;
     int length = 10, i, powerof2 = 16;
 	short int option_sort, option_category, choice = 2;
+	long sec, mili;
 	bool txtfile = false, displayarray = false, exectime = true;
 
 	create(&array,length);
@@ -182,9 +185,6 @@ int main(){
 						gettimeofday(&start,NULL);
                         SillySort(array,0,length-1);
 						gettimeofday(&end,NULL);
-                        printf("\n\tArray sorted.");
-						if(displayarray)
-                        	print(array,length);
                         break;
                     case 10:
                         if(txtfile)
@@ -249,9 +249,9 @@ int main(){
                     printf("\n13 - Stable_Quick_Sort.");
                     printf("\n-> ");
                     scanf("%hd",&option_sort);
-                    if(option_sort < 0 || option_sort > 12)
+                    if(option_sort < 0 || option_sort > 13)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 12);
+                }while(option_sort < 0 || option_sort > 13);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -788,6 +788,7 @@ int main(){
 						gettimeofday(&start,NULL);
                         MinHeapSort(array,length);
 						gettimeofday(&end,NULL);
+						sortedD(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
                         break;
                     case 4:
                         if(txtfile)
@@ -801,7 +802,8 @@ int main(){
 						gettimeofday(&end,NULL);
                         break;
                 }
-				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+				if(option_sort != 3)
+					sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                 	print(array,length);
 				if(exectime){
@@ -902,7 +904,7 @@ void generate(long int array[], int length, short int choice){
 	}
 }
 
-void calculatetime(struct timeval start, struct timeval end, long int *sec, long int *mili){
+void calculatetime(struct timeval start, struct timeval end, long *sec, long *mili){
 	*sec = end.tv_sec - start.tv_sec;
 	*mili = end.tv_usec - start.tv_usec;
 	*mili /= 1000;
@@ -926,7 +928,7 @@ void BeforeExec(long int array[], int length, bool display, char sort[]){
 		fclose(txt);
 }
 
-void AfterExec(long int array[], int length, bool display, bool time, long int sec, long int mili){
+void AfterExec(long int array[], int length, bool display, bool time, long sec, long mili){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		if(display){
@@ -948,6 +950,13 @@ void AfterExec(long int array[], int length, bool display, bool time, long int s
 bool sorted(long int array[], int length){
 	for(int i = 0; i < length - 1; i++)
 		if(array[i] > array[i+1])
+			return false;
+	return true;
+}
+
+bool sortedD(long int array[], int length){
+	for(int i = 0; i < length - 1; i++)
+		if(array[i] < array[i+1])
 			return false;
 	return true;
 }
