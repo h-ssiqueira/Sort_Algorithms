@@ -28,7 +28,7 @@ void BubbleBogoSort(long int array[], int length);
 void CocktailBogoSort(long int array[], int length);
 // Auxiliar functions that check if the subarrays is sorted
 bool IsMaxSorted(long int array[], int min, int max);
-bool IsMinSorted(long int array[], int limit, int aux);
+bool IsMinSorted(long int array[], int min, int max);
 
 // Exchange Bogo Sort
 void ExchangeBogoSort(long int array[], int length);

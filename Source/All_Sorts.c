@@ -1,3 +1,4 @@
+// Default libraries
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -5,6 +6,8 @@
 #include <string.h>
 #include <sys/time.h>
 #include <time.h>
+
+// Directory libraries (created)
 #include "Esoteric_Fun_Miscellaneous/Esoteric_Fun_Miscellaneous.h"
 #include "Exchange/Exchange.h"
 #include "Hybrids/Hybrids.h"
@@ -13,14 +16,14 @@
 #include "Networks_Concurrent/Networks_Concurrent.h"
 #include "Non-Comparison_Distribution/Non-Comparison_Distribution.h"
 #include "Selection/Selection.h"
+
 #define limsize 65536000 // Limit 500MB of data // 2147483648 //Limit of signed int (16GB total)
-#define limelement 2147483648 //Limit of signed int
 
 void create(long int **array, int length);
 
 void print(long int array[], int length);
 
-void generate(long int array[], int length, short int choice);
+void generate(long int array[], int length, short int choice, int randominterval);
 
 void calculatetime(struct timeval start, struct timeval end, long *sec, long *mili);
 
@@ -36,15 +39,15 @@ int main(){
     srand(time(NULL));
 	struct timeval start, end;
 	long int *array, *arrayPOF2;
-    int length = 10, i, powerof2 = 16;
+    int length = 10, i, powerof2 = 16, randominterval = 1024;
 	short int option_sort, option_category, choice = 2;
 	long sec, mili;
-	bool txtfile = false, displayarray = false, exectime = true;
+	bool txtfile = false, displayarray = true, exectime = true;
 
 	create(&array,length);
 
     while(true){
-		generate(array,length,choice);
+		generate(array,length,choice,randominterval);
         do{
             printf("\n\tWhich category of sort would you like to see?");
             printf("\n0 - Exit.");
@@ -608,7 +611,7 @@ int main(){
 							i *= 2;
 						if(i != length){
 							create(&arrayPOF2,powerof2);
-							generate(arrayPOF2,powerof2,choice);
+							generate(arrayPOF2,powerof2,choice,randominterval);
 							if(txtfile)
 								BeforeExec(arrayPOF2,powerof2,displayarray,"Bitonic Sort");
 							printf("\n\tNote: Bitonic sort just accepts power sizes of 2.\n\tCurrent size: %d.\n\tNew size for apply this algorithm: %d.\n", length,powerof2);
@@ -819,10 +822,11 @@ int main(){
 						printf("\n\tConfigurations:");
 						printf("\n0 - Menu.");
 						printf("\n1 - Change sorting case - %s", choice > 1 ? (choice == 3 ? "Ascending." : "Random.") : "Descending.");
-						printf("\n2 - Change length of array %d.", length);
-						printf("\n3 - Save results in a text file - %s", txtfile ? "YES." : "NO.");
-						printf("\n4 - Display arrays - %s", displayarray ? "YES." : "NO.");
-						printf("\n5 - Display execution time - %s", exectime ? "YES." : "NO.");
+						printf("\n2 - Change random interval - %d", randominterval);
+						printf("\n3 - Change length of array - %d.", length);
+						printf("\n4 - Save results in a text file - %s", txtfile ? "YES." : "NO.");
+						printf("\n5 - Display arrays - %s", displayarray ? "YES." : "NO.");
+						printf("\n6 - Display execution time - %s", exectime ? "YES." : "NO.");
 						printf("\n-> ");
 						scanf("%hd",&option_sort);
 						if(option_sort < 0 || option_sort > 5)
@@ -844,6 +848,13 @@ int main(){
 							}while(choice < 1 || choice > 3);
 						break;
 						case 2:
+							printf("\n\tInsert the random interval limit: ");
+							scanf("%d", &randominterval);
+							if(randominterval < 3)
+								randominterval = 3;
+							else if (randominterval > INT_MAX)
+								randominterval = INT_MAX;
+						case 3:
 							do{
 								printf("\n\tInsert the new length of the array:\n-> ");
 								scanf("%u", &length);
@@ -856,13 +867,13 @@ int main(){
 							free(array);
 							create(&array,length);
 							break;
-						case 3:
+						case 4:
 							txtfile = !txtfile;
 							break;
-						case 4:
+						case 5:
 							displayarray = !displayarray;
 							break;
-						case 5:
+						case 6:
 							exectime = !exectime;
 							break;
 					}
@@ -887,7 +898,7 @@ void print(long int array[], int length){
         printf("%ld ",array[i]);
 }
 
-void generate(long int array[], int length, short int choice){
+void generate(long int array[], int length, short int choice, int randominterval){
 	switch(choice){
 		case 1:
 			for(int i = 0; i < length; i++)
@@ -895,7 +906,7 @@ void generate(long int array[], int length, short int choice){
 			break;
 		case 2:
 			for(int i = 0; i < length; i++)
-				array[i] = rand() % limelement;
+				array[i] = rand() % randominterval;
 			break;
 		case 3:
 			for(int i = 0; i < length; i++)
