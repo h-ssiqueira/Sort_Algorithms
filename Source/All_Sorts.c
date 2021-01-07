@@ -1,4 +1,5 @@
 // Default libraries
+#include <limits.h>
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -352,7 +353,7 @@ int main(){
                         	print(array,length);
                         printf("\n\tSorting...");
 						gettimeofday(&start,NULL);
-                        OPTCocktailShakerSort(array,length-1);
+                        OPTCocktailShakerSort(array,length);
 						gettimeofday(&end,NULL);
                         break;
                     case 10:
@@ -614,7 +615,7 @@ int main(){
 							generate(arrayPOF2,powerof2,choice,randominterval);
 							if(txtfile)
 								BeforeExec(arrayPOF2,powerof2,displayarray,"Bitonic Sort");
-							printf("\n\tNote: Bitonic sort just accepts power sizes of 2.\n\tCurrent size: %d.\n\tNew size for apply this algorithm: %d.\n", length,powerof2);
+							printf("\n\tNote: Bitonic sort just accepts power sizes of 2.\n\tCurrent size: %d.\n\tNew size applied on this algorithm: %d.\n", length,powerof2);
 							printf("\n\tBefore Bitonic Sort.");
 							if(displayarray)
 								print(arrayPOF2,powerof2);
@@ -622,7 +623,7 @@ int main(){
 							gettimeofday(&start,NULL);
                         	BitonicSort(arrayPOF2,0,powerof2,1);
 							gettimeofday(&end,NULL);
-                        	sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+                        	sorted(arrayPOF2,powerof2) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 							if(displayarray)
                         		print(arrayPOF2,powerof2);
 							if(exectime){
@@ -846,7 +847,7 @@ int main(){
 								if(choice < 1 || choice > 3)
 									printf("\n\n\tError: Insert a value in the correct range!\n");
 							}while(choice < 1 || choice > 3);
-						break;
+							break;
 						case 2:
 							printf("\n\tInsert the random interval limit: ");
 							scanf("%d", &randominterval);
@@ -854,6 +855,7 @@ int main(){
 								randominterval = 3;
 							else if (randominterval > INT_MAX)
 								randominterval = INT_MAX;
+							break;
 						case 3:
 							do{
 								printf("\n\tInsert the new length of the array:\n-> ");

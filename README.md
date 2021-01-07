@@ -65,16 +65,16 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
 [Bad Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bad_Sort.c) |  |  |  |  |  |  |
 [Bogo Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  |  |  |  |
-[Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.c) |  |  |  |  |  |  |
+[Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.c) | O((N+1)!) | O(N) | O((N+1)!) | O(1) | **☑** | **☒** | The worst case can be unbounded
 [Bubble Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) |  |  |  |  |  |  |
 [Cocktail Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) |  |  |  |  |  |  |
 [Exchange Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) |  |  |  |  |  |  |
 [Less Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) |  |  |  |  |  |  |
-[Pancake Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.c) |  |  |  |  |  |  |
+[Pancake Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** |
 [Silly Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Silly_Sort.c) |  |  |  |  |  |  |
 [Slow Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Slow_Sort.c) |  |  |  |  |  |  |
 [Spaghetti Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c) |  |  |  |  |  |  |
-[Stooge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.c) |  |  |  |  |  |  |
+[Stooge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.c) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(N) | **☒** | **☒** |
 [Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Circle Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Circle_Sort.c) | O(N log N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
 [Cocktail Shaker Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Cocktail_Shaker_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☑** |
@@ -85,7 +85,7 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Optimized Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Optimized_Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Optimized Cocktail Shaker Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Cocktail_Shaker_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Optimized Gnome Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Optimized_Gnome_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
-[Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(log N) or O(N) | **☑** | **☒** |
+[Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(log N) | **☑** | **☒** |
 [Quick Sort 3-way](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort_3-way.c) | O(N²) | O(N) | O(N log N) | O(log N) or O(N) | **☑** | **☒** |
 [Stable Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Stable_Quick_Sort.c) |  |  |  |  |  |  |
 [Tim Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Hybrids/Tim_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **☒** | **☑** |
@@ -95,7 +95,7 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Patience Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Patience_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **☒** | **☑** |
 [Shell Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Shell_Sort.c) | O(N<sup>3/2</sup>) or O(N log² N) | O(N log N) | --- | O(1) | **☑** | **☒** |
 [Tree Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Tree_Sort.c) | O(N²) or O(N log N) | O(N log N) | O(N log N) | O(N) | **☒** | **☑** | In worst case, O(N²) when using Binary Search Tree and O(N log N) when using Self-Balanced Binary Search Tree
-[Bottom-up Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/Bottom-Up_Merge_Sort.c) |  |  |  |  |  |  |
+[Bottom-up Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/Bottom-Up_Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **☒** | **☑** |
 [In-Place Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/In-Place_Merge_Sort.c) | O(N²) | O(N²) | O(N²) | O(log N) | **☑** | **☑** |
 [Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Source/Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **☒** | **☑** |
 [Bitonic Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Networks_Concurrent/Bitonic_Sort.c) | O(log² N) | O(log² N) | O(log² N) | O(N log² N) | **☑** | **☒** |
