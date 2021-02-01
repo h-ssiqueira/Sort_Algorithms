@@ -685,11 +685,12 @@ int main(){
                     printf("\n2 - Counting_Sort.");
                     printf("\n3 - Gravity_(Bead)_Sort.");
                     printf("\n4 - Pigeonhole_Sort.");
+					printf("\n5 - Radix_LSD Sort.");
                     printf("\n-> ");
                     scanf("%hd",&option_sort);
-                    if(option_sort < 0 || option_sort > 4)
+                    if(option_sort < 0 || option_sort > 5)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 4);
+                }while(option_sort < 0 || option_sort > 5);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -733,6 +734,17 @@ int main(){
                         printf("\n\tSorting...");
 						gettimeofday(&start,NULL);
                         Pigeonhole_Sort(array,length);
+						gettimeofday(&end,NULL);
+                        break;
+					case 5:
+                        if(txtfile)
+							BeforeExec(array,length,displayarray,"Radix LSD Sort");
+						printf("\n\tBefore Radix LSD Sort.");
+						if(displayarray)
+                        	print(array,length);
+                        printf("\n\tSorting...");
+						gettimeofday(&start,NULL);
+                        Radix_LSD(array,length,10);
 						gettimeofday(&end,NULL);
                         break;
                 }

@@ -73,13 +73,13 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Pancake Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** |
 [Silly Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Silly_Sort.c) |  |  |  |  |  |  |
 [Slow Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Slow_Sort.c) |  |  |  |  |  |  |
-[Spaghetti Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c) |  |  |  |  |  |  |
+[Spaghetti Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c) | O(N) |  |  | O(N) | **☒** | **☑** |
 [Stooge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.c) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(N) | **☒** | **☒** |
 [Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Circle Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Circle_Sort.c) | O(N log N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
 [Cocktail Shaker Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Cocktail_Shaker_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☑** |
 [Comb Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Comb_Sort.c) | O(N²) | O(N log N) | O(N² / 2<sup>p</sup>) | O(1) | **☑** | **☒** | **p** is the number of increments
-[Dual Pivot Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Dual_Pivot_Quick_Sort.c) |  |  |  |  |  |  |
+[Dual Pivot Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Dual_Pivot_Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(log N) | **☑** | **☒** |
 [Gnome Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Gnome_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Odd-Even Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Odd-Even_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Optimized Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Optimized_Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
@@ -87,7 +87,7 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Optimized Gnome Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Optimized_Gnome_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(log N) | **☑** | **☒** |
 [Quick Sort 3-way](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Quick_Sort_3-way.c) | O(N²) | O(N) | O(N log N) | O(log N) or O(N) | **☑** | **☒** |
-[Stable Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Stable_Quick_Sort.c) |  |  |  |  |  |  |
+[Stable Quick Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Stable_Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(N) | **☑** | **☑** |
 [Tim Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Hybrids/Tim_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **☒** | **☑** |
 [Binary Insertion Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Binary_Insertion_Sort.c) | O(N log N) | O(N) | O(N log N) | O(1) | **☑** | **☑** |
 [Cycle Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Cycle_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** |
@@ -104,6 +104,7 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Counting Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison_Distribution/Counting_Sort.c) | O(N+k) | O(N+k) | O(N+k) | O(N+k) | **☒** | **☑** | **k** is the range of input data
 [Gravity (Bead) Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison_Distribution/Gravity_(Bead)_Sort.c) | O(S) | O(1) or O(<img src="https://latex.codecogs.com/gif.latex?\sqrt{N}" title="\sqrt{N}" />) | O(N) | O(N²) | **☒** | **☑** | **S** is the sum of array elements, O(1) cannot be implemented in practice
 [Pigeonhole Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison_Distribution/Pigeonhole_Sort.c) | O(N+n) | O(N+n) | O(N+n) | O(N+n) | **☒** | **☑** | **N** is the number of elements and **n** is the range of input data
+[Radix LSD Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison_Distribution/Radix_LSD.c) | O(NW) | O(NW) | O(NW) | O(N) | **☒** | **☑** | **W** is the maxumum element width (bits)
 [Double Selection Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Double_Selection_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** | Comparisons <img src="https://latex.codecogs.com/gif.latex?\frac{(N^2-N)}{2}" title="\frac{(N^2-N)}{2}" />
 [Max Heap Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Max_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
 [Min Heap Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Min_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
