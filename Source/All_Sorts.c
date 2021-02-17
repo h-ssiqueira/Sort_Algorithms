@@ -20,20 +20,27 @@
 
 #define limsize 65536000 // Limit 500MB of data // 2147483648 //Limit of signed int (16GB total)
 
+// Create the array
 void create(long int **array, int length);
 
+// Print the array
 void print(long int array[], int length);
 
+// Generate numbers for the array
 void generate(long int array[], int length, short int choice, int randominterval);
 
+// Calculate execution time
 void calculatetime(struct timeval start, struct timeval end, long *sec, long *mili);
 
+// Get time before executing the sorting algorithm
 void BeforeExec(long int array[], int length, bool display, char sort[]);
 
+// Get time after executing the sorting algorithm
 void AfterExec(long int array[], int length, bool display, bool time, long sec, long mili);
 
+// Sorted increasing
 bool sorted(long int array[], int length);
-
+// Sorted decreasing
 bool sortedD(long int array[], int length);
 
 int main(){
@@ -933,6 +940,8 @@ void calculatetime(struct timeval start, struct timeval end, long *sec, long *mi
 	*sec = end.tv_sec - start.tv_sec;
 	*mili = end.tv_usec - start.tv_usec;
 	*mili /= 1000;
+	if(*mili < 0)
+		*mili *= -1;
 }
 
 void BeforeExec(long int array[], int length, bool display, char sort[]){
