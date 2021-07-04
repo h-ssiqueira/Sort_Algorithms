@@ -1,6 +1,10 @@
 # Sorting Algorithms
-![GitHub Repository Size](https://img.shields.io/github/repo-size/h-ssiqueira/Sort_algorithms?label=Repository%20Size)
-![Contributions](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=information)
+![GitHub Repository Size](https://img.shields.io/github/repo-size/h-ssiqueira/Sort_algorithms?label=Repository%20Size&style=for-the-badge)
+![Contributions](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=information&style=for-the-badge)
+
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 
 ## Description
 A program to show the execution time of sorting algorithms in ```C``` language. There are 45 sorting algorithms avaliable in the program.
