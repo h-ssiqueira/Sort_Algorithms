@@ -3,3 +3,5 @@ sort
 .vscode/launch.json
 .vscode/settings.json
 *.o
+*.out
+/developing
