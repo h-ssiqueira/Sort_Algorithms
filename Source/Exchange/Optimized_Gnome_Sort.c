@@ -6,20 +6,19 @@
 // *Best case performance O(n)
 // *Average case performance O(n**2)
 
-void Optimized_Gnome_Sort(long int array[], int length){
-    long int aux;
-	int j, i;
-	for(i = 1; i < length; i++){
+void Optimized_Gnome_Sort(long int *array, int length){
+    long int aux, *j, *i;
+	for(i = array; i < array+length; i++){
 		j = i;
-		while(j > 0 && array[j-1] > array [j]){
+		while(j > array && *(j-1) > *j){
 			/*
-			array[j] = array[j] ^ array[j-1];
-			array[j-1] = array[j] ^ array[j-1];
-			array[j] = array[j] ^ array[j-1];
+			*j = *j ^ *(j-1);
+			*(j-1) = *j ^ *(j-1);
+			*j = *j ^ *(j-1);
 			*/
-			aux = array[j];
-			array[j] = array[j-1];
-			array[j-1] = aux;
+			aux = *j;
+			*j = *(j-1);
+			*(j-1) = aux;
 			j--;
 		}
 	}
@@ -27,17 +26,16 @@ void Optimized_Gnome_Sort(long int array[], int length){
 
 /*
 int main(){
-    long int array[] = {771,143,40,570,616,967,376,266,895,121},i;
+    long int *array = {771,143,40,570,616,967,376,266,895,121},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     printf("\n\n");
 
-    for(i = 1; i < 10; i++)
-        Optimized_Gnome_Sort(array,i);
+    Optimized_Gnome_Sort(array,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     return 0;
 }
 */

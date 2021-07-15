@@ -6,35 +6,34 @@
 // Worst case performance O(n**2)
 // Best case performance O(n)
 
-void Odd_Even_Sort(long int array[], int length){
-    long int aux;
-	int i, j;
+void Odd_Even_Sort(long int *array, int length){
+    long int aux, *i, *j;
     bool sorted = false;
     while(!sorted){
         sorted = true;
-        for(i = 1, j = 2; i < length - 1; i += 2, j += 2){
-            if(array[i] > array[i+1]){
+        for(i = array+1, j = array+2; i < array+length - 1; i += 2, j += 2){
+            if(*i > *(i+1)){
                 /*
-                array[i] = array[i] ^ array[j];
-                array[j] = array[i] ^ array[j];
-                array[i] = array[i] ^ array[j];
+                *i = *i ^ *j;
+                *j = *i ^ *j;
+                *i = *i ^ *j;
                 */
-                aux = array[i];
-                array[i] = array[j];
-                array[j] = aux;
+                aux = *i;
+                *i = *j;
+                *j = aux;
                 sorted = false;
             }
         }
-        for(i = 0, j = 1; i < length - 1; i += 2, j += 2){
-            if(array[i] > array[i + 1]){
+        for(i = array, j = array+1; i < array+length - 1; i += 2, j += 2){
+            if(*i > *(i+1)){
                 /*
-                array[i] = array[i] ^ array[j];
-                array[j] = array[i] ^ array[j];
-                array[i] = array[i] ^ array[j];
+                *i = *i ^ *j;
+                *j = *i ^ *j;
+                *i = *i ^ *j;
                 */
-                aux = array[i];
-                array[i] = array[j];
-                array[j] = aux;
+                aux = *i;
+                *i = *j;
+                *j = aux;
                 sorted = false;
             }
         }
@@ -43,16 +42,16 @@ void Odd_Even_Sort(long int array[], int length){
 
 /*
 int main(){
-    long int array[] = {416,647,874,428,309,898,464,335,47,82},i;
+    long int *array = {416,647,874,428,309,898,464,335,47,82},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     printf("\n\n");
 
     Odd_Even_Sort(array,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     return 0;
 }
 */

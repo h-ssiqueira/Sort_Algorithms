@@ -24,24 +24,24 @@
 void create(long int **array, int length);
 
 // Print the array
-void print(long int array[], int length);
+void print(long int *array, int length);
 
 // Generate numbers for the array
-void generate(long int array[], int length, short int choice, int randominterval);
+void generate(long int *array, int length, short int choice, int randominterval);
 
 // Calculate execution time
 void calculatetime(struct timeval start, struct timeval end, long *sec, long *mili);
 
 // Get time before executing the sorting algorithm
-void BeforeExec(long int array[], int length, bool display, char sort[]);
+void BeforeExec(long int *array, int length, bool display, char *sort);
 
 // Get time after executing the sorting algorithm
-void AfterExec(long int array[], int length, bool display, bool time, long sec, long mili);
+void AfterExec(long int *array, int length, bool display, bool time, long sec, long mili);
 
 // Sorted increasing
-bool sorted(long int array[], int length);
+bool sorted(long int *array, int length);
 // Sorted decreasing
-bool sortedD(long int array[], int length);
+bool sortedD(long int *array, int length);
 
 int main(){
     srand(time(NULL));
@@ -913,25 +913,25 @@ void create(long int **array, int length){
 		printf("\n\tError: array couldn't be allocated.");
 }
 
-void print(long int array[], int length){
+void print(long int *array, int length){
     printf("\n");
-    for(int i = 0; i < length; i++)
-        printf("%ld ",array[i]);
+    for(long int *i = array; i < array+length; i++)
+        printf("%ld ",*i);
 }
 
-void generate(long int array[], int length, short int choice, int randominterval){
+void generate(long int *array, int length, short int choice, int randominterval){
 	switch(choice){
 		case 1:
-			for(int i = 0; i < length; i++)
-				array[i] = i;
+			for(long int *i = array, j ^= j; i < array + length; i++, j++)
+				*i = j;
 			break;
 		case 2:
-			for(int i = 0; i < length; i++)
-				array[i] = rand() % randominterval;
+			for(long int *i = array; i < array + length; i++)
+				*i = rand() % randominterval;
 			break;
 		case 3:
-			for(int i = 0; i < length; i++)
-				array[i] = length - i;
+			for(long int *i = array, j ^= j; i < array + length; i++, j++)
+				*i = length - j;
 			break;
 	}
 }
@@ -944,14 +944,14 @@ void calculatetime(struct timeval start, struct timeval end, long *sec, long *mi
 		*mili *= -1;
 }
 
-void BeforeExec(long int array[], int length, bool display, char sort[]){
+void BeforeExec(long int *array, int length, bool display, char *sort){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		fprintf(txt,"\n\t%s algorithm with length of %u elements.",sort, length);
 		if(display){
 			fprintf(txt,"\n\tArray before sort:\n");
-			for(int i = 0; i < length; i++)
-				fprintf(txt,"%ld ",array[i]);
+			for(long int *i = array; i < array + length; i++)
+				fprintf(txt,"%ld ", *i);
 			fprintf(txt,"\n");
 		}
 	}
@@ -962,17 +962,17 @@ void BeforeExec(long int array[], int length, bool display, char sort[]){
 		fclose(txt);
 }
 
-void AfterExec(long int array[], int length, bool display, bool time, long sec, long mili){
+void AfterExec(long int *array, int length, bool display, bool time, long sec, long mili){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		if(display){
 			fprintf(txt,"\n\tArray sorted:\n");
-			for(int i = 0; i < length; i++)
-				fprintf(txt,"%ld ",array[i]);
+			for(long int *i = array; i < array + length; i++)
+				fprintf(txt,"%ld ", *i);
 			fprintf(txt,"\n");
 		}
 		if(time)
-			fprintf(txt,"\n\tExecution time: %ld seconds %ld milisseconds.\n",sec,mili);
+			fprintf(txt,"\n\tExecution time: %ld seconds %ld milisseconds.\n", sec, mili);
 	}
 	else{
 		printf("\n\tError: Cannot open the file.");
@@ -981,16 +981,16 @@ void AfterExec(long int array[], int length, bool display, bool time, long sec, 
 		fclose(txt);
 }
 
-bool sorted(long int array[], int length){
-	for(int i = 0; i < length - 1; i++)
-		if(array[i] > array[i+1])
+bool sorted(long int *array, int length){
+	for(long int *i = array; i < array + length - 1; i++)
+		if(*i > *(i+1))
 			return false;
 	return true;
 }
 
-bool sortedD(long int array[], int length){
-	for(int i = 0; i < length - 1; i++)
-		if(array[i] < array[i+1])
+bool sortedD(long int *array, int length){
+	for(long int *i = array; i < array + length - 1; i++)
+		if(*i < *(i+1))
 			return false;
 	return true;
 }

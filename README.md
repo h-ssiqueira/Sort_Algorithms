@@ -6,9 +6,26 @@
 ![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 
+## Summary
+* [Description](#Descripotion)
+	* [How to execute](#How-to-execute)
+* [Algorithms](#Algorithms)
+	* [Esoteric & Fun & Miscellaneous](#Esoteric-&-Fun-&-Miscellaneous)
+	* [Exchange](#Exchange)
+	* [Hybrids](#Hybrids)
+	* [Insertion](#Insertion)
+	* [Merge](#Merge)
+	* [Networks & Concurrent](#Networks-&-Concurrent)
+	* [Non-Comparison & Distribution](#Non-Comparison-&-Distribution)
+	* [Selection](#Selection)
+* [Complexity Table](#Complexity-Table)
+
+
+
 ## Description
-A program to show the execution time of sorting algorithms in ```C``` language. There are 45 sorting algorithms avaliable in the program.
-#### How to execute
+A program to show the execution time and the variaty of sorting algorithms in ```C``` language. There are 45 sorting algorithms avaliable distributed in 8 different categories.
+
+### How to execute
 Executing ```make``` in terminal allow to compile the program. Commands avaliable to execute with make (```make <command>```):
 Command | Description
 :---: | :---:
@@ -27,22 +44,9 @@ Sorting case | Random
 Random interval | 1024
 Length of array | 10
 
-
-
 <br />
 
-## Summary
-* [Complexity Table](#Complexity-Table)
-* [Esoteric & Fun & Miscellaneous](#Esoteric-&-Fun-&-Miscellaneous)
-* [Exchange](#Exchange)
-* [Hybrids](#Hybrids)
-* [Insertion](#Insertion)
-* [Merge](#Merge)
-* [Networks & Concurrent](#Networks-&-Concurrent)
-* [Non-Comparison & Distribution](#Non-Comparison-&-Distribution)
-* [Selection](#Selection)
-
-<br /><br />
+## Algorithms
 
 ### [Esoteric & Fun & Miscellaneous](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Source/Esoteric_Fun_Miscellaneous)
 1. [Bad Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bad_Sort.c)

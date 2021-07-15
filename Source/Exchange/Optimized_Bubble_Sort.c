@@ -7,22 +7,21 @@
 // Best case performance O(n) and O(1) swaps
 // Average case performance O(n**2) comparisons and O(n**2) swaps
 
-void BubbleSortOptmized(long int array[], int length){
+void BubbleSortOptmized(long int *array, int length){
     bool swap;
-    long int aux;
-	int i, j;
-    for(j = 0; j < length; j++){
+    long int aux, *i, *j;
+    for(j = array; j < array+length; j++){
         swap = false;
-        for(i = 0; i < length - j; i++){ // Sort all array and starts decreasing
-            if(array[i+1] < array[i]){
+        for(i = array; i < array+length - (j-array); i++){ // Sort all array and starts decreasing
+            if(*(i+1) < *i){
                 /*
-                array[i] = array[i] ^ array[i+1];
-                array[i+1] = array[i] ^ array[i+1];
-                array[i] = array[i] ^ array[i+1];
+                *i = *i ^ *(i+1);
+                *(i+1) = *i ^ *(i+1);
+                *i = *i ^ *(i+1);
                 */
-                aux = array[i];
-                array[i] = array[i+1];
-                array[i+1] = aux;
+                aux = *i;
+                *i = *(i+1);
+                *(i+1) = aux;
                 swap = true;
             }
         }
@@ -33,17 +32,17 @@ void BubbleSortOptmized(long int array[], int length){
 
 /*
 int main(){
-    long int array[] = {66,600,410,815,779,233,998,510,734,65},i;
+    long int *array = {66,600,410,815,779,233,998,510,734,65},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
 
     BubbleSortOptmized(array,10-1);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
 
     return 0;
 }

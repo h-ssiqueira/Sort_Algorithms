@@ -7,33 +7,33 @@
 // Best case performance O(n**2)
 // Average case performance O(n**2)
 
-void CocktailShakerSort(long int array[], int length){
-    int start = 0,end = length - 1,i;
-	long int aux;
+void CocktailShakerSort(long int *array, int length){
+    int start ^= start,end = length - 1;
+	long int aux, *i;
     while(start < end){
-        for(i = start; i < end; i++){
-            if(array[i] > array[i+1]){
+        for(i = array+start; i < array+end; i++){
+            if(*i > *(i+1)){
                 /*
-                array[i] = array[i] ^ array[i+1];
-                array[i+1] = array[i] ^ array[i+1];
-                array[i] = array[i] ^ array[i+1];
+                *i = *i ^ *(i+1);
+                *(i+1) = *i ^ *(i+1);
+                *i = *i ^ *(i+1);
                 */
-                aux = array[i];
-                array[i] = array[i+1];
-                array[i+1] = aux;
+                aux = *i;
+                *i = *(i+1);
+                *(i+1) = aux;
             }
         }
         end--;
-        for(i = end; i > start; i--){
-            if(array[i] < array[i-1]){
+        for(i = array+end; i > array+start; i--){
+            if(*i < *(i-1)){
                 /*
-                array[i] = array[i] ^ array[i-1];
-                array[i-1] = array[i] ^ array[i-1];
-                array[i] = array[i] ^ array[i-1];
+                *i = *i ^ *(i-1);
+                *(i-1) = *i ^ *(i-1);
+                *i = *i ^ *(i-1);
                 */
-                aux = array[i];
-                array[i] = array[i-1];
-                array[i-1] = aux;
+                aux = *i;
+                *i = *(i-1);
+                *(i-1) = aux;
             }
         }
         start++;
@@ -42,15 +42,15 @@ void CocktailShakerSort(long int array[], int length){
 
 /*
 int main(){
-    long int array[] = {343,380,195,864,185,43,236,41,88,509},i;
+    long int *array = {343,380,195,864,185,43,236,41,88,509},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     printf("\n\n");
     CocktailShakerSort(array,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     return 0;
 }
 */

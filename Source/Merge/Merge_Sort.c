@@ -7,36 +7,36 @@
 // Average case performance O(n log n)
 // Worst case comparisons between (n lg n − n + 1) and (n lg n + n + O(lg n))
 
-void Merge(long int array[], int start, int middle, int end){
-    int count1 = start, count2 = middle + 1, i;
-	long int *aux = (long int*)malloc((end - start + 1) * sizeof(long int));
+void Merge(long int *array, int start, int middle, int end){
+    int i;
+	long int *aux = (long int*)malloc((end - start + 1) * sizeof(long int)), *count1 = array + start, *count2 = array + middle + 1;
 
-    for(i = 0; count1 <= middle && count2 <= end; i++){
-        if(array[count1] < array[count2]){
-            aux[i] = array[count1];
+    for(i ^= i; count1 <= middle + array && count2 <= array + end; i++){
+        if(*count1 < *count2){
+            *(aux + i) = *count1;
             count1++;
         }
         else{
-            aux[i] = array[count2];
+            *(aux + i) = *count2;
             count2++;
         }
     }
-    while(count1 <= middle){
-        aux[i] = array[count1];
+    while(count1 <= middle + array){
+        *(aux + i) = *count1;
         i++;
         count1++;
     }
-    while(count2 <= end){
-        aux[i] = array[count2];
+    while(count2 <= end + array){
+        *(aux + i) = *count2;
         i++;
         count2++;
     }
     for(i = start; i <= end; i++)
-        array[i] = aux[i - start];
+        *(array + i) = *(aux + i - start);
     free(aux);
 }
 
-void Merge_Sort(long int array[], int start, int end){
+void Merge_Sort(long int *array, int start, int end){
     if(start < end){
         int middle = (start + end) / 2;
 
@@ -50,16 +50,16 @@ void Merge_Sort(long int array[], int start, int end){
 
 /*
 int main(){
-    long int ar[] = {55,654,321,8,52,31,54,66,221,100};
+    long int array[] = {55,654,321,8,52,31,54,66,221,100}, *i;
 
-    for(int i = 0; i < 10; i++)
-        printf("%ld ",ar[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
-    Merge_Sort(ar,0,10-1); //0 and length - 1
+    Merge_Sort(array,0,10-1); //0 and length - 1
 
-    for(int i = 0; i < 10; i++)
-        printf("%ld ",ar[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     return 0;
 }

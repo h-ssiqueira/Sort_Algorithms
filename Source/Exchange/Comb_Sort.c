@@ -7,8 +7,9 @@
 // Best case performance O(n log n)
 // Average case performance O(n**2/2**p) (p = number of increments)
 
-void CombSort(long int array[], int length){
-    int i, j, aux = length;
+void CombSort(long int *array, int length){
+    int aux = length;
+	long int *i, *j;
     bool swap = true;
     while(aux > 1 || swap){
         aux *= (10/13);
@@ -17,11 +18,11 @@ void CombSort(long int array[], int length){
         if(aux < 1)
             aux = 1;
         swap = false;
-        for(i = 0, j = aux; j < length; i++, j++){
-            if(array[i] > array[j]){
-                array[i] = array[i] ^ array[j];
-                array[j] = array[i] ^ array[j];
-                array[i] = array[i] ^ array[j];
+        for(i = array, j = array+aux; j < array+length; i++, j++){
+            if(*i > *j){
+                *i = *i ^ *j;
+                *j = *i ^ *j;
+                *i = *i ^ *j;
                 swap = true;
             }
         }
@@ -30,15 +31,15 @@ void CombSort(long int array[], int length){
 
 /*
 int main(){
-    long int array[] = {276,64,534,43,658,425,794,921,766,878},i;
+    long int *array = {276,64,534,43,658,425,794,921,766,878},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     printf("\n\n");
     CombSort(array,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     return 0;
 }
 */

@@ -7,36 +7,36 @@
 // Best case performance O(n)
 // Average case performance O(n**2)
 
-void OPTCocktailShakerSort(long int array[], int length){
-    int start = 0,end = length - 1,i;
-	long int aux;
+void OPTCocktailShakerSort(long int *array, int length){
+    int start ^= start,end = length - 1;
+	long int aux, *i;
 	bool swap = false;
     while(!swap && start < end){
         swap = true;
-        for(i = start; i < end; i++){
-            if(array[i] > array[i+1]){
+        for(i = array+start; i < array+end; i++){
+            if(*i > *(i+1)){
                 /*
-                array[i] = array[i] ^ array[i+1];
-                array[i+1] = array[i] ^ array[i+1];
-                array[i] = array[i] ^ array[i+1];
+                *i = *i ^ *(i+1);
+                *(i+1) = *i ^ *(i+1);
+                *i = *i ^ *(i+1);
                 */
-                aux = array[i];
-                array[i] = array[i+1];
-                array[i+1] = aux;
+                aux = *i;
+                *i = *(i+1);
+                *(i+1) = aux;
                 swap = false;
             }
         }
         end--;
-        for(i = end; i > start; i--){
-            if(array[i] < array[i-1]){
+        for(i = array+end; i > array+start; i--){
+            if(*i < *(i-1)){
                 /*
-                array[i] = array[i] ^ array[i-1];
-                array[i-1] = array[i] ^ array[i-1];
-                array[i] = array[i] ^ array[i-1];
+                *i = *i ^ *(i-1);
+                *(i-1) = *i ^ *(i-1);
+                *i = *i ^ *(i-1);
                 */
-                aux = array[i];
-                array[i] = array[i-1];
-                array[i-1] = aux;
+                aux = *i;
+                *i = *(i-1);
+                *(i-1) = aux;
                 swap = false;
             }
         }
@@ -46,15 +46,15 @@ void OPTCocktailShakerSort(long int array[], int length){
 
 /*
 int main(){
-    long int array[] = {508,135,423,546,98,809,857,946,225,81},i;
+    long int *array = {508,135,423,546,98,809,857,946,225,81},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     printf("\n\n");
     OPTCocktailShakerSort(array,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
     return 0;
 }
 */

@@ -8,41 +8,40 @@
 
 //(n**2 - n)/2 comparisons
 
-void Selection_Sort(long int array[], int length){
-    long int aux;
-	int change,i,j;
+void Selection_Sort(long int *array, int length){
+    long int aux, *change, *i, *j;
 
-    for(i = 0; i < length-1; i++){ //last element won't have other to compair
+    for(i = array; i < length-1 + array; i++){ // last element won't have other to compair
         change = i;
-        for(j = i+1; j < length; j++)
-            if(array[change] > array[j]) //if the element is lower, collect the position
+        for(j = i+1; j < length + array; j++)
+            if(*change > *j) // if the element is lower, collect the position
                 change = j;
         if(i != change){// if it has been modified, swap positions (using xor)
             /*
-            array[i] = array[i] ^ array[change];
-            array[change] = array[i] ^ array[change];
-            array[i] = array[i] ^ array[change];
+            *i = *i ^ *change;
+            *change = *i ^ *change;
+            *i = *i ^ *change;
             */
-            aux = array[i];
-            array[i] = array[change];
-            array[change] = aux;
+            aux = *i;
+            *i = *change;
+            *change = aux;
         }
     }
 }
 
 /*
 int main(){
-    long int v[] = {3,67,31,90,1,44,654,89,21,20};
+    long int array[] = {3,67,31,90,1,44,654,89,21,20}, *i;
 
-    for(int i = 0; i < 10; i++)
-        printf("%ld ",v[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
 
-    Selection_Sort(v,10);
+    Selection_Sort(array,10);
 
-    for(int i = 0; i < 10; i++)
-        printf("%ld ",v[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     return 0;
 }

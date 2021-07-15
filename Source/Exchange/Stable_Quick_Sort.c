@@ -6,28 +6,28 @@
 // Best case performance O(n log n)
 // Average case performance O(n log n)
 
-long int Sort(long int array[], int start, int end){
-    long int aux = array[start];
+long int Sort(long int *array, int start, int end){
+    long int aux = *(array+start);
 
     while(start < end){
-        while((array[end] >= aux) && (start < end))
+        while((*(array+end) >= aux) && (start < end))
             end--;
         if(start != end){
-            array[start] = array[end];
+            *(array+start) = *(array+end);
             start++;
         }
-        while((array[start] <= aux) && (start < end))
+        while((*(array+start) <= aux) && (start < end))
             start++;
         if(start != end){
-            array[end] = array[start];
+            *(array+end) = *(array+start);
             end--;
         }
     }
-    array[start] = aux;
+    *(array+start) = aux;
     return start;
 }
 
-void StableQuickSort(long int array[], int start, int end){
+void StableQuickSort(long int *array, int start, int end){
     long int aux = Sort(array, start, end);
 
     if(start < aux - 1)
@@ -38,17 +38,17 @@ void StableQuickSort(long int array[], int start, int end){
 
 /*
 int main(){
-    long int array[] = {979,82,937,764,309,761,824,540,786,732},i;
+    long int *array = {979,82,937,764,309,761,824,540,786,732},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
 
     StableQuickSort(array,0,10-1);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
 
     return 0;
 }

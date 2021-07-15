@@ -6,22 +6,22 @@
 // Best case performance O(n)
 // Average case performance O(n log n)
 
-void QuickSort3way(long int array[], int start, int end){
+void QuickSort3way(long int *array, int start, int end){
 	if(end > start){
-		int low = start, great = end, i = start;
-		long int aux, piv = array[start];
-		while(i <= great){ // Set the pivot in the center of the array, sorting greaters and lowers values in the array comparing to pivot
-			if(array[i] < piv){ // Compares if the value is lower than pivot
-				aux = array[i]; // If so, change the positions of index and low
-				array[i] = array[low];
-				array[low] = aux;
+		int low = start, great = end;
+		long int aux, piv = *(array+start), *i = array+start;
+		while(i-array <= great){ // Set the pivot in the center of the array, sorting greaters and lowers values in the array comparing to pivot
+			if(*i < piv){ // Compares if the value is lower than pivot
+				aux = *i; // If so, change the positions of index and low
+				*i = *(array+low);
+				*(array+low) = aux;
 				low++;
 				i++;
 			}
-			else if(array[i] > piv){ // if the value is greater than pivot
-				aux = array[i]; // if so, change the positions of index and great
-				array[i] = array[great];
-				array[great] = aux;
+			else if(*i > piv){ // if the value is greater than pivot
+				aux = *i; // if so, change the positions of index and great
+				*i = *(array+great);
+				*(array+great) = aux;
 				great--;
 			}
 			else // if the value is the same as the pivot
@@ -34,17 +34,17 @@ void QuickSort3way(long int array[], int start, int end){
 
 /*
 int main(){
-    long int array[] = {691,943,746,940,402,962,402,725,140,294},i;
+    long int *array = {691,943,746,940,402,962,402,725,140,294},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
 
     QuickSort3way(array,0,10-1);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array+10; i++)
+        printf("%ld ",*i);
 
     return 0;
 }

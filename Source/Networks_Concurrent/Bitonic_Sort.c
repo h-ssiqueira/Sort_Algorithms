@@ -6,15 +6,15 @@
 // Best case performance O((log n)**2)
 // Average performance O((log n)**2)
 
-void BitonicMerge(long int array[], int start, int length, int direction){
+void BitonicMerge(long int *array, int start, int length, int direction){
 	if(length > 1){ // Can only sort sizes of powers of 2
 	    int middle = length / 2, aux;
 
-	    for(int i = start; i < (start + middle); i++){
-			if(direction == (array[i] > array[i + middle])){ // Check if the direction and the order are right
-				aux = array[i];
-				array[i] = array[i + middle];
-				array[i + middle] = aux;
+	    for(long int *i = array + start; i < (array + start + middle); i++){
+			if(direction == (*i > *(i + middle))){ // Check if the direction and the order are right
+				aux = *i;
+				*i = *(i + middle);
+				*(i + middle) = aux;
 			}
 		}
 	    BitonicMerge(array, start, middle, direction);
@@ -22,7 +22,7 @@ void BitonicMerge(long int array[], int start, int length, int direction){
 	}
 }
 
-void BitonicSort(long int array[], int low, int length, int direction){ // Direction refers to ascending or descending order
+void BitonicSort(long int *array, int low, int length, int direction){ // Direction refers to ascending or descending order
 	if(length > 1){
 	    int middle = length / 2;
 
@@ -34,17 +34,17 @@ void BitonicSort(long int array[], int low, int length, int direction){ // Direc
 
 /*
 int main(){
-	long int array[] = {514,166,8,269,767,237,318,980};
+	long int array[] = {514,166,8,269,767,237,318,980}, *i;
 
-    for(int i = 0; i < 8; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 8; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
 
     BitonicSort(array,0,8,1);
 
-    for(int i = 0; i < 8; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 8; i++)
+        printf("%ld ",*i);
 
 	return 0;
 }
