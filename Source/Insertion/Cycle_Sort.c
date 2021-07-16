@@ -7,52 +7,52 @@
 // Average performance О(n**2) comparisons
 
 void CycleSort(long int array[], int length){
-    long int aux, swap;
-	int pos;
-    for(int i = 0; i < length - 2; i++){
-        aux = array[i];
+    long int aux, swap, *i, *j, *k, *pos;
+
+    for(i = array; i < array + length - 2; i++){
+        aux = *i;
 
         pos = i;
-        for(int j = i + 1; j < length; j++) // Find the right position
-            if(array[j] < aux)
+        for(j = i + 1; j < array + length; j++) // Find the right position
+            if(*j < aux)
                 pos++;
 
         if(pos == i) // If the element is in correct position
             continue;
 
-        while(aux == array[pos]) // For duplicate elements
+        while(aux == *pos) // For duplicate elements
             pos++;
 
         if(pos != i){ // Setting the element in correct position
             /*
-            aux = aux ^ array[pos];
-            array[pos] = aux ^ array[pos];
-            aux = aux ^ array[pos];
+            aux = aux ^ *pos;
+            *pos = aux ^ *pos;
+            aux = aux ^ *pos;
             */
             swap = aux;
-            aux = array[pos];
-            array[pos] = swap;
+            aux = *pos;
+            *pos = swap;
         }
 
         while(pos != i){ // Rotating the cycle
             pos = i;
 
-            for(int k = i + 1; k < length; k++) // Find the right position
-                if(array[k] < aux)
+            for(k = i + 1; k < array + length; k++) // Find the right position
+                if(*k < aux)
                     pos++;
 
-            while(aux == array[pos]) // For duplicate elements
+            while(aux == *pos) // For duplicate elements
                 pos++;
 
-            if(aux != array[pos]){ // Setting the element in correct position
+            if(aux != *pos){ // Setting the element in correct position
                 /*
-                aux = aux ^ array[pos];
-                array[pos] = aux ^ array[pos];
-                aux = aux ^ array[pos];
+                aux = aux ^ *pos;
+                *pos = aux ^ *pos;
+                aux = aux ^ *pos;
                 */
                 swap = aux;
-                aux = array[pos];
-                array[pos] = swap;
+                aux = *pos;
+                *pos = swap;
             }
         }
     }
@@ -60,16 +60,16 @@ void CycleSort(long int array[], int length){
 
 /*
 int main(){
-    long int array[] = {807,449,650,900,745,539,390,112,447,973}, i;
+    long int array[] = {807,449,650,900,745,539,390,112,447,973}, *i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
     printf("\n\n");
 
     CycleSort(array,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
     return 0;
 }
 */

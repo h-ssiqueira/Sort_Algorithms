@@ -8,10 +8,10 @@
 
 void StoogeSort(long int array[], int i, int j){
     long int aux;
-    if(array[i] > array[j]){ // Swap initially the fist and last elements
-        aux = array[i];
-        array[i] = array[j];
-        array[j] = aux;
+    if(*(array + i) > *(array + j)){ // Swap initially the fist and last elements
+        aux = *(array + i);
+        *(array + i) = *(array + j);
+        *(array + j) = aux;
     }
     if(j - i > 1){
         aux = (j - i + 1) / 3;
@@ -23,16 +23,16 @@ void StoogeSort(long int array[], int i, int j){
 
 /*
 int main(){
-    long int array[] = {25,247,87,960,12,445,662,94,834,787},i;
+    long int array[] = {25,247,87,960,12,445,662,94,834,787}, *i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ", array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ", *i);
 
     printf("\n\n");
     StoogeSort(array,0,10-1);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ", array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ", *i);
     return 0;
 }
 */

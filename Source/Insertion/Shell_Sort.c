@@ -6,35 +6,35 @@
 // Best case performance O(n log n)
 // Average case performance undiscovered (h equation is not perfect yet)
 
-void ShellSort(long int array[], int length){
-    int h = 1, i, j;
-	long int aux;
+void ShellSort(long int *array, int length){
+    int h = 1;
+	long int aux, *i, *j;
 
     while(h < length) // Set the value of h until reach the value of length or more
         h = 3 * h + 1;
     for(;h > 0; h /= 3){ // h starts decreasing the array
-        for(i = h; i < length; i++){ // i will take the value of h, incrementing one by one
-            aux = array[i];
-            for(j = i; j > h-1 && array[j - h] > aux; j -= h) // and j decreasing until the value of i
-                array[j] = array[j - h]; // Implementing the insertion sort
-            array[j] = aux;
+        for(i = h + array; i < array + length; i++){ // Will take the value of h, incrementing one by one
+            aux = *i;
+            for(j = i; j > h-1 + array && *(j - h) > aux; j -= h) // And j decreasing until the value of i
+                *j = *(j - h); // Implementing the insertion sort
+            *j = aux;
         }
     }
 }
 
 /*
 int main(){
-    long int array[] = {119,536,252,970,681,861,222,369,587,468},i;
+    long int array[] = {119,536,252,970,681,861,222,369,587,468},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ", array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ", *i);
 
     printf("\n\n");
 
     ShellSort(array,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ", array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ", *i);
     return 0;
 }
 */

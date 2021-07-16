@@ -5,39 +5,38 @@
 
 // O(N*W)
 
-void CountingByDigit(long int array[], int radix, int exp, long int min, int length){
-	int i, bucket;
-	long int buckets[radix], output[length];
+void CountingByDigit(long int *array, int radix, int exp, long int min, int length){
+	int bucket;
+	long int *buckets = calloc(radix, sizeof(long int)), *output = malloc(length * sizeof(long int)), *i, *j;
 
-	for(i = 0; i < radix; i++)
-		buckets[i] = 0;
-
-	for(i = 0; i < length; i++){
-		bucket = floor(((array[i] - min) / exp) % radix);
-		buckets[bucket]++;
+	for(i = array; i < array + length; i++){
+		bucket = floor(((*i - min) / exp) % radix);
+		(*(buckets + bucket))++;
 	}
 
-	for(i = 1; i < radix; i++)
-		buckets[i] += buckets[i - 1];
+	for(i = buckets + 1; i < buckets + radix; i++)
+		*i += *(i - 1);
 
-	for(i = length - 1; i >= 0; i--){
-		bucket = floor(((array[i] - min) / exp) % radix);
-		output[--buckets[bucket]] = array[i];
+	for(i = array + length - 1; i >= array; i--){
+		bucket = floor(((*i - min) / exp) % radix);
+		*(output + (--(*(buckets + bucket)))) = *i;
 	}
 
-	for(i = 0; i < length; i++)
-		array[i] = output[i];
+	for(i = array, j = output; i < array + length; i++, j++)
+		*i = *j;
+	free(buckets);
+	free(output);
 }
 
-void Radix_LSD(long int array[], int length, int radix){
+void Radix_LSD(long int *array, int length, int radix){
 	radix |= 10;
-	long int min = array[0], max = array[0];
+	long int min = *array, max = *array, *i;
 	int exp = 1;
-	for(int i = 1; i < length; i++){
-		if(array[i] < min)
-			min = array[i];
-		else if(array[i] > max)
-			max = array[i];
+	for(i = array + 1; i < array + length; i++){
+		if(*i < min)
+			min = *i;
+		else if(*i > max)
+			max = *i;
 	}
 	while((max - min) / exp >= 1){
 		CountingByDigit(array, radix, exp, min, length);
@@ -46,20 +45,19 @@ void Radix_LSD(long int array[], int length, int radix){
 
 }
 
-
 /*
 int main(){
-    long int array[] = {838,790,306,768,656,465,890,4,921,430},i;
+    long int array[] = {838,790,306,768,656,465,890,4,921,430},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
 
     Radix_LSD(array,10,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     return 0;
 }

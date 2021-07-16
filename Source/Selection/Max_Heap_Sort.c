@@ -40,7 +40,7 @@ void MaxHeapSort(long int *array, int length){
     }
 }
 
-
+/*
 int main(){
     long int array[] = {423,816,549,499,789,769,463,516,846,473},*i;
 
@@ -54,3 +54,4 @@ int main(){
         printf("%ld ",*i);
     return 0;
 }
+*/

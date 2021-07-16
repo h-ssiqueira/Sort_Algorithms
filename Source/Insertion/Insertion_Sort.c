@@ -6,32 +6,31 @@
 // Best case performance O(n) comparisons
 // Average performance О(n**2) comparisons
 
-void Insertion_Sort(long int array[], int length){
-	long int aux;
-	int i, j;
-    for(i = 1; i < length; i++){//i is always one step ahead j
-        aux = array[i]; //collect the value of a position
+void Insertion_Sort(long int *array, int length){
+	long int aux, *i, *j;
+    for(i = array + 1; i < array + length; i++){//i is always one step ahead j
+        aux = *i; //collect the value of a position
         j = i - 1; //and the index of previous value
-        while(j >= 0 && aux < array[j]){ //compares with the previous array until find the lower element
-            array[j+1] = array[j];//shift all values one index ahead
+        while(j >= array && aux < *j){ //compares with the previous array until find the lower element
+            *(j+1) = *j;//shift all values one index ahead
             j--;
         }
-        array[j+1] = aux;//set the value on right position next to 'start' of array comparing with the index of i
+        *(j+1) = aux;//set the value on right position next to 'start' of array comparing with the index of i
     }
 }
 
 /*
 int main(){
-    long int array[] = {354,14,321,52,84,387,10,987,100,5}, i;
+    long int array[] = {354,14,321,52,84,387,10,987,100,5}, *i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
     printf("\n\n");
 
     Insertion_Sort(array,10);//10 is the length
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
     return 0;
 }
 */

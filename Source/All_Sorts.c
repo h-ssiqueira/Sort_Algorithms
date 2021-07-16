@@ -18,7 +18,7 @@
 #include "Non-Comparison_Distribution/Non-Comparison_Distribution.h"
 #include "Selection/Selection.h"
 
-#define limsize 65536000 // Limit 500MB of data // 2147483648 //Limit of signed int (16GB total)
+#define limsize 67108864 // Limit 512MB of data // 2147483648 //Limit of signed int (16GB total)
 
 // Create the array
 void create(long int **array, int length);
@@ -30,13 +30,13 @@ void print(long int *array, int length);
 void generate(long int *array, int length, short int choice, int randominterval);
 
 // Calculate execution time
-void calculatetime(struct timeval start, struct timeval end, long *sec, long *mili);
+void calculatetime(struct timeval start, struct timeval end, long *sec, long *micro);
 
 // Get time before executing the sorting algorithm
 void BeforeExec(long int *array, int length, bool display, char *sort);
 
 // Get time after executing the sorting algorithm
-void AfterExec(long int *array, int length, bool display, bool time, long sec, long mili);
+void AfterExec(long int *array, int length, bool display, bool time, long sec, long micro);
 
 // Sorted increasing
 bool sorted(long int *array, int length);
@@ -49,7 +49,7 @@ int main(){
 	long int *array, *arrayPOF2;
     int length = 10, i, powerof2 = 16, randominterval = 1024;
 	short int option_sort, option_category, choice = 2;
-	long sec, mili;
+	long sec, micro;
 	bool txtfile = false, displayarray = true, exectime = true;
 
 	create(&array,length);
@@ -234,12 +234,10 @@ int main(){
 				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
-				if(exectime){
-					calculatetime(start,end,&sec,&mili);
-					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-				}
+				if(exectime)
+					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,mili);
+					AfterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 2:
                 do{
@@ -411,12 +409,10 @@ int main(){
 				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
-				if(exectime){
-					calculatetime(start,end,&sec,&mili);
-					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-				}
+				if(exectime)
+					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,mili);
+					AfterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 3:
                 do{
@@ -444,12 +440,10 @@ int main(){
 				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
-				if(exectime){
-					calculatetime(start,end,&sec,&mili);
-					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-				}
+				if(exectime)
+					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,mili);
+					AfterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 4:
                 do{
@@ -537,12 +531,10 @@ int main(){
 				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
-				if(exectime){
-					calculatetime(start,end,&sec,&mili);
-					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-				}
+				if(exectime)
+					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,mili);
+					AfterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 5:
                 do{
@@ -594,12 +586,10 @@ int main(){
 				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
-				if(exectime){
-					calculatetime(start,end,&sec,&mili);
-					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-				}
+				if(exectime)
+					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,mili);
+					AfterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 6:
                 do{
@@ -622,7 +612,7 @@ int main(){
 							generate(arrayPOF2,powerof2,choice,randominterval);
 							if(txtfile)
 								BeforeExec(arrayPOF2,powerof2,displayarray,"Bitonic Sort");
-							printf("\n\tNote: Bitonic sort just accepts power sizes of 2.\n\tCurrent size: %d.\n\tNew size applied on this algorithm: %d.\n", length,powerof2);
+							printf("\n\tNote: Bitonic sort just accepts lengths of power of 2.\n\tCurrent size: %d.\n\tNew size applied on this algorithm: %d.\n", length,powerof2);
 							printf("\n\tBefore Bitonic Sort.");
 							if(displayarray)
 								print(arrayPOF2,powerof2);
@@ -633,12 +623,10 @@ int main(){
                         	sorted(arrayPOF2,powerof2) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 							if(displayarray)
                         		print(arrayPOF2,powerof2);
-							if(exectime){
-								calculatetime(start,end,&sec,&mili);
-								printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-							}
+							if(exectime)
+								calculatetime(start,end,&sec,&micro);
 							if(txtfile && (displayarray || exectime))
-								AfterExec(arrayPOF2,powerof2,displayarray,exectime,sec,mili);
+								AfterExec(arrayPOF2,powerof2,displayarray,exectime,sec,micro);
 							free(arrayPOF2);
 						}
 						else{
@@ -654,12 +642,10 @@ int main(){
                         	sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 							if(displayarray)
                         		print(array,length);
-							if(exectime){
-								calculatetime(start,end,&sec,&mili);
-								printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-							}
+							if(exectime)
+								calculatetime(start,end,&sec,&micro);
 							if(txtfile && (displayarray || exectime))
-								AfterExec(array,length,displayarray,exectime,sec,mili);
+								AfterExec(array,length,displayarray,exectime,sec,micro);
 						}
                         break;
                     case 2:
@@ -675,12 +661,10 @@ int main(){
 						sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 						if(displayarray)
                     		print(array,length);
-						if(exectime){
-							calculatetime(start,end,&sec,&mili);
-							printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-						}
+						if(exectime)
+							calculatetime(start,end,&sec,&micro);
 						if(txtfile && (displayarray || exectime))
-							AfterExec(array,length,displayarray,exectime,sec,mili);
+							AfterExec(array,length,displayarray,exectime,sec,micro);
                         break;
                 }
                 break;
@@ -758,12 +742,10 @@ int main(){
 				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
-				if(exectime){
-					calculatetime(start,end,&sec,&mili);
-					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-				}
+				if(exectime)
+					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,mili);
+					AfterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 8:
                 do{
@@ -829,12 +811,10 @@ int main(){
 					sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                 	print(array,length);
-				if(exectime){
-					calculatetime(start,end,&sec,&mili);
-					printf("\n\tExecution time: %ld seconds %ld milisseconds.", sec, mili);
-				}
+				if(exectime)
+					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,mili);
+					AfterExec(array,length,displayarray,exectime,sec,micro);
                 break;
 			case 9:
 				while(true){
@@ -920,28 +900,27 @@ void print(long int *array, int length){
 }
 
 void generate(long int *array, int length, short int choice, int randominterval){
+	long int *i, j;
 	switch(choice){
 		case 1:
-			for(long int *i = array, j ^= j; i < array + length; i++, j++)
+			for(i = array, j ^= j; i < array + length; i++, j++)
 				*i = j;
 			break;
 		case 2:
-			for(long int *i = array; i < array + length; i++)
+			for(i = array; i < array + length; i++)
 				*i = rand() % randominterval;
 			break;
 		case 3:
-			for(long int *i = array, j ^= j; i < array + length; i++, j++)
+			for(i = array, j ^= j; i < array + length; i++, j++)
 				*i = length - j;
 			break;
 	}
 }
 
-void calculatetime(struct timeval start, struct timeval end, long *sec, long *mili){
+void calculatetime(struct timeval start, struct timeval end, long *sec, long *micro){
 	*sec = end.tv_sec - start.tv_sec;
-	*mili = end.tv_usec - start.tv_usec;
-	*mili /= 1000;
-	if(*mili < 0)
-		*mili *= -1;
+	*micro = end.tv_usec - start.tv_usec;
+	printf("\n\tExecution time: %ld seconds %ld microsseconds.", *sec, *micro);
 }
 
 void BeforeExec(long int *array, int length, bool display, char *sort){
@@ -962,7 +941,7 @@ void BeforeExec(long int *array, int length, bool display, char *sort){
 		fclose(txt);
 }
 
-void AfterExec(long int *array, int length, bool display, bool time, long sec, long mili){
+void AfterExec(long int *array, int length, bool display, bool time, long sec, long micro){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		if(display){
@@ -972,7 +951,7 @@ void AfterExec(long int *array, int length, bool display, bool time, long sec, l
 			fprintf(txt,"\n");
 		}
 		if(time)
-			fprintf(txt,"\n\tExecution time: %ld seconds %ld milisseconds.\n", sec, mili);
+			fprintf(txt,"\n\tExecution time: %ld seconds %ld microsseconds.\n", sec, micro);
 	}
 	else{
 		printf("\n\tError: Cannot open the file.");

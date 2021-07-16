@@ -8,17 +8,16 @@
 // Best case performance O(n)
 // Average case performance O((n + 1)!)
 
-bool is_sorted1(long int a[], int n){
-    while(--n >= 1){
-        if(a[n] < a[n-1])
+bool is_sorted1(long int *a, int n){
+    while(--n >= 1)
+        if(*(a + n) < *(a + n - 1))
             return false;
-    }
     return true;
 }
 
-void BogoBogoSort(long int array[], int length){
+void BogoBogoSort(long int *array, int length){
     int size = 2,random;
-	long int aux;
+	long int aux, *i;
     bool notsorted = true;
 
     while(notsorted){
@@ -27,11 +26,11 @@ void BogoBogoSort(long int array[], int length){
         else
             size = 2;
         if(notsorted){
-            for(int i = 0; i < size; i++){ //tries to sort randomly
-                aux = array[i];
+            for(i = array; i < array + size; i++){ //tries to sort randomly
+                aux = *i;
                 random = rand() % size;
-                array[i] = array[random];
-                array[random] = aux;
+                *i = *(array + random);
+                *(array + random) = aux;
             }
         }
     }
@@ -40,16 +39,16 @@ void BogoBogoSort(long int array[], int length){
 /*
 int main(){
     srand(time(NULL));
-    long int array[] = {299,581,698,6,451,285,366,253,531,686},i;
+    long int array[] = {299,581,698,6,451,285,366,253,531,686},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
     BogoBogoSort(array,10);
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
     return 0;
 }
 */

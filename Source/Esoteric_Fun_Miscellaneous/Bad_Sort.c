@@ -5,16 +5,15 @@
 // O(n**3)
 // Bad implementation of selection sort
 
-void BadSort(long int array[], int length){
-    int smaller;
-	long int aux;
+void BadSort(long int *array, int length){
+	long int aux, *smaller, *i, *j, *k;
     bool check;
-    for(int i = 0; i < length; i++){
+    for(i = array; i < array + length; i++){
         smaller = i;
-        for(int j = i; j < length; j++){ // Find the smaller element
+        for(j = i; j < array + length; j++){ // Find the smaller element
             check = true;
-            for(int k = j + 1; k < length; k++){
-                if(array[j] > array[k]){ // Check if array[j] is the smaller
+            for(k = j + 1; k < array + length; k++){
+                if(*j > *k){ // Check if *j is the smaller
                     check = false;
                     break;
                 }
@@ -24,23 +23,23 @@ void BadSort(long int array[], int length){
                 break;
             }
         }
-        aux = array[i];
-        array[i] = array[smaller];
-        array[smaller] = aux;
+        aux = *i;
+        *i = *smaller;
+        *smaller = aux;
     }
 }
 
 /*
 int main(){
-    long int array[] = {131,418,457,76,631,739,462,299,716,68},i;
+    long int array[] = {131,418,457,76,631,739,462,299,716,68},*i;
 
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     printf("\n\n");
     BadSort(array,10);
-    for(i = 0; i < 10; i++)
-        printf("%ld ",array[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ",*i);
 
     return 0;
 }

@@ -8,9 +8,10 @@
 // Average case performance O(n**2)
 
 void OPTCocktailShakerSort(long int *array, int length){
-    int start ^= start,end = length - 1;
+    int start,end = length - 1;
 	long int aux, *i;
 	bool swap = false;
+	start ^= start;
     while(!swap && start < end){
         swap = true;
         for(i = array+start; i < array+end; i++){

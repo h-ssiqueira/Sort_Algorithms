@@ -37,8 +37,9 @@ void Merge_Bottomup(long int *array, int start, int middle, int end){
 }
 
 void Bottomup_Merge_Sort(long int *array, int length){
-    for(int i = 1; i < length; i += i){ // Start sorting the elements 1-1, 2-2... powers of 2
-        for(int j ^= j; j < length - i; j += i + i){
+	int i, j;
+    for(i = 1; i < length; i += i){ // Start sorting the elements 1-1, 2-2... powers of 2
+        for(j ^= j; j < length - i; j += i + i){
             j + i + i - 1 < length-1 ? Merge_Bottomup(array, j, j + i - 1, j + i + i - 1) : Merge_Bottomup(array, j, j + i - 1, length -1); // merge
         }
     }

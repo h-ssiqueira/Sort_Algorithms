@@ -8,8 +8,9 @@
 // Average case performance O(n**2)
 
 void CocktailShakerSort(long int *array, int length){
-    int start ^= start,end = length - 1;
+    int start, end = length - 1;
 	long int aux, *i;
+	start ^= start;
     while(start < end){
         for(i = array+start; i < array+end; i++){
             if(*i > *(i+1)){

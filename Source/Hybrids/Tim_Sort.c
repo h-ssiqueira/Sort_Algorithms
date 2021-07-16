@@ -23,7 +23,8 @@ void InsertionSortT(long int *array, int left, int right){
 }
 
 void MergeT(long int *array, int l, int m, int r){ // Original array in two parts (left-mid + mid+1-right)
-    int size1 = m - l + 1, size2 = r - m, i, j ^= j, k = l;
+    int size1 = m - l + 1, size2 = r - m, i, j, k = l;
+	j ^= j;
 	long int *left = malloc(size1*sizeof(long int)), *right = malloc(size2*sizeof(long int));
     for(i ^= i; i < size1; i++)
         *(left + i) = *(array + l + i);

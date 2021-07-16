@@ -8,23 +8,22 @@
  // Best case performance O(n)
  // Average case performance O((n + 1)!)
 
-bool is_sorted2(long int a[], int n){
-    while(--n >= 1){
-        if(a[n] < a[n-1])
+bool is_sorted2(long int *a, int n){
+    while(--n >= 1)
+        if(*(a + n) < *(a + n - 1))
             return false;
-    }
     return true;
 }
 
-void bogo_sort(long int a[], int n){
-    long int aux;
+void bogo_sort(long int *array, int n){
+    long int aux, *i;
 	int random;
-    while(!is_sorted2(a,n)){
-        for(int i = 0; i < n; i++){ //tries to sort randomly
-            aux = a[i];
+    while(!is_sorted2(array,n)){
+        for(i = array; i < array + n; i++){ // Tries to sort randomly
+            aux = *i;
             random = rand() % n;
-            a[i] = a[random];
-            a[random] = aux;
+            *i = *(array + random);
+            *(array + random) = aux;
         }
     }
 }
@@ -32,16 +31,16 @@ void bogo_sort(long int a[], int n){
 /*
 int main(){
     srand(time(NULL));
-    long int numbers[] = {1,10,9,7,3,0,50,654,222,-2};
+    long int array[] = {1,10,9,7,3,0,50,654,222,-2}, *i;
 
-    for(int i = 0; i < 10; i++)
-        printf("%ld ", numbers[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ", *i);
 
     printf("\n\n");
-    bogo_sort(numbers,10);
+    bogo_sort(array,10);
 
-    for(int i = 0; i < 10; i++)
-        printf("%ld ", numbers[i]);
+    for(i = array; i < array + 10; i++)
+        printf("%ld ", *i);
     return 0;
 }
 */
