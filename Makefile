@@ -8,153 +8,153 @@ sort: Source/Esoteric_Fun_Miscellaneous/Bad_Sort.o Source/Esoteric_Fun_Miscellan
 
 # Source/Esoteric_Fun_Miscellaneous/
 Source/Esoteric_Fun_Miscellaneous/Bad_Sort.o : Source/Esoteric_Fun_Miscellaneous/Bad_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Bad_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Bad_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.o : Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.o : Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.o : Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.o : Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.o : Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.o : Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.o : Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Silly_Sort.o : Source/Esoteric_Fun_Miscellaneous/Silly_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Silly_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Silly_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Slow_Sort.o : Source/Esoteric_Fun_Miscellaneous/Slow_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Slow_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Slow_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.o : Source/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c
 
 Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.o : Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.c
-	gcc -c Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.c
+	gcc -c -Ofast Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.c
 
 # Source/Exchange/
 Source/Exchange/Bubble_Sort.o : Source/Exchange/Bubble_Sort.c
-	gcc -c Source/Exchange/Bubble_Sort.c
+	gcc -c -Ofast Source/Exchange/Bubble_Sort.c
 
 Source/Exchange/Circle_Sort.o : Source/Exchange/Circle_Sort.c
-	gcc -c Source/Exchange/Circle_Sort.c
+	gcc -c -Ofast Source/Exchange/Circle_Sort.c
 
 Source/Exchange/Cocktail_Shaker_Sort.o : Source/Exchange/Cocktail_Shaker_Sort.c
-	gcc -c Source/Exchange/Cocktail_Shaker_Sort.c
+	gcc -c -Ofast Source/Exchange/Cocktail_Shaker_Sort.c
 
 Source/Exchange/Comb_Sort.o : Source/Exchange/Comb_Sort.c
-	gcc -c Source/Exchange/Comb_Sort.c
+	gcc -c -Ofast Source/Exchange/Comb_Sort.c
 
 Source/Exchange/Dual_Pivot_Quick_Sort.o : Source/Exchange/Dual_Pivot_Quick_Sort.c
-	gcc -c Source/Exchange/Dual_Pivot_Quick_Sort.c
+	gcc -c -Ofast Source/Exchange/Dual_Pivot_Quick_Sort.c
 
 Source/Exchange/Gnome_Sort.o : Source/Exchange/Gnome_Sort.c
-	gcc -c Source/Exchange/Gnome_Sort.c
+	gcc -c -Ofast Source/Exchange/Gnome_Sort.c
 
 Source/Exchange/Odd-Even_Sort.o : Source/Exchange/Odd-Even_Sort.c
-	gcc -c Source/Exchange/Odd-Even_Sort.c
+	gcc -c -Ofast Source/Exchange/Odd-Even_Sort.c
 
 Source/Exchange/Optimized_Bubble_Sort.o : Source/Exchange/Optimized_Bubble_Sort.c
-	gcc -c Source/Exchange/Optimized_Bubble_Sort.c
+	gcc -c -Ofast Source/Exchange/Optimized_Bubble_Sort.c
 
 Source/Exchange/Optimized_Cocktail_Shaker_Sort.o : Source/Exchange/Optimized_Cocktail_Shaker_Sort.c
-	gcc -c Source/Exchange/Optimized_Cocktail_Shaker_Sort.c
+	gcc -c -Ofast Source/Exchange/Optimized_Cocktail_Shaker_Sort.c
 
 Source/Exchange/Optimized_Gnome_Sort.o : Source/Exchange/Optimized_Gnome_Sort.c
-	gcc -c Source/Exchange/Optimized_Gnome_Sort.c
+	gcc -c -Ofast Source/Exchange/Optimized_Gnome_Sort.c
 
 Source/Exchange/Quick_Sort_3-way.o : Source/Exchange/Quick_Sort_3-way.c
-	gcc -c Source/Exchange/Quick_Sort_3-way.c
+	gcc -c -Ofast Source/Exchange/Quick_Sort_3-way.c
 
 Source/Exchange/Quick_Sort.o : Source/Exchange/Quick_Sort.c
-	gcc -c Source/Exchange/Quick_Sort.c
+	gcc -c -Ofast Source/Exchange/Quick_Sort.c
 
 Source/Exchange/Stable_Quick_Sort.o : Source/Exchange/Stable_Quick_Sort.c
-	gcc -c Source/Exchange/Stable_Quick_Sort.c
+	gcc -c -Ofast Source/Exchange/Stable_Quick_Sort.c
 
 # Source/Hybrids/
 Source/Hybrids/Tim_Sort.o : Source/Hybrids/Tim_Sort.c
-	gcc -c Source/Hybrids/Tim_Sort.c
+	gcc -c -Ofast Source/Hybrids/Tim_Sort.c
 
 # Source/Insertion/
 Source/Insertion/Binary_Insertion_Sort.o : Source/Insertion/Binary_Insertion_Sort.c
-	gcc -c Source/Insertion/Binary_Insertion_Sort.c
+	gcc -c -Ofast Source/Insertion/Binary_Insertion_Sort.c
 
 Source/Insertion/Cycle_Sort.o : Source/Insertion/Cycle_Sort.c
-	gcc -c Source/Insertion/Cycle_Sort.c
+	gcc -c -Ofast Source/Insertion/Cycle_Sort.c
 
 Source/Insertion/Insertion_Sort.o : Source/Insertion/Insertion_Sort.c
-	gcc -c Source/Insertion/Insertion_Sort.c
+	gcc -c -Ofast Source/Insertion/Insertion_Sort.c
 
 Source/Insertion/Patience_Sort.o : Source/Insertion/Patience_Sort.c
-	gcc -c Source/Insertion/Patience_Sort.c
+	gcc -c -Ofast Source/Insertion/Patience_Sort.c
 
 Source/Insertion/Shell_Sort.o : Source/Insertion/Shell_Sort.c
-	gcc -c Source/Insertion/Shell_Sort.c
+	gcc -c -Ofast Source/Insertion/Shell_Sort.c
 
 Source/Insertion/Tree_Sort.o : Source/Insertion/Tree_Sort.c
-	gcc -c Source/Insertion/Tree_Sort.c
+	gcc -c -Ofast Source/Insertion/Tree_Sort.c
 
 # Source/Merge/
 Source/Merge/Bottom-up_Merge_Sort.o : Source/Merge/Bottom-up_Merge_Sort.c
-	gcc -c Source/Merge/Bottom-up_Merge_Sort.c
+	gcc -c -Ofast Source/Merge/Bottom-up_Merge_Sort.c
 
 Source/Merge/In-Place_Merge_Sort.o : Source/Merge/In-Place_Merge_Sort.c
-	gcc -c Source/Merge/In-Place_Merge_Sort.c
+	gcc -c -Ofast Source/Merge/In-Place_Merge_Sort.c
 
 Source/Merge/Merge_Sort.o : Source/Merge/Merge_Sort.c
-	gcc -c Source/Merge/Merge_Sort.c
+	gcc -c -Ofast Source/Merge/Merge_Sort.c
 
 # Source/Networks_Concurrent/
 Source/Networks_Concurrent/Bitonic_Sort.o : Source/Networks_Concurrent/Bitonic_Sort.c
-	gcc -c Source/Networks_Concurrent/Bitonic_Sort.c
+	gcc -c -Ofast Source/Networks_Concurrent/Bitonic_Sort.c
 
 Source/Networks_Concurrent/Pairwise_Network_Sort.o : Source/Networks_Concurrent/Pairwise_Network_Sort.c
-	gcc -c Source/Networks_Concurrent/Pairwise_Network_Sort.c
+	gcc -c -Ofast Source/Networks_Concurrent/Pairwise_Network_Sort.c
 
 # Source/Non-Comparison_Distribution/
 Source/Non-Comparison_Distribution/Bucket_Sort.o : Source/Non-Comparison_Distribution/Bucket_Sort.c
-	gcc -c Source/Non-Comparison_Distribution/Bucket_Sort.c
+	gcc -c -Ofast Source/Non-Comparison_Distribution/Bucket_Sort.c
 
 Source/Non-Comparison_Distribution/Counting_Sort.o : Source/Non-Comparison_Distribution/Counting_Sort.c
-	gcc -c Source/Non-Comparison_Distribution/Counting_Sort.c
+	gcc -c -Ofast Source/Non-Comparison_Distribution/Counting_Sort.c
 
 Source/Non-Comparison_Distribution/Gravity_Bead_Sort.o : Source/Non-Comparison_Distribution/Gravity_Bead_Sort.c
-	gcc -c Source/Non-Comparison_Distribution/Gravity_Bead_Sort.c
+	gcc -c -Ofast Source/Non-Comparison_Distribution/Gravity_Bead_Sort.c
 
 Source/Non-Comparison_Distribution/Pigeonhole_Sort.o : Source/Non-Comparison_Distribution/Pigeonhole_Sort.c
-	gcc -c Source/Non-Comparison_Distribution/Pigeonhole_Sort.c
+	gcc -c -Ofast Source/Non-Comparison_Distribution/Pigeonhole_Sort.c
 
 Source/Non-Comparison_Distribution/Radix_LSD.o : Source/Non-Comparison_Distribution/Radix_LSD.c
-	gcc -c Source/Non-Comparison_Distribution/Radix_LSD.c
+	gcc -c -Ofast Source/Non-Comparison_Distribution/Radix_LSD.c
 
 # Source/Selection/
 Source/Selection/Double_Selection_Sort.o : Source/Selection/Double_Selection_Sort.c
-	gcc -c Source/Selection/Double_Selection_Sort.c
+	gcc -c -Ofast Source/Selection/Double_Selection_Sort.c
 
 Source/Selection/Max_Heap_Sort.o : Source/Selection/Max_Heap_Sort.c
-	gcc -c Source/Selection/Max_Heap_Sort.c
+	gcc -c -Ofast Source/Selection/Max_Heap_Sort.c
 
 Source/Selection/Min_Heap_Sort.o : Source/Selection/Min_Heap_Sort.c
-	gcc -c Source/Selection/Min_Heap_Sort.c
+	gcc -c -Ofast Source/Selection/Min_Heap_Sort.c
 
 Source/Selection/Selection_Sort.o : Source/Selection/Selection_Sort.c
-	gcc -c Source/Selection/Selection_Sort.c
+	gcc -c -Ofast Source/Selection/Selection_Sort.c
 
 # Source/
 Source/All_Sorts.o : Source/All_Sorts.c
-	gcc -c Source/All_Sorts.c
+	gcc -c -Ofast Source/All_Sorts.c
 
 #--------------------------------------------------------------------------
 # Clear all objects

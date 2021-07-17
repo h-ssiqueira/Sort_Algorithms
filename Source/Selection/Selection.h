@@ -1,5 +1,5 @@
-#ifndef SELECTION_H_
-#define SELECTION_H_
+#ifndef _SELECTION_H_
+#define _SELECTION_H_
 
 // Double Selection Sort
 void Double_Selection_Sort(long int *array, int length);

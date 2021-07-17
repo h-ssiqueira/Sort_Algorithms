@@ -18,7 +18,9 @@
 #include "Non-Comparison_Distribution/Non-Comparison_Distribution.h"
 #include "Selection/Selection.h"
 
-#define limsize 67108864 // Limit 512MB of data // 2147483648 //Limit of signed int (16GB total)
+// Limit of length of array
+// Limit 512MB of data // 2147483648 //Limit of signed int (16GB total)
+#define limsize 67108864
 
 // Create the array
 void create(long int **array, int length);
@@ -57,6 +59,7 @@ int main(){
     while(true){
 		generate(array,length,choice,randominterval);
         do{
+			optionc:
             printf("\n\tWhich category of sort would you like to see?");
             printf("\n0 - Exit.");
             printf("\n1 - Esoteric & Fun & Miscellaneous.");
@@ -69,7 +72,11 @@ int main(){
             printf("\n8 - Selection.");
 			printf("\n9 - Configurations.");
             printf("\n-> ");
-            scanf("%hd",&option_category);
+            while(scanf("%hd",&option_category) != 1){
+				printf("\n\tValue inserted is not a number. Try again.\n");
+				getchar();
+				goto optionc;
+			}
             if(option_category < 0 || option_category > 9)
                 printf("\n\tError: Choose the value in the range displayed.\n");
         }while(option_category < 0 || option_category > 9);
@@ -78,6 +85,7 @@ int main(){
         switch(option_category){
             case 1:
                 do{
+					esotericfunmisc:
                     printf("\n\tChoose the sort to be aplied on Esoteric & Fun & Miscellaneous:");
 					printf("\n 0 - Menu.");
                     printf("\n 1 - Bad_Sort.");
@@ -93,7 +101,11 @@ int main(){
                     printf("\n11 - Spaghetti_Sort.");
                     printf("\n12 - Stooge_Sort.");
                     printf("\n-> ");
-                    scanf("%hd",&option_sort);
+                    while(scanf("%hd",&option_sort) != 1){
+						printf("\n\tValue inserted is not a number. Try again.\n");
+						getchar();
+						goto esotericfunmisc;
+					}
                     if(option_sort < 0 || option_sort > 12)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 12);
@@ -241,6 +253,7 @@ int main(){
                 break;
             case 2:
                 do{
+					exchange:
                     printf("\n\tChoose the sort to be aplied on Exchange:");
 					printf("\n 0 - Menu.");
                     printf("\n 1 - Bubble_Sort.");
@@ -257,7 +270,11 @@ int main(){
 					printf("\n12 - Quick_Sort_3-way.");
                     printf("\n13 - Stable_Quick_Sort.");
                     printf("\n-> ");
-                    scanf("%hd",&option_sort);
+                    while(scanf("%hd",&option_sort) != 1){
+						printf("\n\tValue inserted is not a number. Try again.\n");
+						getchar();
+						goto exchange;
+					}
                     if(option_sort < 0 || option_sort > 13)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 13);
@@ -416,11 +433,16 @@ int main(){
                 break;
             case 3:
                 do{
+					hybrids:
                     printf("\n\tChoose the sort to be aplied on Hybrids:");
 					printf("\n0 - Menu.");
                     printf("\n1 - Tim_Sort.");
                     printf("\n-> ");
-                    scanf("%hd",&option_sort);
+                    while(scanf("%hd",&option_sort) != 1){
+						printf("\n\tValue inserted is not a number. Try again.\n");
+						getchar();
+						goto hybrids;
+					}
                     if(option_sort < 0 || option_sort > 1)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 1);
@@ -447,6 +469,7 @@ int main(){
                 break;
             case 4:
                 do{
+					insertion:
                     printf("\n\tChoose the sort to be aplied on Insertion:");
 					printf("\n0 - Menu.");
                     printf("\n1 - Binary_Insertion_Sort.");
@@ -456,7 +479,11 @@ int main(){
                     printf("\n5 - Shell_Sort.");
                     printf("\n6 - Tree_Sort.");
                     printf("\n-> ");
-                    scanf("%hd",&option_sort);
+                    while(scanf("%hd",&option_sort) != 1){
+						printf("\n\tValue inserted is not a number. Try again.\n");
+						getchar();
+						goto insertion;
+					}
                     if(option_sort < 0 || option_sort > 6)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 6);
@@ -538,13 +565,18 @@ int main(){
                 break;
             case 5:
                 do{
+					merge:
                     printf("\n\tChoose the sort to be aplied on Merge:");
 					printf("\n0 - Menu.");
                     printf("\n1 - Bottomup_Merge_Sort.");
                     printf("\n2 - In-Place_Merge_Sort.");
                     printf("\n3 - Merge_Sort.");
                     printf("\n-> ");
-                    scanf("%hd",&option_sort);
+                    while(scanf("%hd",&option_sort) != 1){
+						printf("\n\tValue inserted is not a number. Try again.\n");
+						getchar();
+						goto merge;
+					}
                     if(option_sort < 0 || option_sort > 3)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 3);
@@ -593,12 +625,17 @@ int main(){
                 break;
             case 6:
                 do{
+					networksconcurrent:
                     printf("\n\tChoose the sort to be aplied on Networks & Concurrent:");
 					printf("\n0 - Menu.");
                     printf("\n1 - Bitonic_Sort.");
 					printf("\n2 - Pairwise_Network_Sort.");
                     printf("\n-> ");
-                    scanf("%hd",&option_sort);
+                    while(scanf("%hd",&option_sort) != 1){
+						printf("\n\tValue inserted is not a number. Try again.\n");
+						getchar();
+						goto networksconcurrent;
+					}
                     if(option_sort < 0 || option_sort > 2)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 2);
@@ -670,6 +707,7 @@ int main(){
                 break;
             case 7:
                 do{
+					noncomparisondist:
                     printf("\n\tChoose the sort to be aplied on Non-Comparison & Distribution:");
 					printf("\n0 - Menu.");
                     printf("\n1 - Bucket_Sort.");
@@ -678,7 +716,11 @@ int main(){
                     printf("\n4 - Pigeonhole_Sort.");
 					printf("\n5 - Radix_LSD Sort.");
                     printf("\n-> ");
-                    scanf("%hd",&option_sort);
+                    while(scanf("%hd",&option_sort) != 1){
+						printf("\n\tValue inserted is not a number. Try again.\n");
+						getchar();
+						goto noncomparisondist;
+					}
                     if(option_sort < 0 || option_sort > 5)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 5);
@@ -749,6 +791,7 @@ int main(){
                 break;
             case 8:
                 do{
+					selection:
                     printf("\n\tChoose the sort to be aplied on Selection:");
 					printf("\n0 - Menu.");
                     printf("\n1 - Double_Selection_Sort.");
@@ -756,7 +799,11 @@ int main(){
                     printf("\n3 - Min_Heap_Sort.");
                     printf("\n4 - Selection_Sort.");
                     printf("\n-> ");
-                    scanf("%hd",&option_sort);
+                    while(scanf("%hd",&option_sort) != 1){
+						printf("\n\tValue inserted is not a number. Try again.\n");
+						getchar();
+						goto selection;
+					}
                     if(option_sort < 0 || option_sort > 4)
                         printf("\n\tError: Choose the value in the range displayed.\n\n\t");
                 }while(option_sort < 0 || option_sort > 4);
@@ -819,6 +866,7 @@ int main(){
 			case 9:
 				while(true){
 					do{
+						config:
 						printf("\n\tConfigurations:");
 						printf("\n0 - Menu.");
 						printf("\n1 - Change sorting case - %s", choice > 1 ? (choice == 3 ? "Ascending." : "Random.") : "Descending.");
@@ -828,7 +876,11 @@ int main(){
 						printf("\n5 - Display arrays - %s", displayarray ? "YES." : "NO.");
 						printf("\n6 - Display execution time - %s", exectime ? "YES." : "NO.");
 						printf("\n-> ");
-						scanf("%hd",&option_sort);
+						while(scanf("%hd",&option_sort) != 1){
+							printf("\n\tValue inserted is not a number. Try again.\n");
+							getchar();
+							goto config;
+						}
 						if(option_sort < 0 || option_sort > 5)
 							printf("\n\tError: Choose the value in the range displayed.\n\n\t");
 					}while(option_sort < 0 || option_sort > 5);
@@ -837,19 +889,29 @@ int main(){
 					switch(option_sort){
 						case 1:
 							do{
-								printf("\n\tInsert the case for sorting:");
+								sortingcase:
+								printf("\n\tInsert the sorting case:");
 								printf("\n1 - Ascending.");
 								printf("\n2 - Random.");
 								printf("\n3 - Descending.");
 								printf("\n-> ");
-								scanf("%hd",&choice);
+								while(scanf("%hd",&choice) != 1){
+									printf("\n\tValue inserted is not a number. Try again.\n");
+									getchar();
+									goto sortingcase;
+								}
 								if(choice < 1 || choice > 3)
 									printf("\n\n\tError: Insert a value in the correct range!\n");
 							}while(choice < 1 || choice > 3);
 							break;
 						case 2:
+							randominter:
 							printf("\n\tInsert the random interval limit: ");
-							scanf("%d", &randominterval);
+							while(scanf("%d", &randominterval)){
+								printf("\n\tValue inserted is not a number. Try again.\n");
+								getchar();
+								goto randominter;
+							}
 							if(randominterval < 3)
 								randominterval = 3;
 							else if (randominterval > INT_MAX)
@@ -857,8 +919,13 @@ int main(){
 							break;
 						case 3:
 							do{
+								len:
 								printf("\n\tInsert the new length of the array:\n-> ");
-								scanf("%u", &length);
+								while(scanf("%u", &length) != 1){
+									printf("\n\tValue inserted is not a number. Try again.\n");
+									getchar();
+									goto len;
+								}
 							}while(length < 2 || length > limsize);
 							i = 1;
 							while(i < length)

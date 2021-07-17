@@ -1,5 +1,5 @@
-#ifndef HYBRIDS_H_
-#define HYBRIDS_H_
+#ifndef _HYBRIDS_H_
+#define _HYBRIDS_H_
 
 // Tim Sort
 void TimSort(long int *array, int length);

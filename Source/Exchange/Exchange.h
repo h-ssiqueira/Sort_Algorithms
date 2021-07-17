@@ -1,5 +1,5 @@
-#ifndef EXCHANGE_H_
-#define EXCHANGE_H_
+#ifndef _EXCHANGE_H_
+#define _EXCHANGE_H_
 
 #include <stdbool.h>
 

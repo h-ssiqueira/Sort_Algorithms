@@ -1,5 +1,5 @@
-#ifndef INSERTION_H_
-#define INSERTION_H_
+#ifndef _INSERTION_H_
+#define _INSERTION_H_
 
 // Binary Insertion Sort
 void InsertionSort(long int *array, int length);

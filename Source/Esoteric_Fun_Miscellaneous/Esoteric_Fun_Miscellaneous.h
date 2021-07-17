@@ -1,9 +1,10 @@
-#ifndef ESOTERIC_FUN_MISCELLANEOUS_H_
-#define ESOTERIC_FUN_MISCELLANEOUS_H_
+#ifndef _ESOTERIC_FUN_MISCELLANEOUS_H_
+#define _ESOTERIC_FUN_MISCELLANEOUS_H_
 
 #include <stdbool.h>
 
 // Auxiliar functions that check if the array is sorted
+
 bool is_sorted1(long int *a, int n);
 bool is_sorted2(long int *a, int n);
 bool is_sorted3(long int *a, int n);
@@ -27,6 +28,7 @@ void BubbleBogoSort(long int *array, int length);
 // Cocktail Bogo Sort
 void CocktailBogoSort(long int *array, int length);
 // Auxiliar functions that check if the subarrays is sorted
+
 bool IsMaxSorted(long int *array, int min, int max);
 bool IsMinSorted(long int *array, int min, int max);
 

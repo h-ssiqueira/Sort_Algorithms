@@ -1,5 +1,5 @@
-#ifndef MERGE_H_
-#define MERGE_H_
+#ifndef _MERGE_H_
+#define _MERGE_H_
 
 // Bottom-Up Merge Sort
 void Bottomup_Merge_Sort(long int *array, int length);

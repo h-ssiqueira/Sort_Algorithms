@@ -1,5 +1,5 @@
-#ifndef NON_COMPARISON_DISTRIBUTION_H_
-#define NON_COMPARISON_DISTRIBUTION_H_
+#ifndef _NON_COMPARISON_DISTRIBUTION_H_
+#define _NON_COMPARISON_DISTRIBUTION_H_
 
 // Bucket Sort
 void BucketSort(long int *array, int length);

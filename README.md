@@ -117,18 +117,18 @@ Length of array | 10
 
 Algorithm | Worst case | Best case | Average | Space complexity | In-place | Stable | Notes
 :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
-[Bad Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bad_Sort.c) |  |  |  |  |  |  |
-[Bogo Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  |  |  |  |
+[Bad Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bad_Sort.c) | O(N³) | O(N³) | O(N³) | O(1) | **☑** | **☒** |
+[Bogo Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
 [Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.c) | O((N+1)!) | O(N) | O((N+1)!) | O(1) | **☑** | **☒** | The worst case can be unbounded
-[Bubble Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) |  |  |  |  |  |  |
-[Cocktail Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) |  |  |  |  |  |  |
-[Exchange Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) |  |  |  |  |  |  |
-[Less Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) |  |  |  |  |  |  |
+[Bubble Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☑** |
+[Cocktail Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
+[Exchange Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
+[Less Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
 [Pancake Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** |
-[Silly Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Silly_Sort.c) |  |  |  |  |  |  |
-[Slow Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Slow_Sort.c) |  |  |  |  |  |  |
+[Silly Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Silly_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
+[Slow Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Slow_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
 [Spaghetti Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c) | O(N) |  |  | O(N) | **☒** | **☑** |
-[Stooge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.c) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(<img src="https://latex.codecogs.com/gif.latex?N^{\frac{log 3}{log1,5}}" title="N^{\frac{log 3}{log1,5}}" />) | O(N) | **☒** | **☒** |
+[Stooge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Stooge_Sort.c) | ![O(N^(log 3 / log 1.5))](http://www.sciweavers.org/tex2img.php?eq=O%28N%5E%7B%20%5Cfrac%7Blog%203%7D%7Blog%201.5%7D%20%7D%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0) | ![O(N^(log 3 / log 1.5))](http://www.sciweavers.org/tex2img.php?eq=O%28N%5E%7B%20%5Cfrac%7Blog%203%7D%7Blog%201.5%7D%20%7D%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0) | ![O(N^(log 3 / log 1.5))](http://www.sciweavers.org/tex2img.php?eq=O%28N%5E%7B%20%5Cfrac%7Blog%203%7D%7Blog%201.5%7D%20%7D%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0) | O(N) | **☒** | **☒** |
 [Bubble Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Circle Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Circle_Sort.c) | O(N log N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
 [Cocktail Shaker Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Exchange/Cocktail_Shaker_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☑** |

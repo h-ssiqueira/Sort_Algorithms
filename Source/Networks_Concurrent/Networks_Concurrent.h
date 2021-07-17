@@ -1,5 +1,5 @@
-#ifndef NETWORKS_CONCURRENT_H_
-#define NETWORKS_CONCURRENT_H_
+#ifndef _NETWORKS_CONCURRENT_H_
+#define _NETWORKS_CONCURRENT_H_
 
 // Bitonic Sort
 void BitonicSort(long int *array, int low, int length, int direction);
