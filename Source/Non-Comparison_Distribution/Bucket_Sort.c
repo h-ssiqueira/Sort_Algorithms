@@ -74,13 +74,13 @@ void BucketSort(long int *array, int length){
 int main(){
     long int array[] = {49,436,448,704,516,297,468,764,735,564}, *i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    BucketSort(array,10);
+    BucketSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

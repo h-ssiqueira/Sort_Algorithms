@@ -61,14 +61,14 @@ void CocktailBogoSort(long int *array, int length){
 int main(){
     srand(time(NULL));
     long int array[] = {920,153,587,320,302,722,902,916,637,346},*i;
-    for(i = array; i < array + 5; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    CocktailBogoSort(array,5);
+    CocktailBogoSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 5; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

@@ -23,12 +23,12 @@ void Bubble_sort(long int *array, int length){
 int main(){
     long int *array = {5,9,4,22,51,3,10,65,111,49},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
-    Bubble_sort(array,10-1);
+    Bubble_sort(array,sizeof(array)/sizeof(long int)-1);
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

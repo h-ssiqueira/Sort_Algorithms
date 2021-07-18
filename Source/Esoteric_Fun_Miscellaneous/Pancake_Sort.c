@@ -33,12 +33,12 @@ void PancakeSort(long int *array, int length){
 int main(){
     long int array[] = {82,458,594,767,876,700,943,751,7,368},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    PancakeSort(array,10);
-    for(i = array; i < array + 10; i++)
+    PancakeSort(array,sizeof(array)/sizeof(long int));
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

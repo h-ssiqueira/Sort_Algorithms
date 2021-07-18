@@ -38,14 +38,14 @@ void Quick_Sort(long int *array, int start, int end){
 int main(){
     long int *array = {65,684,13,321,2,14,32,987,55,10},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    Quick_Sort(array,0,10-1);
+    Quick_Sort(array,0,sizeof(array)/sizeof(long int)-1);
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

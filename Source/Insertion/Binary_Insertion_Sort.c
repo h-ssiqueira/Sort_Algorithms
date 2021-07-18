@@ -39,14 +39,14 @@ void InsertionSort(long int *array, int length){
 int main(){
     long int array[] = {693,378,660,247,77,223,132,685,873,862},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    InsertionSort(array,10);
+    InsertionSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

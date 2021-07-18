@@ -28,13 +28,13 @@ void Optimized_Gnome_Sort(long int *array, int length){
 int main(){
     long int *array = {771,143,40,570,616,967,376,266,895,121},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
 
-    Optimized_Gnome_Sort(array,10);
+    Optimized_Gnome_Sort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

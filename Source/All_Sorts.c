@@ -32,13 +32,13 @@ void print(long int *array, int length);
 void generate(long int *array, int length, short int choice, int randominterval);
 
 // Calculate execution time
-void calculatetime(struct timeval start, struct timeval end, long *sec, long *micro);
+void calculatetime(struct timeval start, struct timeval end, unsigned long *sec, unsigned long *micro);
 
 // Get time before executing the sorting algorithm
 void BeforeExec(long int *array, int length, bool display, char *sort);
 
 // Get time after executing the sorting algorithm
-void AfterExec(long int *array, int length, bool display, bool time, long sec, long micro);
+void AfterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro);
 
 // Sorted increasing
 bool sorted(long int *array, int length);
@@ -51,7 +51,7 @@ int main(){
 	long int *array, *arrayPOF2;
     int length = 10, i, powerof2 = 16, randominterval = 1024;
 	short int option_sort, option_category, choice = 2;
-	long sec, micro;
+	unsigned long sec, micro;
 	bool txtfile = false, displayarray = true, exectime = true;
 
 	create(&array,length);
@@ -914,7 +914,7 @@ int main(){
 							}
 							if(randominterval < 3)
 								randominterval = 3;
-							else if (randominterval > INT_MAX)
+							else if(randominterval > INT_MAX)
 								randominterval = INT_MAX;
 							break;
 						case 3:
@@ -984,10 +984,10 @@ void generate(long int *array, int length, short int choice, int randominterval)
 	}
 }
 
-void calculatetime(struct timeval start, struct timeval end, long *sec, long *micro){
+void calculatetime(struct timeval start, struct timeval end, unsigned long *sec, unsigned long *micro){
 	*sec = end.tv_sec - start.tv_sec;
 	*micro = end.tv_usec - start.tv_usec;
-	printf("\n\tExecution time: %ld seconds %ld microsseconds.", *sec, *micro);
+	printf("\n\tExecution time: %lu seconds %lu microsseconds.", *sec, *micro);
 }
 
 void BeforeExec(long int *array, int length, bool display, char *sort){
@@ -1001,14 +1001,13 @@ void BeforeExec(long int *array, int length, bool display, char *sort){
 			fprintf(txt,"\n");
 		}
 	}
-	else{
+	else
 		printf("\n\tError: Cannot open the file.");
-	}
 	if(txt != NULL)
 		fclose(txt);
 }
 
-void AfterExec(long int *array, int length, bool display, bool time, long sec, long micro){
+void AfterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		if(display){
@@ -1018,11 +1017,10 @@ void AfterExec(long int *array, int length, bool display, bool time, long sec, l
 			fprintf(txt,"\n");
 		}
 		if(time)
-			fprintf(txt,"\n\tExecution time: %ld seconds %ld microsseconds.\n", sec, micro);
+			fprintf(txt,"\n\tExecution time: %lu seconds %lu microsseconds.\n", sec, micro);
 	}
-	else{
+	else
 		printf("\n\tError: Cannot open the file.");
-	}
 	if(txt != NULL)
 		fclose(txt);
 }

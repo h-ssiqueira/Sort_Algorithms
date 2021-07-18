@@ -49,14 +49,14 @@ void Radix_LSD(long int *array, int length, int radix){
 int main(){
     long int array[] = {838,790,306,768,656,465,890,4,921,430},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    Radix_LSD(array,10,10);
+    Radix_LSD(array,sizeof(array)/sizeof(long int),10);
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

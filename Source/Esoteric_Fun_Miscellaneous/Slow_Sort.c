@@ -23,14 +23,14 @@ void Slow_Sort(long int *array, int start, int end){
 /*
 int main(){
     long int array[] = {85,354,1,123,45,897,231,984,35,89},*i;
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    Slow_Sort(array,0,10-1);//length - 1
+    Slow_Sort(array,0,sizeof(array)/sizeof(long int)-1);//length - 1
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

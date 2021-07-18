@@ -36,13 +36,13 @@ void Double_Selection_Sort(long int *array, int length){
 int main(){
     long int array[] = {5,98,-1,0,11,321,654,555,44,2}, *i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    Double_Selection_Sort(array,10);
+    Double_Selection_Sort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

@@ -25,12 +25,12 @@ void SillySort(long int *array, int start, int end){
 int main(){
     long int array[] = {17,691,128,110,238,445,690,183,288,607},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    SillySort(array,0,10-1);
-    for(i = array; i < array + 10; i++)
+    SillySort(array,0,sizeof(array)/sizeof(long int)-1);
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

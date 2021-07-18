@@ -33,13 +33,13 @@ int main(){
     srand(time(NULL));
     long int array[] = {1,10,9,7,3,0,50,654,222,-2}, *i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ", *i);
 
     printf("\n\n");
-    bogo_sort(array,10);
+    bogo_sort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ", *i);
     return 0;
 }

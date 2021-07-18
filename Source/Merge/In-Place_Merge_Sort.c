@@ -46,14 +46,14 @@ void Merge_Sort_In_Place(long int *array, int start, int end){
 int main(){
     long int array[] = {465,54,222,84,23,14,67,321,74,1},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    Merge_Sort_In_Place(array,0,10-1); //0 and length - 1
+    Merge_Sort_In_Place(array,0,sizeof(array)/sizeof(long int)-1); //0 and length - 1
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

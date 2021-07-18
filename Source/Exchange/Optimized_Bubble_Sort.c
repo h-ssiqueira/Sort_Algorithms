@@ -34,14 +34,14 @@ void BubbleSortOptmized(long int *array, int length){
 int main(){
     long int *array = {66,600,410,815,779,233,998,510,734,65},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    BubbleSortOptmized(array,10-1);
+    BubbleSortOptmized(array,sizeof(array)/sizeof(long int)-1);
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

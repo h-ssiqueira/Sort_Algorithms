@@ -36,14 +36,14 @@ void QuickSort3way(long int *array, int start, int end){
 int main(){
     long int *array = {691,943,746,940,402,962,402,725,140,294},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    QuickSort3way(array,0,10-1);
+    QuickSort3way(array,0,sizeof(array)/sizeof(long int)-1);
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

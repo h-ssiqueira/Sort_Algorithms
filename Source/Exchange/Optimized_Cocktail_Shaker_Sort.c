@@ -49,12 +49,12 @@ void OPTCocktailShakerSort(long int *array, int length){
 int main(){
     long int *array = {508,135,423,546,98,809,857,946,225,81},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
-    OPTCocktailShakerSort(array,10);
+    OPTCocktailShakerSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

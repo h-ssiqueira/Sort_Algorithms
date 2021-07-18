@@ -104,6 +104,7 @@ Length of array | 10
 1. [Counting Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison_Distribution/Counting_Sort.c)
 1. [Gravity (Bead) Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison_Distribution/Gravity_(Bead)_Sort.c)
 1. [Pigeonhole Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison_Distribution/Pigeonhole_Sort.c)
+1. [Radix LSD Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Non-Comparison_Distribution/Radix_LSD.c)
 
 ### [Selection](https://github.com/h-ssiqueira/Sort_Algorithms/tree/master/Source/Selection)
 1. [Double Selection Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Double_Selection_Sort.c)
@@ -118,12 +119,12 @@ Length of array | 10
 Algorithm | Worst case | Best case | Average | Space complexity | In-place | Stable | Notes
 :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
 [Bad Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bad_Sort.c) | O(N³) | O(N³) | O(N³) | O(1) | **☑** | **☒** |
-[Bogo Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
-[Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.c) | O((N+1)!) | O(N) | O((N+1)!) | O(1) | **☑** | **☒** | The worst case can be unbounded
-[Bubble Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☑** |
-[Cocktail Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
-[Exchange Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
-[Less Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
+[Bogo Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** | The worst case can ve unbounded due to random manipulation
+[Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bogo_Sort.c) | O((N+1)!) | O(N) | O((N+1)!) | O(1) | **☑** | **☒** | The worst case can be unbounded due to random manipulation
+[Bubble Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☑** | The worst case can be unbounded due to random manipulation
+[Cocktail Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** | The worst case can be unbounded due to random manipulation
+[Exchange Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** | The worst case can be unbounded due to random manipulation
+[Less Bogo Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) |  |  |  | O(1) | **☑** | **☒** | The worst case can be unbounded due to random manipulation
 [Pancake Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Pancake_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** |
 [Silly Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Silly_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
 [Slow Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Esoteric_Fun_Miscellaneous/Slow_Sort.c) |  |  |  | O(1) | **☑** | **☒** |
@@ -148,7 +149,7 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Insertion Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Insertion_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **☑** | **☑** |
 [Patience Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Patience_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **☒** | **☑** |
 [Shell Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Shell_Sort.c) | O(N<sup>3/2</sup>) or O(N log² N) | O(N log N) | --- | O(1) | **☑** | **☒** |
-[Tree Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Tree_Sort.c) | O(N²) or O(N log N) | O(N log N) | O(N log N) | O(N) | **☒** | **☑** | In worst case, O(N²) when using Binary Search Tree and O(N log N) when using Self-Balanced Binary Search Tree
+[Tree Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Insertion/Tree_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(N) | **☒** | **☑** | In worst case, O(N²) when using Binary Search Tree and O(N log N) when using Self-Balanced Binary Search Tree
 [Bottom-up Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/Bottom-Up_Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **☒** | **☑** |
 [In-Place Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Merge/In-Place_Merge_Sort.c) | O(N²) | O(N²) | O(N²) | O(log N) | **☑** | **☑** |
 [Merge Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Merge/Source/Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **☒** | **☑** |

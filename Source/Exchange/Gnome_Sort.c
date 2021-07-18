@@ -31,13 +31,13 @@ void Gnome_Sort(long int *array, int length){
 int main(){
     long int *array = {9,5,3,7,6,4,8,1,2,10},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
 
-    Gnome_Sort(array,10);
+    Gnome_Sort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

@@ -52,14 +52,14 @@ void PatienceSort(long int *array, int length){
 int main(){
     long int array[] = {476,531,924,866,73,9,987,464,215,487},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ", *i);
 
     printf("\n\n");
 
-    PatienceSort(array,10);
+    PatienceSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ", *i);
     return 0;
 }

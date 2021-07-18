@@ -33,14 +33,14 @@ void Selection_Sort(long int *array, int length){
 int main(){
     long int array[] = {3,67,31,90,1,44,654,89,21,20}, *i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    Selection_Sort(array,10);
+    Selection_Sort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

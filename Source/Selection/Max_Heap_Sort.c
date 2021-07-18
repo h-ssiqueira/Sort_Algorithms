@@ -44,13 +44,13 @@ void MaxHeapSort(long int *array, int length){
 int main(){
     long int array[] = {423,816,549,499,789,769,463,516,846,473},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    MaxHeapSort(array,10);
+    MaxHeapSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

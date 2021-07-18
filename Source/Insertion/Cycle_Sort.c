@@ -62,13 +62,13 @@ void CycleSort(long int array[], int length){
 int main(){
     long int array[] = {807,449,650,900,745,539,390,112,447,973}, *i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
 
-    CycleSort(array,10);
+    CycleSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

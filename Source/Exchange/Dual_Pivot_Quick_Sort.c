@@ -58,14 +58,14 @@ void DualPivotQuickSort(long int *array, int start, int end){
 int main(){
     long int *array = {429,941,467,402,149,763,543,554,560,993},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    DualPivotQuickSort(array,0,10-1);
+    DualPivotQuickSort(array,0,sizeof(array)/sizeof(long int)-1);
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

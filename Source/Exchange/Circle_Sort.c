@@ -31,11 +31,11 @@ void CircleSort(long int *array, int length){
 /*
 int main(){
 	long int *array = {894,467,594,559,97,183,923,323,864,540},*i;
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ", *i);
     printf("\n");
-	CircleSort(array, 10);
-    for(i = array; i < array+10; i++)
+	CircleSort(array, sizeof(array)/sizeof(long int));
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ", *i);
 
 	return 0;

@@ -45,12 +45,12 @@ void CocktailShakerSort(long int *array, int length){
 int main(){
     long int *array = {343,380,195,864,185,43,236,41,88,509},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
-    CocktailShakerSort(array,10);
+    CocktailShakerSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

@@ -33,12 +33,12 @@ void CombSort(long int *array, int length){
 int main(){
     long int *array = {276,64,534,43,658,425,794,921,766,878},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
-    CombSort(array,10);
+    CombSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

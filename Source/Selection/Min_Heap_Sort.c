@@ -44,13 +44,13 @@ void MinHeapSort(long int *array, int length){
 int main(){
     long int array[] = {117,612,443,21,894,908,802,687,693,845},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    MinHeapSort(array,10);
+    MinHeapSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

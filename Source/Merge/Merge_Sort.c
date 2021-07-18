@@ -52,13 +52,13 @@ void Merge_Sort(long int *array, int start, int end){
 int main(){
     long int array[] = {55,654,321,8,52,31,54,66,221,100}, *i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    Merge_Sort(array,0,10-1); //0 and length - 1
+    Merge_Sort(array,0,sizeof(array)/sizeof(long int)-1); //0 and length - 1
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

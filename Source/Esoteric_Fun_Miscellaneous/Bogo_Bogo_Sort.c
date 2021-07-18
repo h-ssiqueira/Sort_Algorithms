@@ -41,13 +41,13 @@ int main(){
     srand(time(NULL));
     long int array[] = {299,581,698,6,451,285,366,253,531,686},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    BogoBogoSort(array,10);
+    BogoBogoSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

@@ -44,13 +44,13 @@ void Odd_Even_Sort(long int *array, int length){
 int main(){
     long int *array = {416,647,874,428,309,898,464,335,47,82},*i;
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
 
-    Odd_Even_Sort(array,10);
+    Odd_Even_Sort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array+10; i++)
+    for(i = array; i < array+sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

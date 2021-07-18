@@ -29,14 +29,14 @@ void LessBogoSort(long int *array, int length){
 int main(){
     srand(time(NULL));
     long int array[] = {180,979,34,25,484,70,341,755,293,365}, *i;
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    LessBogoSort(array,10);
+    LessBogoSort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

@@ -23,13 +23,13 @@ void Insertion_Sort(long int *array, int length){
 int main(){
     long int array[] = {354,14,321,52,84,387,10,987,100,5}, *i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     printf("\n\n");
 
-    Insertion_Sort(array,10);//10 is the length
+    Insertion_Sort(array,sizeof(array)/sizeof(long int));
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
     return 0;
 }

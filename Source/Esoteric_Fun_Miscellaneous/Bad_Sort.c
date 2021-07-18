@@ -33,12 +33,12 @@ void BadSort(long int *array, int length){
 int main(){
     long int array[] = {131,418,457,76,631,739,462,299,716,68},*i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
-    BadSort(array,10);
-    for(i = array; i < array + 10; i++)
+    BadSort(array,sizeof(array)/sizeof(long int));
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     return 0;

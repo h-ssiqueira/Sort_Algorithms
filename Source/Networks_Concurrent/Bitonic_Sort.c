@@ -36,14 +36,14 @@ void BitonicSort(long int *array, int low, int length, int direction){ // Direct
 int main(){
 	long int array[] = {514,166,8,269,767,237,318,980}, *i;
 
-    for(i = array; i < array + 8; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    BitonicSort(array,0,8,1);
+    BitonicSort(array,0,sizeof(array)/sizeof(long int),1);
 
-    for(i = array; i < array + 8; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
 	return 0;

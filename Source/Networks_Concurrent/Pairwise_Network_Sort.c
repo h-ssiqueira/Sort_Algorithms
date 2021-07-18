@@ -43,14 +43,14 @@ void Pairwise_Sort(long int *array, int start, int end, int piv){
 int main(){
 	long int array[] = {79,732,622,75,982,87,825,352,402,584}, *i;
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
     printf("\n\n");
 
-    Pairwise_Sort(array,0,10,1);
+    Pairwise_Sort(array,0,sizeof(array)/sizeof(long int),1);
 
-    for(i = array; i < array + 10; i++)
+    for(i = array; i < array + sizeof(array)/sizeof(long int); i++)
         printf("%ld ",*i);
 
 	return 0;
