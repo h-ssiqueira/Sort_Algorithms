@@ -165,5 +165,23 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Min Heap Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Min_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | **☑** | **☒** |
 [Selection Sort](https://github.com/h-ssiqueira/Sort_Algorithms/blob/master/Source/Selection/Selection_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **☑** | **☒** | Comparisons <img src="https://latex.codecogs.com/gif.latex?\frac{(N^2-N)}{4}" title="\frac{(N^2-N)}{4}" />
 
+## Testing
+During the development of this program were made performance/time tests with the C programming language denoted below:
+
+### [Time to access data in different arrays](/tests/timetest.c)
+There were eight cases of accesses which the program analyzed:
+* Declaration of array:
+	* Static (S)
+	* Dynamic (D)
+* Type of access:
+	* Read (R)
+	* Write (W)
+* Method of access:
+	* Integer index (I)
+	* Pointer (P)
+
+### [Time to zero a variable](/tests/setzerotest.c)
+Setting zero to a variable using attribution value (= 0) and XOR logical operator.
+
 <br /><br /><br />
 Licensed by [MIT License](LICENSE)
