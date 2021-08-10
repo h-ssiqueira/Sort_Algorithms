@@ -1,7 +1,6 @@
 
 sort
-.vscode/launch.json
-.vscode/settings.json
+/.vscode
 *.o
 *.out
 /developing
