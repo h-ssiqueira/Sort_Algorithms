@@ -17,6 +17,7 @@
 #include "Networks_Concurrent/Networks_Concurrent.h"
 #include "Non-Comparison_Distribution/Non-Comparison_Distribution.h"
 #include "Selection/Selection.h"
+#include "QRcode.h"
 
 // Limit of length of array
 // Limit 512MB of data // 2147483648 //Limit of signed int (16GB total)
@@ -950,6 +951,8 @@ int main(){
         }
         printf("\n\n");
     }
+	qr_code();
+	printf("Thank you for using this program. Visit the QR code above to see more projects.\n");
 	free(array);
     return 0;
 }
