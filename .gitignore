@@ -1,6 +1,6 @@
-
-sort
 /.vscode
+/developing
 *.o
 *.out
-/developing
+*.txt
+sort
