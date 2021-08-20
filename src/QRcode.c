@@ -15,7 +15,7 @@ void empty_line(){
 }
 
 // https://github.com/h-ssiqueira
-void qr_code(){ // 35x70
+void QR_code(){ // 35x70
     endl();
     empty_line(); // 1
     printf(black_and_white"  ██████████████        ████          ██████  ██  ██  ██████████████  "); // 2

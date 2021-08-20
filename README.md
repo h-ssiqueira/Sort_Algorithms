@@ -182,8 +182,17 @@ There were eight cases of accesses which the program analyzed:
 	* Integer index (I)
 	* Pointer (P)
 
+Results: Dynamic with pointer costs less time.
+
 ### [Time to assign zero to a variable](src/tests/setzerotest.c)
 Setting zero to a variable using assignment operator and XOR logical operator.
+
+Results: XOR costs less time.
+
+### [Time to calculate the power of 2](src/tests/powerof2test.c)
+Time to get a power of 2 using the math function pow, bitwise operation (shifting) and by multiplying.
+
+Results: bitwise operation and by multiplying costs almost the same time, however shifting costs only one instruction instead of a while with 3 instructions (condition, multiplication and incrementing) per loop.
 
 <hr>
 

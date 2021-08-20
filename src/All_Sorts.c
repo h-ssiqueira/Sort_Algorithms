@@ -23,28 +23,31 @@
 // Limit 512MB of data // 2147483648 //Limit of signed int (16GB total)
 #define limsize 67108864
 
-// Create the array
-void create(long int **array, int length);
+// Get time after executing the sorting algorithm
+void afterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro);
 
-// Print the array
-void print(long int *array, int length);
-
-// Generate numbers for the array
-void generate(long int *array, int length, short int choice, int randominterval);
+// Get time before executing the sorting algorithm
+void beforeExec(long int *array, int length, bool display, char *sort);
 
 // Calculate execution time
 void calculatetime(struct timeval start, struct timeval end, unsigned long *sec, unsigned long *micro);
 
-// Get time before executing the sorting algorithm
-void BeforeExec(long int *array, int length, bool display, char *sort);
+// Create the array
+void create(long int **array, int length);
 
-// Get time after executing the sorting algorithm
-void AfterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro);
+// Generate numbers for the array
+void generate(long int *array, int length, short int choice, int randominterval);
 
-// Sorted increasing
-bool sorted(long int *array, int length);
-// Sorted decreasing
-bool sortedD(long int *array, int length);
+// Print the array
+void print(long int *array, int length);
+
+// Print and collect the option from user
+short menu(char *text, int len);
+
+/* Check if the array is sorted
+*  array, length of array, increasing (true) or decreasing (false)
+*/
+bool sorted(long int *array, int length, bool increasing);
 
 int main(){
     srand(time(NULL));
@@ -53,67 +56,22 @@ int main(){
     int length = 10, i, powerof2 = 16, randominterval = 1024;
 	short int option_sort, option_category, choice = 2;
 	unsigned long sec, micro;
-	bool txtfile = false, displayarray = true, exectime = true;
+	bool txtfile = false, displayarray = true, exectime = true, input;
 
 	create(&array,length);
 
     while(true){
 		generate(array,length,choice,randominterval);
-        do{
-			optionc:
-            printf("\n\tWhich category of sort would you like to see?");
-            printf("\n0 - Exit.");
-            printf("\n1 - Esoteric & Fun & Miscellaneous.");
-            printf("\n2 - Exchange.");
-            printf("\n3 - Hybrids.");
-            printf("\n4 - Insertion.");
-            printf("\n5 - Merge.");
-            printf("\n6 - Networks & Concurrent.");
-            printf("\n7 - Non-Comparison & Distribution.");
-            printf("\n8 - Selection.");
-			printf("\n9 - Configurations.");
-            printf("\n-> ");
-            while(scanf("%hd",&option_category) != 1){
-				printf("\n\tValue inserted is not a number. Try again.\n");
-				getchar();
-				goto optionc;
-			}
-            if(option_category < 0 || option_category > 9)
-                printf("\n\tError: Choose the value in the range displayed.\n");
-        }while(option_category < 0 || option_category > 9);
+        option_category = menu("\n\tWhich category of sort would you like to see?\n0 - Exit.\n1 - Esoteric & Fun & Miscellaneous.\n2 - Exchange.\n3 - Hybrids.\n4 - Insertion.\n5 - Merge.\n6 - Networks & Concurrent.\n7 - Non-Comparison & Distribution.\n8 - Selection.\n9 - Configurations.\n-> ",9);
         if(option_category == 0)
             break;
         switch(option_category){
             case 1:
-                do{
-					esotericfunmisc:
-                    printf("\n\tChoose the sort to be aplied on Esoteric & Fun & Miscellaneous:");
-					printf("\n 0 - Menu.");
-                    printf("\n 1 - Bad_Sort.");
-                    printf("\n 2 - Bogo_Bogo_Sort.");
-                    printf("\n 3 - Bogo_Sort.");
-					printf("\n 4 - Bubble_Bogo_Sort.");
-					printf("\n 5 - Cocktail_Bogo_Sort.");
-					printf("\n 6 - Exchange_Bogo_Sort.");
-					printf("\n 7 - Less_Bogo_Sort.");
-                    printf("\n 8 - Pancake_Sort.");
-                    printf("\n 9 - Silly_Sort.");
-                    printf("\n10 - Slow_Sort.");
-                    printf("\n11 - Spaghetti_Sort.");
-                    printf("\n12 - Stooge_Sort.");
-                    printf("\n-> ");
-                    while(scanf("%hd",&option_sort) != 1){
-						printf("\n\tValue inserted is not a number. Try again.\n");
-						getchar();
-						goto esotericfunmisc;
-					}
-                    if(option_sort < 0 || option_sort > 12)
-                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 12);
+				option_sort = menu("\n\tChoose the sort to be aplied on Esoteric & Fun & Miscellaneous:\n 0 - Menu.\n 1 - Bad_Sort.\n 2 - Bogo_Bogo_Sort.\n 3 - Bogo_Sort.\n 4 - Bubble_Bogo_Sort.\n 5 - Cocktail_Bogo_Sort.\n 6 - Exchange_Bogo_Sort.\n 7 - Less_Bogo_Sort.\n 8 - Pancake_Sort.\n 9 - Silly_Sort.\n10 - Slow_Sort.\n11 - Spaghetti_Sort.\n12 - Stooge_Sort.\n-> ",12);
                 switch(option_sort){
                     case 1:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Bad Sort");
+							beforeExec(array,length,displayarray,"Bad Sort");
                         printf("\n\tBefore Bad Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -124,7 +82,7 @@ int main(){
                         break;
                     case 2:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Bogo Bogo Sort");
+							beforeExec(array,length,displayarray,"Bogo Bogo Sort");
                         printf("\n\tBefore Bogo Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -135,7 +93,7 @@ int main(){
                         break;
                     case 3:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Bogo Sort");
+							beforeExec(array,length,displayarray,"Bogo Sort");
                         printf("\n\tBefore Bogo Sort.");
                         if(displayarray)
 							print(array,length);
@@ -146,7 +104,7 @@ int main(){
                         break;
 					case 4:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Bubble Bogo Sort");
+							beforeExec(array,length,displayarray,"Bubble Bogo Sort");
                         printf("\n\tBefore Bubble Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -157,7 +115,7 @@ int main(){
                         break;
 					case 5:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Cocktail Bogo Sort");
+							beforeExec(array,length,displayarray,"Cocktail Bogo Sort");
                         printf("\n\tBefore Cocktail Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -168,7 +126,7 @@ int main(){
                         break;
 					case 6:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Exchange Bogo Sort");
+							beforeExec(array,length,displayarray,"Exchange Bogo Sort");
                         printf("\n\tBefore Exchange Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -179,7 +137,7 @@ int main(){
                         break;
 					case 7:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Less Bogo Sort");
+							beforeExec(array,length,displayarray,"Less Bogo Sort");
 						printf("\n\tBefore Less Bogo Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -190,7 +148,7 @@ int main(){
                         break;
                     case 8:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Pancake Sort");
+							beforeExec(array,length,displayarray,"Pancake Sort");
                         printf("\n\tBefore Pancake Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -201,7 +159,7 @@ int main(){
                         break;
                     case 9:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Silly Sort");
+							beforeExec(array,length,displayarray,"Silly Sort");
                         printf("\n\tBefore Silly Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -212,7 +170,7 @@ int main(){
                         break;
                     case 10:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Slow Sort");
+							beforeExec(array,length,displayarray,"Slow Sort");
 						printf("\n\tBefore Slow Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -223,7 +181,7 @@ int main(){
                         break;
                     case 11:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Spaghetti Sort");
+							beforeExec(array,length,displayarray,"Spaghetti Sort");
                         printf("\n\tBefore Spaghetti Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -234,7 +192,7 @@ int main(){
                         break;
                     case 12:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Stooge Sort");
+							beforeExec(array,length,displayarray,"Stooge Sort");
 						printf("\n\tBefore Stooge Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -244,45 +202,20 @@ int main(){
 						gettimeofday(&end,NULL);
                         break;
                 }
-				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
 					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,micro);
+					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 2:
-                do{
-					exchange:
-                    printf("\n\tChoose the sort to be aplied on Exchange:");
-					printf("\n 0 - Menu.");
-                    printf("\n 1 - Bubble_Sort.");
-                    printf("\n 2 - Circle_Sort.");
-                    printf("\n 3 - Cocktail_Shaker_Sort.");
-                    printf("\n 4 - Comb_Sort.");
-                    printf("\n 5 - Dual_Pivot_Quick_Sort.");
-                    printf("\n 6 - Gnome_Sort.");
-                    printf("\n 7 - Odd-Even_Sort.");
-                    printf("\n 8 - Optimized_Bubble_Sort.");
-					printf("\n 9 - Optimized_Cocktail_Shaker_Sort.");
-                    printf("\n10 - Optimized_Gnome_Sort.");
-                    printf("\n11 - Quick_Sort.");
-					printf("\n12 - Quick_Sort_3-way.");
-                    printf("\n13 - Stable_Quick_Sort.");
-                    printf("\n-> ");
-                    while(scanf("%hd",&option_sort) != 1){
-						printf("\n\tValue inserted is not a number. Try again.\n");
-						getchar();
-						goto exchange;
-					}
-                    if(option_sort < 0 || option_sort > 13)
-                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 13);
+                option_sort = menu("\n\tChoose the sort to be aplied on Exchange:\n 0 - Menu.\n 1 - Bubble_Sort.\n 2 - Circle_Sort.\n 3 - Cocktail_Shaker_Sort.\n 4 - Comb_Sort.\n 5 - Dual_Pivot_Quick_Sort.\n 6 - Gnome_Sort.\n 7 - Odd-Even_Sort.\n 8 - Optimized_Bubble_Sort.\n 9 - Optimized_Cocktail_Shaker_Sort.\n10 - Optimized_Gnome_Sort.\n11 - Quick_Sort.\n12 - Quick_Sort_3-way.\n13 - Stable_Quick_Sort.\n-> ",13);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Bubble Sort");
+							beforeExec(array,length,displayarray,"Bubble Sort");
 						printf("\n\tBefore Bubble Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -293,7 +226,7 @@ int main(){
                         break;
                     case 2:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Circle Sort");
+							beforeExec(array,length,displayarray,"Circle Sort");
 						printf("\n\tBefore Circle Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -304,7 +237,7 @@ int main(){
                         break;
                     case 3:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Cocktail Shaker Sort");
+							beforeExec(array,length,displayarray,"Cocktail Shaker Sort");
 						printf("\n\tBefore Cocktail Shaker Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -315,7 +248,7 @@ int main(){
                         break;
                     case 4:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Comb Sort");
+							beforeExec(array,length,displayarray,"Comb Sort");
 						printf("\n\tBefore Comb Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -326,7 +259,7 @@ int main(){
                         break;
                     case 5:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Dual Pivot Quick Sort");
+							beforeExec(array,length,displayarray,"Dual Pivot Quick Sort");
 						printf("\n\tBefore Dual Pivot Quick Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -337,7 +270,7 @@ int main(){
                         break;
                     case 6:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Gnome Sort");
+							beforeExec(array,length,displayarray,"Gnome Sort");
 						printf("\n\tBefore Gnome Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -348,7 +281,7 @@ int main(){
                         break;
                     case 7:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Odd-Even Sort");
+							beforeExec(array,length,displayarray,"Odd-Even Sort");
 						printf("\n\tBefore Odd-Even Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -359,7 +292,7 @@ int main(){
                         break;
                     case 8:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Optimized Bubble Sort");
+							beforeExec(array,length,displayarray,"Optimized Bubble Sort");
 						printf("\n\tBefore Optimized Bubble Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -370,7 +303,7 @@ int main(){
                         break;
 					case 9:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Optimized Cocktail Shaker Sort");
+							beforeExec(array,length,displayarray,"Optimized Cocktail Shaker Sort");
 						printf("\n\tBefore Optimized Cocktail Shaker Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -381,7 +314,7 @@ int main(){
                         break;
                     case 10:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Optimized Gnome Sort");
+							beforeExec(array,length,displayarray,"Optimized Gnome Sort");
 						printf("\n\tBefore Optimized Gnome Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -392,7 +325,7 @@ int main(){
                         break;
                     case 11:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Quick Sort");
+							beforeExec(array,length,displayarray,"Quick Sort");
 						printf("\n\tBefore Quick Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -403,7 +336,7 @@ int main(){
                         break;
 					case 12:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"3-way Quick Sort");
+							beforeExec(array,length,displayarray,"3-way Quick Sort");
 						printf("\n\tBefore 3-way Quick Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -414,7 +347,7 @@ int main(){
                         break;
                     case 13:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Stable Quick Sort");
+							beforeExec(array,length,displayarray,"Stable Quick Sort");
 						printf("\n\tBefore Stable Quick Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -424,33 +357,20 @@ int main(){
 						gettimeofday(&end,NULL);
                         break;
                 }
-				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
 					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,micro);
+					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 3:
-                do{
-					hybrids:
-                    printf("\n\tChoose the sort to be aplied on Hybrids:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Tim_Sort.");
-                    printf("\n-> ");
-                    while(scanf("%hd",&option_sort) != 1){
-						printf("\n\tValue inserted is not a number. Try again.\n");
-						getchar();
-						goto hybrids;
-					}
-                    if(option_sort < 0 || option_sort > 1)
-                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 1);
+                option_sort = menu("\n\tChoose the sort to be aplied on Hybrids:\n0 - Menu.\n1 - Tim_Sort.\n-> ",1);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Tim Sort");
+							beforeExec(array,length,displayarray,"Tim Sort");
 						printf("\n\tBefore Tim Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -460,38 +380,20 @@ int main(){
 						gettimeofday(&end,NULL);
                         break;
                 }
-				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
 					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,micro);
+					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 4:
-                do{
-					insertion:
-                    printf("\n\tChoose the sort to be aplied on Insertion:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Binary_Insertion_Sort.");
-                    printf("\n2 - Cycle_Sort.");
-                    printf("\n3 - Insertion_Sort.");
-					printf("\n4 - Patience_Sort.");
-                    printf("\n5 - Shell_Sort.");
-                    printf("\n6 - Tree_Sort.");
-                    printf("\n-> ");
-                    while(scanf("%hd",&option_sort) != 1){
-						printf("\n\tValue inserted is not a number. Try again.\n");
-						getchar();
-						goto insertion;
-					}
-                    if(option_sort < 0 || option_sort > 6)
-                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 6);
+                option_sort = menu("\n\tChoose the sort to be aplied on Insertion:\n0 - Menu.\n1 - Binary_Insertion_Sort.\n2 - Cycle_Sort.\n3 - Insertion_Sort.\n4 - Patience_Sort.\n5 - Shell_Sort.\n6 - Tree_Sort.\n-> ",6);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Binary Insertion Sort");
+							beforeExec(array,length,displayarray,"Binary Insertion Sort");
 						printf("\n\tBefore Binary Insertion Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -502,7 +404,7 @@ int main(){
                         break;
                     case 2:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Cycle Sort");
+							beforeExec(array,length,displayarray,"Cycle Sort");
 						printf("\n\tBefore Cycle Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -513,7 +415,7 @@ int main(){
                         break;
                     case 3:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Insertion Sort");
+							beforeExec(array,length,displayarray,"Insertion Sort");
 						printf("\n\tBefore Insertion Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -524,7 +426,7 @@ int main(){
                         break;
 					case 4:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Patience Sort");
+							beforeExec(array,length,displayarray,"Patience Sort");
 						printf("\n\tBefore Patience Sort.");
                         if(displayarray)
 							print(array,length);
@@ -535,7 +437,7 @@ int main(){
                         break;
                     case 5:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Shell Sort");
+							beforeExec(array,length,displayarray,"Shell Sort");
 						printf("\n\tBefore Shell Sort.");
                         if(displayarray)
 							print(array,length);
@@ -546,7 +448,7 @@ int main(){
                         break;
                     case 6:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Tree Sort");
+							beforeExec(array,length,displayarray,"Tree Sort");
                         printf("\n\tBefore Tree Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -556,35 +458,20 @@ int main(){
 						gettimeofday(&end,NULL);
                         break;
                 }
-				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
 					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,micro);
+					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 5:
-                do{
-					merge:
-                    printf("\n\tChoose the sort to be aplied on Merge:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Bottomup_Merge_Sort.");
-                    printf("\n2 - In-Place_Merge_Sort.");
-                    printf("\n3 - Merge_Sort.");
-                    printf("\n-> ");
-                    while(scanf("%hd",&option_sort) != 1){
-						printf("\n\tValue inserted is not a number. Try again.\n");
-						getchar();
-						goto merge;
-					}
-                    if(option_sort < 0 || option_sort > 3)
-                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 3);
+                option_sort = menu("\n\tChoose the sort to be aplied on Merge:\n0 - Menu.\n1 - Bottomup_Merge_Sort.\n2 - In-Place_Merge_Sort.\n3 - Merge_Sort.\n-> ",3);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Bottom-up Merge Sort");
+							beforeExec(array,length,displayarray,"Bottom-up Merge Sort");
 						printf("\n\tBefore Bottom-up Merge Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -595,7 +482,7 @@ int main(){
                         break;
                     case 2:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"In Place Merge Sort");
+							beforeExec(array,length,displayarray,"In Place Merge Sort");
 						printf("\n\tBefore In Place Merge Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -606,7 +493,7 @@ int main(){
                         break;
                     case 3:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Merge Sort");
+							beforeExec(array,length,displayarray,"Merge Sort");
 						printf("\n\tBefore Merge Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -616,40 +503,26 @@ int main(){
 						gettimeofday(&end,NULL);
                         break;
                 }
-				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
 					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,micro);
+					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 6:
-                do{
-					networksconcurrent:
-                    printf("\n\tChoose the sort to be aplied on Networks & Concurrent:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Bitonic_Sort.");
-					printf("\n2 - Pairwise_Network_Sort.");
-                    printf("\n-> ");
-                    while(scanf("%hd",&option_sort) != 1){
-						printf("\n\tValue inserted is not a number. Try again.\n");
-						getchar();
-						goto networksconcurrent;
-					}
-                    if(option_sort < 0 || option_sort > 2)
-                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 2);
+                option_sort = menu("\n\tChoose the sort to be aplied on Networks & Concurrent:\n0 - Menu.\n1 - Bitonic_Sort.\n2 - Pairwise_Network_Sort.\n-> ",2);
                 switch(option_sort){
 					case 1:
 						i = 1;
 						while(i < length)
-							i *= 2;
+							i <<= 1;
 						if(i != length){
 							create(&arrayPOF2,powerof2);
 							generate(arrayPOF2,powerof2,choice,randominterval);
 							if(txtfile)
-								BeforeExec(arrayPOF2,powerof2,displayarray,"Bitonic Sort");
+								beforeExec(arrayPOF2,powerof2,displayarray,"Bitonic Sort");
 							printf("\n\tNote: Bitonic sort just accepts lengths of power of 2.\n\tCurrent size: %d.\n\tNew size applied on this algorithm: %d.\n", length,powerof2);
 							printf("\n\tBefore Bitonic Sort.");
 							if(displayarray)
@@ -658,18 +531,18 @@ int main(){
 							gettimeofday(&start,NULL);
                         	BitonicSort(arrayPOF2,0,powerof2,1);
 							gettimeofday(&end,NULL);
-                        	sorted(arrayPOF2,powerof2) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+                        	sorted(arrayPOF2,powerof2,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 							if(displayarray)
                         		print(arrayPOF2,powerof2);
 							if(exectime)
 								calculatetime(start,end,&sec,&micro);
 							if(txtfile && (displayarray || exectime))
-								AfterExec(arrayPOF2,powerof2,displayarray,exectime,sec,micro);
+								afterExec(arrayPOF2,powerof2,displayarray,exectime,sec,micro);
 							free(arrayPOF2);
 						}
 						else{
 							if(txtfile)
-								BeforeExec(array,length,displayarray,"Bitonic Sort");
+								beforeExec(array,length,displayarray,"Bitonic Sort");
                         	printf("\n\tBefore Bitonic Sort.");
 							if(displayarray)
                         		print(array,length);
@@ -677,18 +550,18 @@ int main(){
 							gettimeofday(&start,NULL);
                         	BitonicSort(array,0,length,1);
 							gettimeofday(&end,NULL);
-                        	sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+                        	sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 							if(displayarray)
                         		print(array,length);
 							if(exectime)
 								calculatetime(start,end,&sec,&micro);
 							if(txtfile && (displayarray || exectime))
-								AfterExec(array,length,displayarray,exectime,sec,micro);
+								afterExec(array,length,displayarray,exectime,sec,micro);
 						}
                         break;
                     case 2:
 						if(txtfile)
-							BeforeExec(array,length,displayarray,"Pairwise Network Sort");
+							beforeExec(array,length,displayarray,"Pairwise Network Sort");
                         printf("\n\tBefore Pairwise Network Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -696,39 +569,22 @@ int main(){
 						gettimeofday(&start,NULL);
                         Pairwise_Sort(array,0,length,1);
 						gettimeofday(&end,NULL);
-						sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+						sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 						if(displayarray)
                     		print(array,length);
 						if(exectime)
 							calculatetime(start,end,&sec,&micro);
 						if(txtfile && (displayarray || exectime))
-							AfterExec(array,length,displayarray,exectime,sec,micro);
+							afterExec(array,length,displayarray,exectime,sec,micro);
                         break;
                 }
                 break;
             case 7:
-                do{
-					noncomparisondist:
-                    printf("\n\tChoose the sort to be aplied on Non-Comparison & Distribution:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Bucket_Sort.");
-                    printf("\n2 - Counting_Sort.");
-                    printf("\n3 - Gravity_(Bead)_Sort.");
-                    printf("\n4 - Pigeonhole_Sort.");
-					printf("\n5 - Radix_LSD Sort.");
-                    printf("\n-> ");
-                    while(scanf("%hd",&option_sort) != 1){
-						printf("\n\tValue inserted is not a number. Try again.\n");
-						getchar();
-						goto noncomparisondist;
-					}
-                    if(option_sort < 0 || option_sort > 5)
-                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 5);
+                option_sort = menu("\n\tChoose the sort to be aplied on Non-Comparison & Distribution:\n0 - Menu.\n1 - Bucket_Sort.\n2 - Counting_Sort.\n3 - Gravity_(Bead)_Sort.\n4 - Pigeonhole_Sort.\n5 - Radix_LSD Sort.\n-> ",5);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Bucket Sort");
+							beforeExec(array,length,displayarray,"Bucket Sort");
 						printf("\n\tBefore Bucket Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -739,7 +595,7 @@ int main(){
                         break;
                     case 2:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Counting Sort");
+							beforeExec(array,length,displayarray,"Counting Sort");
 						printf("\n\tBefore Counting Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -750,7 +606,7 @@ int main(){
                         break;
                     case 3:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Gravity (Bead) Sort");
+							beforeExec(array,length,displayarray,"Gravity (Bead) Sort");
 						printf("\n\tBefore Gravity (Bead) Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -761,7 +617,7 @@ int main(){
                         break;
                     case 4:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Pigeonhole Sort");
+							beforeExec(array,length,displayarray,"Pigeonhole Sort");
 						printf("\n\tBefore Pigeonhole Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -772,7 +628,7 @@ int main(){
                         break;
 					case 5:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Radix LSD Sort");
+							beforeExec(array,length,displayarray,"Radix LSD Sort");
 						printf("\n\tBefore Radix LSD Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -782,36 +638,20 @@ int main(){
 						gettimeofday(&end,NULL);
                         break;
                 }
-				sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
 					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,micro);
+					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 8:
-                do{
-					selection:
-                    printf("\n\tChoose the sort to be aplied on Selection:");
-					printf("\n0 - Menu.");
-                    printf("\n1 - Double_Selection_Sort.");
-                    printf("\n2 - Max_Heap_Sort.");
-                    printf("\n3 - Min_Heap_Sort.");
-                    printf("\n4 - Selection_Sort.");
-                    printf("\n-> ");
-                    while(scanf("%hd",&option_sort) != 1){
-						printf("\n\tValue inserted is not a number. Try again.\n");
-						getchar();
-						goto selection;
-					}
-                    if(option_sort < 0 || option_sort > 4)
-                        printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-                }while(option_sort < 0 || option_sort > 4);
+                option_sort = menu("\n\tChoose the sort to be aplied on Selection:\n0 - Menu.\n1 - Double_Selection_Sort.\n2 - Max_Heap_Sort.\n3 - Min_Heap_Sort.\n4 - Selection_Sort.\n-> ",4);
                 switch(option_sort){
                     case 1:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Double Selection Sort");
+							beforeExec(array,length,displayarray,"Double Selection Sort");
 						printf("\n\tBefore Double Selection Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -822,7 +662,7 @@ int main(){
                         break;
                     case 2:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Max Heap Sort");
+							beforeExec(array,length,displayarray,"Max Heap Sort");
 						printf("\n\tBefore Max Heap Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -833,7 +673,7 @@ int main(){
                         break;
                     case 3:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Min Heap Sort");
+							beforeExec(array,length,displayarray,"Min Heap Sort");
 						printf("\n\tBefore Min Heap Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -841,11 +681,11 @@ int main(){
 						gettimeofday(&start,NULL);
                         MinHeapSort(array,length);
 						gettimeofday(&end,NULL);
-						sortedD(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+						sorted(array,length,false) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
                         break;
                     case 4:
                         if(txtfile)
-							BeforeExec(array,length,displayarray,"Selection Sort");
+							beforeExec(array,length,displayarray,"Selection Sort");
 						printf("\n\tBefore Selection Sort.");
 						if(displayarray)
                         	print(array,length);
@@ -856,62 +696,38 @@ int main(){
                         break;
                 }
 				if(option_sort != 3)
-					sorted(array,length) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
+					sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                 	print(array,length);
 				if(exectime)
 					calculatetime(start,end,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
-					AfterExec(array,length,displayarray,exectime,sec,micro);
+					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
 			case 9:
 				while(true){
-					do{
-						config:
-						printf("\n\tConfigurations:");
-						printf("\n0 - Menu.");
-						printf("\n1 - Change sorting case - %s", choice > 1 ? (choice == 3 ? "Ascending." : "Random.") : "Descending.");
-						printf("\n2 - Change random interval - %d", randominterval);
-						printf("\n3 - Change length of array - %d.", length);
-						printf("\n4 - Save results in a text file - %s", txtfile ? "YES." : "NO.");
-						printf("\n5 - Display arrays - %s", displayarray ? "YES." : "NO.");
-						printf("\n6 - Display execution time - %s", exectime ? "YES." : "NO.");
-						printf("\n-> ");
-						while(scanf("%hd",&option_sort) != 1){
-							printf("\n\tValue inserted is not a number. Try again.\n");
-							getchar();
-							goto config;
-						}
-						if(option_sort < 0 || option_sort > 5)
+					while(true){
+						printf("\n\tConfigurations:\n0 - Menu.\n1 - Change sorting case - %s\n2 - Change random interval - %d\n3 - Change length of array - %d.\n4 - Save results in a text file - %s\n5 - Display arrays - %s\n6 - Display execution time - %s\n-> ",choice > 1 ? (choice == 3 ? "Ascending." : "Random.") : "Descending.",randominterval,length,txtfile ? "YES." : "NO.",displayarray ? "YES." : "NO.",exectime ? "YES." : "NO.");
+						if(scanf("%hd",&option_sort) != 1)
+							printf("\n\tValue inserted is not a number. Try again.\n"),getchar();
+						else if(option_sort < 0 || option_sort > 5)
 							printf("\n\tError: Choose the value in the range displayed.\n\n\t");
-					}while(option_sort < 0 || option_sort > 5);
+						else
+							break;
+					}
 					if(option_sort == 0)
 						break;
 					switch(option_sort){
 						case 1:
-							do{
-								sortingcase:
-								printf("\n\tInsert the sorting case:");
-								printf("\n1 - Ascending.");
-								printf("\n2 - Random.");
-								printf("\n3 - Descending.");
-								printf("\n-> ");
-								while(scanf("%hd",&choice) != 1){
-									printf("\n\tValue inserted is not a number. Try again.\n");
-									getchar();
-									goto sortingcase;
-								}
-								if(choice < 1 || choice > 3)
-									printf("\n\n\tError: Insert a value in the correct range!\n");
-							}while(choice < 1 || choice > 3);
+							choice = menu("\n\tInsert the sorting case:\n1 - Ascending.\n2 - Random.\n3 - Descending.\n-> ",3);
 							break;
 						case 2:
-							randominter:
-							printf("\n\tInsert the random interval limit: ");
-							while(scanf("%d", &randominterval)){
-								printf("\n\tValue inserted is not a number. Try again.\n");
-								getchar();
-								goto randominter;
+							while(true){
+								printf("\n\tInsert the random interval limit: ");
+								if(scanf("%d", &randominterval) != 1)
+									printf("\n\tValue inserted is not a number. Try again.\n"),	getchar();
+								else
+									break;
 							}
 							if(randominterval < 3)
 								randominterval = 3;
@@ -919,18 +735,18 @@ int main(){
 								randominterval = INT_MAX;
 							break;
 						case 3:
-							do{
-								len:
+							while(true){
 								printf("\n\tInsert the new length of the array:\n-> ");
-								while(scanf("%u", &length) != 1){
-									printf("\n\tValue inserted is not a number. Try again.\n");
-									getchar();
-									goto len;
-								}
-							}while(length < 2 || length > limsize);
+								if(scanf("%u", &length) != 1)
+									printf("\n\tValue inserted is not a number. Try again.\n"), getchar();
+								else if(length < 2 || length > limsize)
+									printf("\n\tValue inserted is out of range. Try again.\n");
+								else
+									break;
+							}
 							i = 1;
 							while(i < length)
-								i *= 2;
+								i <<= 1;
 							if(length == i)
 								powerof2 = length;
 							free(array);
@@ -951,22 +767,57 @@ int main(){
         }
         printf("\n\n");
     }
-	qr_code();
+	QR_code();
 	printf("Thank you for using this program. Visit the QR code above to see more projects.\n");
 	free(array);
     return 0;
+}
+
+void afterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro){
+	FILE *txt = fopen("data.txt","a+");
+	if(txt != NULL){
+		if(display){
+			fprintf(txt,"\n\tArray sorted:\n");
+			for(long int *i = array; i < array + length; i++)
+				fprintf(txt,"%ld ", *i);
+			fprintf(txt,"\n");
+		}
+		if(time)
+			fprintf(txt,"\n\tExecution time: %lu seconds %lu microsseconds.\n", sec, micro);
+	}
+	else
+		printf("\n\tError: Cannot open the file.");
+	if(txt != NULL)
+		fclose(txt);
+}
+
+void beforeExec(long int *array, int length, bool display, char *sort){
+	FILE *txt = fopen("data.txt","a+");
+	if(txt != NULL){
+		fprintf(txt,"\n\t%s algorithm with length of %u elements.",sort, length);
+		if(display){
+			fprintf(txt,"\n\tArray before sort:\n");
+			for(long int *i = array; i < array + length; i++)
+				fprintf(txt,"%ld ", *i);
+			fprintf(txt,"\n");
+		}
+	}
+	else
+		printf("\n\tError: Cannot open the file.");
+	if(txt != NULL)
+		fclose(txt);
+}
+
+void calculatetime(struct timeval start, struct timeval end, unsigned long *sec, unsigned long *micro){
+	*sec = end.tv_sec - start.tv_sec;
+	*micro = end.tv_usec - start.tv_usec;
+	printf("\n\tExecution time: %lu seconds %lu microsseconds.", *sec, *micro);
 }
 
 void create(long int **array, int length){
 	*array = (long int*)malloc(length * sizeof(long int));
 	if(!(*array))
 		printf("\n\tError: array couldn't be allocated.");
-}
-
-void print(long int *array, int length){
-    printf("\n");
-    for(long int *i = array; i < array+length; i++)
-        printf("%ld ",*i);
 }
 
 void generate(long int *array, int length, short int choice, int randominterval){
@@ -987,57 +838,38 @@ void generate(long int *array, int length, short int choice, int randominterval)
 	}
 }
 
-void calculatetime(struct timeval start, struct timeval end, unsigned long *sec, unsigned long *micro){
-	*sec = end.tv_sec - start.tv_sec;
-	*micro = end.tv_usec - start.tv_usec;
-	printf("\n\tExecution time: %lu seconds %lu microsseconds.", *sec, *micro);
+void print(long int *array, int length){
+    printf("\n");
+    for(long int *i = array; i < array+length; i++)
+        printf("%ld ",*i);
 }
 
-void BeforeExec(long int *array, int length, bool display, char *sort){
-	FILE *txt = fopen("data.txt","a+");
-	if(txt != NULL){
-		fprintf(txt,"\n\t%s algorithm with length of %u elements.",sort, length);
-		if(display){
-			fprintf(txt,"\n\tArray before sort:\n");
-			for(long int *i = array; i < array + length; i++)
-				fprintf(txt,"%ld ", *i);
-			fprintf(txt,"\n");
-		}
+short menu(char *text, int len){
+	short op;
+	while(true){
+		printf("%s", text);
+		if(scanf("%hd", &op) != 1)
+			printf("\n\tValue inserted is not a number. Try again.\n"),getchar();
+		else if(op < 0 || op > len)
+			printf("\n\tError: Choose the value in the range displayed.\n\n\t");
+		else
+			break;
 	}
-	else
-		printf("\n\tError: Cannot open the file.");
-	if(txt != NULL)
-		fclose(txt);
+	return op;
 }
 
-void AfterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro){
-	FILE *txt = fopen("data.txt","a+");
-	if(txt != NULL){
-		if(display){
-			fprintf(txt,"\n\tArray sorted:\n");
-			for(long int *i = array; i < array + length; i++)
-				fprintf(txt,"%ld ", *i);
-			fprintf(txt,"\n");
-		}
-		if(time)
-			fprintf(txt,"\n\tExecution time: %lu seconds %lu microsseconds.\n", sec, micro);
+
+bool sorted(long int *array, int length, bool increasing){
+	if(increasing){
+		for(long int *i = array; i < array + length - 1; i++)
+			if(*i > *(i+1))
+				return false;
+		return true;
 	}
-	else
-		printf("\n\tError: Cannot open the file.");
-	if(txt != NULL)
-		fclose(txt);
-}
-
-bool sorted(long int *array, int length){
-	for(long int *i = array; i < array + length - 1; i++)
-		if(*i > *(i+1))
-			return false;
-	return true;
-}
-
-bool sortedD(long int *array, int length){
-	for(long int *i = array; i < array + length - 1; i++)
-		if(*i < *(i+1))
-			return false;
-	return true;
+	else{
+		for(long int *i = array; i < array + length - 1; i++)
+			if(*i < *(i+1))
+				return false;
+		return true;
+	}
 }
