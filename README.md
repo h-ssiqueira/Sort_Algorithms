@@ -13,6 +13,8 @@
 ## Summary
 * [Description](#Description)
 	* [How to execute](#How-to-execute)
+	 	* [Linux & MAC](Linux-&-MAC)
+		* [Windows](#Windows)
 * [Algorithms](#Algorithms)
 	* [Esoteric & Fun & Miscellaneous](#Esoteric-&-Fun-&-Miscellaneous)
 	* [Exchange](#Exchange)
@@ -34,6 +36,8 @@
 A program to show the execution time and the variaty of sorting algorithms in ```C``` language. There are 46 sorting algorithms avaliable distributed in 8 different categories.
 
 ### How to execute
+Open a terminal or a command prompt and go to the project's directory and follow the instruction (s) below according with your Operating System.
+#### Linux & MAC
 Executing ```make``` in terminal allow to compile the program. Commands avaliable to execute with make (```make <command>```):
 Command | Description
 :---: | :---:
@@ -51,6 +55,9 @@ Save results in a text file | NO
 Sorting case | Random
 Random interval | 1024
 Length of array | 10
+
+#### Windows
+On command prompt execute ```.\execute.bat```.
 
 <br>
 
