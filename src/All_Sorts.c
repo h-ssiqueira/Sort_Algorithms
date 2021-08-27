@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/time.h>
 #include <time.h>
 
 // Directory libraries (created)
@@ -19,6 +18,13 @@
 #include "Selection/Selection.h"
 #include "QRcode.h"
 
+#if defined unix || defined __unix || defined __unix__ || defined __APPLE__ || defined __MACH__ || defined __linux__
+	#define clear system("clear")
+#endif
+#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+	#define clear system("cls")
+#endif
+
 // Limit of length of array
 // Limit 512MB of data // 2147483648 //Limit of signed int (16GB total)
 #define limsize 67108864
@@ -30,7 +36,10 @@ void afterExec(long int *array, int length, bool display, bool time, unsigned lo
 void beforeExec(long int *array, int length, bool display, char *sort);
 
 // Calculate execution time
-void calculatetime(struct timeval start, struct timeval end, unsigned long *sec, unsigned long *micro);
+void calculatetime(clock_t tic, clock_t toc, unsigned long *sec, unsigned long *micro);
+
+// Clear screen
+void clear_screen();
 
 // Create the array
 void create(long int **array, int length);
@@ -51,7 +60,7 @@ bool sorted(long int *array, int length, bool increasing);
 
 int main(){
     srand(time(NULL));
-	struct timeval start, end;
+	clock_t tic, toc;
 	long int *array, *arrayPOF2;
     int length = 10, i, powerof2 = 16, randominterval = 1024;
 	short int option_sort, option_category, choice = 2;
@@ -60,14 +69,20 @@ int main(){
 
 	create(&array,length);
 
+	clear_screen();
+
     while(true){
 		generate(array,length,choice,randominterval);
         option_category = menu("\n\tWhich category of sort would you like to see?\n0 - Exit.\n1 - Esoteric & Fun & Miscellaneous.\n2 - Exchange.\n3 - Hybrids.\n4 - Insertion.\n5 - Merge.\n6 - Networks & Concurrent.\n7 - Non-Comparison & Distribution.\n8 - Selection.\n9 - Configurations.\n-> ",9);
+		clear_screen();
         if(option_category == 0)
             break;
         switch(option_category){
             case 1:
 				option_sort = menu("\n\tChoose the sort to be aplied on Esoteric & Fun & Miscellaneous:\n 0 - Menu.\n 1 - Bad_Sort.\n 2 - Bogo_Bogo_Sort.\n 3 - Bogo_Sort.\n 4 - Bubble_Bogo_Sort.\n 5 - Cocktail_Bogo_Sort.\n 6 - Exchange_Bogo_Sort.\n 7 - Less_Bogo_Sort.\n 8 - Pancake_Sort.\n 9 - Silly_Sort.\n10 - Slow_Sort.\n11 - Spaghetti_Sort.\n12 - Stooge_Sort.\n-> ",12);
+				clear_screen();
+				if(!option_sort)
+					break;
                 switch(option_sort){
                     case 1:
 						if(txtfile)
@@ -76,9 +91,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         BadSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 2:
 						if(txtfile)
@@ -87,9 +102,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         BogoBogoSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 3:
 						if(txtfile)
@@ -98,9 +113,9 @@ int main(){
                         if(displayarray)
 							print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         bogo_sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
 					case 4:
 						if(txtfile)
@@ -109,9 +124,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         BubbleBogoSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
 					case 5:
 						if(txtfile)
@@ -120,9 +135,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         CocktailBogoSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
 					case 6:
 						if(txtfile)
@@ -131,9 +146,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         ExchangeBogoSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
 					case 7:
                         if(txtfile)
@@ -142,9 +157,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         LessBogoSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 8:
 						if(txtfile)
@@ -153,9 +168,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         PancakeSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 9:
 						if(txtfile)
@@ -164,9 +179,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         SillySort(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 10:
                         if(txtfile)
@@ -175,9 +190,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Slow_Sort(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 11:
 						if(txtfile)
@@ -186,9 +201,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         SpaghettiSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 12:
                         if(txtfile)
@@ -197,21 +212,24 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         StoogeSort(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                 }
 				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
-					calculatetime(start,end,&sec,&micro);
+					calculatetime(tic,toc,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
 					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 2:
                 option_sort = menu("\n\tChoose the sort to be aplied on Exchange:\n 0 - Menu.\n 1 - Bubble_Sort.\n 2 - Circle_Sort.\n 3 - Cocktail_Shaker_Sort.\n 4 - Comb_Sort.\n 5 - Dual_Pivot_Quick_Sort.\n 6 - Gnome_Sort.\n 7 - Odd-Even_Sort.\n 8 - Optimized_Bubble_Sort.\n 9 - Optimized_Cocktail_Shaker_Sort.\n10 - Optimized_Gnome_Sort.\n11 - Quick_Sort.\n12 - Quick_Sort_3-way.\n13 - Stable_Quick_Sort.\n-> ",13);
+				clear_screen();
+				if(!option_sort)
+					break;
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -220,9 +238,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Bubble_sort(array,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 2:
                         if(txtfile)
@@ -231,9 +249,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         CircleSort(array, length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 3:
                         if(txtfile)
@@ -242,9 +260,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         CocktailShakerSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 4:
                         if(txtfile)
@@ -253,9 +271,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         CombSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 5:
                         if(txtfile)
@@ -264,9 +282,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         DualPivotQuickSort(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 6:
                         if(txtfile)
@@ -275,9 +293,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Gnome_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 7:
                         if(txtfile)
@@ -286,9 +304,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Odd_Even_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 8:
                         if(txtfile)
@@ -297,9 +315,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         BubbleSortOptmized(array,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
 					case 9:
                         if(txtfile)
@@ -308,9 +326,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         OPTCocktailShakerSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 10:
                         if(txtfile)
@@ -319,9 +337,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Optimized_Gnome_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 11:
                         if(txtfile)
@@ -330,9 +348,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Quick_Sort(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
 					case 12:
                         if(txtfile)
@@ -341,9 +359,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         QuickSort3way(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 13:
                         if(txtfile)
@@ -352,21 +370,24 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         StableQuickSort(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                 }
 				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
-					calculatetime(start,end,&sec,&micro);
+					calculatetime(tic,toc,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
 					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 3:
                 option_sort = menu("\n\tChoose the sort to be aplied on Hybrids:\n0 - Menu.\n1 - Tim_Sort.\n-> ",1);
+				clear_screen();
+				if(!option_sort)
+					break;
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -375,21 +396,24 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         TimSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                 }
 				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
-					calculatetime(start,end,&sec,&micro);
+					calculatetime(tic,toc,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
 					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 4:
                 option_sort = menu("\n\tChoose the sort to be aplied on Insertion:\n0 - Menu.\n1 - Binary_Insertion_Sort.\n2 - Cycle_Sort.\n3 - Insertion_Sort.\n4 - Patience_Sort.\n5 - Shell_Sort.\n6 - Tree_Sort.\n-> ",6);
+				clear_screen();
+				if(!option_sort)
+					break;
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -398,9 +422,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Insertion_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 2:
                         if(txtfile)
@@ -409,9 +433,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         CycleSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 3:
                         if(txtfile)
@@ -420,9 +444,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Insertion_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
 					case 4:
                         if(txtfile)
@@ -431,9 +455,9 @@ int main(){
                         if(displayarray)
 							print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         PatienceSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 5:
                         if(txtfile)
@@ -442,9 +466,9 @@ int main(){
                         if(displayarray)
 							print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         ShellSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 6:
 						if(txtfile)
@@ -453,21 +477,24 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         TreeSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                 }
 				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
-					calculatetime(start,end,&sec,&micro);
+					calculatetime(tic,toc,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
 					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 5:
                 option_sort = menu("\n\tChoose the sort to be aplied on Merge:\n0 - Menu.\n1 - Bottomup_Merge_Sort.\n2 - In-Place_Merge_Sort.\n3 - Merge_Sort.\n-> ",3);
+				clear_screen();
+				if(!option_sort)
+					break;
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -476,9 +503,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Bottomup_Merge_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 2:
                         if(txtfile)
@@ -487,9 +514,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Merge_Sort_In_Place(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 3:
                         if(txtfile)
@@ -498,21 +525,24 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Merge_Sort(array,0,length-1);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                 }
 				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
-					calculatetime(start,end,&sec,&micro);
+					calculatetime(tic,toc,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
 					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 6:
                 option_sort = menu("\n\tChoose the sort to be aplied on Networks & Concurrent:\n0 - Menu.\n1 - Bitonic_Sort.\n2 - Pairwise_Network_Sort.\n-> ",2);
+				clear_screen();
+				if(!option_sort)
+					break;
                 switch(option_sort){
 					case 1:
 						i = 1;
@@ -528,14 +558,14 @@ int main(){
 							if(displayarray)
 								print(arrayPOF2,powerof2);
 							printf("\n\tSorting...");
-							gettimeofday(&start,NULL);
+							tic = clock();
                         	BitonicSort(arrayPOF2,0,powerof2,1);
-							gettimeofday(&end,NULL);
+							toc = clock();
                         	sorted(arrayPOF2,powerof2,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 							if(displayarray)
                         		print(arrayPOF2,powerof2);
 							if(exectime)
-								calculatetime(start,end,&sec,&micro);
+								calculatetime(tic,toc,&sec,&micro);
 							if(txtfile && (displayarray || exectime))
 								afterExec(arrayPOF2,powerof2,displayarray,exectime,sec,micro);
 							free(arrayPOF2);
@@ -547,14 +577,14 @@ int main(){
 							if(displayarray)
                         		print(array,length);
 							printf("\n\tSorting...");
-							gettimeofday(&start,NULL);
+							tic = clock();
                         	BitonicSort(array,0,length,1);
-							gettimeofday(&end,NULL);
+							toc = clock();
                         	sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 							if(displayarray)
                         		print(array,length);
 							if(exectime)
-								calculatetime(start,end,&sec,&micro);
+								calculatetime(tic,toc,&sec,&micro);
 							if(txtfile && (displayarray || exectime))
 								afterExec(array,length,displayarray,exectime,sec,micro);
 						}
@@ -566,14 +596,14 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Pairwise_Sort(array,0,length,1);
-						gettimeofday(&end,NULL);
+						toc = clock();
 						sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 						if(displayarray)
                     		print(array,length);
 						if(exectime)
-							calculatetime(start,end,&sec,&micro);
+							calculatetime(tic,toc,&sec,&micro);
 						if(txtfile && (displayarray || exectime))
 							afterExec(array,length,displayarray,exectime,sec,micro);
                         break;
@@ -581,6 +611,9 @@ int main(){
                 break;
             case 7:
                 option_sort = menu("\n\tChoose the sort to be aplied on Non-Comparison & Distribution:\n0 - Menu.\n1 - Bucket_Sort.\n2 - Counting_Sort.\n3 - Gravity_(Bead)_Sort.\n4 - Pigeonhole_Sort.\n5 - Radix_LSD Sort.\n-> ",5);
+				clear_screen();
+				if(!option_sort)
+					break;
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -589,9 +622,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         BucketSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 2:
                         if(txtfile)
@@ -600,9 +633,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSortihng...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Counting_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 3:
                         if(txtfile)
@@ -611,9 +644,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         BeadSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 4:
                         if(txtfile)
@@ -622,9 +655,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Pigeonhole_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
 					case 5:
                         if(txtfile)
@@ -633,21 +666,24 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Radix_LSD(array,length,10);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                 }
 				sorted(array,length,true) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
 				if(displayarray)
                     print(array,length);
 				if(exectime)
-					calculatetime(start,end,&sec,&micro);
+					calculatetime(tic,toc,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
 					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
             case 8:
                 option_sort = menu("\n\tChoose the sort to be aplied on Selection:\n0 - Menu.\n1 - Double_Selection_Sort.\n2 - Max_Heap_Sort.\n3 - Min_Heap_Sort.\n4 - Selection_Sort.\n-> ",4);
+				clear_screen();
+				if(!option_sort)
+					break;
                 switch(option_sort){
                     case 1:
                         if(txtfile)
@@ -656,9 +692,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Double_Selection_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 2:
                         if(txtfile)
@@ -667,9 +703,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         MaxHeapSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                     case 3:
                         if(txtfile)
@@ -678,9 +714,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         MinHeapSort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
 						sorted(array,length,false) ? printf("\n\tArray sorted.") : printf("\n\tArray not sorted.");
                         break;
                     case 4:
@@ -690,9 +726,9 @@ int main(){
 						if(displayarray)
                         	print(array,length);
                         printf("\n\tSorting...");
-						gettimeofday(&start,NULL);
+						tic = clock();
                         Selection_Sort(array,length);
-						gettimeofday(&end,NULL);
+						toc = clock();
                         break;
                 }
 				if(option_sort != 3)
@@ -700,7 +736,7 @@ int main(){
 				if(displayarray)
                 	print(array,length);
 				if(exectime)
-					calculatetime(start,end,&sec,&micro);
+					calculatetime(tic,toc,&sec,&micro);
 				if(txtfile && (displayarray || exectime))
 					afterExec(array,length,displayarray,exectime,sec,micro);
                 break;
@@ -708,13 +744,18 @@ int main(){
 				while(true){
 					while(true){
 						printf("\n\tConfigurations:\n0 - Menu.\n1 - Change sorting case - %s\n2 - Change random interval - %d\n3 - Change length of array - %d.\n4 - Save results in a text file - %s\n5 - Display arrays - %s\n6 - Display execution time - %s\n-> ",choice > 1 ? (choice == 3 ? "Ascending." : "Random.") : "Descending.",randominterval,length,txtfile ? "YES." : "NO.",displayarray ? "YES." : "NO.",exectime ? "YES." : "NO.");
-						if(scanf("%hd",&option_sort) != 1)
+						if(scanf("%hd",&option_sort) != 1){
+							clear_screen();
 							printf("\n\tValue inserted is not a number. Try again.\n"),getchar();
-						else if(option_sort < 0 || option_sort > 5)
+						}
+						else if(option_sort < 0 || option_sort > 6){
+							clear_screen();
 							printf("\n\tError: Choose the value in the range displayed.\n\n\t");
+						}
 						else
 							break;
 					}
+					clear_screen();
 					if(option_sort == 0)
 						break;
 					switch(option_sort){
@@ -724,8 +765,10 @@ int main(){
 						case 2:
 							while(true){
 								printf("\n\tInsert the random interval limit: ");
-								if(scanf("%d", &randominterval) != 1)
+								if(scanf("%d", &randominterval) != 1){
+									clear_screen();
 									printf("\n\tValue inserted is not a number. Try again.\n"),	getchar();
+								}
 								else
 									break;
 							}
@@ -737,10 +780,14 @@ int main(){
 						case 3:
 							while(true){
 								printf("\n\tInsert the new length of the array:\n-> ");
-								if(scanf("%u", &length) != 1)
+								if(scanf("%u", &length) != 1){
+									clear_screen();
 									printf("\n\tValue inserted is not a number. Try again.\n"), getchar();
-								else if(length < 2 || length > limsize)
+								}
+								else if(length < 2 || length > limsize){
+									clear_screen();
 									printf("\n\tValue inserted is out of range. Try again.\n");
+								}
 								else
 									break;
 							}
@@ -768,7 +815,6 @@ int main(){
         printf("\n\n");
     }
 	QR_code();
-	printf("Thank you for using this program. Visit the QR code above to see more projects.\n");
 	free(array);
     return 0;
 }
@@ -808,16 +854,23 @@ void beforeExec(long int *array, int length, bool display, char *sort){
 		fclose(txt);
 }
 
-void calculatetime(struct timeval start, struct timeval end, unsigned long *sec, unsigned long *micro){
-	*sec = end.tv_sec - start.tv_sec;
-	*micro = end.tv_usec - start.tv_usec;
+void calculatetime(clock_t tic, clock_t toc, unsigned long *sec, unsigned long *micro){
+	*sec = (unsigned long)(toc - tic) / CLOCKS_PER_SEC;
+	*micro = (unsigned long)(toc - tic) % 1000000;
 	printf("\n\tExecution time: %lu seconds %lu microsseconds.", *sec, *micro);
+}
+
+void clear_screen(){
+	if(clear == -1)
+		printf("\nCouldn't clear the screen\n");
 }
 
 void create(long int **array, int length){
 	*array = (long int*)malloc(length * sizeof(long int));
-	if(!(*array))
+	if(!(*array)){
 		printf("\n\tError: array couldn't be allocated.");
+		exit(1);
+	}
 }
 
 void generate(long int *array, int length, short int choice, int randominterval){
@@ -848,10 +901,14 @@ short menu(char *text, int len){
 	short op;
 	while(true){
 		printf("%s", text);
-		if(scanf("%hd", &op) != 1)
+		if(scanf("%hd", &op) != 1){
+			clear_screen();
 			printf("\n\tValue inserted is not a number. Try again.\n"),getchar();
-		else if(op < 0 || op > len)
+		}
+		else if(op < 0 || op > len){
+			clear_screen();
 			printf("\n\tError: Choose the value in the range displayed.\n\n\t");
+		}
 		else
 			break;
 	}

@@ -1,8 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>
-#include <unistd.h>
+#include <time.h>
 #define n 63
 
 /*
@@ -10,24 +9,32 @@
 */
 
 int main(){
-    struct timeval start, end;
+    clock_t tic, toc;
     long bypow, bybit, bymult;
     bypow = bybit = bymult = 1;
 
-    gettimeofday(&start, NULL);
+    tic = clock();
     pow(bypow,n);
-    gettimeofday(&end, NULL);
-    printf("Setting 1: by pow %ld seconds %ld microsseconds\n\n", end.tv_sec-start.tv_sec, end.tv_usec-start.tv_usec);
+    toc = clock();
+    printf("Setting 1: by pow %ld seconds %ld microsseconds\n\n", (unsigned long)(toc - tic) / CLOCKS_PER_SEC,(unsigned long)(toc - tic) % 1000000);
 
-    gettimeofday(&start, NULL);
+    tic = clock();
     bybit <<= n;
-    gettimeofday(&end, NULL);
-    printf("Setting 2: by shift %ld seconds %ld microsseconds\n\n", end.tv_sec-start.tv_sec, end.tv_usec-start.tv_usec);
+    toc = clock();
+    printf("Setting 2: by shift %ld seconds %ld microsseconds\n\n", (unsigned long)(toc - tic) / CLOCKS_PER_SEC,(unsigned long)(toc - tic) % 1000000);
 
-    gettimeofday(&start, NULL);
+    tic = clock();
     for(int i = 1; i < n; i++)
         bymult *= 2;
-    gettimeofday(&end, NULL);
-    printf("Setting 3: by mult %ld seconds %ld microsseconds\n\n", end.tv_sec-start.tv_sec, end.tv_usec-start.tv_usec);
+    toc = clock();
+    printf("Setting 3: by mult %ld seconds %ld microsseconds\n\n", (unsigned long)(toc - tic) / CLOCKS_PER_SEC,(unsigned long)(toc - tic) % 1000000);
 
 }
+
+/*
+Setting 1: by pow 0 seconds 14 microsseconds
+
+Setting 2: by shift 0 seconds 1 microsseconds <-
+
+Setting 3: by mult 0 seconds 2 microsseconds
+*/

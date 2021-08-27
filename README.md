@@ -3,6 +3,8 @@
 ![Contributions](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=information&style=for-the-badge)
 
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![MAC](https://img.shields.io/badge/MAC-000000?style=for-the-badge&logo=macos&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 
 ![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
@@ -24,6 +26,7 @@
 * [Testing](#Testing)
 	* [Time to access data in different arrays](#Time-to-access-data-in-different-arrays)
 	* [Time to assign zero to a variable](#Time-to-assign-zero-to-a-variable)
+	* [Time to calculate the power of 2](#Time-to-calculate-the-power-of-2)
 
 
 ## Description
@@ -135,7 +138,7 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Bubble Sort](src/Exchange/Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Circle Sort](src/Exchange/Circle_Sort.c) | O(N log N log N) | O(N log N) | O(N log N) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Cocktail Shaker Sort](src/Exchange/Cocktail_Shaker_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
-[Comb Sort](src/Exchange/Comb_Sort.c) | O(N²) | O(N log N) | ![O(N² / 2^p)](http://www.sciweavers.org/tex2img.php?eq=O%28%5Cfrac%7BN%5E%7B2%7D%7D%7B2%5E%7Bp%7D%7D%29&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) | O(1) | **:heavy_check_mark:** | **:x:** | **p** is the number of increments
+[Comb Sort](src/Exchange/Comb_Sort.c) | O(N²) | O(N log N) | ![O(N² / 2^p)](http://www.sciweavers.org/tex2img.php?eq=%5Cfrac%7BN%5E%7B2%7D%7D%7B2%5E%7BP%7D%7D&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) | O(1) | **:heavy_check_mark:** | **:x:** | **P** is the number of increments
 [Dual Pivot Quick Sort](src/Exchange/Dual_Pivot_Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(log N) | **:heavy_check_mark:** | **:x:** |
 [Gnome Sort](src/Exchange/Gnome_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Odd-Even Sort](src/Exchange/Odd-Even_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
@@ -182,18 +185,26 @@ There were eight cases of accesses which the program analyzed:
 	* Integer index (I)
 	* Pointer (P)
 
-Results: Dynamic with pointer costs less time.
+**Results**: Dynamic with pointer costs less time.
 
 ### [Time to assign zero to a variable](src/tests/setzerotest.c)
 Setting zero to a variable using assignment operator and XOR logical operator.
 
-Results: XOR costs less time.
+**Results**: XOR costs less time.
 
 ### [Time to calculate the power of 2](src/tests/powerof2test.c)
 Time to get a power of 2 using the math function pow, bitwise operation (shifting) and by multiplying.
 
-Results: bitwise operation and by multiplying costs almost the same time, however shifting costs only one instruction instead of a while with 3 instructions (condition, multiplication and incrementing) per loop.
+**Results**: bitwise operation and by multiplying costs almost the same time, however shifting costs only one instruction instead of a while with 3 instructions (condition, multiplication and incrementing) per loop.
 
+### [Functions to get execution time](src/tests/timeexecutiontest.c)
+Checking functions gettimeofday() and clock() to measure time execution.
+
+**Results**: gettimeofday shows wrong output in some executions as well as this function is considered deprecated and the function clock() does the same as the other one with the same precision of microsseconds.
+
+<!--## References
+<details>
+<summary>-->
 <hr>
 
 Licensed by [MIT License](LICENSE)

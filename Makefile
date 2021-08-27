@@ -1,11 +1,11 @@
 CC = gcc
-CFLAGS = -lm -c -Ofast -lm
+CFLAGS = -c -Ofast -lm
 
 all: sort
 
 #---------------------------------------------------------------------------------------------------------------
 sort: bin Bad_Sort.o Bogo_Bogo_Sort.o Bogo_Sort.o Bubble_Bogo_Sort.o Cocktail_Bogo_Sort.o Exchange_Bogo_Sort.o Less_Bogo_Sort.o Pancake_Sort.o Silly_Sort.o Slow_Sort.o Spaghetti_Sort.o Stooge_Sort.o Bubble_Sort.o Circle_Sort.o Cocktail_Shaker_Sort.o Comb_Sort.o Dual_Pivot_Quick_Sort.o Gnome_Sort.o Odd-Even_Sort.o Optimized_Bubble_Sort.o Optimized_Cocktail_Shaker_Sort.o Optimized_Gnome_Sort.o Quick_Sort_3-way.o Quick_Sort.o Stable_Quick_Sort.o Tim_Sort.o Binary_Insertion_Sort.o Cycle_Sort.o Insertion_Sort.o Patience_Sort.o Shell_Sort.o Tree_Sort.o Bottom-up_Merge_Sort.o In-Place_Merge_Sort.o Merge_Sort.o Bitonic_Sort.o Pairwise_Network_Sort.o Bucket_Sort.o Counting_Sort.o Gravity_Bead_Sort.o Pigeonhole_Sort.o Radix_LSD.o Double_Selection_Sort.o Max_Heap_Sort.o Min_Heap_Sort.o Selection_Sort.o QRcode.o All_Sorts.o
-	${CC} -o sort bin/Bad_Sort.o bin/Bogo_Bogo_Sort.o bin/Bogo_Sort.o bin/Bubble_Bogo_Sort.o bin/Cocktail_Bogo_Sort.o bin/Exchange_Bogo_Sort.o bin/Less_Bogo_Sort.o bin/Pancake_Sort.o bin/Silly_Sort.o bin/Slow_Sort.o bin/Spaghetti_Sort.o bin/Stooge_Sort.o bin/Bubble_Sort.o bin/Circle_Sort.o bin/Cocktail_Shaker_Sort.o bin/Comb_Sort.o bin/Dual_Pivot_Quick_Sort.o bin/Gnome_Sort.o bin/Odd-Even_Sort.o bin/Optimized_Bubble_Sort.o bin/Optimized_Cocktail_Shaker_Sort.o bin/Optimized_Gnome_Sort.o bin/Quick_Sort_3-way.o bin/Quick_Sort.o bin/Stable_Quick_Sort.o bin/Tim_Sort.o bin/Binary_Insertion_Sort.o bin/Cycle_Sort.o bin/Insertion_Sort.o bin/Patience_Sort.o bin/Shell_Sort.o bin/Tree_Sort.o bin/Bottom-up_Merge_Sort.o bin/In-Place_Merge_Sort.o bin/Merge_Sort.o bin/Bitonic_Sort.o bin/Pairwise_Network_Sort.o bin/Bucket_Sort.o bin/Counting_Sort.o bin/Gravity_Bead_Sort.o bin/Pigeonhole_Sort.o bin/Radix_LSD.o bin/Double_Selection_Sort.o bin/Max_Heap_Sort.o bin/Min_Heap_Sort.o bin/Selection_Sort.o bin/QRcode.o bin/All_Sorts.o
+	${CC} bin/*.o -o sort
 
 #---------------------------------------------------------------------------------------------------------------
 # Create the folder for binaries
@@ -176,15 +176,14 @@ All_Sorts.o : src/All_Sorts.c
 #---------------------------------------------------------------------------------------------------------------
 # Clear all objects
 clean:
-	rm -rf *.o
-	rm -rf *.out
+	rm -rf bin/*.o
 
 # Clear all
 rmproper: clean
 	rm -rf sort
 
 # Compile and run
-cr: sort clean
+cr: sort
 	./sort
 
 # Run executable
