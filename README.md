@@ -27,6 +27,7 @@
 	* [Time to access data in different arrays](#Time-to-access-data-in-different-arrays)
 	* [Time to assign zero to a variable](#Time-to-assign-zero-to-a-variable)
 	* [Time to calculate the power of 2](#Time-to-calculate-the-power-of-2)
+	* [Functions to get execution time](#Functions-to-get-execution-time)
 
 
 ## Description
