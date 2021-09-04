@@ -1,5 +1,7 @@
 # Sorting Algorithms
-![GitHub Repository Size](https://img.shields.io/github/repo-size/h-ssiqueira/Sort_algorithms?label=Repository%20Size&style=for-the-badge)
+![GitHub Repository Size](https://img.shields.io/github/repo-size/h-ssiqueira/Sort_algorithms?label=Repository%20Size&style=flat-square)
+![Lines of code](https://img.shields.io/tokei/lines/github/h-ssiqueira/Sort_Algorithms?label=Total%20Lines)
+
 ![Contributions](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=information&style=for-the-badge)
 
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
@@ -30,10 +32,11 @@
 	* [Time to assign zero to a variable](#Time-to-assign-zero-to-a-variable)
 	* [Time to calculate the power of 2](#Time-to-calculate-the-power-of-2)
 	* [Functions to get execution time](#Functions-to-get-execution-time)
+* [References](#References)
 
 
 ## Description
-A program to show the execution time and the variaty of sorting algorithms in ```C``` language. There are 46 sorting algorithms avaliable distributed in 8 different categories.
+A program to show the execution time and the variaty of sorting algorithms in ```C``` language. There are 47 sorting algorithms avaliable distributed in 8 different categories.
 
 ### How to execute
 Open a terminal or a command prompt and go to the project's directory and follow the instruction (s) below according with your Operating System.
@@ -96,6 +99,7 @@ On command prompt execute ```.\execute.bat```.
 1. [Tim Sort](src/Hybrids/Tim_Sort.c)
 
 ### [Insertion](src/Insertion)
+1. [AVL Tree Sort](src/Insertion/AVLTree_Sort.c)
 1. [Binary Insertion Sort](src/Insertion/Binary_Insertion_Sort.c)
 1. [Cycle Sort](src/Insertion/Cycle_Sort.c)
 1. [Insertion Sort](src/Insertion/Insertion_Sort.c)
@@ -134,10 +138,10 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Bad Sort](src/Esoteric_Fun_Miscellaneous/Bad_Sort.c) | O(N³) | O(N³) | O(N³) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Bogo Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can ve unbounded due to random manipulation
 [Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bogo_Sort.c) | O((N+1)!) | O(N) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
-[Bubble Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** | The worst case can be unbounded due to random manipulation
-[Cocktail Bogo Sort](src/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
-[Exchange Bogo Sort](src/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
-[Less Bogo Sort](src/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
+[Bubble Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) |  | O(N) |  | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** | The worst case can be unbounded due to random manipulation
+[Cocktail Bogo Sort](src/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) |  | O(N) |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
+[Exchange Bogo Sort](src/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) |  | O(N) |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
+[Less Bogo Sort](src/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) |  | O(N²) |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
 [Pancake Sort](src/Esoteric_Fun_Miscellaneous/Pancake_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Silly Sort](src/Esoteric_Fun_Miscellaneous/Silly_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** |
 [Slow Sort](src/Esoteric_Fun_Miscellaneous/Slow_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** |
@@ -157,17 +161,18 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Quick Sort 3-way](src/Exchange/Quick_Sort_3-way.c) | O(N²) | O(N) | O(N log N) | O(log N) or O(N) | **:heavy_check_mark:** | **:x:** |
 [Stable Quick Sort](src/Exchange/Stable_Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(N) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Tim Sort](src/Hybrids/Tim_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** |
+[AVL Tree Sort](src/Insertion/AVLTree_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** | In worst case, O(N²) when using Binary Search Tree and O(N log N) when using Self-Balanced Binary Search Tree
 [Binary Insertion Sort](src/Insertion/Binary_Insertion_Sort.c) | O(N log N) | O(N) | O(N log N) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Cycle Sort](src/Insertion/Cycle_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Insertion Sort](src/Insertion/Insertion_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Patience Sort](src/Insertion/Patience_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** |
-[Shell Sort](src/Insertion/Shell_Sort.c) | ![O(N<sup>3/2</sup>)](http://www.sciweavers.org/tex2img.php?eq=O%28N%5E%7B%5Cfrac%7B3%7D%7B2%7D%7D%29&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) or O(N log² N) | O(N log N) | --- | O(1) | **:heavy_check_mark:** | **:x:** |
+[Shell Sort](src/Insertion/Shell_Sort.c) | ![O(N<sup>3/2</sup>)](http://www.sciweavers.org/tex2img.php?eq=O%28N%5E%7B%5Cfrac%7B3%7D%7B2%7D%7D%29&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) or O(N log² N) | O(N log N) |  | O(1) | **:heavy_check_mark:** | **:x:** |
 [Tree Sort](src/Insertion/Tree_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** | In worst case, O(N²) when using Binary Search Tree and O(N log N) when using Self-Balanced Binary Search Tree
 [Bottom-up Merge Sort](src/Merge/Bottom-Up_Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** |
 [In-Place Merge Sort](src/Merge/In-Place_Merge_Sort.c) | O(N²) | O(N²) | O(N²) | O(log N) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Merge Sort](Merge/src/Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** |
 [Bitonic Sort](src/Networks_Concurrent/Bitonic_Sort.c) | O(log² N) | O(log² N) | O(log² N) | O(N log² N) | **:heavy_check_mark:** | **:x:** |
-[Pairwise Network Sort](src/Networks_Concurrent/Pairwise_Network_Sort.c) | ![(log N)(log N+1)/2](http://www.sciweavers.org/tex2img.php?eq=O%28%5Cfrac%7B%28log%20N%29%28log%20N%2B1%29%7D%7B2%7D%29&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) | --- | --- | ![N(log N)(log N-1)/4 + N-1](http://www.sciweavers.org/tex2img.php?eq=O%28%5Cfrac%7BN%28log%20N%29%28log%20N-1%29%7D%7B4%7D%20%2B%20N-1%29&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) | **:heavy_check_mark:** | **:x:** | Worst case is using parallel time and space complexity non-parallel time
+[Pairwise Network Sort](src/Networks_Concurrent/Pairwise_Network_Sort.c) | ![(log N)(log N+1)/2](http://www.sciweavers.org/tex2img.php?eq=O%28%5Cfrac%7B%28log%20N%29%28log%20N%2B1%29%7D%7B2%7D%29&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) |  |  | ![N(log N)(log N-1)/4 + N-1](http://www.sciweavers.org/tex2img.php?eq=O%28%5Cfrac%7BN%28log%20N%29%28log%20N-1%29%7D%7B4%7D%20%2B%20N-1%29&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) | **:heavy_check_mark:** | **:x:** | Worst case is using parallel time and space complexity non-parallel time
 [Bucket Sort](src/Non-Comparison_Distribution/Bucket_Sort.c) | O(N²) | O(N+k) | O(N+k) | O(N+k) | **:x:** | **:heavy_check_mark:** | **k** is the number of buckets
 [Counting Sort](src/Non-Comparison_Distribution/Counting_Sort.c) | O(N+k) | O(N+k) | O(N+k) | O(N+k) | **:x:** | **:heavy_check_mark:** | **k** is the range of input data
 [Gravity (Bead) Sort](src/Non-Comparison_Distribution/Gravity_(Bead)_Sort.c) | O(S) | O(1) or ![O(sqrt(N))](http://www.sciweavers.org/tex2img.php?eq=O%28%5Csqrt%7BN%7D%29&bc=White&fc=Black&im=png&fs=12&ff=arev&edit=0) | O(N) | O(N²) | **:x:** | **:heavy_check_mark:** | **S** is the sum of array elements, O(1) cannot be implemented in practice
@@ -210,9 +215,8 @@ Checking functions gettimeofday() and clock() to measure time execution.
 
 **Results**: gettimeofday shows wrong output in some executions as well as this function is considered deprecated and the function clock() does the same as the other one with the same precision of microsseconds.
 
-<!--## References
-<details>
-<summary>-->
+## [References](src/tests/ref.txt)
+
 <hr>
 
 Licensed by [MIT License](LICENSE)

@@ -25,6 +25,7 @@ gcc -lm -c -Ofast src/Exchange/Quick_Sort_3-way.c -o bin/Quick_Sort_3-way.o
 gcc -lm -c -Ofast src/Exchange/Quick_Sort.c -o bin/Quick_Sort.o
 gcc -lm -c -Ofast src/Exchange/Stable_Quick_Sort.c -o bin/Stable_Quick_Sort.o
 gcc -lm -c -Ofast src/Hybrids/Tim_Sort.c -o bin/Tim_Sort.o
+gcc -lm -c -Ofast src/Insertion/AVLTree_Sort.c -o bin/AVLTree_Sort.o
 gcc -lm -c -Ofast src/Insertion/Binary_Insertion_Sort.c -o bin/Binary_Insertion_Sort.o
 gcc -lm -c -Ofast src/Insertion/Cycle_Sort.c -o bin/Cycle_Sort.o
 gcc -lm -c -Ofast src/Insertion/Insertion_Sort.c -o bin/Insertion_Sort.o

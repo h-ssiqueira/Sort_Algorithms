@@ -4,7 +4,7 @@ CFLAGS = -c -Ofast -lm
 all: sort
 
 #---------------------------------------------------------------------------------------------------------------
-sort: bin Bad_Sort.o Bogo_Bogo_Sort.o Bogo_Sort.o Bubble_Bogo_Sort.o Cocktail_Bogo_Sort.o Exchange_Bogo_Sort.o Less_Bogo_Sort.o Pancake_Sort.o Silly_Sort.o Slow_Sort.o Spaghetti_Sort.o Stooge_Sort.o Bubble_Sort.o Circle_Sort.o Cocktail_Shaker_Sort.o Comb_Sort.o Dual_Pivot_Quick_Sort.o Gnome_Sort.o Odd-Even_Sort.o Optimized_Bubble_Sort.o Optimized_Cocktail_Shaker_Sort.o Optimized_Gnome_Sort.o Quick_Sort_3-way.o Quick_Sort.o Stable_Quick_Sort.o Tim_Sort.o Binary_Insertion_Sort.o Cycle_Sort.o Insertion_Sort.o Patience_Sort.o Shell_Sort.o Tree_Sort.o Bottom-up_Merge_Sort.o In-Place_Merge_Sort.o Merge_Sort.o Bitonic_Sort.o Pairwise_Network_Sort.o Bucket_Sort.o Counting_Sort.o Gravity_Bead_Sort.o Pigeonhole_Sort.o Radix_LSD.o Double_Selection_Sort.o Max_Heap_Sort.o Min_Heap_Sort.o Selection_Sort.o QRcode.o All_Sorts.o
+sort: bin Bad_Sort.o Bogo_Bogo_Sort.o Bogo_Sort.o Bubble_Bogo_Sort.o Cocktail_Bogo_Sort.o Exchange_Bogo_Sort.o Less_Bogo_Sort.o Pancake_Sort.o Silly_Sort.o Slow_Sort.o Spaghetti_Sort.o Stooge_Sort.o Bubble_Sort.o Circle_Sort.o Cocktail_Shaker_Sort.o Comb_Sort.o Dual_Pivot_Quick_Sort.o Gnome_Sort.o Odd-Even_Sort.o Optimized_Bubble_Sort.o Optimized_Cocktail_Shaker_Sort.o Optimized_Gnome_Sort.o Quick_Sort_3-way.o Quick_Sort.o Stable_Quick_Sort.o Tim_Sort.o AVLTree_Sort.o Binary_Insertion_Sort.o Cycle_Sort.o Insertion_Sort.o Patience_Sort.o Shell_Sort.o Tree_Sort.o Bottom-up_Merge_Sort.o In-Place_Merge_Sort.o Merge_Sort.o Bitonic_Sort.o Pairwise_Network_Sort.o Bucket_Sort.o Counting_Sort.o Gravity_Bead_Sort.o Pigeonhole_Sort.o Radix_LSD.o Double_Selection_Sort.o Max_Heap_Sort.o Min_Heap_Sort.o Selection_Sort.o QRcode.o All_Sorts.o
 	${CC} bin/*.o -o sort
 
 #---------------------------------------------------------------------------------------------------------------
@@ -97,6 +97,9 @@ Tim_Sort.o : src/Hybrids/Tim_Sort.c
 
 #---------------------------------------------------------------------------------------------------------------
 # src/Insertion/
+AVLTree_Sort.o : src/Insertion/AVLTree_Sort.c
+	${CC} ${CFLAGS} src/Insertion/AVLTree_Sort.c -o bin/AVLTree_Sort.o
+
 Binary_Insertion_Sort.o : src/Insertion/Binary_Insertion_Sort.c
 	${CC} ${CFLAGS} src/Insertion/Binary_Insertion_Sort.c -o bin/Binary_Insertion_Sort.o
 
