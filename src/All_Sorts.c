@@ -764,7 +764,7 @@ int main(){
 			case 9:
 				while(true){
 					while(true){
-						printf("\n\tConfigurations:\n0 - Menu.\n1 - Change sorting case - %s\n2 - Change random interval - %d\n3 - Change length of array - %d.\n4 - Save results in a text file - %s\n5 - Display arrays - %s\n6 - Display execution time - %s\n-> ",choice > 1 ? (choice == 3 ? "Descending." : "Random.") : "Ascending.",randomrange,length,txtfile ? "YES." : "NO.",displayarray ? "YES." : "NO.",exectime ? "YES." : "NO.");
+						printf("\n\tConfigurations:\n0 - Menu.\n1 - Change sorting case - %s\n2 - Change random interval - %d\n3 - Change length of array - %d.\n4 - Save results in a text file - %s\n5 - Display arrays - %s\n6 - Display execution time - %s\n-> ",choice > 1 ? (choice > 2 ? (choice == 3 ? "Descending." : "Identical.") : "Random.") : "Ascending.",randomrange,length,txtfile ? "YES." : "NO.",displayarray ? "YES." : "NO.",exectime ? "YES." : "NO.");
 						if(scanf("%hd",&option_sort) != 1){
 							clear_screen();
 							printf("\n\tValue inserted is not a number. Try again.\n"),getchar();
@@ -781,7 +781,7 @@ int main(){
 						break;
 					switch(option_sort){
 						case 1:
-							choice = menu("\n\tInsert the sorting case:\n1 - Ascending.\n2 - Random.\n3 - Descending.\n-> ",3);
+							choice = menu("\n\tInsert the sorting case:\n1 - Ascending.\n2 - Random.\n3 - Descending.\n4 - Identical elements\n-> ",4);
 							break;
 						case 2:
 							while(true){
@@ -861,7 +861,7 @@ void afterExec(long int *array, int length, bool display, bool time, unsigned lo
 void beforeExec(long int *array, int length, bool display, char *sort, int range, int choice){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
-		fprintf(txt,"\n\t%s algorithm with length of %u elements and range of 0 to %d %s.",sort, length,choice == 2 ? range : length, choice == 1 ? "ascending" : choice == 2 ? "randomly" : "descending");
+		fprintf(txt,"\n\t%s algorithm with length of %u elements and range of 0 to %d %s.",sort, length,choice == 2 ? range : length, choice == 1 ? "ascending" : choice == 2 ? "randomly" : choice == 3 ? "descending" : "identical");
 		if(display){
 			fprintf(txt,"\n\tArray before sort:\n");
 			for(long int *i = array; i < array + length; i++)
@@ -908,6 +908,10 @@ void generate(long int *array, int length, short int choice, int randomrange){
 		case 3:
 			for(i = array, j ^= j; i < array + length; i++, j++)
 				*i = length - j;
+			break;
+		case 4:
+			for(i = array; i < array + length; i++)
+				*i = 1;
 			break;
 	}
 }
