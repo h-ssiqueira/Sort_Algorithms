@@ -42,6 +42,7 @@ A program to show the execution time and the variaty of sorting algorithms in ``
 Open a terminal or a command prompt and go to the project's directory and follow the instruction (s) below according with your Operating System.
 #### Linux & MAC
 Executing ```make``` in terminal allow to compile the program. Commands avaliable to execute with make (```make <command>```):
+
 Command | Description
 :---: | :---:
 clean | Clear all objects generated
@@ -50,6 +51,7 @@ rmproper | Clear all objects/executable files
 run | Execute main program
 
 On program settings there are avaliable modifications noted in table below:
+
 Configuration | Default
 :---: | :---:
 Display arrays | YES
