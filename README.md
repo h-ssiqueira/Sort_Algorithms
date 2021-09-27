@@ -153,7 +153,7 @@ There were eight cases of accesses which the program analyzed:
 ### [Time to assign zero to a variable](src/tests/setzerotest.c)
 Setting zero to a variable using assignment operator and XOR logical operator.
 
-**Results**: XOR costs less time.
+**Results**: XOR costs less time (update: using O1 or O2 XOR is better, using O3 or Ofast the performance is the same).
 
 ### [Time to calculate the power of 2](src/tests/powerof2test.c)
 Time to get a power of 2 using the math function pow, bitwise operation (shifting) and by multiplying.
