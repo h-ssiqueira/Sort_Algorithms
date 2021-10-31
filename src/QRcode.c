@@ -89,7 +89,7 @@ void QR_code(){ // 35x70
     endl();
     empty_line(); // 35
     endl();
-    printf("Thank you for using this program. Visit the QR code above to see more projects.\n");
+    printf("Thank you for using this program. Visit the QR code above or access https://github.com/h-ssiqueira to see more projects.\n");
 }
 #endif
 #if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
@@ -177,7 +177,7 @@ void QR_code(){ // 35x70
     endl();
     empty_line(); // 35
     endl();
-    printf("Thank you for using this program. Visit the QR code above to see more projects.\n");
+    printf("Thank you for using this program. Visit the QR code above or access https://github.com/h-ssiqueira to see more projects.\n");
     system("pause");
     system("color 07");
     system("color");
