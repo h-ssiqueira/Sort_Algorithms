@@ -87,16 +87,16 @@ Category | Sort
 Algorithm | Worst case | Best case | Average | Space complexity | In-place | Stable | Notes
 :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
 [Bad Sort](src/Esoteric_Fun_Miscellaneous/Bad_Sort.c) | O(N³) | O(N³) | O(N³) | O(1) | **:heavy_check_mark:** | **:x:** |
-[Bogo Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can ve unbounded due to random manipulation
-[Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bogo_Sort.c) | O((N+1)!) | O(N) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
-[Bubble Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) |  | O(N) |  | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** | The worst case can be unbounded due to random manipulation
-[Cocktail Bogo Sort](src/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) |  | O(N) |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
-[Exchange Bogo Sort](src/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) |  | O(N) |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
-[Less Bogo Sort](src/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) |  | O(N²) |  | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
+[Bogo Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bogo_Bogo_Sort.c) | O(infinity) | O(N²) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
+[Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bogo_Sort.c) | O(infinity) | O(N) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
+[Bubble Bogo Sort](src/Esoteric_Fun_Miscellaneous/Bubble_Bogo_Sort.c) | O(infinity) | O(N) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** | The worst case can be unbounded due to random manipulation
+[Cocktail Bogo Sort](src/Esoteric_Fun_Miscellaneous/Cocktail_Bogo_Sort.c) | O(infinity) | O(N) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
+[Exchange Bogo Sort](src/Esoteric_Fun_Miscellaneous/Exchange_Bogo_Sort.c) | O(infinity) | O(N) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
+[Less Bogo Sort](src/Esoteric_Fun_Miscellaneous/Less_Bogo_Sort.c) | O(infinity) | O(N²) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
 [Pancake Sort](src/Esoteric_Fun_Miscellaneous/Pancake_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:x:** |
-[Silly Sort](src/Esoteric_Fun_Miscellaneous/Silly_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** |
-[Slow Sort](src/Esoteric_Fun_Miscellaneous/Slow_Sort.c) |  |  |  | O(1) | **:heavy_check_mark:** | **:x:** |
-[Spaghetti Sort](src/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c) | O(N) |  |  | O(N) | **:x:** | **:heavy_check_mark:** |
+[Silly Sort](src/Esoteric_Fun_Miscellaneous/Silly_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:x:** |
+[Slow Sort](src/Esoteric_Fun_Miscellaneous/Slow_Sort.c) | O(N\*N!) | O(N) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** |
+[Spaghetti Sort](src/Esoteric_Fun_Miscellaneous/Spaghetti_Sort.c) | O(N) | O(N) | O(N) | O(N) | **:x:** | **:heavy_check_mark:** |
 [Stooge Sort](src/Esoteric_Fun_Miscellaneous/Stooge_Sort.c) | ![O(N^(log 3 / log 1.5))](imgs/stooge.png) | ![O(N^(log 3 / log 1.5))](imgs/stooge.png) | ![O(N^(log 3 / log 1.5))](imgs/stooge.png) | O(N) | **:x:** | **:x:** |
 [Bubble Sort](src/Exchange/Bubble_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Circle Sort](src/Exchange/Circle_Sort.c) | O(N log N log N) | O(N log N) | O(N log N) | O(1) | **:heavy_check_mark:** | **:x:** |
@@ -112,18 +112,18 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Quick Sort 3-way](src/Exchange/Quick_Sort_3-way.c) | O(N²) | O(N) | O(N log N) | O(log N) or O(N) | **:heavy_check_mark:** | **:x:** |
 [Stable Quick Sort](src/Exchange/Stable_Quick_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(N) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Tim Sort](src/Hybrids/Tim_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** |
-[AVL Tree Sort](src/Insertion/AVLTree_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** | In worst case, O(N²) when using Binary Search Tree and O(N log N) when using Self-Balanced Binary Search Tree
+[AVL Tree Sort](src/Insertion/AVLTree_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** | In worst case, O(N²) when using Binary Search Tree and O(N log N) when using Self-Balanced Binary Search Tree
 [Binary Insertion Sort](src/Insertion/Binary_Insertion_Sort.c) | O(N log N) | O(N) | O(N log N) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Cycle Sort](src/Insertion/Cycle_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Insertion Sort](src/Insertion/Insertion_Sort.c) | O(N²) | O(N) | O(N²) | O(1) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Patience Sort](src/Insertion/Patience_Sort.c) | O(N log N) | O(N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** |
-[Shell Sort](src/Insertion/Shell_Sort.c) | ![O(N<sup>3/2</sup>)](imgs/shell.png) or O(N log² N) | O(N log N) |  | O(1) | **:heavy_check_mark:** | **:x:** |
+[Shell Sort](src/Insertion/Shell_Sort.c) | ![O(N<sup>3/2</sup>)](imgs/shell.png) or O(N log² N) | O(N log N) | O(N^1.25) to O(N²) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Tree Sort](src/Insertion/Tree_Sort.c) | O(N²) | O(N log N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** | In worst case, O(N²) when using Binary Search Tree and O(N log N) when using Self-Balanced Binary Search Tree
 [Bottom-up Merge Sort](src/Merge/Bottom-Up_Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** |
 [In-Place Merge Sort](src/Merge/In-Place_Merge_Sort.c) | O(N²) | O(N²) | O(N²) | O(log N) | **:heavy_check_mark:** | **:heavy_check_mark:** |
 [Merge Sort](Merge/src/Merge_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(N) | **:x:** | **:heavy_check_mark:** |
 [Bitonic Sort](src/Networks_Concurrent/Bitonic_Sort.c) | O(log² N) | O(log² N) | O(log² N) | O(N log² N) | **:heavy_check_mark:** | **:x:** |
-[Pairwise Network Sort](src/Networks_Concurrent/Pairwise_Network_Sort.c) | ![(log N)(log N+1)/2](imgs/pairwiseworst.png) |  |  | ![N(log N)(log N-1)/4 + N-1](imgs/pairwiseaverage.png) | **:heavy_check_mark:** | **:x:** | Worst case is using parallel time and space complexity non-parallel time
+[Pairwise Network Sort](src/Networks_Concurrent/Pairwise_Network_Sort.c) | ![(log N)(log N+1)/2](imgs/pairwiseworst.png) or O(N log N) | O(N log N) | O(N log N) | ![N(log N)(log N-1)/4 + N-1](imgs/pairwiseaverage.png) | **:heavy_check_mark:** | **:x:** | Worst case is using parallel time and space complexity non-parallel time
 [Bucket Sort](src/Non-Comparison_Distribution/Bucket_Sort.c) | O(N²) | O(N+k) | O(N+k) | O(N+k) | **:x:** | **:heavy_check_mark:** | **k** is the number of buckets
 [Counting Sort](src/Non-Comparison_Distribution/Counting_Sort.c) | O(N+k) | O(N+k) | O(N+k) | O(N+k) | **:x:** | **:heavy_check_mark:** | **k** is the range of input data
 [Gravity (Bead) Sort](src/Non-Comparison_Distribution/Gravity_(Bead)_Sort.c) | O(S) | O(1) or ![O(sqrt(N))](imgs/gravity.png) | O(N) | O(N²) | **:x:** | **:heavy_check_mark:** | **S** is the sum of array elements, O(1) cannot be implemented in practice
@@ -137,7 +137,7 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 ## Testing
 During the development of this program were made performance/time tests with the C programming language denoted below:
 
-### [Time to access data in different arrays](src/tests/timetest.c)
+### [Time to access data in different arrays](/tests/timetest.c)
 There were eight cases of accesses which the program analyzed:
 * Declaration of array:
 	* Static (S)
@@ -151,22 +151,22 @@ There were eight cases of accesses which the program analyzed:
 
 **Results**: Dynamic with pointer costs less time.
 
-### [Time to assign zero to a variable](src/tests/setzerotest.c)
+### [Time to assign zero to a variable](/tests/setzerotest.c)
 Setting zero to a variable using assignment operator and XOR logical operator.
 
 **Results**: XOR costs less time (update: using O1 or O2 XOR is better, using O3 or Ofast the performance is the same).
 
-### [Time to calculate the power of 2](src/tests/powerof2test.c)
+### [Time to calculate the power of 2](/tests/powerof2test.c)
 Time to get a power of 2 using the math function pow, bitwise operation (shifting) and by multiplying.
 
 **Results**: bitwise operation and by multiplying costs almost the same time, however shifting costs only one instruction instead of a while with 3 instructions (condition, multiplication and incrementing) per loop.
 
-### [Functions to get execution time](src/tests/timeexecutiontest.c)
+### [Functions to get execution time](/tests/timeexecutiontest.c)
 Checking functions gettimeofday() and clock() to measure time execution.
 
 **Results**: gettimeofday shows wrong output in some executions as well as this function is considered deprecated and the function clock() does the same as the other one with the same precision of microsseconds.
 
-## [References](src/tests/ref.txt)
+## [References](/tests/ref.txt)
 
 <hr>
 

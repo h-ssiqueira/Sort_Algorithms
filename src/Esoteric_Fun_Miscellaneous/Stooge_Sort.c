@@ -6,7 +6,7 @@
  // Best case performance O(n**2.709) or O(n**(log 3 / log 1.5))
  // Average case performance O(n**2.709) or O(n**(log 3 / log 1.5))
 
-void StoogeSort(long int array[], int i, int j){
+void StoogeSort(long int *array, int i, int j){
     long int aux;
     if(*(array + i) > *(array + j)){ // Swap initially the fist and last elements
         aux = *(array + i);
