@@ -1,7 +1,9 @@
 cls
-rem @echo off
+@echo off
+
 title Sorting Algorithms
 echo Compiling...
+
 set "SRC_DIR=src\"
 set "OBJ_DIR=bin\"
 
