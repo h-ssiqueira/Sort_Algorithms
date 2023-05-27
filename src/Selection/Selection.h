@@ -1,20 +1,19 @@
 #ifndef _SELECTION_H_
 #define _SELECTION_H_
 
-// Double Selection Sort
-void Double_Selection_Sort(long int *array, int length);
+#include <stdio.h>
+#include <stdlib.h>
 
-// Min Heap Sort
-void MinHeapSort(long int *array, int length);
+void doubleSelectionSort(long int *array, int length);
+
+void minHeapSort(long int *array, int length);
 // Auxiliar function to float max values
-void heapmin(long int *array, int n, int i);
+void heapMin(long int *array, int n, int i);
 
-// Max Heap Sort
-void MaxHeapSort(long int *array, int length);
+void maxHeapSort(long int *array, int length);
 // Auxiliar function to float min values
-void heapmax(long int *array, int n, int i);
+void heapMax(long int *array, int n, int i);
 
-// Selection Sort
-void Selection_Sort(long int *array, int length);
+void selectionSort(long int *array, int length);
 
 #endif
