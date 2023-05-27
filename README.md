@@ -1,4 +1,7 @@
 # Sorting Algorithms
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ee72cee4e474cfeb3a3a8a7082f22fd)](https://app.codacy.com/gh/h-ssiqueira/Sort_Algorithms?utm_source=github.com&utm_medium=referral&utm_content=h-ssiqueira/Sort_Algorithms&utm_campaign=Badge_Grade)
+
 ![GitHub Repository Size](https://img.shields.io/github/repo-size/h-ssiqueira/Sort_algorithms?label=Repository%20Size&style=flat-square)
 ![Lines of code](https://img.shields.io/tokei/lines/github/h-ssiqueira/Sort_Algorithms?label=Total%20Lines)
 
