@@ -6,11 +6,13 @@
 
 // Function that releases the tree
 Node* release(Node *T){
-	if(T->right != NULL) // Check if there's a node on right
-		release(T->right);
-	if(T->left != NULL) // Check if there's a node on left
-		release(T->left);
-	free(T); // Reaches a leaf and releases the node
+    if(T != NULL) {
+        if(T->right != NULL) // Check if there's a node on right
+            release(T->right);
+        if(T->left != NULL) // Check if there's a node on left
+            release(T->left);
+        free(T); // Reaches a leaf and releases the node
+    }
 	return NULL;
 }
 
@@ -18,11 +20,11 @@ Node* release(Node *T){
 void storeValueBinaryTree(Node *root, long int *array, int **i){
     if(root != NULL){
         if(root->left != NULL)
-            storeValueBinaryTree(root->left, array, &(*i));
+            storeValueBinaryTree(root->left, array, i);
         *(array + **i) = root->value;
         (**i)++;
         if(root->right != NULL)
-            storeValueBinaryTree(root->right, array, &(*i));
+            storeValueBinaryTree(root->right, array, i);
     }
 }
 

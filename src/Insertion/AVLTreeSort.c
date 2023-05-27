@@ -52,22 +52,22 @@ void insertNodeAVLTree(AVLT **tree, long int number){
 	//if((*tree)->BF == 2 && (*tree)->left->BF == 1)
 	//if((*tree)->BF < -1 && (*tree)->right->BF <= 0)
 	if((*tree)->BF < -1 && number >= (*tree)->right->value)
-		leftRotate(&(*tree));
+		leftRotate(tree);
 	//if((*tree)->BF == -2 && (*tree)->right->BF == -1)
 	//if((*tree)->BF > -1 && (*tree)->left->BF >= 0)
 	if((*tree)->BF > 1 && number <= (*tree)->left->value)
-		rightRotate(&(*tree));
+		rightRotate(tree);
 	//if((*tree)->BF == -2 && (*tree)->right->BF == 1){
 	//if((*tree)->BF > 1 && (*tree)->left->BF < 0){
 	if((*tree)->BF < -1 && number <= (*tree)->right->value){
 		rightRotate(&(*tree)->right);
-		leftRotate(&(*tree));
+		leftRotate(tree);
 	}
 	//if((*tree)->BF == 2 && (*tree)->left->BF == -1){
 	//if((*tree)->BF < -1 && (*tree)->right->BF > 0){
 	if((*tree)->BF > 1 && number >= (*tree)->left->value){
 		leftRotate(&(*tree)->left);
-		rightRotate(&(*tree));
+		rightRotate(tree);
 	}
 }
 
@@ -83,11 +83,11 @@ AVLT* freeMemory(AVLT *tree){
 void storeValueAVLTree(long int *array, AVLT *t, int **i){
     if(t != NULL){
         if(t->left != NULL)
-            storeValueAVLTree(array, t->left, &(*i));
+            storeValueAVLTree(array, t->left, i);
         *(array + **i) = t->value;
         (**i)++;
         if(t->right != NULL)
-            storeValueAVLTree(array, t->right, &(*i));
+            storeValueAVLTree(array, t->right, i);
     }
 }
 
