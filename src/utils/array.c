@@ -15,20 +15,26 @@ bool isSortedRandomly(long int *a, int n){
 
 bool isSorted(long int *array, int length, bool increasing){
 	if(increasing){
-		for(long int *i = array; i < array + length - 1; i++)
-			if(*i > *(i+1))
+		for(long int *i = array; i < array + length - 1; i++){
+			if(*i > *(i+1)){
+				printf("\n\tArray not sorted.");
 				return false;
-		return true;
+			}
+		}
 	}
 	else{
-		for(long int *i = array; i < array + length - 1; i++)
-			if(*i < *(i+1))
+		for(long int *i = array; i < array + length - 1; i++){
+			if(*i < *(i+1)){
+				printf("\n\tArray not sorted.");
 				return false;
-		return true;
+			}
+		}
 	}
+	printf("\n\tArray sorted.");
+	return true;
 }
 
-void afterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro, bool sorted){
+void fileAfterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro, bool sorted){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		if(display){
@@ -38,15 +44,15 @@ void afterExec(long int *array, int length, bool display, bool time, unsigned lo
 			fprintf(txt,"\n");
 		}
 		if(time)
-			fprintf(txt,"\n\tExecution time: %lu seconds %lu microsseconds.\n", sec, micro);
+			fprintf(txt,"\n\tExecution time: %lu seconds %lu microseconds.\n", sec, micro);
 	}
 	else
-		printf("\n\tError: Cannot open the file.");
+		printf("%s", E001);
 	if(txt != NULL)
 		fclose(txt);
 }
 
-void beforeExec(long int *array, int length, bool display, char *sort, int range, int choice){
+void fileBeforeExec(long int *array, int length, bool display, char *sort, int range, int choice){
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		fprintf(txt,"\n\t%s algorithm with length of %u elements and range of 0 to %d %s.",sort, length,choice == 2 ? range : length, choice == 1 ? "ascending" : choice == 2 ? "randomly" : choice == 3 ? "descending" : "identical");
@@ -58,7 +64,7 @@ void beforeExec(long int *array, int length, bool display, char *sort, int range
 		}
 	}
 	else
-		printf("\n\tError: Cannot open the file.");
+		printf("%s", E001);
 	if(txt != NULL)
 		fclose(txt);
 }
@@ -66,13 +72,13 @@ void beforeExec(long int *array, int length, bool display, char *sort, int range
 void calculateTime(clock_t tic, clock_t toc, unsigned long *sec, unsigned long *micro){
 	*sec = (unsigned long)(toc - tic) / CLOCKS_PER_SEC;
 	*micro = (unsigned long)(toc - tic) % 1000000;
-	printf("\n\tExecution time: %lu seconds %lu microsseconds.\n", *sec, *micro);
+	printf("\n\tExecution time: %lu seconds %lu microseconds.\n", *sec, *micro);
 }
 
 void createArray(long int **array, int length){
 	*array = malloc(length * sizeof(long int));
 	if(!(*array)){
-		printf("\n\tError: array couldn't be allocated.");
+		printf("%s", E002);
 		exit(1);
 	}
 }

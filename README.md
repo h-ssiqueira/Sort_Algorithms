@@ -26,7 +26,7 @@
 
 ## Description
 A program to show the execution time and the variaty of sorting algorithms in ```C``` language. There are 47 sorting algorithms avaliable distributed in 8 different categories.
-
+___
 ### How to execute
 On program settings there are avaliable modifications noted in table below:
 
@@ -40,7 +40,7 @@ Display arrays | YES
 Display execution time | YES
 
 Note: you need to have the [GCC compiler](https://gcc.gnu.org/) installed in your machine to execute the instructions below to run the program.
-
+___
 #### Linux & MAC
 Open a terminal and go to project's directory. Execute ```make``` in terminal allow to compile the program. Commands avaliable to execute with make (```make ${command}```):
 
@@ -50,11 +50,11 @@ clean | Clear all objects generated
 cr | Compile and run
 rmproper | Clear all object files
 run | Execute main program
-
+___
 #### Windows
 On Command Prompt or PowerShell and go to project's directory and execute ```execute.bat```.
 
-<br>
+___
 
 ## Algorithms
 
@@ -69,7 +69,7 @@ Category | Sort
 [Non-Comparison & Distribution](src/Non-Comparison_Distribution) | [Bucket Sort](src/Non-Comparison_Distribution/Bucket_Sort.c)<br>[Counting Sort](src/Non-Comparison_Distribution/Counting_Sort.c)<br>[Gravity (Bead) Sort](src/Non-Comparison_Distribution/Gravity_(Bead)_Sort.c)<br>[Pigeonhole Sort](src/Non-Comparison_Distribution/Pigeonhole_Sort.c)<br>[Radix LSD Sort](src/Non-Comparison_Distribution/Radix_LSD.c)
 [Selection](src/Selection) | [Double Selection Sort](src/Selection/Double_Selection_Sort.c)<br>[Max Heap Sort](src/Selection/Max_Heap_Sort.c)<br>[Min Heap Sort](src/Selection/Min_Heap_Sort.c)<br>[Selection Sort](src/Selection/Selection_Sort.c)
 
-<br>
+___
 
 ## Complexity Table
 
@@ -122,9 +122,3 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Max Heap Sort](src/Selection/Max_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Min Heap Sort](src/Selection/Min_Heap_Sort.c) | O(N log N) | O(N log N) | O(N log N) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Selection Sort](src/Selection/Selection_Sort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:x:** | ![\frac{N^2-N}{4}](imgs/selection.png) Comparisons
-
-## [Tests](tests/README.md)
-
-<hr>
-
-Licensed by [MIT License](LICENSE)

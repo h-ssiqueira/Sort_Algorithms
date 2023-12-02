@@ -5,7 +5,7 @@
 // O(n) Dropping the row of beads
 // O(S) S is the sum of all beads
 
-void beadSort(long int array[], int length){
+void beadSort(long int *array, int length){
 	int j,k;
 	long int sum, *i, max;
 	char *beads;

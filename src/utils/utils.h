@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "errorMessages.h"
 
 // QRCode utils
 
@@ -27,9 +28,9 @@ void printArray(long int *array, int length);
 
 bool isSorted(long int *array, int length, bool increasing);
 
-void afterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro, bool sorted);
+void fileAfterExec(long int *array, int length, bool display, bool time, unsigned long sec, unsigned long micro, bool sorted);
 
-void beforeExec(long int *array, int length, bool display, char *sort, int range, int choice);
+void fileBeforeExec(long int *array, int length, bool display, char *sort, int range, int choice);
 
 void calculateTime(clock_t tic, clock_t toc, unsigned long *sec, unsigned long *micro);
 

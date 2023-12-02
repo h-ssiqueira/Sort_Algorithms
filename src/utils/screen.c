@@ -1,15 +1,9 @@
 #include "utils.h"
 
 #if defined unix || defined __unix || defined __unix__ || defined __APPLE__ || defined __MACH__ || defined __linux__
-	#define clear system("clear")
-#endif
-#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
-	#define clear system("cls")
-#endif
-
-#if defined unix || defined __unix || defined __unix__ || defined __APPLE__ || defined __MACH__ || defined __linux__
     #define black_and_white "\033[30;47m"
     #define reset "\033[0m"
+    #define clear system("clear")
 
 void endl(){
     printf(reset);
@@ -96,10 +90,11 @@ void QRCode(){ // 35x70
     emptyLine(); // 35
     endl();
     printf("Thank you for using this program. Visit the QR code above or access https://github.com/h-ssiqueira to see more projects.\n");
-    clearScreen();
 }
 #endif
 #if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+
+#define clear system("cls")
 
 void endl(){
     printf("\n");
@@ -194,5 +189,5 @@ void QRCode(){ // 35x70
 
 void clearScreen(){
 	if(clear == -1)
-		printf("\nCouldn't clear the screen\n");
+		printf("%s", E005);
 }

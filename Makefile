@@ -21,7 +21,7 @@ sort: bin ${OBJ_FILES}
 
 # Create the directories for binaries
 bin:
-	mkdir -p bin $(OBJ_DIR)Esoteric_Fun_Miscellaneous $(OBJ_DIR)Exchange $(OBJ_DIR)Hybrids $(OBJ_DIR)Insertion $(OBJ_DIR)Merge $(OBJ_DIR)Networks_Concurrent $(OBJ_DIR)Non-Comparison_Distribution $(OBJ_DIR)Selection
+	mkdir -p bin $(OBJ_DIR)esotericFunMiscellaneous $(OBJ_DIR)exchange $(OBJ_DIR)hybrids $(OBJ_DIR)insertion $(OBJ_DIR)merge $(OBJ_DIR)networksConcurrent $(OBJ_DIR)noncomparisonDistribution $(OBJ_DIR)selection $(OBJ_DIR)utils
 
 # Generate objects
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c

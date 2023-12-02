@@ -4,7 +4,7 @@
 // Best case performance O(n**2) comparisons
 // Average performance О(n**2) comparisons
 
-void cycleSort(long int array[], int length){
+void cycleSort(long int *array, int length){
     long int aux, swap, *i, *j, *k, *pos;
 
     for(i = array; i < array + length - 2; i++){

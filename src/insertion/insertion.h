@@ -13,7 +13,7 @@ typedef struct AVLT{
 }AVLT;
 // Check if the node exists
 inline bool isEmpty(AVLT *tree){
-    return tree ? false : true;
+    return !tree;
 }
 // Calculate the height of children nodes
 short height(AVLT *tree);
