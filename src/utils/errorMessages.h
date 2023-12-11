@@ -11,6 +11,6 @@
 
 #define E005 "\n\tError: Couldn't clear the screen\n"
 
-#define E006 "\n\tError: Value inserted is out of range. Try again.\n"
+#define E006 "\n\tError: Value inserted is out of range. Try again.\n\n"
 
 #endif

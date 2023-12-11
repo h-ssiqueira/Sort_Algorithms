@@ -17,7 +17,7 @@ bool isSorted(long int *array, int length, bool increasing){
 	if(increasing){
 		for(long int *i = array; i < array + length - 1; i++){
 			if(*i > *(i+1)){
-				printf("\n\tArray not sorted.");
+				printf(" Array not sorted.");
 				return false;
 			}
 		}
@@ -25,12 +25,12 @@ bool isSorted(long int *array, int length, bool increasing){
 	else{
 		for(long int *i = array; i < array + length - 1; i++){
 			if(*i < *(i+1)){
-				printf("\n\tArray not sorted.");
+				printf(" Array not sorted.");
 				return false;
 			}
 		}
 	}
-	printf("\n\tArray sorted.");
+	printf(" Array sorted.");
 	return true;
 }
 
@@ -38,7 +38,7 @@ void fileAfterExec(long int *array, int length, bool display, bool time, unsigne
 	FILE *txt = fopen("data.txt","a+");
 	if(txt != NULL){
 		if(display){
-			fprintf(txt,"\n\tArray%ssorted:\n", sorted ? " " : " not ");
+			fprintf(txt," Array%ssorted:\n", sorted ? " " : " not ");
 			for(long int *i = array; i < array + length; i++)
 				fprintf(txt,"%ld ", *i);
 			fprintf(txt,"\n");

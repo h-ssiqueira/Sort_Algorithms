@@ -18,10 +18,14 @@
 	* [How to execute](#How-to-execute)
 	 	* [Linux & MAC](#Linux-&-MAC)
 		* [Windows](#Windows)
+* [Screens](#Screens)
+	* [Menu](#Menu)
+	* [Submenu](#Submenu)
+	* [Settings](#Settings)
+	* [Execution](#Execution)
+	* [Exit](#Exit)
 * [Algorithms](#Algorithms)
 * [Complexity Table](#Complexity-Table)
-* [Tests](#Tests)
-* [References](#References)
 
 
 ## Description
@@ -53,6 +57,20 @@ run | Execute main program
 ___
 #### Windows
 On Command Prompt or PowerShell and go to project's directory and execute ```execute.bat```.
+
+___
+
+## Screens
+### Menu
+![Menu](/imgs/menu.png)
+### Submenu
+![Submenu](/imgs/submenu.png)
+### Settings
+![Settings](/imgs/settings.png)
+### Execution
+![Execution](/imgs/execution.png)
+### Exit
+![Exit](/imgs/exit.png)
 
 ___
 

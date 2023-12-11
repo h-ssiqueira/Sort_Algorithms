@@ -33,6 +33,7 @@ void printError(char *error, bool clearBuffer){
 // Print and collect the option from user
 short menu(char *text, int len){
 	short op;
+	title();
 	while(true){
 		printf("%s", text);
 		if(scanf("%hd", &op) != 1)
@@ -53,6 +54,7 @@ void informationsPreSort(long int *array, int length, char *algorithm, int rando
 	if(displayArray)
 		printArray(array,length);
 	printf("\n\tSorting...");
+	fflush(stdout);
 }
 
 // Print informations after sorting array
@@ -459,6 +461,7 @@ int main(){
                 break;
 			case 9:
 				while(true){
+					title();
 					while(true){
 						printf("\tConfigurations:\n0 - Menu.\n1 - Change sorting case - %s\n2 - Change random interval - %d.\n3 - Change length of array - %d.\n4 - Save results in a text file - %s\n5 - Display arrays - %s\n6 - Display execution time - %s\n-> ",choice > 1 ? (choice > 2 ? (choice == 3 ? "Descending." : "Identical.") : "Random.") : "Ascending.",randomRange,length,txtFile ? "YES." : "NO.",displayArray ? "YES." : "NO.",executionTime ? "YES." : "NO.");
 						if(scanf("%hd",&optionSort) != 1)
@@ -498,8 +501,10 @@ int main(){
 									printError(E003, true);
 								else if(length < 2 || length > limsize)
                                     printError(E006, false);
-								else
+								else{
+									clearScreen();
 									break;
+								}
 							}
 							i = 1;
 							while(i < length)

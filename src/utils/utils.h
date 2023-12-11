@@ -15,6 +15,9 @@ void endl();
 // New empty white line
 void emptyLine();
 
+// Program menu title
+void title();
+
 // Prints QRcode of repository author's GitHub profile link
 void QRCode();
 
