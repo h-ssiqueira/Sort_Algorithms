@@ -1,4 +1,5 @@
 // Default libraries
+#include <limits.h>
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -47,7 +48,7 @@ short menu(char *text, int len){
 }
 
 // Print informations before sorting array
-void informationsPreSort(long int *array, int length, char *algorithm, int randomRange, short int choice){
+void informationsPreSort(long *array, int length, char *algorithm, int randomRange, short choice){
 	if(txtFile)
 		fileBeforeExec(array,length,displayArray,algorithm,randomRange,choice);
 	printf("\tBefore %s.", algorithm);
@@ -58,7 +59,7 @@ void informationsPreSort(long int *array, int length, char *algorithm, int rando
 }
 
 // Print informations after sorting array
-void informationsPosSort(long int *array, int length, clock_t tic, clock_t toc, bool ascending){
+void informationsPosSort(long *array, int length, clock_t tic, clock_t toc, bool ascending){
 	unsigned long sec, micro;
 	arraySorted = isSorted(array,length,ascending);
 	if(displayArray)
@@ -72,9 +73,9 @@ void informationsPosSort(long int *array, int length, clock_t tic, clock_t toc, 
 int main(){
     srand(time(NULL));
 	clock_t tic, toc;
-	long int *array, *arrayPOF2;
+	long *array, *arrayPOF2;
     int length = 10, i, powerOf2 = 16, randomRange = 32;
-	short int optionSort, optionCategory, choice = 2;
+	short optionSort, optionCategory, choice = 2;
 
 	createArray(&array,length);
 
@@ -498,8 +499,8 @@ int main(){
 							}
 							if(randomRange < 3)
 								randomRange = 3;
-							else if(randomRange > __INT_MAX__)
-								randomRange = __INT_MAX__;
+							else if(randomRange > INT_MAX)
+								randomRange = INT_MAX;
 							break;
 						case 3:
 							while(true){

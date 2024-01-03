@@ -103,7 +103,7 @@ Algorithm | Worst case | Best case | Average | Space complexity | In-place | Sta
 [Less Bogo Sort](src/esotericFunMiscellaneous/lessBogoSort.c) | O(infinity) | O(N²) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** | The worst case can be unbounded due to random manipulation
 [Pancake Sort](src/esotericFunMiscellaneous/pancakeSort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Silly Sort](src/esotericFunMiscellaneous/sillySort.c) | O(N²) | O(N²) | O(N²) | O(1) | **:heavy_check_mark:** | **:x:** |
-[Sleep Sort](src/esotericFunMiscellaneous/sleepSort.c) |  |  |  | O(N) | **:x:** | **:heavy_check_mark:** | Take use of CPU scheduler to sort
+[Sleep Sort](src/esotericFunMiscellaneous/sleepSort.c) | O(INT_MAX) | O(max(input) + N) | O(max(input) + N) | O(N) | **:x:** | **:heavy_check_mark:** | Take use of CPU scheduler to sort
 [Slow Sort](src/esotericFunMiscellaneous/slowSort.c) | O(N\*N!) | O(N) | O((N+1)!) | O(1) | **:heavy_check_mark:** | **:x:** |
 [Spaghetti Sort](src/esotericFunMiscellaneous/spaghettiSort.c) | O(N) | O(N) | O(N) | O(N) | **:x:** | **:heavy_check_mark:** |
 [Stooge Sort](src/esotericFunMiscellaneous/stoogeSort.c) | ![O(N^(log 3 / log 1.5))](imgs/stooge.png) | ![O(N^(log 3 / log 1.5))](imgs/stooge.png) | ![O(N^(log 3 / log 1.5))](imgs/stooge.png) | O(N) | **:x:** | **:x:** |
