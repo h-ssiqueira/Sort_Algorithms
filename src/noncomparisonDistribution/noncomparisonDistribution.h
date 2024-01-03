@@ -17,7 +17,7 @@ void beadSort(long int *array, int length);
 
 void pigeonholeSort(long int *array, int length);
 
-void radixLSD(long int *array, int length, int radix);
+void radixLSDSort(long int *array, int length, int radix);
 // Auxiliary function for counting each digit of each number of array
 void countingByDigit(long int *array, int radix, int exp, long int min, int length);
 

@@ -73,7 +73,7 @@ int main(){
     srand(time(NULL));
 	clock_t tic, toc;
 	long int *array, *arrayPOF2;
-    int length = 10, i, powerOf2 = 16, randomRange = 1024;
+    int length = 10, i, powerOf2 = 16, randomRange = 32;
 	short int optionSort, optionCategory, choice = 2;
 
 	createArray(&array,length);
@@ -88,7 +88,7 @@ int main(){
             break;
         switch(optionCategory){
             case 1:
-				optionSort = menu("\tChoose the sort to be aplied on Esoteric & Fun & Miscellaneous:\n 0 - Menu.\n 1 - Bad Sort.\n 2 - Bogo Bogo Sort.\n 3 - Bogo Sort.\n 4 - Bubble Bogo Sort.\n 5 - Cocktail Bogo Sort.\n 6 - Exchange Bogo Sort.\n 7 - Less Bogo Sort.\n 8 - Pancake Sort.\n 9 - Silly Sort.\n10 - Slow Sort.\n11 - Spaghetti Sort.\n12 - Stooge Sort.\n-> ",12);
+				optionSort = menu("\tChoose the sort to be aplied on Esoteric & Fun & Miscellaneous:\n 0 - Menu.\n 1 - Bad Sort.\n 2 - Bogo Bogo Sort.\n 3 - Bogo Sort.\n 4 - Bubble Bogo Sort.\n 5 - Cocktail Bogo Sort.\n 6 - Exchange Bogo Sort.\n 7 - Less Bogo Sort.\n 8 - Pancake Sort.\n 9 - Silly Sort.\n10 - Slow Sort.\n11 - Sleep Sort.\n12 - Spaghetti Sort.\n13 - Stooge Sort.\n-> ",13);
 				clearScreen();
 				if(!optionSort)
 					break;
@@ -153,13 +153,19 @@ int main(){
                         slowSort(array,0,length-1);
 						toc = clock();
                         break;
-                    case 11:
+					case 11:
+                        informationsPreSort(array,length,"Sleep Sort",randomRange,choice);
+						tic = clock();
+                        sleepSort(array,length);
+						toc = clock();
+                        break;
+                    case 12:
 						informationsPreSort(array,length,"Spaghetti Sort",randomRange,choice);
 						tic = clock();
                         spaghettiSort(array,length);
 						toc = clock();
                         break;
-                    case 12:
+                    case 13:
 						informationsPreSort(array,length,"Stooge Sort",randomRange,choice);
 						tic = clock();
                         stoogeSort(array,0,length-1);
@@ -419,7 +425,7 @@ int main(){
 					case 5:
 						informationsPreSort(array,length,"Radix LSD Sort",randomRange,choice);
 						tic = clock();
-                        radixLSD(array,length,10);
+                        radixLSDSort(array,length,10);
 						toc = clock();
                         break;
                 }
@@ -481,6 +487,7 @@ int main(){
 							break;
 						case 2:
 							while(true){
+								title();
 								printf("Insert the random interval limit: ");
 								if(scanf("%d", &randomRange) != 1)
 									printError(E003, true);
@@ -496,6 +503,7 @@ int main(){
 							break;
 						case 3:
 							while(true){
+								title();
 								printf("Insert the new length of the array: ");
 								if(scanf("%u", &length) != 1)
 									printError(E003, true);
