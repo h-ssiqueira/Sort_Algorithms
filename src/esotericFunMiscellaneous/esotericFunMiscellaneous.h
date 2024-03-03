@@ -1,9 +1,16 @@
 #ifndef _ESOTERIC_FUN_MISCELLANEOUS_H_
 #define _ESOTERIC_FUN_MISCELLANEOUS_H_
 
+#if defined unix || defined __unix || defined __unix__ || defined __APPLE__ || defined __MACH__ || defined __linux__
 #include <pthread.h>
-#include <stdbool.h>
 #include <semaphore.h>
+#endif
+
+#if defined _WIN32 || defined _WIN64 || defined __CYGWIN__
+#include <windows.h>
+#endif
+
+#include <stdbool.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
