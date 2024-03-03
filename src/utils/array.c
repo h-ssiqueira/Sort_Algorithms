@@ -100,6 +100,6 @@ void generateArray(long int *array, int length, short int choice, int randomRang
 			break;
 		default:
 			for(i = array; i < array + length; i++)
-				*i = rand() % randomRange;
+				*i = (rand() % randomRange) + 1;
 	}
 }

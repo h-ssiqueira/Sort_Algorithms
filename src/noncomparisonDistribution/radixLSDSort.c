@@ -25,7 +25,7 @@ void countingByDigit(long int *array, int radix, int exp, long int min, int leng
 	free(output);
 }
 
-void radixLSD(long int *array, int length, int radix){
+void radixLSDSort(long int *array, int length, int radix){
 	radix |= 10;
 	long int min = *array, max = *array, *i;
 	int exp = 1;
