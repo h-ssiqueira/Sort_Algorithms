@@ -6,6 +6,7 @@
 
 ![Contributions](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=information&style=for-the-badge)
 
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![MAC](https://img.shields.io/badge/MAC-000000?style=for-the-badge&logo=macos&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
@@ -44,7 +45,30 @@ Save results in a text file | NO
 Display arrays | YES
 Display execution time | YES
 
-Note: you need to have the [GCC compiler](https://gcc.gnu.org/) installed in your machine to execute the instructions below to run the program.
+Note: you need to have the [GCC compiler](https://gcc.gnu.org/) or docker environment installed in your machine to execute the instructions below to run the program.
+___
+#### Generated Image From Packages
+- Pull the image:
+```shell
+docker pull ghcr.io/h-ssiqueira/sort_algorithms:latest
+```
+- Run the image into a container:
+```shell
+docker run -it --rm \
+  -v /data.txt:/usr/src/app/data.txt \
+  ghcr.io/h-ssiqueira/sort_algorithms:latest
+```
+#### Docker
+- Build the image:
+```shell
+docker build -t sort_algorithms .
+```
+- Execute the image:
+```shell
+docker run -it --rm \
+  -v /data.txt:/usr/src/app/data.txt \
+  sort_algorithms
+```
 ___
 #### Linux & MAC
 Open a terminal and go to project's directory. Execute ```make``` in terminal allow to compile the program. Commands avaliable to execute with make (```make ${command}```):
