@@ -47,6 +47,17 @@ Display execution time | YES
 
 Note: you need to have the [GCC compiler](https://gcc.gnu.org/) or docker environment installed in your machine to execute the instructions below to run the program.
 ___
+#### Generated Image From Packages
+- Pull the image:
+```shell
+docker pull ghcr.io/h-ssiqueira/sort_algorithms:latest
+```
+- Run the image into a container:
+```shell
+docker run -it --rm \
+  -v /data.txt:/usr/src/app/data.txt \
+  ghcr.io/h-ssiqueira/sort_algorithms:latest
+```
 #### Docker
 - Build the image:
 ```shell
