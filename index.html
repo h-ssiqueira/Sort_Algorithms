@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sort_Algorithms</title>
+    <script src="serviceWorker.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/5.3.0/xterm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/5.3.0/xterm.min.js"></script>
+    <script src="https://cxrtnc.leaningtech.com/1.0.6/cx.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background: #000;
+        }
+
+        #term {
+            height: 100%;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="term"></div>
+    <script type="module">
+        const term = new Terminal({
+            cols: 100, rows: 32,
+            cursorBlink: true, convertEol: true,
+            fontFamily: "monospace", fontSize: 15
+        });
+        term.open(document.getElementById("term"));
+        term.focus();
+        let cxReadFunc = null;
+        term.onData(str => {
+            if (!cxReadFunc) return;
+            for (let i = 0; i < str.length; i++) cxReadFunc(str.charCodeAt(i));
+        });
+
+        function writeData(buf, vt) {
+            if (vt !== 1) return;
+            term.write(new Uint8Array(buf));
+        }
+
+        async function boot() {
+            const blockDevice = await CheerpX.GitHubDevice.create("sort.ext2");
+            const blockCache = await CheerpX.IDBDevice.create("sort-algorithms-cache");
+            const overlay = await CheerpX.OverlayDevice.create(blockDevice, blockCache);
+
+            const cx = await CheerpX.Linux.create({
+                mounts: [
+                    {type: "ext2", dev: overlay, path: "/"},
+                    {type: "devs", path: "/dev"},
+                    {type: "devpts", path: "/dev/pts"},
+                    {type: "proc", path: "/proc"},
+                    {type: "sys", path: "/sys"},
+                ]
+            });
+
+            cxReadFunc = cx.setCustomConsole(writeData, term.cols, term.rows);
+
+            while (true) {
+                await cx.run("/home/user/Sort_Algorithms/sort", [], {
+                    env: ["TERM=xterm", "HOME=/home/user", "USER=user", "PATH=/usr/bin:/bin"],
+                    cwd: "/home/user/Sort_Algorithms",
+                    uid: 1000, gid: 1000
+                });
+            }
+        }
+        boot();
+    </script>
+</body>
+
+</html>

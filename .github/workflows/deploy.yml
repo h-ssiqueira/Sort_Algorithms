@@ -1,0 +1,52 @@
+name: Deploy sort terminal
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the i386 image from the real, unmodified Makefile
+        run: docker build . --tag sort-img --file Dockerfile.webvm --platform=i386
+
+      - name: Start the container so its filesystem can be exported
+        run: |
+          docker run --dns 8.8.8.8 --dns 8.8.4.4 -d sort-img
+          echo "CONTAINER_ID=$(sudo docker ps -aq)" >> $GITHUB_ENV
+
+      - name: Pack the container's filesystem into an ext2 disk image
+        run: |
+          sudo fallocate -l 600M sort.ext2
+          sudo mkfs.ext2 -r 0 sort.ext2
+          sudo mount -o loop -t ext2 sort.ext2 /mnt/
+          sudo docker cp -a ${CONTAINER_ID}:/ /mnt/
+          sudo umount /mnt/
+
+      - name: Split the image for GitHub Pages
+        run: |
+          mkdir -p site
+          sudo split sort.ext2 site/sort.ext2.c -a 6 -b 128k -x --additional-suffix=.txt
+          sudo bash -c "stat -c%s sort.ext2 > site/sort.ext2.meta"
+          find site -type d | while read -r dir; do
+            sudo ls "$dir" | sudo tee "$dir/index.list" > /dev/null
+          done
+
+      - name: Add the page itself
+        run: cp index.html serviceWorker.js site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
