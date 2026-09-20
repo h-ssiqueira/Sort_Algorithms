@@ -1,4 +1,4 @@
-name: Deploy sort terminal
+name: Deploy Sort Terminal for GH Pages
 
 on:
   workflow_dispatch:
