@@ -16,12 +16,15 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the i386 image from the real, unmodified Makefile
-        run: docker build . --tag sort-img --file Dockerfile.webvm --platform=i386
+        run: docker build . --tag sort-img --file Dockerfile.webvm --platform=linux/386
 
-      - name: Start the container so its filesystem can be exported
+      - name: Create container so its filesystem can be exported
         run: |
-          docker run --dns 8.8.8.8 --dns 8.8.4.4 -d sort-img
-          echo "CONTAINER_ID=$(sudo docker ps -aq)" >> $GITHUB_ENV
+          CONTAINER_ID=$(docker create \
+            --dns 8.8.8.8 \
+            --dns 8.8.4.4 \
+            sort-img)
+          echo "CONTAINER_ID=$CONTAINER_ID" >> "$GITHUB_ENV"
 
       - name: Pack the container's filesystem into an ext2 disk image
         run: |
@@ -29,6 +32,7 @@ jobs:
           sudo mkfs.ext2 -r 0 sort.ext2
           sudo mount -o loop -t ext2 sort.ext2 /mnt/
           sudo docker cp -a ${CONTAINER_ID}:/ /mnt/
+          file /mnt/home/user/Sort_Algorithms/sort
           sudo umount /mnt/
 
       - name: Split the image for GitHub Pages
