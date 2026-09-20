@@ -15,6 +15,8 @@
 
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 
+[![GitHub Pages](https://img.shields.io/badge/github_pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)](https://h-ssiqueira.github.io/Sort_Algorithms/)
+
 ## Summary
 * [Description](#Description)
 	* [How to execute](#How-to-execute)
