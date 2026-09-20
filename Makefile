@@ -2,7 +2,8 @@ MAKEFLAGS += -j4
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -c -O3
+CFLAGS = -c -O3 -pthread
+LDFLAGS = -lm -pthread
 
 # Directories
 SRC_DIR = src/
@@ -17,7 +18,7 @@ all: sort
 
 # Rule to compile into an executable file "sort"
 sort: bin ${OBJ_FILES}
-	${CC} ${OBJ_FILES} -o sort -lm
+	${CC} ${OBJ_FILES} -o sort $(LDFLAGS)
 
 # Create the directories for binaries
 bin:
