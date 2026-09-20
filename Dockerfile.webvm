@@ -1,0 +1,24 @@
+FROM --platform=linux/386 docker.io/i386/debian:buster
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN echo "deb [trusted=yes] http://archive.debian.org/debian buster main contrib non-free" \
+  > /etc/apt/sources.list && \
+    echo "deb [trusted=yes] http://archive.debian.org/debian-security buster/updates main" \
+    >> /etc/apt/sources.list
+
+RUN apt-get clean && apt-get update && apt-get -y upgrade
+RUN apt-get -y install gcc make ncurses-bin
+
+RUN useradd -m user && echo "user:password" | chpasswd
+
+RUN mkdir -p /home/user/Sort_Algorithms
+COPY src /home/user/Sort_Algorithms/src
+COPY Makefile /home/user/Sort_Algorithms/Makefile
+RUN cd /home/user/Sort_Algorithms && make
+RUN chown -R user:user /home/user/Sort_Algorithms
+
+WORKDIR /home/user/Sort_Algorithms
+ENV HOME="/home/user" TERM="xterm" USER="user" SHELL="/bin/bash" EDITOR="vim" LANG="C.UTF-8"
+RUN echo 'root:password' | chpasswd
+
+CMD [ "./sort" ]
