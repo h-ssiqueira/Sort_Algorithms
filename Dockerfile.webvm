@@ -7,7 +7,7 @@ RUN echo "deb [trusted=yes] http://archive.debian.org/debian buster main contrib
     >> /etc/apt/sources.list
 
 RUN apt-get clean && apt-get update && apt-get -y upgrade
-RUN apt-get -y install gcc make ncurses-bin
+RUN apt-get -y install gcc make libncurses-dev
 
 RUN useradd -m user && echo "user:password" | chpasswd
 

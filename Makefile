@@ -2,7 +2,7 @@ MAKEFLAGS += -j4
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -c -O3 -lm -march=native -mtune=native
+CFLAGS = -c -O3
 
 # Directories
 SRC_DIR = src/
@@ -17,7 +17,7 @@ all: sort
 
 # Rule to compile into an executable file "sort"
 sort: bin ${OBJ_FILES}
-	${CC} ${OBJ_FILES} -o sort
+	${CC} ${OBJ_FILES} -o sort -lm
 
 # Create the directories for binaries
 bin:
